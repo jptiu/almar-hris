@@ -16,16 +16,65 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(10)->create();
 
         \App\Models\User::factory()->create([
-            'name' => 'Admin Admin',
-            'email' => 'admin@admin.com',
+            'name' => 'Super Admin',
+            'email' => 'super@almarfinance.com',
             'email_verified_at' => now(),
             'password' => Hash::make('password'),
             'created_at' => now(),
             'updated_at' => now()
         ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Admin Admin',
+            'email' => 'admin@almarfinance.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('password'),
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        \App\Models\User::factory()->create([
+            'name' => 'HR Admin',
+            'email' => 'hr@almarfinance.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('password'),
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Branch Manager 1',
+            'email' => 'branch1@almarfinance.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('password'),
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Branch Manager 2',
+            'email' => 'branch2@almarfinance.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('password'),
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Loan Officer',
+            'email' => 'officer@almarfinance.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('password'),
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Auditor Admin',
+            'email' => 'auditor@almarfinance.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('password'),
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        // \App\Models\User::factory(10)->create();
 
         $this->call([
             PermissionsTableSeeder::class,
