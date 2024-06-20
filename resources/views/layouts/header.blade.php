@@ -40,7 +40,7 @@
                 </form>
             </x-slot>
         </x-dropdown>
-        <x-dropdown>
+        {{-- <x-dropdown>
             <x-slot name="trigger">
                 <button @click="dropdownOpen = ! dropdownOpen" class="relative block overflow-hidden">
                     <div class="w-10 h-10 overflow-hidden rounded-full">
@@ -61,6 +61,6 @@
                     </x-dropdown-link>
                 </form>
             </x-slot>
-        </x-dropdown>
+        </x-dropdown> --}}
     </div>
 </header>
