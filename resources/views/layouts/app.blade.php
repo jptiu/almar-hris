@@ -5,31 +5,62 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Almar Freemille') }}</title>
+        <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&display=swap" rel="stylesheet" />
 
+        <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        <!-- Styles -->
+        @livewireStyles        
+
+        <script>
+            if (localStorage.getItem('dark-mode') === 'false' || !('dark-mode' in localStorage)) {
+                document.querySelector('html').classList.remove('dark');
+                document.querySelector('html').style.colorScheme = 'light';
+            } else {
+                document.querySelector('html').classList.add('dark');
+                document.querySelector('html').style.colorScheme = 'dark';
+            }
+        </script>
     </head>
-    <body>
-        @include('layouts.header')
-        <div x-data="{ sidebarOpen: false }" class="flex h-screen bg-gray-200 font-roboto">
-            @include('layouts.navigation')
+    <body
+        class="font-inter antialiased bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400"
+        :class="{ 'sidebar-expanded': sidebarExpanded }"
+        x-data="{ sidebarOpen: false, sidebarExpanded: localStorage.getItem('sidebar-expanded') == 'true' }"
+        x-init="$watch('sidebarExpanded', value => localStorage.setItem('sidebar-expanded', value))"    
+    >
 
-            <div class="flex overflow-hidden flex-col flex-1">
-                <main class="overflow-y-auto overflow-x-hidden flex-1 bg-gray-200">
-                    <div class="container px-6 py-8 mx-auto">
-                        <h3 class="mb-4 text-3xl font-medium text-gray-700">
-                            {{ $header }}
-                        </h3>
+        <script>
+            if (localStorage.getItem('sidebar-expanded') == 'true') {
+                document.querySelector('body').classList.add('sidebar-expanded');
+            } else {
+                document.querySelector('body').classList.remove('sidebar-expanded');
+            }
+        </script>
 
-                        {{ $slot }}
-                    </div>
+        <!-- Page wrapper -->
+        <div class="flex h-[100dvh] overflow-hidden">
+
+            <x-app.sidebar />
+
+            <!-- Content area -->
+            <div class="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden @if($attributes['background']){{ $attributes['background'] }}@endif" x-ref="contentarea">
+
+                <x-app.header />
+
+                <main class="grow">
+                    {{ $slot }}
                 </main>
+
             </div>
+
         </div>
 
-
+        @livewireScripts
     </body>
 </html>

@@ -1,31 +1,17 @@
-<x-guest-layout>
-    <a href="/" class="flex justify-center items-center mb-4">
-        <x-application-logo class="w-10 h-10 fill-current text-gray-500"/>
-    </a>
-
-    <div class="mb-4 text-sm text-gray-600">
-        {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
-    </div>
-
-    <!-- Validation Errors -->
-    <x-auth-validation-errors class="mb-4" :errors="$errors"/>
-
+<x-authentication-layout>
+    <h1 class="text-3xl text-slate-800 dark:text-slate-100 font-bold mb-6">{{ __('Confirm your Password') }} ✨</h1>
+    <!-- Form -->
     <form method="POST" action="{{ route('password.confirm') }}">
-    @csrf
-
-        <!-- Password -->
-        <x-label for="password" :value="__('Password')"/>
-        <x-input type="password"
-                 name="password"
-                 id="password"
-                 required
-                 autocomplete="current-password"
-        />
-
-        <div class="flex justify-end mt-4">
-            <x-button class="w-full">
+        @csrf
+        <div>
+            <x-label for="password" value="{{ __('Password') }}" />
+            <x-input id="password" type="password" name="password" required autocomplete="current-password" autofocus />
+        </div>
+        <div class="flex justify-end mt-6">
+            <x-button>
                 {{ __('Confirm') }}
             </x-button>
         </div>
     </form>
-</x-guest-layout>
+    <x-validation-errors class="mt-4" />
+</x-authentication-layout>

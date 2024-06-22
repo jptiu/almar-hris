@@ -1,9 +1,6 @@
-<x-guest-layout>
-    <a href="/" class="flex justify-center items-center">
-        <x-application-logo class="w-20 h-20 text-gray-500 fill-current"/>
-    </a>
-
-    <div class="mb-4 text-sm text-gray-600">
+<x-authentication-layout>
+    <h1 class="text-3xl text-slate-800 dark:text-slate-100 font-bold mb-6">{{ __('Verify your Email') }} ✨</h1>
+    <div>
         {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
     </div>
 
@@ -13,12 +10,11 @@
         </div>
     @endif
 
-    <div class="mt-4 flex items-center justify-between">
+    <div class="mt-6 flex items-center justify-between">
         <form method="POST" action="{{ route('verification.send') }}">
             @csrf
-
             <div>
-                <x-button class="w-full">
+                <x-button type="submit">
                     {{ __('Resend Verification Email') }}
                 </x-button>
             </div>
@@ -26,10 +22,11 @@
 
         <form method="POST" action="{{ route('logout') }}">
             @csrf
-
-            <x-button class="w-full">
-                {{ __('Log Out') }}
-            </x-button>
-        </form>
+            <div class="ml-1">
+                <button type="submit" class="text-sm underline hover:no-underline">
+                    {{ __('Log Out') }}
+                </button>
+            </div>
+        </form>   
     </div>
-</x-guest-layout>
+</x-authentication-layout>

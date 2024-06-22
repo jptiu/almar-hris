@@ -1,65 +1,59 @@
-<x-guest-layout>
-    <a href="/" class="flex justify-center items-center">
-        <x-application-logo class="w-20 h-20 text-gray-500 fill-current"/>
-    </a>
-
-    <!-- Validation Errors -->
-    <x-auth-validation-errors class="mb-4" :errors="$errors"/>
-
+<x-authentication-layout>
+    <h1 class="text-3xl text-slate-800 dark:text-slate-100 font-bold mb-6">{{ __('Create your Account') }} ✨</h1>
+    <!-- Form -->
     <form method="POST" action="{{ route('register') }}">
-    @csrf
+        @csrf
+        <div class="space-y-4">
+            <div>
+                <x-label for="name">{{ __('Full Name') }} <span class="text-rose-500">*</span></x-label>
+                <x-input id="name" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            </div>
 
-        <!-- Name -->
-        <div>
-            <x-label for="name" :value="__('Name')"/>
-            <x-input type="text"
-                     name="name"
-                     id="name"
-                     value="{{ old('name') }}"
-                     required
-                     autofocus
-            />
+            <div>
+                <x-label for="email">{{ __('Email Address') }} <span class="text-rose-500">*</span></x-label>
+                <x-input id="email" type="email" name="email" :value="old('email')" required />
+            </div>
+
+            <div>
+                <x-label for="password" value="{{ __('Password') }}" />
+                <x-input id="password" type="password" name="password" required autocomplete="new-password" />
+            </div>
+
+            <div>
+                <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
+                <x-input id="password_confirmation" type="password" name="password_confirmation" required autocomplete="new-password" />
+            </div>
         </div>
-
-        <!-- Email Address -->
-        <div class="mt-3">
-            <x-label for="email" :value="__('Email')"/>
-            <x-input type="email"
-                     name="email"
-                     id="email"
-                     value="{{ old('email') }}"
-                     required/>
+        <div class="flex items-center justify-between mt-6">
+            <div class="mr-1">
+                <label class="flex items-center" name="newsletter" id="newsletter">
+                    <input type="checkbox" class="form-checkbox" />
+                    <span class="text-sm ml-2">Email me about product news.</span>
+                </label>
+            </div>
+            <x-button>
+                {{ __('Sign Up') }}
+            </x-button>                
         </div>
-
-        <!-- Password -->
-        <div class="mt-3">
-            <x-label for="password" :value="__('Password')"/>
-            <x-input type="password"
-                     name="password"
-                     id="password"
-                     required
-                     autocomplete="current-password"
-            />
-        </div>
-
-        <!-- Confirm Password -->
-        <div class="mt-3">
-            <x-label for="password_confirmation" :value="__('Confirm Password')"/>
-            <x-input type="password"
-                     name="password_confirmation"
-                     id="password_confirmation"
-                     required
-            />
-        </div>
-
-        <div class="flex flex-col items-end mt-4">
-            <x-button class="w-full">
-                {{ __('Register') }}
-            </x-button>
-
-            <a class="mt-4 text-sm text-gray-600 underline hover:text-gray-900" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-        </div>
+            @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
+                <div class="mt-6">
+                    <label class="flex items-start">
+                        <input type="checkbox" class="form-checkbox mt-1" name="terms" id="terms" />
+                        <span class="text-sm ml-2">
+                            {!! __('I agree to the :terms_of_service and :privacy_policy', [
+                                'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="text-sm underline hover:no-underline">'.__('Terms of Service').'</a>',
+                                'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="text-sm underline hover:no-underline">'.__('Privacy Policy').'</a>',
+                            ]) !!}                        
+                        </span>
+                    </label>
+                </div>
+            @endif        
     </form>
-</x-guest-layout>
+    <x-validation-errors class="mt-4" />  
+    <!-- Footer -->
+    <div class="pt-5 mt-6 border-t border-slate-200 dark:border-slate-700">
+        <div class="text-sm">
+            {{ __('Have an account?') }} <a class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="{{ route('login') }}">{{ __('Sign In') }}</a>
+        </div>
+    </div>
+</x-authentication-layout>
