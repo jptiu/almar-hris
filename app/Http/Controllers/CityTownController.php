@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CityTownCreateRequest;
+use App\Http\Requests\CityTownUpdateRequest;
+use App\Models\CityTown;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class CityTownController extends Controller
 {
@@ -13,7 +17,11 @@ class CityTownController extends Controller
      */
     public function index()
     {
-        //
+        abort_unless(Gate::allows('loan_access'), 404);
+
+        $lists = CityTown::paginate();
+
+        return view('city.index', compact('lists'));
     }
 
     /**
@@ -32,9 +40,19 @@ class CityTownController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CityTownCreateRequest $request)
     {
-        //
+        abort_unless(Gate::allows('loan_access'), 404);
+        if ($request->validated()) {
+            $city = new CityTown();
+            $city->code = $request->code;
+            $city->city_town = $request->city_town;
+            $city->user_id = $request->user_id;
+            $city->save();
+
+            return view('city.index', compact('city'));
+
+        }
     }
 
     /**
@@ -45,7 +63,10 @@ class CityTownController extends Controller
      */
     public function show($id)
     {
-        //
+        abort_unless(Gate::allows('loan_access'), 404);
+        $city = CityTown::where('id', $id)->get();
+
+        return view('city.show', compact('city'));
     }
 
     /**
@@ -66,9 +87,18 @@ class CityTownController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CityTownUpdateRequest $request, $id)
     {
-        //
+        abort_unless(Gate::allows('loan_access'), 404);
+        if ($request->validated()) {
+            $city = CityTown::find($id);
+            $city->code = $request->code;
+            $city->city_town = $request->city_town;
+            $city->user_id = $request->user_id;
+            $city->update();
+
+            return view('city.index', compact('city'));
+        }
     }
 
     /**
@@ -79,6 +109,10 @@ class CityTownController extends Controller
      */
     public function destroy($id)
     {
-        //
+        abort_unless(Gate::allows('loan_access'), 404);
+        $city = CityTown::find($id);
+        $city->delete();
+
+        return redirect()->back()->with('success', 'City/Town deleted.');
     }
 }

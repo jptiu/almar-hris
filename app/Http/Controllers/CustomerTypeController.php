@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CustomerTypeCreateRequest;
+use App\Http\Requests\CustomerTypeUpdateRequest;
+use App\Models\CustomerType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class CustomerTypeController extends Controller
 {
@@ -13,7 +17,10 @@ class CustomerTypeController extends Controller
      */
     public function index()
     {
-        //
+        abort_unless(Gate::allows('loan_access'), 404);
+        $lists = CustomerType::paginate();
+
+        return view('customer.type.index', compact('lists'));
     }
 
     /**
@@ -32,9 +39,16 @@ class CustomerTypeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CustomerTypeCreateRequest $request)
     {
-        //
+        abort_unless(Gate::allows('loan_access'), 404);
+        if($request->validated()){
+            $customer = new CustomerType();
+            $customer->code = $request->code;
+            $customer->description = $request->description;
+            $customer->user_id = $request->user_id;
+            $customer->save();
+        }
     }
 
     /**
@@ -45,7 +59,10 @@ class CustomerTypeController extends Controller
      */
     public function show($id)
     {
-        //
+        abort_unless(Gate::allows('loan_access'), 404);
+        $customer = CustomerType::where('id', $id)->get();
+
+        return view('customer.type.show', compact('customer'));
     }
 
     /**
@@ -66,9 +83,18 @@ class CustomerTypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CustomerTypeUpdateRequest $request, $id)
     {
-        //
+        abort_unless(Gate::allows('loan_access'), 404);
+        if($request->validated()){
+            $customer = CustomerType::find($id);
+            $customer->code = $request->code;
+            $customer->description = $request->description;
+            $customer->user_id = $request->user_id;
+            $customer->update();
+    
+            return view('customer.type.index', compact('customer'));
+        }
     }
 
     /**
@@ -79,6 +105,10 @@ class CustomerTypeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        abort_unless(Gate::allows('loan_access'), 404);
+        $customer = CustomerType::find($id);
+        $customer->delete();
+
+        return redirect()->back()->with('success', 'Customer Type deleted.');
     }
 }
