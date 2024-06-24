@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CityTownController;
+use App\Http\Controllers\CustomerTypeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataFeedController;
 use App\Http\Controllers\DashboardController;
@@ -26,11 +28,24 @@ use App\Http\Controllers\BarangayController;
 Route::redirect('/', 'login');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    // Barangay
+    // Route::resource('barangay', App\Http\Controllers\BarangayController::class);
+    Route::get('barangay', [BarangayController::class, 'index'])->name('barangay.index');
+    
+    // Customer
+    // Route::resource('customer', App\Http\Controllers\CustomerController::class);
+    Route::get('customer', [CustomerController::class, 'add'])->name('customer.add');
+    Route::get('customer', [CustomerController::class, 'daily'])->name('customer.daily');
+    Route::get('customer', [CustomerController::class, 'month'])->name('customer.month');
+    Route::get('customer', [CustomerController::class, 'index'])->name('customer.index');
 
-    Route::resource('barangay', App\Http\Controllers\BarangayController::class);
-    Route::resource('city', App\Http\Controllers\CityTownController::class);
-    Route::resource('customer', App\Http\Controllers\CustomerController::class);
-    Route::resource('customer-type', App\Http\Controllers\CustomerTypeController::class);
+    // Customer Type
+    // Route::resource('customer-type', App\Http\Controllers\CustomerTypeController::class);
+    Route::get('customer-type', [CustomerTypeController::class, 'index'])->name('customerType.index');
+
+    // City/ or Town
+    // Route::resource('city', App\Http\Controllers\CityTownController::class);
+    Route::get('city', [CityTownController::class, 'index'])->name('city.index');
 
     // Route for the getting the data feed
     Route::get('/json-data-feed', [DataFeedController::class, 'getDataFeed'])->name('json_data_feed');

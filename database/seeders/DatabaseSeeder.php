@@ -14,20 +14,69 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        \App\Models\User::factory()->create([
+            'name' => 'Super Admin',
+            'email' => 'super@almarfinance.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('password'),
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Admin Admin',
+            'email' => 'admin@almarfinance.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('password'),
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        \App\Models\User::factory()->create([
+            'name' => 'HR Admin',
+            'email' => 'hr@almarfinance.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('password'),
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Branch Manager 1',
+            'email' => 'branch1@almarfinance.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('password'),
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Branch Manager 2',
+            'email' => 'branch2@almarfinance.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('password'),
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Loan Officer',
+            'email' => 'officer@almarfinance.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('password'),
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Auditor Admin',
+            'email' => 'auditor@almarfinance.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('password'),
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
 
         $this->call([
             DashboardTableSeeder::class,
-            // AnalyticsTableSeeder::class,
-            // FintechTableSeeder::class,
-            // CustomerSeeder::class,
-            // OrderSeeder::class,
-            // InvoiceSeeder::class,
-            // MemberSeeder::class,
-            // TransactionSeeder::class,
-            // JobSeeder::class,
-            // CampaignSeeder::class,
-            // MarketerSeeder::class,
-            // CampaignMarketerSeeder::class,
+            PermissionsTableSeeder::class,
+            RolesTableSeeder::class,
+            PermissionRoleTableSeeder::class,
+            RoleUserTableSeeder::class,
         ]);
     }
 }

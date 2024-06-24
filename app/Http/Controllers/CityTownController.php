@@ -13,15 +13,13 @@ class CityTownController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
         abort_unless(Gate::allows('loan_access'), 404);
-
         $lists = CityTown::paginate();
 
-        return view('city.index', compact('lists'));
+        return view('pages.city.index', compact('lists'));
     }
 
     /**
@@ -50,7 +48,7 @@ class CityTownController extends Controller
             $city->user_id = $request->user_id;
             $city->save();
 
-            return view('city.index', compact('city'));
+            return redirect()->back()->with('success', 'City/Town created.');
 
         }
     }
@@ -97,7 +95,7 @@ class CityTownController extends Controller
             $city->user_id = $request->user_id;
             $city->update();
 
-            return view('city.index', compact('city'));
+            return redirect()->back()->with('success', 'City/Town updated.');
         }
     }
 

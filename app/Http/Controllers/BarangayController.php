@@ -13,14 +13,13 @@ class BarangayController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
         abort_unless(Gate::allows('loan_access'), 404);
         $lists = Barangay::paginate();
 
-        return view('barangay.index', compact('lists'));
+        return view('pages.barangay.index', compact('lists'));
     }
 
     /**
@@ -49,7 +48,7 @@ class BarangayController extends Controller
             $brgy->user_id = $request->user_id;
             $brgy->save();
 
-            return view('barangay.index', compact('brgy'));
+            return redirect()->back()->with('success', 'Barangay Created.');
         }
     }
 
@@ -95,7 +94,7 @@ class BarangayController extends Controller
             $brgy->user_id = $request->user_id;
             $brgy->update();
 
-            return view('barangay.index', compact('brgy'));
+            return redirect()->back()->with('success', 'Barangay updated.');
         }
     }
 

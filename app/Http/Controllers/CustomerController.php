@@ -18,7 +18,14 @@ class CustomerController extends Controller
         abort_unless(Gate::allows('loan_access'), 404);
         $lists = Customer::paginate();
 
-        return view('customer.index', compact('lists'));
+        return view('pages.customer.index', compact('lists'));
+    }
+
+    public function add()
+    {
+        abort_unless(Gate::allows('loan_access'), 404);
+
+        return view('pages.customer.add');
     }
 
     /**
@@ -52,7 +59,7 @@ class CustomerController extends Controller
             $customer->status = $request->status;
             $customer->save();
 
-            return view('customer.index', compact('customer'));
+            return redirect()->back()->with('success', 'Customer created.');
 
         }
     }
@@ -99,7 +106,7 @@ class CustomerController extends Controller
             $customer->status = $request->status;
             $customer->save();
 
-            return view('customer.index', compact('customer'));
+            return redirect()->back()->with('success', 'Customer updated.');
 
         }
     }
@@ -113,6 +120,6 @@ class CustomerController extends Controller
         $customer = Customer::find($id);
         $customer->delete();
 
-        redirect()->back()->with('success', 'Customer deleted.');
+        return redirect()->back()->with('success', 'Customer deleted.');
     }
 }

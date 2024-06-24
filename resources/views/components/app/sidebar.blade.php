@@ -53,19 +53,19 @@
                         </a>
                     </li>
                     <!-- Customer Profile -->
-                    <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if(in_array(Request::segment(1), ['community'])){{ 'bg-slate-900' }}@endif" x-data="{ open: {{ in_array(Request::segment(1), ['community']) ? 1 : 0 }} }">
-                        <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if(in_array(Request::segment(1), ['community'])){{ 'hover:text-slate-200' }}@endif" href="#0" @click.prevent="sidebarExpanded ? open = !open : sidebarExpanded = true">
+                    <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if(in_array(Request::segment(1), ['customer'])){{ 'bg-slate-900' }}@endif" x-data="{ open: {{ in_array(Request::segment(1), ['customer']) ? 1 : 0 }} }">
+                        <a href="{{ route('customer.index')}}" class="block text-slate-200 hover:text-white truncate transition duration-150 @if(in_array(Request::segment(1), ['customer'])){{ 'hover:text-slate-200' }}@endif" @click.prevent="sidebarExpanded ? open = !open : sidebarExpanded = true">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center">
                                     <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                                        <path class="fill-current @if(in_array(Request::segment(1), ['community'])){{ 'text-indigo-500' }}@else{{ 'text-slate-600' }}@endif" d="M18.974 8H22a2 2 0 012 2v6h-2v5a1 1 0 01-1 1h-2a1 1 0 01-1-1v-5h-2v-6a2 2 0 012-2h.974zM20 7a2 2 0 11-.001-3.999A2 2 0 0120 7zM2.974 8H6a2 2 0 012 2v6H6v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5H0v-6a2 2 0 012-2h.974zM4 7a2 2 0 11-.001-3.999A2 2 0 014 7z" />
-                                        <path class="fill-current @if(in_array(Request::segment(1), ['community'])){{ 'text-indigo-300' }}@else{{ 'text-slate-400' }}@endif" d="M12 6a3 3 0 110-6 3 3 0 010 6zm2 18h-4a1 1 0 01-1-1v-6H6v-6a3 3 0 013-3h6a3 3 0 013 3v6h-3v6a1 1 0 01-1 1z" />
+                                        <path class="fill-current @if(in_array(Request::segment(1), ['customer'])){{ 'text-indigo-500' }}@else{{ 'text-slate-600' }}@endif" d="M18.974 8H22a2 2 0 012 2v6h-2v5a1 1 0 01-1 1h-2a1 1 0 01-1-1v-5h-2v-6a2 2 0 012-2h.974zM20 7a2 2 0 11-.001-3.999A2 2 0 0120 7zM2.974 8H6a2 2 0 012 2v6H6v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5H0v-6a2 2 0 012-2h.974zM4 7a2 2 0 11-.001-3.999A2 2 0 014 7z" />
+                                        <path class="fill-current @if(in_array(Request::segment(1), ['customer'])){{ 'text-indigo-300' }}@else{{ 'text-slate-400' }}@endif" d="M12 6a3 3 0 110-6 3 3 0 010 6zm2 18h-4a1 1 0 01-1-1v-6H6v-6a3 3 0 013-3h6a3 3 0 013 3v6h-3v6a1 1 0 01-1 1z" />
                                     </svg>
                                     <span class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Customer Profile</span>
                                 </div>
                                 <!-- Icon -->
                                 <div class="flex shrink-0 ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                                    <svg class="w-3 h-3 shrink-0 ml-1 fill-current text-slate-400 @if(in_array(Request::segment(1), ['community'])){{ 'rotate-180' }}@endif" :class="open ? 'rotate-180' : 'rotate-0'" viewBox="0 0 12 12">
+                                    <svg class="w-3 h-3 shrink-0 ml-1 fill-current text-slate-400 @if(in_array(Request::segment(1), ['customer'])){{ 'rotate-180' }}@endif" :class="open ? 'rotate-180' : 'rotate-0'" viewBox="0 0 12 12">
                                         <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
                                     </svg>
                                 </div>
@@ -74,7 +74,7 @@
                         <div class="lg:hidden lg:sidebar-expanded:block 2xl:block">
                             <ul class="pl-9 mt-1 @if(!in_array(Request::segment(1), ['community'])){{ 'hidden' }}@endif" :class="open ? '!block' : 'hidden'">
                                 <li class="mb-1 last:mb-0">
-                                    <a class="block text-slate-400 hover:text-slate-200 transition duration-150 truncate @if(Route::is('users-tabs')){{ '!text-indigo-500' }}@endif" href="#0">
+                                    <a class="block text-slate-400 hover:text-slate-200 transition duration-150 truncate @if(Route::is('users-tabs')){{ '!text-indigo-500' }}@endif" href="{{ route('customer.index') }}">
                                         <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Add Customer</span>
                                     </a>
                                 </li>
@@ -175,15 +175,15 @@
                         </a>
                     </li>
                     <!-- Setup Cities/Towns -->
-                    <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if(in_array(Request::segment(1), ['utility'])){{ 'bg-slate-900' }}@endif" x-data="{ open: {{ in_array(Request::segment(1), ['utility']) ? 1 : 0 }} }">
-                        <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if(in_array(Request::segment(1), ['utility'])){{ 'hover:text-slate-200' }}@endif" href="#0" @click.prevent="sidebarExpanded ? open = !open : sidebarExpanded = true">
+                    <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if(in_array(Request::segment(1), ['city'])){{ 'bg-slate-900' }}@endif" x-data="{ open: {{ in_array(Request::segment(1), ['city']) ? 1 : 0 }} }">
+                        <a href="{{ route('city.index')}}" class="block text-slate-200 hover:text-white truncate transition duration-150">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center">
                                     <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                                        <circle class="fill-current @if(in_array(Request::segment(1), ['utility'])){{ 'text-indigo-300' }}@else{{ 'text-slate-400' }}@endif" cx="18.5" cy="5.5" r="4.5" />
-                                        <circle class="fill-current @if(in_array(Request::segment(1), ['utility'])){{ 'text-indigo-500' }}@else{{ 'text-slate-600' }}@endif" cx="5.5" cy="5.5" r="4.5" />
-                                        <circle class="fill-current @if(in_array(Request::segment(1), ['utility'])){{ 'text-indigo-500' }}@else{{ 'text-slate-600' }}@endif" cx="18.5" cy="18.5" r="4.5" />
-                                        <circle class="fill-current @if(in_array(Request::segment(1), ['utility'])){{ 'text-indigo-300' }}@else{{ 'text-slate-400' }}@endif" cx="5.5" cy="18.5" r="4.5" />
+                                        <circle class="fill-current @if(in_array(Request::segment(1), ['city'])){{ 'text-indigo-300' }}@else{{ 'text-slate-400' }}@endif" cx="18.5" cy="5.5" r="4.5" />
+                                        <circle class="fill-current @if(in_array(Request::segment(1), ['city'])){{ 'text-indigo-500' }}@else{{ 'text-slate-600' }}@endif" cx="5.5" cy="5.5" r="4.5" />
+                                        <circle class="fill-current @if(in_array(Request::segment(1), ['city'])){{ 'text-indigo-500' }}@else{{ 'text-slate-600' }}@endif" cx="18.5" cy="18.5" r="4.5" />
+                                        <circle class="fill-current @if(in_array(Request::segment(1), ['city'])){{ 'text-indigo-300' }}@else{{ 'text-slate-400' }}@endif" cx="5.5" cy="18.5" r="4.5" />
                                     </svg>
                                     <span class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Setup Cities/Towns</span>
                                 </div>
@@ -191,13 +191,13 @@
                         </a>
                     </li>
                     <!-- Setup Barangays -->
-                    <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if(in_array(Request::segment(1), ['component'])){{ 'bg-slate-900' }}@endif" x-data="{ open: {{ in_array(Request::segment(1), ['component']) ? 1 : 0 }} }">
-                        <a class="block text-slate-200 transition duration-150" :class="open ? 'hover:text-slate-200' : 'hover:text-white'" href="#0" @click.prevent="sidebarExpanded ? open = !open : sidebarExpanded = true">
+                    <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if(in_array(Request::segment(1), ['barangay'])){{ 'bg-slate-900' }}@endif" x-data="{ open: {{ in_array(Request::segment(1), ['barangay']) ? 1 : 0 }} }">
+                        <a href="{{ route('barangay.index')}}" class="block text-slate-200 transition duration-150" :class="open ? 'hover:text-slate-200' : 'hover:text-white'">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center">
                                     <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                                        <circle class="fill-current @if(in_array(Request::segment(1), ['component'])){{ 'text-indigo-500' }}@else{{ 'text-slate-600' }}@endif" cx="16" cy="8" r="8" />
-                                        <circle class="fill-current @if(in_array(Request::segment(1), ['component'])){{ 'text-indigo-300' }}@else{{ 'text-slate-400' }}@endif" cx="8" cy="16" r="8" />
+                                        <circle class="fill-current @if(in_array(Request::segment(1), ['barangay'])){{ 'text-indigo-500' }}@else{{ 'text-slate-600' }}@endif" cx="16" cy="8" r="8" />
+                                        <circle class="fill-current @if(in_array(Request::segment(1), ['barangay'])){{ 'text-indigo-300' }}@else{{ 'text-slate-400' }}@endif" cx="8" cy="16" r="8" />
                                     </svg>
                                     <span class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Setup Barangays</span>
                                 </div>

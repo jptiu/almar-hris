@@ -48,6 +48,8 @@ class CustomerTypeController extends Controller
             $customer->description = $request->description;
             $customer->user_id = $request->user_id;
             $customer->save();
+
+            return redirect()->back()->with('success', 'Customer Type Created.');
         }
     }
 
@@ -93,7 +95,7 @@ class CustomerTypeController extends Controller
             $customer->user_id = $request->user_id;
             $customer->update();
     
-            return view('customer.type.index', compact('customer'));
+            return redirect()->back()->with('success', 'Customer Type Updated.');
         }
     }
 
