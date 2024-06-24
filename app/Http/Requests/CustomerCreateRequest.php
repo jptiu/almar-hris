@@ -12,7 +12,7 @@ class CustomerCreateRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('loan_access');;
+        return Gate::allows('loan_access');
     }
 
     /**
