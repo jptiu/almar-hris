@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CityTownController;
 use App\Http\Controllers\CustomerTypeController;
+use App\Http\Controllers\LoanController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataFeedController;
 use App\Http\Controllers\DashboardController;
@@ -46,6 +47,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // City/ or Town
     // Route::resource('city', App\Http\Controllers\CityTownController::class);
     Route::get('city', [CityTownController::class, 'index'])->name('city.index');
+
+    // Loan
+    Route::get('loan', [LoanController::class, 'index'])->name('loan.index');
 
     // Route for the getting the data feed
     Route::get('/json-data-feed', [DataFeedController::class, 'getDataFeed'])->name('json_data_feed');
