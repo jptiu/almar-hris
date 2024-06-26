@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\BreakdownController;
 use App\Http\Controllers\CityTownController;
+use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\CustomerTypeController;
+use App\Http\Controllers\ExpensesController;
 use App\Http\Controllers\LoanController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataFeedController;
@@ -35,9 +38,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     
     // Customer
     // Route::resource('customer', App\Http\Controllers\CustomerController::class);
-    Route::get('customer', [CustomerController::class, 'add'])->name('customer.add');
-    Route::get('customer', [CustomerController::class, 'daily'])->name('customer.daily');
-    Route::get('customer', [CustomerController::class, 'month'])->name('customer.month');
+    Route::get('customer-add', [CustomerController::class, 'add'])->name('customer.add');
+    Route::get('customer-daily', [CustomerController::class, 'daily'])->name('customer.daily');
+    Route::get('customer-month', [CustomerController::class, 'month'])->name('customer.month');
     Route::get('customer', [CustomerController::class, 'index'])->name('customer.index');
 
     // Customer Type
@@ -50,6 +53,15 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     // Loan
     Route::get('loan', [LoanController::class, 'index'])->name('loan.index');
+
+    // Collection
+    Route::get('collection', [CollectionController::class, 'index'])->name('collection.index');
+
+    // Breakdown
+    Route::get('breakdown', [BreakdownController::class, 'index'])->name('breakdown.index');
+
+    // Expenses
+    Route::get('expenses', [ExpensesController::class, 'index'])->name('expenses.index');
 
     // Route for the getting the data feed
     Route::get('/json-data-feed', [DataFeedController::class, 'getDataFeed'])->name('json_data_feed');

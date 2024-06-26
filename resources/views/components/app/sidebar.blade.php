@@ -40,7 +40,7 @@
                     @can('loan_access')
                     <!-- Dashboard -->
                     <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if(in_array(Request::segment(1), ['dashboard'])){{ 'bg-slate-900' }}@endif" x-data="{ open: {{ in_array(Request::segment(1), ['dashboard']) ? 1 : 0 }} }">
-                        <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if(in_array(Request::segment(1), ['dashboard'])){{ 'hover:text-slate-200' }}@endif" href="#0" @click.prevent="sidebarExpanded ? open = !open : sidebarExpanded = true">
+                        <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if(in_array(Request::segment(1), ['dashboard'])){{ 'hover:text-slate-200' }}@endif" href="/">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center">
                                     <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
@@ -55,7 +55,7 @@
                     </li>
                     <!-- Customer Profile -->
                     <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if(in_array(Request::segment(1), ['customer'])){{ 'bg-slate-900' }}@endif" x-data="{ open: {{ in_array(Request::segment(1), ['customer']) ? 1 : 0 }} }">
-                        <a href="{{ route('customer.index')}}" class="block text-slate-200 hover:text-white truncate transition duration-150 @if(in_array(Request::segment(1), ['customer'])){{ 'hover:text-slate-200' }}@endif" @click.prevent="sidebarExpanded ? open = !open : sidebarExpanded = true">
+                        <a href="{{ route('customer.index')}}" class="block text-slate-200 hover:text-white truncate transition duration-150 @if(in_array(Request::segment(1), ['customer'])){{ 'hover:text-slate-200' }}@endif">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center">
                                     <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
@@ -73,9 +73,9 @@
                             </div>
                         </a>
                         <div class="lg:hidden lg:sidebar-expanded:block 2xl:block">
-                            <ul class="pl-9 mt-1 @if(!in_array(Request::segment(1), ['community'])){{ 'hidden' }}@endif" :class="open ? '!block' : 'hidden'">
+                            <ul class="pl-9 mt-1 @if(in_array(Request::segment(1), ['customer'])){{ 'bg-slate-900' }}@endif" x-data="{ open: {{ in_array(Request::segment(1), ['loan']) ? 1 : 0 }} }">
                                 <li class="mb-1 last:mb-0">
-                                    <a class="block text-slate-400 hover:text-slate-200 transition duration-150 truncate @if(Route::is('users-tabs')){{ '!text-indigo-500' }}@endif" href="{{ route('customer.index') }}">
+                                    <a class="block text-slate-400 hover:text-slate-200 transition duration-150 truncate @if(Route::is('customer-add')){{ '!text-indigo-500' }}@endif" href="{{ route('customer.add') }}">
                                         <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Add Customer</span>
                                     </a>
                                 </li>
@@ -98,14 +98,14 @@
                         </a>
                     </li>
                     <!-- Collection Data Entry -->
-                    <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if(in_array(Request::segment(1), ['job'])){{ 'bg-slate-900' }}@endif" x-data="{ open: {{ in_array(Request::segment(1), ['job']) ? 1 : 0 }} }">
-                        <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if(in_array(Request::segment(1), ['job'])){{ 'hover:text-slate-200' }}@endif" href="#0" @click.prevent="sidebarExpanded ? open = !open : sidebarExpanded = true">
+                    <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if(in_array(Request::segment(1), ['collection'])){{ 'bg-slate-900' }}@endif" x-data="{ open: {{ in_array(Request::segment(1), ['collection']) ? 1 : 0 }} }">
+                        <a href="{{ route('collection.index')}}" class="block text-slate-200 hover:text-white truncate transition duration-150 @if(in_array(Request::segment(1), ['collection'])){{ 'hover:text-slate-200' }}@endif">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center">
                                     <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                                        <path class="fill-current @if(in_array(Request::segment(1), ['job'])){{ 'text-indigo-600' }}@else{{ 'text-slate-700' }}@endif" d="M4.418 19.612A9.092 9.092 0 0 1 2.59 17.03L.475 19.14c-.848.85-.536 2.395.743 3.673a4.413 4.413 0 0 0 1.677 1.082c.253.086.519.131.787.135.45.011.886-.16 1.208-.474L7 21.44a8.962 8.962 0 0 1-2.582-1.828Z" />
-                                        <path class="fill-current @if(in_array(Request::segment(1), ['job'])){{ 'text-indigo-500' }}@else{{ 'text-slate-600' }}@endif" d="M10.034 13.997a11.011 11.011 0 0 1-2.551-3.862L4.595 13.02a2.513 2.513 0 0 0-.4 2.645 6.668 6.668 0 0 0 1.64 2.532 5.525 5.525 0 0 0 3.643 1.824 2.1 2.1 0 0 0 1.534-.587l2.883-2.882a11.156 11.156 0 0 1-3.861-2.556Z" />
-                                        <path class="fill-current @if(in_array(Request::segment(1), ['job'])){{ 'text-indigo-300' }}@else{{ 'text-slate-400' }}@endif" d="M21.554 2.471A8.958 8.958 0 0 0 18.167.276a3.105 3.105 0 0 0-3.295.467L9.715 5.888c-1.41 1.408-.665 4.275 1.733 6.668a8.958 8.958 0 0 0 3.387 2.196c.459.157.94.24 1.425.246a2.559 2.559 0 0 0 1.87-.715l5.156-5.146c1.415-1.406.666-4.273-1.732-6.666Zm.318 5.257c-.148.147-.594.2-1.256-.018A7.037 7.037 0 0 1 18.016 6c-1.73-1.728-2.104-3.475-1.73-3.845a.671.671 0 0 1 .465-.129c.27.008.536.057.79.146a7.07 7.07 0 0 1 2.6 1.711c1.73 1.73 2.105 3.472 1.73 3.846Z" />
+                                        <path class="fill-current @if(in_array(Request::segment(1), ['collection'])){{ 'text-indigo-600' }}@else{{ 'text-slate-700' }}@endif" d="M4.418 19.612A9.092 9.092 0 0 1 2.59 17.03L.475 19.14c-.848.85-.536 2.395.743 3.673a4.413 4.413 0 0 0 1.677 1.082c.253.086.519.131.787.135.45.011.886-.16 1.208-.474L7 21.44a8.962 8.962 0 0 1-2.582-1.828Z" />
+                                        <path class="fill-current @if(in_array(Request::segment(1), ['collection'])){{ 'text-indigo-500' }}@else{{ 'text-slate-600' }}@endif" d="M10.034 13.997a11.011 11.011 0 0 1-2.551-3.862L4.595 13.02a2.513 2.513 0 0 0-.4 2.645 6.668 6.668 0 0 0 1.64 2.532 5.525 5.525 0 0 0 3.643 1.824 2.1 2.1 0 0 0 1.534-.587l2.883-2.882a11.156 11.156 0 0 1-3.861-2.556Z" />
+                                        <path class="fill-current @if(in_array(Request::segment(1), ['collection'])){{ 'text-indigo-300' }}@else{{ 'text-slate-400' }}@endif" d="M21.554 2.471A8.958 8.958 0 0 0 18.167.276a3.105 3.105 0 0 0-3.295.467L9.715 5.888c-1.41 1.408-.665 4.275 1.733 6.668a8.958 8.958 0 0 0 3.387 2.196c.459.157.94.24 1.425.246a2.559 2.559 0 0 0 1.87-.715l5.156-5.146c1.415-1.406.666-4.273-1.732-6.666Zm.318 5.257c-.148.147-.594.2-1.256-.018A7.037 7.037 0 0 1 18.016 6c-1.73-1.728-2.104-3.475-1.73-3.845a.671.671 0 0 1 .465-.129c.27.008.536.057.79.146a7.07 7.07 0 0 1 2.6 1.711c1.73 1.73 2.105 3.472 1.73 3.846Z" />
                                     </svg>
                                     <span class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Collection Data Entry</span>
                                 </div>
@@ -113,14 +113,14 @@
                         </a>
                     </li>
                     <!-- Breakdown of Cash Bills -->
-                    <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if(in_array(Request::segment(1), ['tasks'])){{ 'bg-slate-900' }}@endif" x-data="{ open: {{ in_array(Request::segment(1), ['tasks']) ? 1 : 0 }} }">
-                        <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if(in_array(Request::segment(1), ['tasks'])){{ 'hover:text-slate-200' }}@endif" href="#0" @click.prevent="sidebarExpanded ? open = !open : sidebarExpanded = true">
+                    <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if(in_array(Request::segment(1), ['breakdown'])){{ 'bg-slate-900' }}@endif" x-data="{ open: {{ in_array(Request::segment(1), ['breakdown']) ? 1 : 0 }} }">
+                        <a href="{{ route('breakdown.index')}}" class="block text-slate-200 hover:text-white truncate transition duration-150 @if(in_array(Request::segment(1), ['breakdown'])){{ 'hover:text-slate-200' }}@endif">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center">
                                     <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                                        <path class="fill-current @if(in_array(Request::segment(1), ['tasks'])){{ 'text-indigo-500' }}@else{{ 'text-slate-600' }}@endif" d="M8 1v2H3v19h18V3h-5V1h7v23H1V1z" />
-                                        <path class="fill-current @if(in_array(Request::segment(1), ['tasks'])){{ 'text-indigo-500' }}@else{{ 'text-slate-600' }}@endif" d="M1 1h22v23H1z" />
-                                        <path class="fill-current @if(in_array(Request::segment(1), ['tasks'])){{ 'text-indigo-300' }}@else{{ 'text-slate-400' }}@endif" d="M15 10.586L16.414 12 11 17.414 7.586 14 9 12.586l2 2zM5 0h14v4H5z" />
+                                        <path class="fill-current @if(in_array(Request::segment(1), ['breakdown'])){{ 'text-indigo-500' }}@else{{ 'text-slate-600' }}@endif" d="M8 1v2H3v19h18V3h-5V1h7v23H1V1z" />
+                                        <path class="fill-current @if(in_array(Request::segment(1), ['breakdown'])){{ 'text-indigo-500' }}@else{{ 'text-slate-600' }}@endif" d="M1 1h22v23H1z" />
+                                        <path class="fill-current @if(in_array(Request::segment(1), ['breakdown'])){{ 'text-indigo-300' }}@else{{ 'text-slate-400' }}@endif" d="M15 10.586L16.414 12 11 17.414 7.586 14 9 12.586l2 2zM5 0h14v4H5z" />
                                     </svg>
                                     <span class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Breakdown of Cash Bills</span>
                                 </div>
@@ -128,12 +128,12 @@
                         </a>
                     </li>
                     <!-- Expenses Data Entry -->
-                    <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if(in_array(Request::segment(1), ['inbox'])){{ 'bg-slate-900' }}@endif">
-                        <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if(in_array(Request::segment(1), ['inbox'])){{ 'hover:text-slate-200' }}@endif" href="#0">
+                    <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if(in_array(Request::segment(1), ['expenses'])){{ 'bg-slate-900' }}@endif">
+                        <a href="{{ route('expenses.index')}}" class="block text-slate-200 hover:text-white truncate transition duration-150 @if(in_array(Request::segment(1), ['expenses'])){{ 'hover:text-slate-200' }}@endif">
                             <div class="flex items-center">
                                 <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                                    <path class="fill-current @if(in_array(Request::segment(1), ['inbox'])){{ 'text-indigo-500' }}@else{{ 'text-slate-600' }}@endif" d="M16 13v4H8v-4H0l3-9h18l3 9h-8Z" />
-                                    <path class="fill-current @if(in_array(Request::segment(1), ['inbox'])){{ 'text-indigo-300' }}@else{{ 'text-slate-400' }}@endif" d="m23.72 12 .229.686A.984.984 0 0 1 24 13v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1v-8c0-.107.017-.213.051-.314L.28 12H8v4h8v-4H23.72ZM13 0v7h3l-4 5-4-5h3V0h2Z" />
+                                    <path class="fill-current @if(in_array(Request::segment(1), ['expenses'])){{ 'text-indigo-500' }}@else{{ 'text-slate-600' }}@endif" d="M16 13v4H8v-4H0l3-9h18l3 9h-8Z" />
+                                    <path class="fill-current @if(in_array(Request::segment(1), ['expenses'])){{ 'text-indigo-300' }}@else{{ 'text-slate-400' }}@endif" d="m23.72 12 .229.686A.984.984 0 0 1 24 13v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1v-8c0-.107.017-.213.051-.314L.28 12H8v4h8v-4H23.72ZM13 0v7h3l-4 5-4-5h3V0h2Z" />
                                 </svg>
                                 <span class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Expenses Data Entry</span>
                             </div>
@@ -211,8 +211,8 @@
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center">
                                     <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                                        <path class="fill-current text-slate-600" d="M19 5h1v14h-2V7.414L5.707 19.707 5 19H4V5h2v11.586L18.293 4.293 19 5Z" />
-                                        <path class="fill-current text-slate-400" d="M5 9a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm14 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8ZM5 23a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm14 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z" />
+                                        <path class="fill-current @if(in_array(Request::segment(1), ['customer-type'])){{ 'text-indigo-500' }}@else{{ 'text-slate-600' }}@endif" d="M19 5h1v14h-2V7.414L5.707 19.707 5 19H4V5h2v11.586L18.293 4.293 19 5Z" />
+                                        <path class="fill-current @if(in_array(Request::segment(1), ['customer-type'])){{ 'text-indigo-500' }}@else{{ 'text-slate-600' }}@endif" d="M5 9a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm14 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8ZM5 23a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm14 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z" />
                                     </svg>
                                     <span class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Setup Customer Type</span>
                                 </div>

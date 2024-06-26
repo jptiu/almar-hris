@@ -25,7 +25,7 @@ class CustomerController extends Controller
     {
         abort_unless(Gate::allows('loan_access'), 404);
 
-        return view('pages.customer.add');
+        return view('pages.customer.add.index');
     }
 
     /**
