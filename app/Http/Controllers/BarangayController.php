@@ -17,7 +17,7 @@ class BarangayController extends Controller
     public function index()
     {
         abort_unless(Gate::allows('loan_access'), 404);
-        $lists = Barangay::paginate();
+        $lists = Barangay::get();
 
         return view('pages.barangay.index', compact('lists'));
     }

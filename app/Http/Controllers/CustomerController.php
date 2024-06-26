@@ -16,7 +16,7 @@ class CustomerController extends Controller
     public function index()
     {
         abort_unless(Gate::allows('loan_access'), 404);
-        $lists = Customer::paginate();
+        $lists = Customer::get();
 
         return view('pages.customer.index', compact('lists'));
     }

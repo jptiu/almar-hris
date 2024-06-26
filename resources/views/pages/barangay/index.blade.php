@@ -32,6 +32,7 @@
         <!-- Cards -->
         <div class="grid gap-6">
             <p>Setup Barangay</p>
+            {{$lists}}
         </div>
 
     </div>

@@ -16,7 +16,7 @@ class LoanController extends Controller
     public function index()
     {
         abort_unless(Gate::allows('loan_access'), 404);
-        $lists = Loan::paginate();
+        $lists = Loan::get();
 
         return view('pages.loan.entry.index', compact('lists'));
     }

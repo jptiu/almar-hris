@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\DataFeed;
-use Illuminate\Support\Facades\Hash;
 use Faker\Factory;
 
 class DashboardTableSeeder extends Seeder
