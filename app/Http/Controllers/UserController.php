@@ -10,7 +10,7 @@ class UserController extends Controller
     public function index()
     {
         abort_unless(Gate::allows('super_access'), 404);
-        $users = User::paginate();
+        $users = User::get();
 
         return view('users.index', compact('users'));
     }
