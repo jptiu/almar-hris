@@ -14,7 +14,7 @@ class CollectionController extends Controller
     public function index()
     {
         abort_unless(Gate::allows('loan_access'), 404);
-        $lists = Collection::get();
+        $lists = Collection::with('user')->get();
 
         return view('pages.collections.index', compact('lists'));
     }

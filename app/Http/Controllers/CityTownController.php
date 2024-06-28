@@ -17,7 +17,7 @@ class CityTownController extends Controller
     public function index()
     {
         abort_unless(Gate::allows('loan_access'), 404);
-        $lists = CityTown::get();
+        $lists = CityTown::with('user')->get();
 
         return view('pages.city.index', compact('lists'));
     }
