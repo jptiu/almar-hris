@@ -16,20 +16,20 @@ class BarangayTableSeeder extends Seeder
         $bry = [
             [
                 'id' => '1',
-                'barangay_name',
+                'barangay_name' => 'Macasandig',
                 'code' => '9000',
                 'city' => 'CDO',
                 'user_id' => 4
             ],
             [
                 'id' => '2',
-                'barangay_name',
+                'barangay_name' => 'Sitio',
                 'code' => '9002',
                 'city' => 'Iligan',
                 'user_id' => 4
             ],[
                 'id' => '3',
-                'barangay_name',
+                'barangay_name' => 'Kito',
                 'code' => '9003',
                 'city' => 'Oroqueta',
                 'user_id' => 4
