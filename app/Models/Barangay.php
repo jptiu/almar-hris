@@ -10,8 +10,13 @@ class Barangay extends Model
     use HasFactory;
 
     protected $fillable = [
+        'barangay_name',
         'code',
         'city',
         'user_id'
     ];
+
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }

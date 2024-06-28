@@ -17,7 +17,7 @@ class BarangayController extends Controller
     public function index()
     {
         abort_unless(Gate::allows('loan_access'), 404);
-        $lists = Barangay::get();
+        $lists = Barangay::with('user')->get();
 
         return view('pages.barangay.index', compact('lists'));
     }
@@ -43,6 +43,7 @@ class BarangayController extends Controller
         abort_unless(Gate::allows('loan_access'), 404);
         if($request->validated()){
             $brgy = new Barangay();
+            $brgy->barangay = $request->barangay;
             $brgy->code = $request->code;
             $brgy->city = $request->city;
             $brgy->user_id = $request->user_id;
@@ -89,6 +90,7 @@ class BarangayController extends Controller
         abort_unless(Gate::allows('loan_access'), 404);
         if($request->validated()){
             $brgy = Barangay::find($id);
+            $brgy->barangay = $request->barangay;
             $brgy->code = $request->code;
             $brgy->city = $request->city;
             $brgy->user_id = $request->user_id;

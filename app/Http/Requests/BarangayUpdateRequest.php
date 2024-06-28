@@ -23,6 +23,7 @@ class BarangayUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'barangay_name' => 'string',
             'code' => 'string',
             'city' => 'string',
             'user_id' => 'string'
