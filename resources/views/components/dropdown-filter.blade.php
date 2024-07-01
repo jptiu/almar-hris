@@ -32,37 +32,13 @@
             <li class="py-1 px-3">
                 <label class="flex items-center">
                     <input type="checkbox" class="form-checkbox" checked />
-                    <span class="text-sm font-medium ml-2">Direct VS Indirect</span>
-                </label>
-            </li>
-            <li class="py-1 px-3">
-                <label class="flex items-center">
-                    <input type="checkbox" class="form-checkbox" checked />
-                    <span class="text-sm font-medium ml-2">Real Time Value</span>
-                </label>
-            </li>
-            <li class="py-1 px-3">
-                <label class="flex items-center">
-                    <input type="checkbox" class="form-checkbox" checked />
-                    <span class="text-sm font-medium ml-2">Top Channels</span>
+                    <span class="text-sm font-medium ml-2">Filter by Area Code</span>
                 </label>
             </li>
             <li class="py-1 px-3">
                 <label class="flex items-center">
                     <input type="checkbox" class="form-checkbox" />
-                    <span class="text-sm font-medium ml-2">Sales VS Refunds</span>
-                </label>
-            </li>
-            <li class="py-1 px-3">
-                <label class="flex items-center">
-                    <input type="checkbox" class="form-checkbox" />
-                    <span class="text-sm font-medium ml-2">Last Order</span>
-                </label>
-            </li>
-            <li class="py-1 px-3">
-                <label class="flex items-center">
-                    <input type="checkbox" class="form-checkbox" />
-                    <span class="text-sm font-medium ml-2">Total Spent</span>
+                    <span class="text-sm font-medium ml-2">Filter by Brgy ID</span>
                 </label>
             </li>
         </ul>

@@ -1,8 +1,11 @@
 <x-app-layout>
     <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
         
-        <!-- Welcome banner -->
-        <x-dashboard.welcome-banner />
+        <div class="relative">
+            <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-12 lg:px-4">Setup Barangays</h1>
+        </div>
+
+        <div></div>
 
         <!-- Dashboard actions -->
         <div class="sm:flex sm:justify-between sm:items-center mb-8">
@@ -14,15 +17,12 @@
                 <!-- Filter button -->
                 <x-dropdown-filter align="right" />
 
-                <!-- Datepicker built with flatpickr -->
-                <x-datepicker />
-
                 <!-- Add view button -->
                 <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
                     <svg class="w-4 h-4 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
                         <path d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
                     </svg>
-                    <span class="hidden xs:block ml-2">Add View</span>
+                    <span class="hidden xs:block ml-2">Add Barangay</span>
                 </button>
                 
             </div>
@@ -30,10 +30,6 @@
         </div>
         
         <!-- Cards -->
-        <div class="grid gap-6">
-            <p>Setup Barangay</p>
-        </div>
-
         <section class="container px-4 mx-auto">
             <div class="flex flex-col">
                 <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -68,10 +64,10 @@
 
                                     </tr>
                                 </thead>
-                                <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
+                                <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
                                     @foreach($lists as $list)
                                     <tr>
-                                        <td class="px-4 py-4 text-sm font-medium text-gray-700 dark:text-gray-200 whitespace-nowrap">
+                                        <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
                                             {{$list->code}}
                                         </td>
                                         <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
@@ -85,9 +81,8 @@
                                         </td>
                                         <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
                                             <div class="flex items-center gap-x-2">
-                                                <img class="object-cover w-8 h-8 rounded-full" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="">
                                                 <div>
-                                                    <h2 class="text-sm font-medium text-gray-800 dark:text-white ">{{$list->user->name}}</h2>
+                                                    <h2 class="text-sm font-medium text-gray-500 dark:text-white ">{{$list->user->name}}</h2>
                                                 </div>
                                             </div>
                                         </td>
