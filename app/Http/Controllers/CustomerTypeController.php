@@ -15,10 +15,12 @@ class CustomerTypeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         abort_unless(Gate::allows('loan_access'), 404);
-        $lists = CustomerType::with('user')->get();
+        $lists = CustomerType::with('user')
+        ->where('code', 'LIKE', '%', $request->search, '%')->orderBy('ASC')
+        ->get();
 
         return view('pages.customer.type.index', compact('lists'));
     }

@@ -14,10 +14,12 @@ class CityTownController extends Controller
      * Display a listing of the resource.
      *
      */
-    public function index()
+    public function index(Request $request)
     {
         abort_unless(Gate::allows('loan_access'), 404);
-        $lists = CityTown::with('user')->get();
+        $lists = CityTown::with('user')
+        ->where('city', 'LIKE', '%', $request->search, '%')->orderBy('ASC')
+        ->get();
 
         return view('pages.city.index', compact('lists'));
     }

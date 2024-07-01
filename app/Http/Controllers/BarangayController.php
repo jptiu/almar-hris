@@ -14,10 +14,12 @@ class BarangayController extends Controller
      * Display a listing of the resource.
      *
      */
-    public function index()
+    public function index(Request $request)
     {
         abort_unless(Gate::allows('loan_access'), 404);
-        $lists = Barangay::with('user')->get();
+        $lists = Barangay::with('user')
+        ->where('barangay_name', 'LIKE', '%', $request->search, '%')->orderBy('ASC')
+        ->get();
 
         return view('pages.barangay.index', compact('lists'));
     }
