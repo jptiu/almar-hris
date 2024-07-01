@@ -16,7 +16,7 @@ class CustomerController extends Controller
     public function index(Request $request)
     {
         abort_unless(Gate::allows('loan_access'), 404);
-        $lists = Customer::where('name', 'LIKE', '%', $request->search, '%')->orderBy('ASC')->get();
+        $lists = Customer::where('name', 'LIKE', '%', $request->search, '%')->orderBy("created_at", "desc")->get();
 
         return view('pages.customer.index', compact('lists'));
     }

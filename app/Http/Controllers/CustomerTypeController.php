@@ -19,7 +19,7 @@ class CustomerTypeController extends Controller
     {
         abort_unless(Gate::allows('loan_access'), 404);
         $lists = CustomerType::with('user')
-        ->where('code', 'LIKE', '%', $request->search, '%')->orderBy('ASC')
+        ->where('code', 'LIKE', '%', $request->search, '%')->orderBy("created_at", "desc")
         ->get();
 
         return view('pages.customer.type.index', compact('lists'));
