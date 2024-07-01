@@ -16,7 +16,7 @@ class CustomerController extends Controller
     public function index(Request $request)
     {
         abort_unless(Gate::allows('loan_access'), 404);
-        $lists = Customer::where('first_name', 'LIKE', '%', $request->search, '%')->orderBy("created_at", "desc")->get();
+        $lists = Customer::where('first_name', 'LIKE', '%', $request->search, '%')->orderBy("created_at", "asc")->get();
 
         return view('pages.customer.index', compact('lists'));
     }
@@ -59,7 +59,7 @@ class CustomerController extends Controller
             $customer->status = $request->status;
             $customer->save();
 
-            return redirect()->back()->with('success', 'Customer created.');
+            return redirect(route("customer.index"))->with('success', 'Created Successfully');
 
         }
     }
@@ -72,7 +72,7 @@ class CustomerController extends Controller
         abort_unless(Gate::allows('loan_access'), 404);
         $customer = Customer::where('id', $id)->get();
 
-        return view('customer.show', compact('customer'));
+        return view('customer.update.index', compact('customer'));
     }
 
     /**

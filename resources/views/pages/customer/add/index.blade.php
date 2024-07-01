@@ -5,7 +5,8 @@
             <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-12">Customer Profile</h1>
         </div>
 
-        <form>
+        <form action="{{ route('customer.store') }}" method="POST">
+            @csrf
             <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
                 <div>
                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
@@ -30,9 +31,9 @@
                         <div class="lg:col-span-2">
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
                                 <div class="md:col-span-1">
-                                    <select name="type" id="type" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
-                                        <option>Business Loan</option>
-                                        <option>Personal Loan</option>
+                                    <select name="type" id="type" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                        <option value="business loan">Business Loan</option>
+                                        <option value="personal loan">Personal Loan</option>
                                     </select>
                                 </div>
                             </div>
@@ -159,9 +160,9 @@
                         <div class="lg:col-span-2">
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
                                 <div class="md:col-span-1">
-                                    <select name="status" id="status" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
-                                        <option>Single</option>
-                                        <option>Married</option>
+                                    <select name="status" id="status" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                        <option value="single">Single</option>
+                                        <option value="married">Married</option>
                                     </select>
                                 </div>
                             </div>
@@ -182,7 +183,7 @@
                                 <div class="md:col-span-5 text-right">
                                     <div class="inline-flex items-end">
                                     <a href="{{ route('customer.index') }}" class="btn bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-4">Cancel</a>
-                                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Confirm Submission</button>
+                                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Confirm Submission</button>
                                     </div>
                                 </div>
                             </div>

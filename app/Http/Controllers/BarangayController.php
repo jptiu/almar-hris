@@ -18,7 +18,7 @@ class BarangayController extends Controller
     {
         abort_unless(Gate::allows('loan_access'), 404);
         $lists = Barangay::with('user')
-        ->where('barangay_name', 'LIKE', '%', $request->search, '%')->orderBy("created_at", "desc")
+        ->where('barangay_name', 'LIKE', '%', $request->search, '%')->orderBy("created_at", "asc")
         ->get();
 
         return view('pages.barangay.index', compact('lists'));

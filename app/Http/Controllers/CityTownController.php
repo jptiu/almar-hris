@@ -18,7 +18,7 @@ class CityTownController extends Controller
     {
         abort_unless(Gate::allows('loan_access'), 404);
         $lists = CityTown::with('user')
-        ->where('city_town', 'LIKE', '%', $request->search, '%')->orderBy("created_at", "desc")
+        ->where('city_town', 'LIKE', '%', $request->search, '%')->orderBy("created_at", "asc")
         ->get();
 
         return view('pages.city.index', compact('lists'));

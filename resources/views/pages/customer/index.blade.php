@@ -1,4 +1,20 @@
 <x-app-layout>
+    @if (session()->has('success'))
+        <div class="alert alert-success">
+            <div class="flex items-center p-4 mb-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800"
+                role="alert">
+                <svg class="flex-shrink-0 inline w-4 h-4 mr-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                </svg>
+                <span class="sr-only">Info</span>
+                <div>
+                    <span class="font-medium">{{ session()->get('success') }}</span>
+                </div>
+            </div>
+        </div>
+    @endif
     <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
         
         <div class="relative">
@@ -60,15 +76,15 @@
                                     @foreach($lists as $list)
                                     <tr>
                                         <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
-                                            {{$list->code}}
+                                            {{$list->id}}
                                         </td>
                                         <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                            {{$list->city}}
+                                            {{$list->first_name}} {{$list->last_name}}
                                         </td>
                                         <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
                                             <div class="flex items-center gap-x-2">
                                                 <div>
-                                                    <h2 class="text-sm font-medium text-gray-500 dark:text-white ">{{$list->user->name}}</h2>
+                                                    <h2 class="text-sm font-medium text-gray-500 dark:text-white ">{{$list->house}} {{$list->street}} {{$list->barangay}} {{$list->city}}</h2>
                                                 </div>
                                             </div>
                                         </td>
