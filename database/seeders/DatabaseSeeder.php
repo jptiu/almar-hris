@@ -79,6 +79,8 @@ class DatabaseSeeder extends Seeder
             PermissionRoleTableSeeder::class,
             RoleUserTableSeeder::class,
             BarangayTableSeeder::class,
+            CityTownTableSeeder::class,
+            CustomerTypeTableSeeder::class,
         ]);
     }
 }
