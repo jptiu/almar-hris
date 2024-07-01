@@ -10,7 +10,7 @@
                 <div>
                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
                         <div>
-                            <h1 class="text-xl md:text-xl text-slate-600 dark:text-slate-100 font-bold mb-2">Add Customer</h1>
+                            <h1 class="text-xl md:text-xl text-slate-600 dark:text-slate-100 font-bold mb-2">Edit Customer</h1>
                             <span>Fill up the inputs to add Customer.</span>
                         </div>
 
