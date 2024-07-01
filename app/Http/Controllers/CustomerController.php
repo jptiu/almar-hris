@@ -13,10 +13,10 @@ class CustomerController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         abort_unless(Gate::allows('loan_access'), 404);
-        $lists = Customer::get();
+        $lists = Customer::where('first_name', 'LIKE', '%', $request->search, '%')->orderBy("created_at", "desc")->get();
 
         return view('pages.customer.index', compact('lists'));
     }
