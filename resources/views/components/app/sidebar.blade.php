@@ -213,7 +213,7 @@
                     <span class="hidden lg:block lg:sidebar-expanded:hidden 2xl:hidden text-center w-6" aria-hidden="true">•••</span>
                     <span class="lg:hidden lg:sidebar-expanded:block 2xl:block">More</span>
                 </h3>
-                <ul class="mt-3">
+                {{-- <ul class="mt-3">
                     <!-- Authentication -->
                     <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0" x-data="{ open: false }">
                         <a class="block text-slate-200 transition duration-150" :class="open ? 'hover:text-slate-200' : 'hover:text-white'" href="#0" @click.prevent="sidebarExpanded ? open = !open : sidebarExpanded = true">
@@ -321,7 +321,7 @@
                             </ul>
                         </div>
                     </li>
-                </ul>
+                </ul> --}}
             </div>
         </div>
 
