@@ -32,17 +32,38 @@
                 <ul class="mt-3">
                     @can('hr_access')
                         <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['expenses'])) {{ 'bg-slate-900' }} @endif">
-                            <a href="{{ route('expenses.index') }}"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['expenses'])) {{ 'hover:text-slate-200' }} @endif">
+                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['hr'])) {{ 'bg-slate-900' }} @endif">
+                            <a href="{{ route('hr.index') }}"
+                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
+                                <div class="flex items-center">
+                                    <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
+                                        <path
+                                            class="fill-current @if (in_array(Request::segment(1), ['hr'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-400' }} @endif"
+                                            d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0z" />
+                                        <path
+                                            class="fill-current @if (in_array(Request::segment(1), ['hr'])) {{ 'text-indigo-600' }}@else{{ 'text-slate-600' }} @endif"
+                                            d="M12 3c-4.963 0-9 4.037-9 9s4.037 9 9 9 9-4.037 9-9-4.037-9-9-9z" />
+                                        <path
+                                            class="fill-current @if (in_array(Request::segment(1), ['hr'])) {{ 'text-indigo-200' }}@else{{ 'text-slate-400' }} @endif"
+                                            d="M12 15c-1.654 0-3-1.346-3-3 0-.462.113-.894.3-1.285L6 6l4.714 3.301A2.973 2.973 0 0112 9c1.654 0 3 1.346 3 3s-1.346 3-3 3z" />
+                                    </svg>
+                                    <span
+                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Dashboard</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li
+                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['employee'])) {{ 'bg-slate-900' }} @endif">
+                            <a href="{{ route('employee.index') }}"
+                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['employee'])) {{ 'hover:text-slate-200' }} @endif">
                                 <div class="flex items-center">
                                     <svg class="h-6 w-6 text-red-400" viewBox="0 0 24 24" fill="none"
                                         stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
-                                        <path class="fill-current @if (in_array(Request::segment(1), ['expenses'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif" d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                        <path class="fill-current @if (in_array(Request::segment(1), ['employee'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif" d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
                                         <circle cx="9" cy="7" r="4" />
-                                        <path class="fill-current @if (in_array(Request::segment(1), ['expenses'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif" d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                                        <path class="fill-current @if (in_array(Request::segment(1), ['expenses'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif" d="M16 3.13a4 4 0 0 1 0 7.75" />
+                                        <path class="fill-current @if (in_array(Request::segment(1), ['employee'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif" d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                        <path class="fill-current @if (in_array(Request::segment(1), ['employee'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif" d="M16 3.13a4 4 0 0 1 0 7.75" />
                                     </svg>
                                     <span
                                         class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Employee</span>

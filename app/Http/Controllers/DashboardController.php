@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use Illuminate\Http\Request;
 use App\Models\DataFeed;
 
@@ -9,9 +10,14 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $dataFeed = new DataFeed();
+        if (Auth::user()->roles[0]->title == 'HR') {
+            return redirect(route("hr.index"));
+        } else {
+            $dataFeed = new DataFeed();
 
-        return view('pages/dashboard/dashboard', compact('dataFeed'));
+            return view('pages/dashboard/dashboard', compact('dataFeed'));
+        }
+
     }
 
     /**

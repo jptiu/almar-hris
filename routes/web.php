@@ -4,8 +4,11 @@ use App\Http\Controllers\BreakdownController;
 use App\Http\Controllers\CityTownController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\CustomerTypeController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ExpensesController;
+use App\Http\Controllers\HRController;
 use App\Http\Controllers\LoanController;
+use App\Models\Employee;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataFeedController;
 use App\Http\Controllers\DashboardController;
@@ -94,4 +97,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/dashboard/analytics', [DashboardController::class, 'analytics'])->name('analytics');
     Route::get('/dashboard/fintech', [DashboardController::class, 'fintech'])->name('fintech');
     Route::get('/ecommerce/customers', [CustomerController::class, 'index'])->name('customers');
+
+    // HR
+    Route::get('hr', [HRController::class, 'index'])->name('hr.index');
+    Route::get('employee', [EmployeeController::class, 'index'])->name('employee.index');
 });

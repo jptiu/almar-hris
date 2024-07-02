@@ -11,7 +11,7 @@ class HRController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.hr.index');
     }
 
     /**
