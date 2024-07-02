@@ -35,7 +35,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // Barangay
     // Route::resource('barangay', App\Http\Controllers\BarangayController::class);
     Route::get('barangay', [BarangayController::class, 'index'])->name('barangay.index');
-    Route::post('barangay', [BarangayController::class, 'store'])->name('barangay.store');
+    Route::get('barangay-add', [BarangayController::class, 'add'])->name('barangay.add');
+    Route::post('barangay/store', [BarangayController::class, 'store'])->name('barangay.store');
     Route::post('barangay', [BarangayController::class, 'update'])->name('barangay.update');
     Route::delete('barangay', [BarangayController::class, 'destroy'])->name('barangay.destroy');
     
@@ -47,6 +48,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('customer', [CustomerController::class, 'index'])->name('customer.index');
     Route::post('customer/store', [CustomerController::class, 'store'])->name('customer.store');
     Route::post('customer/update/{id}', [CustomerController::class, 'update'])->name('customer.update');
+    Route::get('customer/show/{id}', [CustomerController::class, 'show'])->name('customer.show');
     Route::delete('customer/destroy/{id}', [CustomerController::class, 'destroy'])->name('customer.destroy');
 
     // Customer Type
