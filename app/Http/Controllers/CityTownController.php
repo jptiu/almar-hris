@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CityTownCreateRequest;
 use App\Http\Requests\CityTownUpdateRequest;
 use App\Models\CityTown;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
@@ -22,6 +23,17 @@ class CityTownController extends Controller
         ->get();
 
         return view('pages.city.index', compact('lists'));
+    }
+
+    public function add()
+    {
+        abort_unless(Gate::allows('loan_access'), 404);
+        $collectors = User::where('roles.title', 'Collector')
+        ->join('role_user', 'users.id', '=', 'role_user.user_id')
+        ->join('roles', 'role_user.role_id', '=', 'roles.id')
+        ->get();
+
+        return view('pages.city.add.index', compact('collectors'));
     }
 
     /**
@@ -50,7 +62,7 @@ class CityTownController extends Controller
             $city->user_id = $request->user_id;
             $city->save();
 
-            return redirect()->back()->with('success', 'City/Town created.');
+            return redirect(route("city.index"))->with('success', 'Created City/Town Successfully');
 
         }
     }
@@ -65,8 +77,12 @@ class CityTownController extends Controller
     {
         abort_unless(Gate::allows('loan_access'), 404);
         $city = CityTown::where('id', $id)->first();
+        $collectors = User::where('roles.title', 'Collector')
+        ->join('role_user', 'users.id', '=', 'role_user.user_id')
+        ->join('roles', 'role_user.role_id', '=', 'roles.id')
+        ->get();
 
-        return view('city.show', compact('city'));
+        return view('pages.city.update.index', compact('city','collectors'));
     }
 
     /**
@@ -97,7 +113,7 @@ class CityTownController extends Controller
             $city->user_id = $request->user_id;
             $city->update();
 
-            return redirect()->back()->with('success', 'City/Town updated.');
+            return redirect(route("city.index"))->with('success', 'City/Town Updated Successfully');
         }
     }
 
