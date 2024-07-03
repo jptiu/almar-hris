@@ -64,7 +64,7 @@ class CityTownController extends Controller
     public function show($id)
     {
         abort_unless(Gate::allows('loan_access'), 404);
-        $city = CityTown::where('id', $id)->get();
+        $city = CityTown::where('id', $id)->first();
 
         return view('city.show', compact('city'));
     }

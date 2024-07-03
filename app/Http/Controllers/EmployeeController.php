@@ -51,7 +51,7 @@ class EmployeeController extends Controller
     public function show(string $id)
     {
         abort_unless(Gate::allows('hr_access'), 404);
-        $hr = HR::where('id', $id)->get();
+        $hr = HR::where('id', $id)->first();
 
         return view('pages.hr.employee.show', compact('hr'));
     }

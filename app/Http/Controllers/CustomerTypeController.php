@@ -64,7 +64,7 @@ class CustomerTypeController extends Controller
     public function show($id)
     {
         abort_unless(Gate::allows('loan_access'), 404);
-        $customer = CustomerType::where('id', $id)->get();
+        $customer = CustomerType::where('id', $id)->first();
 
         return view('customer.type.show', compact('customer'));
     }
