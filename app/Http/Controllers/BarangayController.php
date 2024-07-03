@@ -77,8 +77,12 @@ class BarangayController extends Controller
     {
         abort_unless(Gate::allows('loan_access'), 404);
         $brgy = Barangay::where('id', $id)->first();
+        $collectors = User::where('roles.title', 'Collector')
+        ->join('role_user', 'users.id', '=', 'role_user.user_id')
+        ->join('roles', 'role_user.role_id', '=', 'roles.id')
+        ->get();
 
-        return view('barangay.show', compact('brgy'));
+        return view('pages.barangay.update.index', compact('brgy','collectors'));
     }
 
     /**
@@ -99,18 +103,18 @@ class BarangayController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(BarangayUpdateRequest $request, $id)
+    public function update(BarangayUpdateRequest $request, string $id)
     {
         abort_unless(Gate::allows('loan_access'), 404);
         if($request->validated()){
             $brgy = Barangay::find($id);
-            $brgy->barangay = $request->barangay;
+            $brgy->barangay_name = $request->barangay_name;
             $brgy->code = $request->code;
             $brgy->city = $request->city;
             $brgy->user_id = $request->user_id;
             $brgy->update();
 
-            return redirect()->back()->with('success', 'Barangay updated.');
+            return redirect(route("barangay.index"))->with('success', 'Updated Successfully');
         }
     }
 

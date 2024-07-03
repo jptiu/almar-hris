@@ -40,8 +40,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('barangay', [BarangayController::class, 'index'])->name('barangay.index');
     Route::get('barangay-add', [BarangayController::class, 'add'])->name('barangay.add');
     Route::post('barangay/store', [BarangayController::class, 'store'])->name('barangay.store');
-    Route::post('barangay', [BarangayController::class, 'update'])->name('barangay.update');
-    Route::delete('barangay', [BarangayController::class, 'destroy'])->name('barangay.destroy');
+    Route::post('barangay/update/{id}', [BarangayController::class, 'update'])->name('barangay.update');
+    Route::get('barangay/show/{id}', [BarangayController::class, 'show'])->name('barangay.show');
+    Route::delete('barangay/destroy/{id}', [BarangayController::class, 'destroy'])->name('barangay.destroy');
     
     // Customer
     // Route::resource('customer', App\Http\Controllers\CustomerController::class);
