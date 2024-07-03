@@ -41,7 +41,7 @@ class EmployeeController extends Controller
             $hr = Employee::create($request->all());
             $hr->save();
 
-            return redirect(route("pages.hr.employee.index"))->with('success', 'Created Successfully');
+            return redirect(route("employee.index"))->with('success', 'Created Successfully');
         }
     }
 
