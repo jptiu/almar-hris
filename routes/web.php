@@ -54,6 +54,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::post('customer/update/{id}', [CustomerController::class, 'update'])->name('customer.update');
     Route::get('customer/show/{id}', [CustomerController::class, 'show'])->name('customer.show');
     Route::delete('customer/destroy/{id}', [CustomerController::class, 'destroy'])->name('customer.destroy');
+    Route::get('import', [CustomerController::class, 'importPage'])->name('customer.import');
+    Route::post('importcsv', [CustomerController::class, 'importCSV'])->name('customer.importcsv');
 
     // Customer Type
     // Route::resource('customer-type', App\Http\Controllers\CustomerTypeController::class);

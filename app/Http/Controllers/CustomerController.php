@@ -122,4 +122,50 @@ class CustomerController extends Controller
 
         return redirect()->back()->with('success', 'Customer deleted.');
     }
+
+    public function importPage()
+    {
+        return view('pages.customer.import.index');
+    }
+
+
+    public function importCSV(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|mimes:csv,txt|max:2048', // Validate the uploaded file
+        ]);
+
+        $file = $request->file('file');
+
+        // Read the CSV data
+        $csvData = file_get_contents($file);
+
+        // Split CSV data into rows
+        $rows = array_map('str_getcsv', explode("\n", $csvData));
+
+        // Remove the header row if it exists
+        $header = array_shift($rows);
+        // dd($header);
+
+        foreach ($rows as $row) {
+            // Create and save your model instance
+            Customer::create([
+                'type' => $row[0],
+                'first_name' => $row[1],
+                'middle_name' => $row[2],
+                'last_name' => $row[3],
+                'house' => $row[4],
+                'street' => $row[5],
+                'barangay' => $row[6],
+                'city' => $row[7],
+                'job_position' => $row[8],
+                'salary_sched' => $row[9],
+                'tel_number' => $row[10],
+                'cell_number' => $row[11],
+                'status' => $row[12],
+            ]);
+        }
+
+        return redirect()->back()->with('success', 'CSV data imported successfully.');
+    }
 }
