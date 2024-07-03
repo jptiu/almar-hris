@@ -65,8 +65,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // City/ or Town
     // Route::resource('city', App\Http\Controllers\CityTownController::class);
     Route::get('city', [CityTownController::class, 'index'])->name('city.index');
+    Route::get('city-add', [CityTownController::class, 'add'])->name('city.add');
     Route::post('city/store', [CityTownController::class, 'store'])->name('city.store');
     Route::post('city/update/{id}', [CityTownController::class, 'update'])->name('city.update');
+    Route::get('city/show/{id}', [CityTownController::class, 'show'])->name('city.show');
     Route::delete('city/destroy/{id}', [CityTownController::class, 'destroy'])->name('city.destroy');
 
     // Loan

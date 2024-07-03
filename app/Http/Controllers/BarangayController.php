@@ -114,7 +114,7 @@ class BarangayController extends Controller
             $brgy->user_id = $request->user_id;
             $brgy->update();
 
-            return redirect(route("barangay.index"))->with('success', 'Updated Successfully');
+            return redirect(route("barangay.index"))->with('success', 'Barangay Updated Successfully');
         }
     }
 
