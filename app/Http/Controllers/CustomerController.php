@@ -70,9 +70,9 @@ class CustomerController extends Controller
     public function show(string $id)
     {
         abort_unless(Gate::allows('loan_access'), 404);
-        $customer = Customer::where('id', $id)->get();
+        $customer = Customer::where('id', $id)->first();
 
-        return view('customer.update.index', compact('customer'));
+        return view('pages.customer.update.index', compact('customer'));
     }
 
     /**
@@ -106,7 +106,7 @@ class CustomerController extends Controller
             $customer->status = $request->status;
             $customer->save();
 
-            return redirect()->back()->with('success', 'Customer updated.');
+            return redirect(route("customer.index"))->with('success', 'Updated Successfully');
 
         }
     }

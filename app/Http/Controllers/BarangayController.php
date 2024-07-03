@@ -24,6 +24,13 @@ class BarangayController extends Controller
         return view('pages.barangay.index', compact('lists'));
     }
 
+    public function add()
+    {
+        abort_unless(Gate::allows('loan_access'), 404);
+
+        return view('pages.barangay.add.index');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

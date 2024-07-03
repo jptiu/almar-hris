@@ -5,14 +5,14 @@
             <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-12">Customer Profile</h1>
         </div>
 
-        <form action="{{ route("customer.update", [$customer->id]) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('customer.update', $customer->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
-            @method('PUT')
+            @method('POST')
             <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
                 <div>
                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
                         <div>
-                            <h1 class="text-xl md:text-xl text-slate-600 dark:text-slate-100 font-bold mb-2">Add Customer</h1>
+                            <h1 class="text-xl md:text-xl text-slate-600 dark:text-slate-100 font-bold mb-2">Edit Customer</h1>
                             <span>Fill up the inputs to add Customer.</span>
                         </div>
 
@@ -32,15 +32,9 @@
                         <div class="lg:col-span-2">
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
                                 <div class="md:col-span-1">
-                                    <label for="address">Address / Street</label>
-                                    <input type="text" name="address" id="address" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
-                                </div>
-
-                                <div class="md:col-span-1">
-                                    <label for="city">Type</label>
-                                    <select name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
-                                        <option>Business Loan</option>
-                                        <option>Personal Loan</option>
+                                    <select name="type" id="type" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{$customer->type}}" />
+                                        <option value="business loan">Business Loan</option>
+                                        <option value="personal loan">Personal Loan</option>
                                     </select>
                                 </div>
                             </div>
@@ -62,21 +56,21 @@
                                 <div class="md:col-span-2">
                                     <label for="first_name">First Name</label>
                                     <div>
-                                        <input name="first_name" id="first_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                        <input name="first_name" id="first_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{$customer->first_name}}" />
                                     </div>
                                 </div>
 
                                 <div class="md:col-span-2">
                                     <label for="last_name">Last Name</label>
                                     <div>
-                                        <input name="last_name" id="last_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                        <input name="last_name" id="last_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{$customer->last_name}}" />
                                     </div>
                                 </div>
 
                                 <div class="md:col-span-2">
                                     <label for="middle_name">Middle Name</label>
                                     <div>
-                                        <input name="middle_name" id="middle_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                        <input name="middle_name" id="middle_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{$customer->middle_name}}" />
                                     </div>
                                 </div>
                             </div>  
@@ -96,24 +90,24 @@
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
                                 <div class="md:col-span-1">
                                     <label for="house">House/Bldg. No</label>
-                                    <input type="text" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                    <input type="text" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{$customer->house}}" placeholder="" />
                                 </div>
 
                                 <div class="md:col-span-1">
                                     <label for="street">Street</label>
-                                    <input type="text" name="street" id="street" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                    <input type="text" name="street" id="street" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{$customer->street}}" placeholder="" />
                                 </div>
                             </div>
 
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2 mt-4">
                                 <div class="md:col-span-1">
                                     <label for="barangay">Barangay</label>
-                                    <input type="text" name="barangay" id="barangay" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                    <input type="text" name="barangay" id="barangay" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{$customer->barangay}}" placeholder="" />
                                 </div>
 
                                 <div class="md:col-span-1">
                                     <label for="city">City/Town</label>
-                                    <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                    <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{$customer->city}}" placeholder="" />
                                 </div>
                             </div>
                         </div>
@@ -132,24 +126,24 @@
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
                                 <div class="md:col-span-1">
                                     <label for="job_position">Job Position</label>
-                                    <input type="text" name="job_position" id="job_position" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                    <input type="text" name="job_position" id="job_position" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{$customer->job_position}}" placeholder="" />
                                 </div>
 
                                 <div class="md:col-span-1">
                                     <label for="salary_sched">Salary Sched</label>
-                                    <input type="text" name="salary_sched" id="salary_sched" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                    <input type="text" name="salary_sched" id="salary_sched" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{$customer->salary_sched}}" placeholder="" />
                                 </div>
                             </div>
 
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2 mt-4">
                                 <div class="md:col-span-1">
                                     <label for="tel_number">Tel No.</label>
-                                    <input type="text" name="tel_number" id="tel_number" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                    <input type="text" name="tel_number" id="tel_number" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{$customer->tel_number}}" placeholder="" />
                                 </div>
 
                                 <div class="md:col-span-1">
                                     <label for="cell_number">Cell No.</label>
-                                    <input type="text" name="cell_number" id="cell_number" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                    <input type="text" name="cell_number" id="cell_number" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{$customer->cell_number}}" placeholder="" />
                                 </div>
                             </div>
                         </div>
@@ -167,9 +161,9 @@
                         <div class="lg:col-span-2">
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
                                 <div class="md:col-span-1">
-                                    <select name="status" id="status" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
-                                        <option>Single</option>
-                                        <option>Married</option>
+                                    <select name="status" id="status" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{$customer->status}}" />
+                                        <option value="single">Single</option>
+                                        <option value="married">Married</option>
                                     </select>
                                 </div>
                             </div>
