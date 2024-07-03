@@ -33,8 +33,8 @@
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
                                 <div class="md:col-span-1">
                                     <select name="type" id="type" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{$customer->type}}" />
-                                        <option value="business loan">Business Loan</option>
-                                        <option value="personal loan">Personal Loan</option>
+                                        <option value="business loan" {{$customer->type == 'business loan' ? 'selected' : ''}}>Business Loan</option>
+                                        <option value="personal loan" {{$customer->type == 'personal loan' ? 'selected' : ''}}>Personal Loan</option>
                                     </select>
                                 </div>
                             </div>
@@ -162,8 +162,8 @@
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
                                 <div class="md:col-span-1">
                                     <select name="status" id="status" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{$customer->status}}" />
-                                        <option value="single">Single</option>
-                                        <option value="married">Married</option>
+                                        <option value="single" {{$customer->status == 'single' ? 'selected' : ''}}>Single</option>
+                                        <option value="married" {{$customer->status == 'married' ? 'selected' : ''}}>Married</option>
                                     </select>
                                 </div>
                             </div>

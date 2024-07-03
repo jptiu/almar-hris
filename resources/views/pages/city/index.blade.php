@@ -63,7 +63,7 @@
                                             {{$list->code}}
                                         </td>
                                         <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                            {{$list->city}}
+                                            {{$list->city_town}}
                                         </td>
                                         <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
                                             <div class="flex items-center gap-x-2">
