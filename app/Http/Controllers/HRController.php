@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class HRController extends Controller
 {
@@ -11,6 +12,8 @@ class HRController extends Controller
      */
     public function index()
     {
+        abort_unless(Gate::allows('hr_access'), 404);
+        
         return view('pages.hr.index');
     }
 

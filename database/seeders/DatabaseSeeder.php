@@ -71,6 +71,22 @@ class DatabaseSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now()
         ]);
+        \App\Models\User::factory()->create([
+            'name' => 'James',
+            'email' => 'collector@almarfinance.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('password'),
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Kent',
+            'email' => 'collector2@almarfinance.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('password'),
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
 
         $this->call([
             DashboardTableSeeder::class,

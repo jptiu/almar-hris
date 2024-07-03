@@ -285,6 +285,36 @@ class PermissionsTableSeeder extends Seeder
                 'title'      => 'auditor_access',
                 'created_at' => '2019-04-16 08:40:35',
                 'updated_at' => '2019-04-16 08:40:35',
+            ],
+            [
+                'id'         => '47',
+                'title'      => 'collector_create',
+                'created_at' => '2019-04-16 08:40:35',
+                'updated_at' => '2019-04-16 08:40:35',
+            ],
+            [
+                'id'         => '48',
+                'title'      => 'collector_edit',
+                'created_at' => '2019-04-16 08:40:35',
+                'updated_at' => '2019-04-16 08:40:35',
+            ],
+            [
+                'id'         => '49',
+                'title'      => 'collector_show',
+                'created_at' => '2019-04-16 08:40:35',
+                'updated_at' => '2019-04-16 08:40:35',
+            ],
+            [
+                'id'         => '50',
+                'title'      => 'collector_delete',
+                'created_at' => '2019-04-16 08:40:35',
+                'updated_at' => '2019-04-16 08:40:35',
+            ],
+            [
+                'id'         => '51',
+                'title'      => 'collector_access',
+                'created_at' => '2019-04-16 08:40:35',
+                'updated_at' => '2019-04-16 08:40:35',
             ]
         ];
 

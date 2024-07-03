@@ -89,10 +89,9 @@
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
                                 <div class="md:col-span-1">
                                     <select name="user_id" id="user_id" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
-                                        <option value="branch_manager_1">Dumapias</option>
-                                        <option value="branch_manager_2">Jelmi</option>
-                                        <option value="branch_manager_3">Marcial</option>
-                                        <option value="branch_manager_3">Molena</option>
+                                        @foreach($collectors as $collector)
+                                        <option value="{{$collector->user_id}}">{{$collector->name}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>

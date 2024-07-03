@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\BarangayCreateRequest;
 use App\Http\Requests\BarangayUpdateRequest;
 use App\Models\Barangay;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
@@ -27,8 +28,12 @@ class BarangayController extends Controller
     public function add()
     {
         abort_unless(Gate::allows('loan_access'), 404);
+        $collectors = User::where('roles.title', 'Collector')
+        ->join('role_user', 'users.id', '=', 'role_user.user_id')
+        ->join('roles', 'role_user.role_id', '=', 'roles.id')
+        ->get();
 
-        return view('pages.barangay.add.index');
+        return view('pages.barangay.add.index', compact('collectors'));
     }
 
     /**
@@ -52,13 +57,13 @@ class BarangayController extends Controller
         abort_unless(Gate::allows('loan_access'), 404);
         if($request->validated()){
             $brgy = new Barangay();
-            $brgy->barangay = $request->barangay;
+            $brgy->barangay_name = $request->barangay_name;
             $brgy->code = $request->code;
             $brgy->city = $request->city;
             $brgy->user_id = $request->user_id;
             $brgy->save();
 
-            return redirect()->back()->with('success', 'Barangay Created.');
+            return redirect(route("barangay.index"))->with('success', 'Created Successfully');
         }
     }
 
@@ -71,7 +76,7 @@ class BarangayController extends Controller
     public function show($id)
     {
         abort_unless(Gate::allows('loan_access'), 404);
-        $brgy = Barangay::where('id', $id)->get();
+        $brgy = Barangay::where('id', $id)->first();
 
         return view('barangay.show', compact('brgy'));
     }
