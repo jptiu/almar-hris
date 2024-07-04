@@ -139,6 +139,7 @@ class CustomerController extends Controller
 
         // Read the CSV data
         $csvData = file_get_contents($file);
+        // dd($csvData);
 
         // Split CSV data into rows
         $rows = array_map('str_getcsv', explode("\n", $csvData));
@@ -166,6 +167,6 @@ class CustomerController extends Controller
             ]);
         }
 
-        return redirect()->back()->with('success', 'CSV data imported successfully.');
+        return redirect(route("customer.index"))->with('success', 'CSV Data Imported Successfully');
     }
 }
