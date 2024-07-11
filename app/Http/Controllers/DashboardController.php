@@ -12,6 +12,14 @@ class DashboardController extends Controller
     {
         if (Auth::user()->roles[0]->title == 'HR') {
             return redirect(route("hr.index"));
+        } else if (Auth::user()->roles[0]->title == 'Branch Manager') {
+            return redirect(route("branch.index"));
+        } else if (Auth::user()->roles[0]->title == 'Loan Officer') {
+            return redirect(route("loanofficer.index"));
+        } else if (Auth::user()->roles[0]->title == 'Auditor') {
+            return redirect(route("auditor.index"));
+        } else if (Auth::user()->roles[0]->title == 'Collector') {
+            return redirect(route("collector.index"));
         } else {
             $dataFeed = new DataFeed();
 
