@@ -5,16 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
-class HRController extends Controller
+class BMController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        abort_unless(Gate::allows('hr_access'), 404);
+        abort_unless(Gate::allows('branch_access'), 404);
         
-        return view('pages.hr.index');
+        return view('pages.branch.index');
     }
 
     /**
@@ -63,31 +63,5 @@ class HRController extends Controller
     public function destroy(string $id)
     {
         //
-    }
-
-    /**
-     * The function `loanRenewals` returns a view for the HR renewals index page in a PHP application.
-     * 
-     * @return A view named 'index' located in the 'renewals' folder within the 'hr' folder in the
-     * 'pages' directory is being returned.
-     */
-    public function loanRenewals()
-    {
-        return view('pages.hr.renewals.index');
-    }
-
-    public function auditScheduling()
-    {
-        return view('pages.hr.audit.index');
-    }
-
-    public function pendingLoanApprovals()
-    {
-        return view('pages.hr.loanapprovals.index');
-    }
-
-    public function employeeEvaluation()
-    {
-        return view('pages.hr.evaluations.index');
     }
 }

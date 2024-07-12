@@ -1,13 +1,17 @@
 <?php
 
+use App\Http\Controllers\AuditorController;
+use App\Http\Controllers\BMController;
 use App\Http\Controllers\BreakdownController;
 use App\Http\Controllers\CityTownController;
 use App\Http\Controllers\CollectionController;
+use App\Http\Controllers\CollectorController;
 use App\Http\Controllers\CustomerTypeController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ExpensesController;
 use App\Http\Controllers\HRController;
 use App\Http\Controllers\LoanController;
+use App\Http\Controllers\LOController;
 use App\Models\Employee;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataFeedController;
@@ -108,4 +112,21 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // HR
     Route::get('hr', [HRController::class, 'index'])->name('hr.index');
     Route::get('employee', [EmployeeController::class, 'index'])->name('employee.index');
+    Route::get('renewals', [HRController::class, 'loanRenewals'])->name('renewals.index');
+    Route::get('audit', [HRController::class, 'auditScheduling'])->name('audit.index');
+    Route::get('loan-approvals', [HRController::class, 'pendingLoanApprovals'])->name('loan-approvals.index');
+    Route::get('evaluations', [HRController::class, 'employeeEvaluation'])->name('evaluations.index');
+    
+    // Auditor
+    Route::get('auditor', [AuditorController::class, 'index'])->name('auditor.index');
+
+    // Branch
+    Route::get('branch', [BMController::class, 'index'])->name('branch.index');
+
+    // Collector
+    Route::get('collector', [CollectorController::class, 'index'])->name('collector.index');
+
+    // Loan Officer
+    Route::get('loanofficer', [LOController::class, 'index'])->name('loanofficer.index');
+
 });

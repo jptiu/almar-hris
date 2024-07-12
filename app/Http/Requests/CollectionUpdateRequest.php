@@ -23,12 +23,12 @@ class CollectionUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'user_id' => 'string',
+            'customer_id' => 'string',
             'name' => 'string',
             'type' => 'string',
             'status' => 'string',
             'trans_no' => 'string',
-            'collector_id' => 'string',
+            'user_id' => 'string',
             'date' => 'string',
         ];
     }

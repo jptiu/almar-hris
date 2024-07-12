@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('collections', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
+            $table->string('customer_id');
             $table->string('name');
             $table->string('type');
             $table->string('status');
             $table->string('trans_no');
-            $table->string('collector_id');
+            $table->string('user_id');
             $table->string('date');
             $table->timestamps();
         });

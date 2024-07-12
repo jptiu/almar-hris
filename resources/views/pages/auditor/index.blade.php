@@ -31,25 +31,7 @@
         
         <!-- Cards -->
         <div class="grid gap-6">
-            <form action="{{ route('customer.importcsv') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <div class="messages">
-                  @if (session('success'))
-                    <div class="alert alert-success">
-                      {{ session('success') }}
-                    </div>
-                  @endif
-                </div>
-                <div class="fields">
-                    <div class="input-group mb-3">
-                        <input type="file" class="form-control" id="file" name="file" accept=".csv">
-                        <label class="input-group-text" for="file">Upload</label>
-                    </div>
-                </div>
-                <button type="submit" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
-                    <span class="hidden xs:block">Import</span>
-                </button>
-            </form>
+            <p>Auditor Dashboard</p>
         </div>
 
     </div>
