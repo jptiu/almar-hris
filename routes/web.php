@@ -47,6 +47,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::post('barangay/update/{id}', [BarangayController::class, 'update'])->name('barangay.update');
     Route::get('barangay/show/{id}', [BarangayController::class, 'show'])->name('barangay.show');
     Route::delete('barangay/destroy/{id}', [BarangayController::class, 'destroy'])->name('barangay.destroy');
+    Route::post('barangay/import', [BarangayController::class, 'importCSV'])->name('barangay.importcsv');
     
     // Customer
     // Route::resource('customer', App\Http\Controllers\CustomerController::class);
@@ -67,6 +68,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::post('customer-type/store', [CustomerTypeController::class, 'store'])->name('customerType.store');
     Route::post('customer-type/update/{id}', [CustomerTypeController::class, 'update'])->name('customerType.update');
     Route::delete('customer-type/destroy/{id}', [CustomerTypeController::class, 'destroy'])->name('customerType.destroy');
+    Route::post('customer-type/import', [CustomerTypeController::class, 'importCSV'])->name('customerType.importcsv');
 
     // City/ or Town
     // Route::resource('city', App\Http\Controllers\CityTownController::class);
@@ -76,6 +78,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::post('city/update/{id}', [CityTownController::class, 'update'])->name('city.update');
     Route::get('city/show/{id}', [CityTownController::class, 'show'])->name('city.show');
     Route::delete('city/destroy/{id}', [CityTownController::class, 'destroy'])->name('city.destroy');
+    Route::post('city/import', [CityTownController::class, 'importCSV'])->name('city.importcsv');
 
     // Loan
     Route::get('loan', [LoanController::class, 'index'])->name('loan.index');

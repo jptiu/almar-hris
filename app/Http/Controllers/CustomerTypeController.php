@@ -115,4 +115,35 @@ class CustomerTypeController extends Controller
 
         return redirect()->back()->with('success', 'Customer Type deleted.');
     }
+
+    public function importCSV(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|mimes:csv,txt|max:2048', // Validate the uploaded file
+        ]);
+
+        $file = $request->file('file');
+
+        // Read the CSV data
+        $csvData = file_get_contents($file);
+        // dd($csvData);
+
+        // Split CSV data into rows
+        $rows = array_map('str_getcsv', explode("\n", $csvData));
+
+        // Remove the header row if it exists
+        $header = array_shift($rows);
+        // dd($header);
+
+        foreach ($rows as $row) {
+            // Create and save your model instance
+            CustomerType::create([
+                'description' => $row[0],
+                'code' => $row[1],
+                'user_id' => $row[2],
+            ]);
+        }
+
+        return redirect(route("customerType.index"))->with('success', 'CSV Data Imported Successfully');
+    }
 }
