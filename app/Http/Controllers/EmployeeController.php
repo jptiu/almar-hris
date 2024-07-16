@@ -23,6 +23,15 @@ class EmployeeController extends Controller
         return view('pages.hr.employee.index', compact('lists'));
     }
 
+    public function add()
+    {
+        abort_unless(Gate::allows('hr_access'), 404);
+        $lists = Employee::get();
+
+        return view('pages.hr.employee.add.index', compact('lists'));
+    }
+
+
     /**
      * Show the form for creating a new resource.
      */

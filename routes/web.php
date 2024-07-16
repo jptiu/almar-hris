@@ -111,11 +111,14 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     // HR
     Route::get('hr', [HRController::class, 'index'])->name('hr.index');
-    Route::get('employee', [EmployeeController::class, 'index'])->name('employee.index');
     Route::get('renewals', [HRController::class, 'loanRenewals'])->name('renewals.index');
     Route::get('audit', [HRController::class, 'auditScheduling'])->name('audit.index');
     Route::get('loan-approvals', [HRController::class, 'pendingLoanApprovals'])->name('loan-approvals.index');
     Route::get('evaluations', [HRController::class, 'employeeEvaluation'])->name('evaluations.index');
+
+    // Employee
+    Route::get('employee', [EmployeeController::class, 'index'])->name('employee.index');
+    Route::get('employee-add', [EmployeeController::class, 'add'])->name('employee.add');
     
     // Auditor
     Route::get('auditor', [AuditorController::class, 'index'])->name('auditor.index');
