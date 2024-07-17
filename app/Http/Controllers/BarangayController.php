@@ -136,62 +136,32 @@ class BarangayController extends Controller
     public function importCSV(Request $request)
     {
         $request->validate([
-            'import_csv' => 'required|mimes:csv',
+            'file' => 'required|mimes:csv,txt|max:2048', // Validate the uploaded file
         ]);
-        //read csv file and skip data
-        $file = $request->file('import_csv');
-        $handle = fopen($file->path(), 'r');
 
-        //skip the header row
-        fgetcsv($handle);
+        $file = $request->file('file');
 
-        $chunksize = 25;
-        while(!feof($handle))
-        {
-            $chunkdata = [];
+        // Read the CSV data
+        $csvData = file_get_contents($file);
+        // dd($csvData);
 
-            for($i = 0; $i<$chunksize; $i++)
-            {
-                $data = fgetcsv($handle);
-                if($data === false)
-                {
-                    break;
-                }
-                $chunkdata[] = $data; 
-            }
+        // Split CSV data into rows
+        $rows = array_map('str_getcsv', explode("\n", $csvData));
 
-            $this->getchunkdata($chunkdata);
+        // Remove the header row if it exists
+        $header = array_shift($rows);
+        // dd($header);
+
+        foreach ($rows as $row) {
+            // Create and save your model instance
+            Barangay::create([
+                'barangay_name' => $row[0],
+                'code' => $row[1],
+                'city' => $row[2],
+                'user_id' => $row[3],
+            ]);
         }
-        fclose($handle);
 
-        return redirect()->route('employee.create')->with('success', 'Data has been added successfully.');
-    }
-
-    public function getchunkdata($chunkdata)
-    {
-        foreach($chunkdata as $column){
-            $firstname = $column[0];
-            $lastname = $column[1];
-            $email = $column[2];
-            $phoneNumber = $column[3];
-            $dateOfBirth = $column[4];
-            $gender = $column[5];
-            $address = $column[6];
-            $skill = json_encode([$column[7]]);
-            $sallary = $column[8];
-
-            //create new employee
-            $employee = new Barangay();
-            $employee->first_name = $firstname;
-            $employee->last_name = $lastname;
-            $employee->email = $email;
-            $employee->phone = $phoneNumber;
-            $employee->date_of_birth = $dateOfBirth;
-            $employee->gender = $gender;
-            $employee->address = $address;
-            $employee->skills = $skill;
-            $employee->basic_salary = $sallary;
-            $employee->save();
-        }
+        return redirect(route("barangay.index"))->with('success', 'CSV Data Imported Successfully');
     }
 }
