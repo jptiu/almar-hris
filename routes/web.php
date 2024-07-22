@@ -6,6 +6,7 @@ use App\Http\Controllers\BreakdownController;
 use App\Http\Controllers\CityTownController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\CollectorController;
+use App\Http\Controllers\ComputeCOHController;
 use App\Http\Controllers\CustomerTypeController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ExpensesController;
