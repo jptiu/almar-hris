@@ -4,6 +4,8 @@ use App\Http\Controllers\AuditorController;
 use App\Http\Controllers\BMController;
 use App\Http\Controllers\BreakdownController;
 use App\Http\Controllers\CityTownController;
+use App\Http\Controllers\CLDController;
+use App\Http\Controllers\CLMController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\CollectorController;
 use App\Http\Controllers\ComputeCOHController;
@@ -109,6 +111,19 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     // Compute Cash on Hand
     Route::get('compute', [ComputeCOHController::class, 'index'])->name('compute.index');
+
+    // Daily
+    Route::get('daily', [CLDController::class, 'index'])->name('daily.index');
+    Route::get('daily/store', [CLDController::class, 'store'])->name('daily.store');
+    Route::get('daily/update/{id}', [CLDController::class, 'update'])->name('daily.update');
+    Route::get('daily/destroy/{id}', [CLDController::class, 'destroy'])->name('daily.destroy');
+
+    // Monthly
+    Route::get('monthly', [CLMController::class, 'index'])->name('monthly.index');
+    Route::get('monthly/store', [CLMController::class, 'store'])->name('monthly.store');
+    Route::get('monthly/update/{id}', [CLMController::class, 'update'])->name('monthly.update');
+    Route::get('monthly/destroy/{id}', [CLMController::class, 'destroy'])->name('monthly.destroy');
+
 
     // Route for the getting the data feed
     Route::get('/json-data-feed', [DataFeedController::class, 'getDataFeed'])->name('json_data_feed');
