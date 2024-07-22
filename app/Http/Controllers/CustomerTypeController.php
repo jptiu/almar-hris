@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CustomerTypeCreateRequest;
 use App\Http\Requests\CustomerTypeUpdateRequest;
 use App\Models\CustomerType;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
@@ -22,7 +23,18 @@ class CustomerTypeController extends Controller
         ->where('code', 'LIKE', '%', $request->search, '%')->orderBy("created_at", "asc")
         ->get();
 
-        return view('pages.customer.type.index', compact('lists'));
+        return view('pages.customerType.index', compact('lists'));
+    }
+
+    public function add()
+    {
+        abort_unless(Gate::allows('loan_access'), 404);
+        $collectors = User::where('roles.title', 'Collector')
+        ->join('role_user', 'users.id', '=', 'role_user.user_id')
+        ->join('roles', 'role_user.role_id', '=', 'roles.id')
+        ->get();
+
+        return view('pages.customerType.add.index', compact('collectors'));
     }
 
     /**
@@ -51,7 +63,7 @@ class CustomerTypeController extends Controller
             $customer->user_id = $request->user_id;
             $customer->save();
 
-            return redirect()->back()->with('success', 'Customer Type Created.');
+            return redirect(route("customerType.index"))->with('success', 'Customer Type Created Successfully');
         }
     }
 
@@ -65,10 +77,14 @@ class CustomerTypeController extends Controller
     {
         abort_unless(Gate::allows('loan_access'), 404);
         $customer = CustomerType::where('id', $id)->first();
+        $collectors = User::where('roles.title', 'Collector')
+        ->join('role_user', 'users.id', '=', 'role_user.user_id')
+        ->join('roles', 'role_user.role_id', '=', 'roles.id')
+        ->get();
 
-        return view('customer.type.show', compact('customer'));
+        return view('pages.customerType.update.index', compact('customer','collectors'));
+
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -87,7 +103,7 @@ class CustomerTypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CustomerTypeUpdateRequest $request, $id)
+    public function update(CustomerTypeUpdateRequest $request, string $id)
     {
         abort_unless(Gate::allows('loan_access'), 404);
         if($request->validated()){
@@ -96,8 +112,8 @@ class CustomerTypeController extends Controller
             $customer->description = $request->description;
             $customer->user_id = $request->user_id;
             $customer->update();
-    
-            return redirect()->back()->with('success', 'Customer Type Updated.');
+
+            return redirect(route("customerType.index"))->with('success', 'Custoemr Type Updated Successfully');
         }
     }
 

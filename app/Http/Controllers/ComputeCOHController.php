@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class ComputeCOHController extends Controller
 {
@@ -11,7 +12,9 @@ class ComputeCOHController extends Controller
      */
     public function index()
     {
-        //
+        abort_unless(Gate::allows('loan_access'), 404);
+
+        return view('pages.compute.index');
     }
 
     /**

@@ -65,8 +65,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // Customer Type
     // Route::resource('customer-type', App\Http\Controllers\CustomerTypeController::class);
     Route::get('customer-type', [CustomerTypeController::class, 'index'])->name('customerType.index');
+    Route::get('customer-type-add', [CustomerTypeController::class, 'add'])->name('customerType.add');
     Route::post('customer-type/store', [CustomerTypeController::class, 'store'])->name('customerType.store');
     Route::post('customer-type/update/{id}', [CustomerTypeController::class, 'update'])->name('customerType.update');
+    Route::get('customer-type/show/{id}', [CustomerTypeController::class, 'show'])->name('customerType.show');
     Route::delete('customer-type/destroy/{id}', [CustomerTypeController::class, 'destroy'])->name('customerType.destroy');
     Route::post('customer-type/import', [CustomerTypeController::class, 'importCSV'])->name('customerType.importcsv');
 
@@ -103,6 +105,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::post('expenses/store', [ExpensesController::class, 'store'])->name('expenses.store');
     Route::post('expenses/update/{id}', [ExpensesController::class, 'update'])->name('expenses.update');
     Route::delete('expenses/destroy/{id}', [ExpensesController::class, 'destroy'])->name('expenses.destroy');
+
+    // Compute Cash on Hand
+    Route::get('compute', [ComputeCOHController::class, 'index'])->name('compute.index');
 
     // Route for the getting the data feed
     Route::get('/json-data-feed', [DataFeedController::class, 'getDataFeed'])->name('json_data_feed');
