@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CLMCreateRequest;
+use App\Http\Requests\CLMUpdateRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
-class ComputeCOHController extends Controller
+class CLMController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +16,7 @@ class ComputeCOHController extends Controller
     {
         abort_unless(Gate::allows('loan_access'), 404);
 
-        return view('pages.compute.index');
+        return view('pages.customer.month.index');
     }
 
     /**
@@ -28,7 +30,7 @@ class ComputeCOHController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CLMCreateRequest $request)
     {
         //
     }
@@ -52,7 +54,7 @@ class ComputeCOHController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(CLMUpdateRequest $request, string $id)
     {
         //
     }
