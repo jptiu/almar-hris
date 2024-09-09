@@ -156,4 +156,34 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // Loan Officer
     Route::get('loanofficer', [LOController::class, 'index'])->name('loanofficer.index');
 
+    // Employee Evaluation
+    Route::get('branch/employee-evaluation', [BMController::class, 'employeeEvaluation'])->name('employeeEvaluation.index');
+
+    // Cash Advance Request Form
+    Route::get('branch/cash-advance-req-form', [BMController::class, 'cashReqForm'])->name('cashReqForm.index');
+
+    // Cash Bond
+    Route::get('branch/cash-bond', [BMController::class, 'cashBond'])->name('cashBond.index');
+
+    // Bad Account
+    Route::get('branch/bad-account', [BMController::class, 'badAccount'])->name('badAccount.index');
+
+    // Todays Payer
+    Route::get('branch/todays-payer', [BMController::class, 'todaysPayer'])->name('todaysPayer.index');
+
+    // Late Payer
+    Route::get('branch/late-payer', [BMController::class, 'latePayer'])->name('latePayer.index');
+
+    // Pending Loan Approval
+    Route::get('branch/pending-loan-approval', [BMController::class, 'pendingLoandApproval'])->name('pendingLoandApproval.index');
+
+    // Approved Loans
+    Route::get('branch/approved-loan', [BMController::class, 'approvedLoan'])->name('approvedLoan.index');
+
+    // Rejected Loans
+    Route::get('branch/rejected-loan', [BMController::class, 'rejectedLoan'])->name('rejectedLoan.index');
+
+    // Loan Renewal
+    Route::get('branch/loan-renewal', [BMController::class, 'loanRenewal'])->name('loanRenewal.index');
+
 });

@@ -13,7 +13,7 @@ class BreakdownController extends Controller
      */
     public function index()
     {
-        abort_unless(Gate::allows('loan_access'), 404);
+        //abort_unless(Gate::allows('loan_access'), 404);
         $lists = Breakdown::with('user')->get();
 
         return view('pages.breakdown.index', compact('lists'));

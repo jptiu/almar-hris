@@ -17,7 +17,7 @@ class CityTownController extends Controller
      */
     public function index(Request $request)
     {
-        abort_unless(Gate::allows('loan_access'), 404);
+        //abort_unless(Gate::allows('loan_access'), 404);
         $lists = CityTown::with('user')
         ->where('city_town', 'LIKE', '%', $request->search, '%')->orderBy("created_at", "asc")
         ->get();

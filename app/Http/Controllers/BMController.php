@@ -64,4 +64,54 @@ class BMController extends Controller
     {
         //
     }
+
+    public function employeeEvaluation(Request $request)
+    {
+        return view('pages.employeeevaluation.index');
+    }
+
+    public function cashReqForm(Request $request)
+    {
+        return view('pages.cashadvreqform.index');
+    }
+
+    public function cashBond(Request $request)
+    {
+        return view('pages.cashbond.index');
+    }
+
+    public function badAccount(Request $request)
+    {
+        return view('pages.badacc.index');
+    }
+
+    public function todaysPayer(Request $request)
+    {
+        return view('pages.todaypayer.index');
+    }
+
+    public function latePayer(Request $request)
+    {
+        return view('pages.latepayer.index');
+    }
+
+    public function pendingLoandApproval(Request $request)
+    {
+        return view('pages.pendingloanapp.index');
+    }
+
+    public function approvedLoan(Request $request)
+    {
+        return view('pages.pendingloanapp.approvedloans.index');
+    }
+
+    public function rejectedLoan(Request $request)
+    {
+        return view('pages.pendingloanapp.rejectedloans.index');
+    }
+
+    public function loanRenewal(Request $request)
+    {
+        return view('pages.loanrenewal.index');
+    }
 }
