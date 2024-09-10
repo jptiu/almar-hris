@@ -3,18 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Gate;
 
-class LOController extends Controller
+class SuperAdminController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        abort_unless(Gate::allows('loan_access'), 404);
-        
-        return view('pages.loanofficer.index');
+        //
     }
 
     /**
@@ -65,13 +62,8 @@ class LOController extends Controller
         //
     }
 
-    public function badAccount(Request $request)
+    public function monthlyReport(Request $request)
     {
-        return view('pages.badacc.index');
-    }
-
-    public function empPayroll(Request $request)
-    {
-        return view('pages.payroll.index');
+        return view('pages.superadmin.monthlyreport.index');
     }
 }

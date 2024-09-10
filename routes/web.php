@@ -186,4 +186,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // Loan Renewal
     Route::get('branch/loan-renewal', [BMController::class, 'loanRenewal'])->name('loanRenewal.index');
 
+    // Payroll
+    Route::get('loanofficer/pay-roll', [LOController::class, 'empPayroll'])->name('empPayroll.index');
+
+     // Monthly Report
+     Route::get('superadmin/pay-roll', [SuperAdminController::class, 'monthlyReport'])->name('monthlyReport.index');
+
 });
