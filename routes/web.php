@@ -15,6 +15,7 @@ use App\Http\Controllers\ExpensesController;
 use App\Http\Controllers\HRController;
 use App\Http\Controllers\LoanController;
 use App\Http\Controllers\LOController;
+use App\Http\Controllers\SuperAdminController;
 use App\Models\Employee;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataFeedController;

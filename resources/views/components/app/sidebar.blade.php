@@ -606,7 +606,7 @@
                         </li>
                     @endcan
 
-                    @can('superadmin_access')
+                    @can('admin_access')
                         <!-- Dashboard -->
                         <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['dashboard'])) {{ 'bg-slate-900' }} @endif"
                             x-data="{ open: {{ in_array(Request::segment(1), ['dashboard']) ? 1 : 0 }} }">
