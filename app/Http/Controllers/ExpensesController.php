@@ -13,7 +13,7 @@ class ExpensesController extends Controller
      */
     public function index()
     {
-        abort_unless(Gate::allows('loan_access'), 404);
+        abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access') || Gate::allows('hr_access'), 404);
         $lists = Expenses::get();
 
         return view('pages.expenses.index', compact('lists'));

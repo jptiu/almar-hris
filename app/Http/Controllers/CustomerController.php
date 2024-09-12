@@ -15,7 +15,7 @@ class CustomerController extends Controller
      */
     public function index(Request $request)
     {
-        abort_unless(Gate::allows('loan_access'), 404);
+        abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
         $lists = Customer::where('first_name', 'LIKE', '%', $request->search, '%')->orderBy("created_at", "asc")->get();
 
         return view('pages.customer.index', compact('lists'));
@@ -23,7 +23,7 @@ class CustomerController extends Controller
 
     public function add()
     {
-        abort_unless(Gate::allows('loan_access'), 404);
+        abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
 
         return view('pages.customer.add.index');
     }
@@ -41,7 +41,7 @@ class CustomerController extends Controller
      */
     public function store(CustomerCreateRequest $request)
     {
-        abort_unless(Gate::allows('loan_access'), 404);
+        abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
         if ($request->validated()) {
             $customer = new Customer();
             $customer->type = $request->type;
@@ -69,7 +69,7 @@ class CustomerController extends Controller
      */
     public function show(string $id)
     {
-        abort_unless(Gate::allows('loan_access'), 404);
+        abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
         $customer = Customer::where('id', $id)->first();
 
         return view('pages.customer.update.index', compact('customer'));
@@ -88,7 +88,7 @@ class CustomerController extends Controller
      */
     public function update(CustomerUpdateRequest $request, string $id)
     {
-        abort_unless(Gate::allows('loan_access'), 404);
+        abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
         if ($request->validated()) {
             $customer = Customer::find($id);
             $customer->type = $request->type;
@@ -116,7 +116,7 @@ class CustomerController extends Controller
      */
     public function destroy(string $id)
     {
-        abort_unless(Gate::allows('loan_access'), 404);
+        abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
         $customer = Customer::find($id);
         $customer->delete();
 

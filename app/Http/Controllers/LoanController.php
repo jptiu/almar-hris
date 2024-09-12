@@ -15,7 +15,7 @@ class LoanController extends Controller
      */
     public function index()
     {
-        abort_unless(Gate::allows('loan_access'), 404);
+        abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
         $lists = Loan::get();
 
         return view('pages.loan.entry.index', compact('lists'));
@@ -34,7 +34,7 @@ class LoanController extends Controller
      */
     public function store(LoanCreateRequest $request)
     {
-        abort_unless(Gate::allows('loan_access'), 404);
+        abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
         if ($request->validated()) {
             $loan = new Loan();
             $loan->loan_type = $request->loan_type;
@@ -63,7 +63,7 @@ class LoanController extends Controller
      */
     public function show(string $id)
     {
-        abort_unless(Gate::allows('loan_access'), 404);
+        abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
         $loan = Loan::find($id);
         
         return view('pages.loan.entry.index', compact('loan'));
@@ -82,7 +82,7 @@ class LoanController extends Controller
      */
     public function update(LoanUpdateRequest $request, string $id)
     {
-        abort_unless(Gate::allows('loan_access'), 404);
+        abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
         if ($request->validated()) {
             $loan = Loan::find($id);
             $loan->loan_type = $request->loan_type;
@@ -111,7 +111,7 @@ class LoanController extends Controller
      */
     public function destroy(string $id)
     {
-        abort_unless(Gate::allows('loan_access'), 404);
+        abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
         $loan = Loan::find($id);
         $loan->delete();
 
