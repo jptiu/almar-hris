@@ -486,8 +486,8 @@
                             </a>
                         </li>
                         <!-- Bad Accounts -->
-                        <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['customer-type'])) {{ 'bg-slate-900' }} @endif"
-                            x-data="{ open: {{ in_array(Request::segment(1), ['customer-type']) ? 1 : 0 }} }">
+                        <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['badAccount'])) {{ 'bg-slate-900' }} @endif"
+                            x-data="{ open: {{ in_array(Request::segment(1), ['badAccount']) ? 1 : 0 }} }">
                             <a href="{{ route('badAccount.index') }}"
                                 class="block text-slate-200 transition duration-150"
                                 :class="open ? 'hover:text-slate-200' : 'hover:text-white'">
@@ -495,10 +495,10 @@
                                     <div class="flex items-center">
                                         <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
                                             <path
-                                                class="fill-current @if (in_array(Request::segment(1), ['customer-type'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
+                                                class="fill-current @if (in_array(Request::segment(1), ['badAccount'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
                                                 d="M19 5h1v14h-2V7.414L5.707 19.707 5 19H4V5h2v11.586L18.293 4.293 19 5Z" />
                                             <path
-                                                class="fill-current @if (in_array(Request::segment(1), ['customer-type'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
+                                                class="fill-current @if (in_array(Request::segment(1), ['badAccount'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
                                                 d="M5 9a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm14 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8ZM5 23a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm14 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z" />
                                         </svg>
                                         <span
@@ -509,8 +509,8 @@
                         </li>
 
                         <!-- Payroll -->
-                        <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['customer-type'])) {{ 'bg-slate-900' }} @endif"
-                            x-data="{ open: {{ in_array(Request::segment(1), ['customer-type']) ? 1 : 0 }} }">
+                        <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['empPayroll'])) {{ 'bg-slate-900' }} @endif"
+                            x-data="{ open: {{ in_array(Request::segment(1), ['empPayroll']) ? 1 : 0 }} }">
                             <a href="{{ route('empPayroll.index') }}"
                                 class="block text-slate-200 transition duration-150"
                                 :class="open ? 'hover:text-slate-200' : 'hover:text-white'">
@@ -518,10 +518,10 @@
                                     <div class="flex items-center">
                                         <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
                                             <path
-                                                class="fill-current @if (in_array(Request::segment(1), ['customer-type'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
+                                                class="fill-current @if (in_array(Request::segment(1), ['empPayroll'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
                                                 d="M19 5h1v14h-2V7.414L5.707 19.707 5 19H4V5h2v11.586L18.293 4.293 19 5Z" />
                                             <path
-                                                class="fill-current @if (in_array(Request::segment(1), ['customer-type'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
+                                                class="fill-current @if (in_array(Request::segment(1), ['empPayroll'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
                                                 d="M5 9a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm14 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8ZM5 23a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm14 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z" />
                                         </svg>
                                         <span
@@ -1002,8 +1002,8 @@
                         </li>
 
                          <!-- Bad Account -->
-                         <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['customer-type'])) {{ 'bg-slate-900' }} @endif"
-                            x-data="{ open: {{ in_array(Request::segment(1), ['customer-type']) ? 1 : 0 }} }">
+                         <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['badAccount'])) {{ 'bg-slate-900' }} @endif"
+                            x-data="{ open: {{ in_array(Request::segment(1), ['badAccount']) ? 1 : 0 }} }">
                             <a href="{{ route('badAccount.index') }}"
                                 class="block text-slate-200 transition duration-150"
                                 :class="open ? 'hover:text-slate-200' : 'hover:text-white'">
@@ -1011,10 +1011,10 @@
                                     <div class="flex items-center">
                                         <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
                                             <path
-                                                class="fill-current @if (in_array(Request::segment(1), ['customer-type'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
+                                                class="fill-current @if (in_array(Request::segment(1), ['badAccount'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
                                                 d="M19 5h1v14h-2V7.414L5.707 19.707 5 19H4V5h2v11.586L18.293 4.293 19 5Z" />
                                             <path
-                                                class="fill-current @if (in_array(Request::segment(1), ['customer-type'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
+                                                class="fill-current @if (in_array(Request::segment(1), ['badAccount'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
                                                 d="M5 9a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm14 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8ZM5 23a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm14 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z" />
                                         </svg>
                                         <span
