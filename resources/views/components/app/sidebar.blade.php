@@ -713,17 +713,7 @@
                                 href="/">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center">
-                                        <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                                            <path
-                                                class="fill-current @if (in_array(Request::segment(1), ['dashboard'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-400' }} @endif"
-                                                d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0z" />
-                                            <path
-                                                class="fill-current @if (in_array(Request::segment(1), ['dashboard'])) {{ 'text-indigo-600' }}@else{{ 'text-slate-600' }} @endif"
-                                                d="M12 3c-4.963 0-9 4.037-9 9s4.037 9 9 9 9-4.037 9-9-4.037-9-9-9z" />
-                                            <path
-                                                class="fill-current @if (in_array(Request::segment(1), ['dashboard'])) {{ 'text-indigo-200' }}@else{{ 'text-slate-400' }} @endif"
-                                                d="M12 15c-1.654 0-3-1.346-3-3 0-.462.113-.894.3-1.285L6 6l4.714 3.301A2.973 2.973 0 0112 9c1.654 0 3 1.346 3 3s-1.346 3-3 3z" />
-                                        </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
                                         <span
                                             class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Dashboard</span>
                                     </div>
@@ -737,14 +727,7 @@
                                 class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['customer'])) {{ 'hover:text-slate-200' }} @endif">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center">
-                                        <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                                            <path
-                                                class="fill-current @if (in_array(Request::segment(1), ['customer'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
-                                                d="M18.974 8H22a2 2 0 012 2v6h-2v5a1 1 0 01-1 1h-2a1 1 0 01-1-1v-5h-2v-6a2 2 0 012-2h.974zM20 7a2 2 0 11-.001-3.999A2 2 0 0120 7zM2.974 8H6a2 2 0 012 2v6H6v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5H0v-6a2 2 0 012-2h.974zM4 7a2 2 0 11-.001-3.999A2 2 0 014 7z" />
-                                            <path
-                                                class="fill-current @if (in_array(Request::segment(1), ['customer'])) {{ 'text-indigo-300' }}@else{{ 'text-slate-400' }} @endif"
-                                                d="M12 6a3 3 0 110-6 3 3 0 010 6zm2 18h-4a1 1 0 01-1-1v-6H6v-6a3 3 0 013-3h6a3 3 0 013 3v6h-3v6a1 1 0 01-1 1z" />
-                                        </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M16.5 12c1.38 0 2.49-1.12 2.49-2.5S17.88 7 16.5 7C15.12 7 14 8.12 14 9.5s1.12 2.5 2.5 2.5zM9 11c1.66 0 2.99-1.34 2.99-3S10.66 5 9 5C7.34 5 6 6.34 6 8s1.34 3 3 3zm7.5 3c-1.83 0-5.5.92-5.5 2.75V19h11v-2.25c0-1.83-3.67-2.75-5.5-2.75zM9 13c-2.33 0-7 1.17-7 3.5V19h7v-2.25c0-.85.33-2.34 2.37-3.47C10.5 13.1 9.66 13 9 13z"/></svg>
                                         <span
                                             class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Customer
                                             Profile</span>
@@ -759,17 +742,7 @@
                                 class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['loan'])) {{ 'hover:text-slate-200' }} @endif">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center">
-                                        <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                                            <path
-                                                class="fill-current @if (in_array(Request::segment(1), ['loan'])) {{ 'text-indigo-300' }}@else{{ 'text-slate-400' }} @endif"
-                                                d="M13 6.068a6.035 6.035 0 0 1 4.932 4.933H24c-.486-5.846-5.154-10.515-11-11v6.067Z" />
-                                            <path
-                                                class="fill-current @if (in_array(Request::segment(1), ['loan'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-700' }} @endif"
-                                                d="M18.007 13c-.474 2.833-2.919 5-5.864 5a5.888 5.888 0 0 1-3.694-1.304L4 20.731C6.131 22.752 8.992 24 12.143 24c6.232 0 11.35-4.851 11.857-11h-5.993Z" />
-                                            <path
-                                                class="fill-current @if (in_array(Request::segment(1), ['loan'])) {{ 'text-indigo-600' }}@else{{ 'text-slate-600' }} @endif"
-                                                d="M6.939 15.007A5.861 5.861 0 0 1 6 11.829c0-2.937 2.167-5.376 5-5.85V0C4.85.507 0 5.614 0 11.83c0 2.695.922 5.174 2.456 7.17l4.483-3.993Z" />
-                                        </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><g><rect fill="none" height="24" width="24"/></g><g><path d="M16.48,10.41c-0.39,0.39-1.04,0.39-1.43,0l-4.47-4.46l-7.05,7.04l-0.66-0.63c-1.17-1.17-1.17-3.07,0-4.24l4.24-4.24 c1.17-1.17,3.07-1.17,4.24,0L16.48,9C16.87,9.39,16.87,10.02,16.48,10.41z M17.18,8.29c0.78,0.78,0.78,2.05,0,2.83 c-1.27,1.27-2.61,0.22-2.83,0l-3.76-3.76l-5.57,5.57c-0.39,0.39-0.39,1.02,0,1.41c0.39,0.39,1.02,0.39,1.42,0l4.62-4.62l0.71,0.71 l-4.62,4.62c-0.39,0.39-0.39,1.02,0,1.41c0.39,0.39,1.02,0.39,1.42,0l4.62-4.62l0.71,0.71l-4.62,4.62c-0.39,0.39-0.39,1.02,0,1.41 c0.39,0.39,1.02,0.39,1.41,0l4.62-4.62l0.71,0.71l-4.62,4.62c-0.39,0.39-0.39,1.02,0,1.41c0.39,0.39,1.02,0.39,1.41,0l8.32-8.34 c1.17-1.17,1.17-3.07,0-4.24l-4.24-4.24c-1.15-1.15-3.01-1.17-4.18-0.06L17.18,8.29z"/></g></svg>
                                         <span
                                             class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Grant
                                             Loan Entry</span>
@@ -784,17 +757,7 @@
                                 class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['collection'])) {{ 'hover:text-slate-200' }} @endif">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center">
-                                        <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                                            <path
-                                                class="fill-current @if (in_array(Request::segment(1), ['collection'])) {{ 'text-indigo-600' }}@else{{ 'text-slate-700' }} @endif"
-                                                d="M4.418 19.612A9.092 9.092 0 0 1 2.59 17.03L.475 19.14c-.848.85-.536 2.395.743 3.673a4.413 4.413 0 0 0 1.677 1.082c.253.086.519.131.787.135.45.011.886-.16 1.208-.474L7 21.44a8.962 8.962 0 0 1-2.582-1.828Z" />
-                                            <path
-                                                class="fill-current @if (in_array(Request::segment(1), ['collection'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
-                                                d="M10.034 13.997a11.011 11.011 0 0 1-2.551-3.862L4.595 13.02a2.513 2.513 0 0 0-.4 2.645 6.668 6.668 0 0 0 1.64 2.532 5.525 5.525 0 0 0 3.643 1.824 2.1 2.1 0 0 0 1.534-.587l2.883-2.882a11.156 11.156 0 0 1-3.861-2.556Z" />
-                                            <path
-                                                class="fill-current @if (in_array(Request::segment(1), ['collection'])) {{ 'text-indigo-300' }}@else{{ 'text-slate-400' }} @endif"
-                                                d="M21.554 2.471A8.958 8.958 0 0 0 18.167.276a3.105 3.105 0 0 0-3.295.467L9.715 5.888c-1.41 1.408-.665 4.275 1.733 6.668a8.958 8.958 0 0 0 3.387 2.196c.459.157.94.24 1.425.246a2.559 2.559 0 0 0 1.87-.715l5.156-5.146c1.415-1.406.666-4.273-1.732-6.666Zm.318 5.257c-.148.147-.594.2-1.256-.018A7.037 7.037 0 0 1 18.016 6c-1.73-1.728-2.104-3.475-1.73-3.845a.671.671 0 0 1 .465-.129c.27.008.536.057.79.146a7.07 7.07 0 0 1 2.6 1.711c1.73 1.73 2.105 3.472 1.73 3.846Z" />
-                                        </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm-2 14l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
                                         <span
                                             class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Collection
                                             Data Entry</span>
@@ -809,17 +772,7 @@
                                 class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['breakdown'])) {{ 'hover:text-slate-200' }} @endif">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center">
-                                        <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                                            <path
-                                                class="fill-current @if (in_array(Request::segment(1), ['breakdown'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
-                                                d="M8 1v2H3v19h18V3h-5V1h7v23H1V1z" />
-                                            <path
-                                                class="fill-current @if (in_array(Request::segment(1), ['breakdown'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
-                                                d="M1 1h22v23H1z" />
-                                            <path
-                                                class="fill-current @if (in_array(Request::segment(1), ['breakdown'])) {{ 'text-indigo-300' }}@else{{ 'text-slate-400' }} @endif"
-                                                d="M15 10.586L16.414 12 11 17.414 7.586 14 9 12.586l2 2zM5 0h14v4H5z" />
-                                        </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><g><rect fill="none" height="24" width="24"/></g><g><path d="M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2z M12.88,17.76V19h-1.75v-1.29 c-0.74-0.18-2.39-0.77-3.02-2.96l1.65-0.67c0.06,0.22,0.58,2.09,2.4,2.09c0.93,0,1.98-0.48,1.98-1.61c0-0.96-0.7-1.46-2.28-2.03 c-1.1-0.39-3.35-1.03-3.35-3.31c0-0.1,0.01-2.4,2.62-2.96V5h1.75v1.24c1.84,0.32,2.51,1.79,2.66,2.23l-1.58,0.67 c-0.11-0.35-0.59-1.34-1.9-1.34c-0.7,0-1.81,0.37-1.81,1.39c0,0.95,0.86,1.31,2.64,1.9c2.4,0.83,3.01,2.05,3.01,3.45 C15.9,17.17,13.4,17.67,12.88,17.76z"/></g></svg>
                                         <span
                                             class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Breakdown
                                             of Cash Bills</span>
@@ -833,14 +786,7 @@
                             <a href="{{ route('expenses.index') }}"
                                 class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['expenses'])) {{ 'hover:text-slate-200' }} @endif">
                                 <div class="flex items-center">
-                                    <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                                        <path
-                                            class="fill-current @if (in_array(Request::segment(1), ['expenses'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
-                                            d="M16 13v4H8v-4H0l3-9h18l3 9h-8Z" />
-                                        <path
-                                            class="fill-current @if (in_array(Request::segment(1), ['expenses'])) {{ 'text-indigo-300' }}@else{{ 'text-slate-400' }} @endif"
-                                            d="m23.72 12 .229.686A.984.984 0 0 1 24 13v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1v-8c0-.107.017-.213.051-.314L.28 12H8v4h8v-4H23.72ZM13 0v7h3l-4 5-4-5h3V0h2Z" />
-                                    </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
                                     <span
                                         class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Expenses
                                         Data Entry</span>
@@ -854,14 +800,17 @@
                             href="{{ route('compute.index') }}"
                             class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['calendar'])) {{ 'hover:text-slate-200' }} @endif">
                                 <div class="flex items-center">
-                                    <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                                        <path
-                                            class="fill-current @if (in_array(Request::segment(1), ['calendar'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
-                                            d="M1 3h22v20H1z" />
-                                        <path
-                                            class="fill-current @if (in_array(Request::segment(1), ['calendar'])) {{ 'text-indigo-300' }}@else{{ 'text-slate-400' }} @endif"
-                                            d="M21 3h2v4H1V3h2V1h4v2h10V1h4v2Z" />
-                                    </svg>
+                                <svg width="24" height="24" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_2062_17774)">
+                                <path d="M3.25 0C2.35117 0 1.625 0.726172 1.625 1.625V4.875C1.625 5.77383 2.35117 6.5 3.25 6.5H7.3125V8.125H4.41797C2.81328 8.125 1.44727 9.29805 1.20352 10.8875L0.0558594 18.4895C0.0203125 18.7281 0 18.9719 0 19.2156V22.75C0 24.5426 1.45742 26 3.25 26H22.75C24.5426 26 26 24.5426 26 22.75V19.2156C26 18.9719 25.9797 18.7281 25.9441 18.4844L24.7914 10.8875C24.5527 9.29805 23.1867 8.125 21.582 8.125H10.5625V6.5H14.625C15.5238 6.5 16.25 5.77383 16.25 4.875V1.625C16.25 0.726172 15.5238 0 14.625 0H3.25ZM4.875 2.4375H13C13.4469 2.4375 13.8125 2.80312 13.8125 3.25C13.8125 3.69688 13.4469 4.0625 13 4.0625H4.875C4.42812 4.0625 4.0625 3.69688 4.0625 3.25C4.0625 2.80312 4.42812 2.4375 4.875 2.4375ZM3.25 21.9375C3.25 21.4906 3.61562 21.125 4.0625 21.125H21.9375C22.3844 21.125 22.75 21.4906 22.75 21.9375C22.75 22.3844 22.3844 22.75 21.9375 22.75H4.0625C3.61562 22.75 3.25 22.3844 3.25 21.9375ZM5.6875 13.4062C5.36427 13.4062 5.05427 13.2778 4.82571 13.0493C4.59715 12.8207 4.46875 12.5107 4.46875 12.1875C4.46875 11.8643 4.59715 11.5543 4.82571 11.3257C5.05427 11.0972 5.36427 10.9688 5.6875 10.9688C6.01073 10.9688 6.32073 11.0972 6.54929 11.3257C6.77785 11.5543 6.90625 11.8643 6.90625 12.1875C6.90625 12.5107 6.77785 12.8207 6.54929 13.0493C6.32073 13.2778 6.01073 13.4062 5.6875 13.4062ZM11.7812 12.1875C11.7812 12.5107 11.6528 12.8207 11.4243 13.0493C11.1957 13.2778 10.8857 13.4062 10.5625 13.4062C10.2393 13.4062 9.92927 13.2778 9.70071 13.0493C9.47215 12.8207 9.34375 12.5107 9.34375 12.1875C9.34375 11.8643 9.47215 11.5543 9.70071 11.3257C9.92927 11.0972 10.2393 10.9688 10.5625 10.9688C10.8857 10.9688 11.1957 11.0972 11.4243 11.3257C11.6528 11.5543 11.7812 11.8643 11.7812 12.1875ZM8.125 17.4688C7.80177 17.4688 7.49177 17.3403 7.26321 17.1118C7.03465 16.8832 6.90625 16.5732 6.90625 16.25C6.90625 15.9268 7.03465 15.6168 7.26321 15.3882C7.49177 15.1597 7.80177 15.0312 8.125 15.0312C8.44823 15.0312 8.75823 15.1597 8.98679 15.3882C9.21535 15.6168 9.34375 15.9268 9.34375 16.25C9.34375 16.5732 9.21535 16.8832 8.98679 17.1118C8.75823 17.3403 8.44823 17.4688 8.125 17.4688ZM16.6562 12.1875C16.6562 12.5107 16.5278 12.8207 16.2993 13.0493C16.0707 13.2778 15.7607 13.4062 15.4375 13.4062C15.1143 13.4062 14.8043 13.2778 14.5757 13.0493C14.3472 12.8207 14.2188 12.5107 14.2188 12.1875C14.2188 11.8643 14.3472 11.5543 14.5757 11.3257C14.8043 11.0972 15.1143 10.9688 15.4375 10.9688C15.7607 10.9688 16.0707 11.0972 16.2993 11.3257C16.5278 11.5543 16.6562 11.8643 16.6562 12.1875ZM13 17.4688C12.6768 17.4688 12.3668 17.3403 12.1382 17.1118C11.9097 16.8832 11.7813 16.5732 11.7812 16.25C11.7812 15.9268 11.9097 15.6168 12.1382 15.3882C12.3668 15.1597 12.6768 15.0312 13 15.0312C13.3232 15.0312 13.6332 15.1597 13.8618 15.3882C14.0903 15.6168 14.2188 15.9268 14.2188 16.25C14.2188 16.5732 14.0903 16.8832 13.8618 17.1118C13.6332 17.3403 13.3232 17.4688 13 17.4688ZM21.5312 12.1875C21.5313 12.3475 21.4997 12.506 21.4385 12.6539C21.3772 12.8018 21.2875 12.9361 21.1743 13.0493C21.0611 13.1625 20.9268 13.2522 20.7789 13.3135C20.631 13.3747 20.4725 13.4063 20.3125 13.4062C20.1525 13.4063 19.994 13.3747 19.8461 13.3135C19.6982 13.2522 19.5639 13.1625 19.4507 13.0493C19.3375 12.9361 19.2478 12.8018 19.1865 12.6539C19.1253 12.506 19.0937 12.3475 19.0938 12.1875C19.0937 12.0275 19.1253 11.869 19.1865 11.7211C19.2478 11.5732 19.3375 11.4389 19.4507 11.3257C19.5639 11.2125 19.6982 11.1228 19.8461 11.0615C19.994 11.0003 20.1525 10.9688 20.3125 10.9688C20.4725 10.9687 20.631 11.0003 20.7789 11.0615C20.9268 11.1228 21.0611 11.2125 21.1743 11.3257C21.2875 11.4389 21.3772 11.5732 21.4385 11.7211C21.4997 11.869 21.5313 12.0275 21.5312 12.1875ZM17.875 17.4688C17.5518 17.4688 17.2418 17.3403 17.0132 17.1118C16.7847 16.8832 16.6562 16.5732 16.6562 16.25C16.6562 15.9268 16.7847 15.6168 17.0132 15.3882C17.2418 15.1597 17.5518 15.0312 17.875 15.0312C18.1982 15.0312 18.5082 15.1597 18.7368 15.3882C18.9653 15.6168 19.0938 15.9268 19.0938 16.25C19.0938 16.5732 18.9653 16.8832 18.7368 17.1118C18.5082 17.3403 18.1982 17.4688 17.875 17.4688Z" fill="#E8EAED"/>
+                                </g>
+                                <defs>
+                                <clipPath id="clip0_2062_17774">
+                                <rect width="26" height="26" fill="white"/>
+                                </clipPath>
+                                </defs>
+                                </svg>
+
                                     <span
                                         class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Compute
                                         Cash On Hand</span>
@@ -874,14 +823,7 @@
                             <a href="{{ route('daily.index') }}" class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['campaigns'])) {{ 'hover:text-slate-200' }} @endif"
                                 href="#0">
                                 <div class="flex items-center">
-                                    <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                                        <path
-                                            class="fill-current @if (in_array(Request::segment(1), ['campaigns'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
-                                            d="M20 7a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 110 1.5 1.5 1.5 0 00-1.5 1.5A.75.75 0 0120 7zM4 23a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 110 1.5 1.5 1.5 0 00-1.5 1.5A.75.75 0 014 23z" />
-                                        <path
-                                            class="fill-current @if (in_array(Request::segment(1), ['campaigns'])) {{ 'text-indigo-300' }}@else{{ 'text-slate-400' }} @endif"
-                                            d="M17 23a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 010-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1zM7 13a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 112 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z" />
-                                    </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><rect fill="none" height="24" width="24"/><path d="M14,2H6C4.9,2,4,2.9,4,4v16c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8L14,2z M12,10c1.1,0,2,0.9,2,2c0,1.1-0.9,2-2,2s-2-0.9-2-2 C10,10.9,10.9,10,12,10z M16,18H8v-0.57c0-0.81,0.48-1.53,1.22-1.85C10.07,15.21,11.01,15,12,15c0.99,0,1.93,0.21,2.78,0.58 C15.52,15.9,16,16.62,16,17.43V18z"/></svg>
                                     <span
                                         class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Customer
                                         Ledger - Daily</span>
@@ -894,14 +836,7 @@
                             <a href="{{ route('monthly.index') }}" class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['campaigns'])) {{ 'hover:text-slate-200' }} @endif"
                                 href="#0">
                                 <div class="flex items-center">
-                                    <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                                        <path
-                                            class="fill-current @if (in_array(Request::segment(1), ['campaigns'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
-                                            d="M20 7a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 110 1.5 1.5 1.5 0 00-1.5 1.5A.75.75 0 0120 7zM4 23a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 110 1.5 1.5 1.5 0 00-1.5 1.5A.75.75 0 014 23z" />
-                                        <path
-                                            class="fill-current @if (in_array(Request::segment(1), ['campaigns'])) {{ 'text-indigo-300' }}@else{{ 'text-slate-400' }} @endif"
-                                            d="M17 23a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 010-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1zM7 13a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 112 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z" />
-                                    </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><g><path d="M0,0h24v24H0V0z" fill="none"/></g><g><path d="M20,4H4C2.89,4,2.01,4.89,2.01,6L2,18c0,1.11,0.89,2,2,2h5v-2H4v-6h18V6C22,4.89,21.11,4,20,4z M20,8H4V6h16V8z M14.93,19.17l-2.83-2.83l-1.41,1.41L14.93,22L22,14.93l-1.41-1.41L14.93,19.17z"/></g></svg>
                                     <span
                                         class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Customer
                                         Ledger - ATM</span>
@@ -915,20 +850,7 @@
                                 class="block text-slate-200 hover:text-white truncate transition duration-150">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center">
-                                        <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                                            <circle
-                                                class="fill-current @if (in_array(Request::segment(1), ['city'])) {{ 'text-indigo-300' }}@else{{ 'text-slate-400' }} @endif"
-                                                cx="18.5" cy="5.5" r="4.5" />
-                                            <circle
-                                                class="fill-current @if (in_array(Request::segment(1), ['city'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
-                                                cx="5.5" cy="5.5" r="4.5" />
-                                            <circle
-                                                class="fill-current @if (in_array(Request::segment(1), ['city'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
-                                                cx="18.5" cy="18.5" r="4.5" />
-                                            <circle
-                                                class="fill-current @if (in_array(Request::segment(1), ['city'])) {{ 'text-indigo-300' }}@else{{ 'text-slate-400' }} @endif"
-                                                cx="5.5" cy="18.5" r="4.5" />
-                                        </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M15 11V5l-3-3-3 3v2H3v14h18V11h-6zm-8 8H5v-2h2v2zm0-4H5v-2h2v2zm0-4H5V9h2v2zm6 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V9h2v2zm0-4h-2V5h2v2zm6 12h-2v-2h2v2zm0-4h-2v-2h2v2z"/></svg>
                                         <span
                                             class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Setup
                                             Cities/Towns</span>
@@ -943,14 +865,7 @@
                                 :class="open ? 'hover:text-slate-200' : 'hover:text-white'">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center">
-                                        <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                                            <circle
-                                                class="fill-current @if (in_array(Request::segment(1), ['barangay'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
-                                                cx="16" cy="8" r="8" />
-                                            <circle
-                                                class="fill-current @if (in_array(Request::segment(1), ['barangay'])) {{ 'text-indigo-300' }}@else{{ 'text-slate-400' }} @endif"
-                                                cx="8" cy="16" r="8" />
-                                        </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                                         <span
                                             class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Setup
                                             Barangays</span>
@@ -966,14 +881,7 @@
                                 :class="open ? 'hover:text-slate-200' : 'hover:text-white'">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center">
-                                        <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                                            <path
-                                                class="fill-current @if (in_array(Request::segment(1), ['customer-type'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
-                                                d="M19 5h1v14h-2V7.414L5.707 19.707 5 19H4V5h2v11.586L18.293 4.293 19 5Z" />
-                                            <path
-                                                class="fill-current @if (in_array(Request::segment(1), ['customer-type'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
-                                                d="M5 9a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm14 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8ZM5 23a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm14 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z" />
-                                        </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0zm0 0h24v24H0zm0 0h24v24H0z" fill="none"/><path d="M20 0H4v2h16V0zM4 24h16v-2H4v2zM20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 2.75c1.24 0 2.25 1.01 2.25 2.25s-1.01 2.25-2.25 2.25S9.75 10.24 9.75 9 10.76 6.75 12 6.75zM17 17H7v-1.5c0-1.67 3.33-2.5 5-2.5s5 .83 5 2.5V17z"/></svg>
                                         <span
                                             class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Setup
                                             Customer Type</span>
@@ -990,14 +898,7 @@
                                 :class="open ? 'hover:text-slate-200' : 'hover:text-white'">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center">
-                                        <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                                            <path
-                                                class="fill-current @if (in_array(Request::segment(1), ['customer-type'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
-                                                d="M19 5h1v14h-2V7.414L5.707 19.707 5 19H4V5h2v11.586L18.293 4.293 19 5Z" />
-                                            <path
-                                                class="fill-current @if (in_array(Request::segment(1), ['customer-type'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
-                                                d="M5 9a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm14 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8ZM5 23a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm14 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z" />
-                                        </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M21,8c-1.45,0-2.26,1.44-1.93,2.51l-3.55,3.56c-0.3-0.09-0.74-0.09-1.04,0l-2.55-2.55C12.27,10.45,11.46,9,10,9 c-1.45,0-2.27,1.44-1.93,2.52l-4.56,4.55C2.44,15.74,1,16.55,1,18c0,1.1,0.9,2,2,2c1.45,0,2.26-1.44,1.93-2.51l4.55-4.56 c0.3,0.09,0.74,0.09,1.04,0l2.55,2.55C12.73,16.55,13.54,18,15,18c1.45,0,2.27-1.44,1.93-2.52l3.56-3.55 C21.56,12.26,23,11.45,23,10C23,8.9,22.1,8,21,8z"/><polygon points="15,9 15.94,6.93 18,6 15.94,5.07 15,3 14.08,5.07 12,6 14.08,6.93"/><polygon points="3.5,11 4,9 6,8.5 4,8 3.5,6 3,8 1,8.5 3,9"/></g></g></svg>
                                         <span
                                             class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Employee Evaluation</span>
                                     </div>
@@ -1013,14 +914,7 @@
                                 :class="open ? 'hover:text-slate-200' : 'hover:text-white'">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center">
-                                        <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                                            <path
-                                                class="fill-current @if (in_array(Request::segment(1), ['customer-type'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
-                                                d="M19 5h1v14h-2V7.414L5.707 19.707 5 19H4V5h2v11.586L18.293 4.293 19 5Z" />
-                                            <path
-                                                class="fill-current @if (in_array(Request::segment(1), ['customer-type'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
-                                                d="M5 9a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm14 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8ZM5 23a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm14 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z" />
-                                        </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><rect fill="none" height="24" width="24"/><path d="M14,2H6C4.9,2,4,2.9,4,4v16c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8L14,2z M15,11h-4v1h3c0.55,0,1,0.45,1,1v3 c0,0.55-0.45,1-1,1h-1v1h-2v-1H9v-2h4v-1h-3c-0.55,0-1-0.45-1-1v-3c0-0.55,0.45-1,1-1h1V8h2v1h2V11z"/></svg>
                                         <span
                                             class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Cash Advance Request Form</span>
                                     </div>
@@ -1036,14 +930,7 @@
                                 :class="open ? 'hover:text-slate-200' : 'hover:text-white'">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center">
-                                        <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                                            <path
-                                                class="fill-current @if (in_array(Request::segment(1), ['customer-type'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
-                                                d="M19 5h1v14h-2V7.414L5.707 19.707 5 19H4V5h2v11.586L18.293 4.293 19 5Z" />
-                                            <path
-                                                class="fill-current @if (in_array(Request::segment(1), ['customer-type'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
-                                                d="M5 9a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm14 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8ZM5 23a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm14 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z" />
-                                        </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
                                         <span
                                             class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Cash Bond</span>
                                     </div>
@@ -1059,14 +946,7 @@
                                 :class="open ? 'hover:text-slate-200' : 'hover:text-white'">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center">
-                                        <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                                            <path
-                                                class="fill-current @if (in_array(Request::segment(1), ['badAccount'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
-                                                d="M19 5h1v14h-2V7.414L5.707 19.707 5 19H4V5h2v11.586L18.293 4.293 19 5Z" />
-                                            <path
-                                                class="fill-current @if (in_array(Request::segment(1), ['badAccount'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
-                                                d="M5 9a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm14 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8ZM5 23a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm14 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z" />
-                                        </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
                                         <span
                                             class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Bad Account</span>
                                     </div>
@@ -1082,14 +962,7 @@
                                 :class="open ? 'hover:text-slate-200' : 'hover:text-white'">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center">
-                                        <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                                            <path
-                                                class="fill-current @if (in_array(Request::segment(1), ['customer-type'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
-                                                d="M19 5h1v14h-2V7.414L5.707 19.707 5 19H4V5h2v11.586L18.293 4.293 19 5Z" />
-                                            <path
-                                                class="fill-current @if (in_array(Request::segment(1), ['customer-type'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
-                                                d="M5 9a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm14 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8ZM5 23a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm14 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z" />
-                                        </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0,0h24v24H0V0z" fill="none"/><g><path d="M19.5,3.5L18,2l-1.5,1.5L15,2l-1.5,1.5L12,2l-1.5,1.5L9,2L7.5,3.5L6,2v14H3v3c0,1.66,1.34,3,3,3h12c1.66,0,3-1.34,3-3V2 L19.5,3.5z M19,19c0,0.55-0.45,1-1,1s-1-0.45-1-1v-3H8V5h11V19z"/><rect height="2" width="6" x="9" y="7"/><rect height="2" width="2" x="16" y="7"/><rect height="2" width="6" x="9" y="10"/><rect height="2" width="2" x="16" y="10"/></g></svg>
                                         <span
                                             class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Customer Payments</span>
                                     </div>
@@ -1124,14 +997,7 @@
                                 :class="open ? 'hover:text-slate-200' : 'hover:text-white'">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center">
-                                        <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                                            <path
-                                                class="fill-current @if (in_array(Request::segment(1), ['customer-type'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
-                                                d="M19 5h1v14h-2V7.414L5.707 19.707 5 19H4V5h2v11.586L18.293 4.293 19 5Z" />
-                                            <path
-                                                class="fill-current @if (in_array(Request::segment(1), ['customer-type'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
-                                                d="M5 9a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm14 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8ZM5 23a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm14 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z" />
-                                        </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><g><rect fill="none" height="24" width="24"/><path d="M17,12c-2.76,0-5,2.24-5,5s2.24,5,5,5c2.76,0,5-2.24,5-5S19.76,12,17,12z M18.65,19.35l-2.15-2.15V14h1v2.79l1.85,1.85 L18.65,19.35z M18,3h-3.18C14.4,1.84,13.3,1,12,1S9.6,1.84,9.18,3H6C4.9,3,4,3.9,4,5v15c0,1.1,0.9,2,2,2h6.11 c-0.59-0.57-1.07-1.25-1.42-2H6V5h2v3h8V5h2v5.08c0.71,0.1,1.38,0.31,2,0.6V5C20,3.9,19.1,3,18,3z M12,5c-0.55,0-1-0.45-1-1 c0-0.55,0.45-1,1-1c0.55,0,1,0.45,1,1C13,4.55,12.55,5,12,5z"/></g></svg>
                                         <span
                                             class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Pending Loan Approvals</span>
                                     </div>
@@ -1166,14 +1032,7 @@
                                 :class="open ? 'hover:text-slate-200' : 'hover:text-white'">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center">
-                                        <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                                            <path
-                                                class="fill-current @if (in_array(Request::segment(1), ['customer-type'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
-                                                d="M19 5h1v14h-2V7.414L5.707 19.707 5 19H4V5h2v11.586L18.293 4.293 19 5Z" />
-                                            <path
-                                                class="fill-current @if (in_array(Request::segment(1), ['customer-type'])) {{ 'text-indigo-500' }}@else{{ 'text-slate-600' }} @endif"
-                                                d="M5 9a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm14 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8ZM5 23a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm14 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z" />
-                                        </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><rect fill="none" height="24" width="24"/><path d="M17.66,9.53l-7.07,7.07l-4.24-4.24l1.41-1.41l2.83,2.83l5.66-5.66L17.66,9.53z M4,12c0-2.33,1.02-4.42,2.62-5.88L9,8.5v-6H3 l2.2,2.2C3.24,6.52,2,9.11,2,12c0,5.19,3.95,9.45,9,9.95v-2.02C7.06,19.44,4,16.07,4,12z M22,12c0-5.19-3.95-9.45-9-9.95v2.02 c3.94,0.49,7,3.86,7,7.93c0,2.33-1.02,4.42-2.62,5.88L15,15.5v6h6l-2.2-2.2C20.76,17.48,22,14.89,22,12z"/></svg>
                                         <span
                                             class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Loan Renewal</span>
                                     </div>
