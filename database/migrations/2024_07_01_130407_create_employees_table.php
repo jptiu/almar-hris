@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->string('full_name');
+            $table->string('f_name');
+            $table->string('m_name')->nullable();
+            $table->string('l_name');
             $table->string('position_desired')->nullable();
             $table->string('present_address')->nullable();
             $table->string('provincial_address')->nullable();
@@ -25,12 +27,25 @@ return new class extends Migration
             $table->string('age')->nullable();
             $table->string('height')->nullable();
             $table->string('weight')->nullable();
-            $table->string('name_of_spouse')->nullable();
-            $table->string('number_of_children')->nullable();
-            $table->string('mothers_maiden_name')->nullable();
+            $table->string('f_spouse')->nullable();
+            $table->string('m_spouse')->nullable();
+            $table->string('l_spouse')->nullable();
+            $table->string('child_1_name')->nullable();
+            $table->string('child_1_age')->nullable();
+            $table->string('child_2_name')->nullable();
+            $table->string('child_2_age')->nullable();
+            $table->string('child_3_name')->nullable();
+            $table->string('child_3_age')->nullable();
+            $table->string('m_maiden_f_name')->nullable();
+            $table->string('m_maiden_m_name')->nullable();
+            $table->string('m_maiden_l_name')->nullable();
             $table->string('m_occupation')->nullable();
-            $table->string('fathers_maiden_name')->nullable();
+            $table->string('m_phone')->nullable();
+            $table->string('father_f_name')->nullable();
+            $table->string('father_m_name')->nullable();
+            $table->string('father_l_name')->nullable();
             $table->string('f_occupation')->nullable();
+            $table->string('f_phone')->nullable();
             $table->string('person_emergency')->nullable();
             $table->string('relationship')->nullable();
             $table->string('elementary')->nullable();
@@ -38,8 +53,15 @@ return new class extends Migration
             $table->string('college')->nullable();
             $table->string('course')->nullable();
             $table->string('vocational')->nullable();
-            $table->string('employment_history')->default('[]');
-            $table->string('character_reference')->default('[]');
+            $table->string('n_company_1')->nullable();
+            $table->string('a_company_1')->nullable();
+            $table->string('p_company_1')->nullable();
+            $table->string('f_company_1')->nullable();
+            $table->string('t_company_1')->nullable();
+            $table->string('cf_name_1')->nullable();
+            $table->string('cf_occ_1')->nullable();
+            $table->string('cf_add_1')->nullable();
+            $table->string('cf_phone_1')->nullable();
             $table->string('sss')->nullable();
             $table->string('pagibig')->nullable();
             $table->string('philhealth')->nullable();

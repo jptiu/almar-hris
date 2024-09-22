@@ -5,7 +5,7 @@
             <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-12">Employment Information Sheet</h1>
         </div>
 
-        <form action="{{ route('customer.store') }}" method="POST">
+        <form action="{{ route('employee.store') }}" method="POST">
             @csrf
             <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
                 <div id="loading" class="hidden fixed inset-0 bg-gray-500 bg-opacity-90 flex items-center justify-center z-50">
@@ -83,9 +83,9 @@
                             <div class="lg:col-span-2">
                                 <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
                                     <div class="md:col-span-1">
-                                        <select name="type" id="type" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
-                                            <option value="business loan">Collector</option>
-                                            <option value="personal loan">Branch Manager</option>
+                                        <select name="position_desired" id="position_desired" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                            <option value="Collector">Collector</option>
+                                            <option value="Branch Manager">Branch Manager</option>
                                         </select>
                                     </div>
                                 </div>
@@ -105,23 +105,23 @@
                                 <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6">
 
                                     <div class="md:col-span-2">
-                                        <label for="first_name">First Name</label>
+                                        <label for="f_name">First Name</label>
                                         <div>
-                                            <input name="first_name" id="first_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="f_name" id="f_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
 
                                     <div class="md:col-span-2">
-                                        <label for="last_name">Last Name</label>
+                                        <label for="l_name">Last Name</label>
                                         <div>
-                                            <input name="last_name" id="last_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="l_name" id="l_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
 
                                     <div class="md:col-span-2">
-                                        <label for="middle_name">Middle Name</label>
+                                        <label for="m_name">Middle Name</label>
                                         <div>
-                                            <input name="middle_name" id="middle_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="m_name" id="m_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
                                 </div>  
@@ -140,13 +140,13 @@
                             <div class="lg:col-span-2">
                                 <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
                                     <div class="md:col-span-1">
-                                        <label for="house">Present Address</label>
-                                        <input type="text" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                        <label for="present_address">Present Address</label>
+                                        <input type="text" name="present_address" id="present_address" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
                                     </div>
 
                                     <div class="md:col-span-1">
-                                        <label for="street">Provincial Address</label>
-                                        <input type="text" name="street" id="street" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                        <label for="provincial_address">Provincial Address</label>
+                                        <input type="text" name="provincial_address" id="provincial_address" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
                                     </div>
                                 </div>
 
@@ -166,16 +166,16 @@
                                 <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
 
                                     <div class="md:col-span-1">
-                                        <label for="first_name">Phone Number</label>
+                                        <label for="phone_number">Phone Number</label>
                                         <div>
-                                            <input name="first_name" id="first_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="phone_number" id="phone_number" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
 
                                     <div class="md:col-span-1">
-                                        <label for="first_name">Tel Number(optional)</label>
+                                        <label for="tel_number">Tel Number(optional)</label>
                                         <div>
-                                            <input name="first_name" id="first_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="tel_number" id="tel_number" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
 
@@ -196,20 +196,20 @@
 
                                 <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
                                     <div class="md:col-span-1">
-                                        <label for="tel_number">Birthdate</label>
-                                        <input type="date" name="tel_number" id="tel_number" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                        <label for="birth_date">Birthdate</label>
+                                        <input type="date" name="birth_date" id="birth_date" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
                                     </div>
 
                                     <div class="md:col-span-1">
-                                        <label for="cell_number">Age</label>
-                                        <input type="number" name="cell_number" id="cell_number" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                        <label for="age">Age</label>
+                                        <input type="number" name="age" id="age" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
                                     </div>
                                 </div>
 
                                 <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2 mt-4 mb-4">
                                     <div class="md:col-span-1">
-                                        <label for="job_position">Birth Place</label>
-                                        <input type="text" name="job_position" id="job_position" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                        <label for="birth_place">Birth Place</label>
+                                        <input type="text" name="birth_place" id="birth_place" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
                                     </div>
                                 </div>
                             </div>
@@ -227,19 +227,20 @@
                             <div class="lg:col-span-2">
                                 <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
                                     <div class="md:col-span-1">
-                                        <label for="job_position">Civil Status</label>
-                                        <select name="status" id="status" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
-                                            <option value="single">Single</option>
-                                            <option value="married">Married</option>
+                                        <label for="civil_status">Civil Status</label>
+                                        <select name="civil_status" id="civil_status" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                            <option value="Single">Single</option>
+                                            <option value="Married">Married</option>
                                         </select>
                                     </div>
 
                                     <div class="md:col-span-1">
-                                        <label for="job_position">Religion</label>
-                                        <select name="status" id="status" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
-                                            <option value="single">Roman Catholic</option>
-                                            <option value="married">Muslim</option>
-                                            <option value="married">Iglesia</option>
+                                        <label for="religion">Religion</label>
+                                        <select name="religion" id="religion" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                            <option value="Roman Catholic">Roman Catholic</option>
+                                            <option value="Muslim">Muslim</option>
+                                            <option value="Born Again">Born Again</option>
+                                            <option value="Iglesia">Iglesia</option>
                                         </select>
                                     </div>
                                 </div>
@@ -258,13 +259,13 @@
                             <div class="lg:col-span-2">
                                 <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
                                     <div class="md:col-span-1">
-                                        <label for="house">Height</label>
-                                        <input type="text" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="cm" />
+                                        <label for="height">Height</label>
+                                        <input type="text" name="height" id="height" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="cm" />
                                     </div>
 
                                     <div class="md:col-span-1">
-                                        <label for="street">Weight</label>
-                                        <input type="text" name="street" id="street" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="kg" />
+                                        <label for="weight">Weight</label>
+                                        <input type="text" name="weight" id="weight" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="kg" />
                                     </div>
                                 </div>
 
@@ -298,23 +299,23 @@
                                 <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6 mb-4">
 
                                     <div class="md:col-span-2">
-                                        <label for="first_name">Spouse First Name</label>
+                                        <label for="f_spouse">Spouse First Name</label>
                                         <div>
-                                            <input name="first_name" id="first_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="f_spouse" id="f_spouse" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
 
                                     <div class="md:col-span-2">
-                                        <label for="last_name">Spouse Last Name</label>
+                                        <label for="l_spouse">Spouse Last Name</label>
                                         <div>
-                                            <input name="last_name" id="last_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="l_spouse" id="l_spouse" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
 
                                     <div class="md:col-span-2">
-                                        <label for="middle_name">Spouse Middle Name</label>
+                                        <label for="m_spouse">Spouse Middle Name</label>
                                         <div>
-                                            <input name="middle_name" id="middle_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="m_spouse" id="m_spouse" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
                                 </div>  
@@ -324,33 +325,63 @@
                                 </div>
 
                                 <div class="lg:col-span-2 mb-4">
-                                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-3">
+                                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-4">
                                         <div class="md:col-span-2">
-                                            <label for="house">Full Name</label>
-                                            <input type="text" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                            <label for="child_1_name">Full Name</label>
+                                            <input type="text" name="child_1_name" id="child_1_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
                                         </div>
 
                                         <div class="md:col-span-1">
-                                            <label for="street">Age</label>
-                                            <input type="text" name="street" id="street" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                            <label for="child_1_age">Age</label>
+                                            <input type="text" name="child_1_age" id="child_1_age" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                        </div>
+
+                                        <div class="md:col-span-1 flex items-start justify-start mt-8">
+                                            <button type="button" id="add-child" class="text-slate-600 px-2 py-1 rounded hover:text-orange-500 italic text-sm">Click here to add Children Info</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="text-gray-600 mb-1 hidden" id="child2-label">
+                                    <p class="font-medium text-lg">Child 2</p>
+                                </div>
+
+                                <div class="lg:col-span-2 mb-4 hidden" id="child2">
+                                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-4">
+                                        <div class="md:col-span-2">
+                                            <label for="child_2_name">Full Name</label>
+                                            <input type="text" name="child_2_name" id="child_2_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                        </div>
+
+                                        <div class="md:col-span-1">
+                                            <label for="child_2_age">Age</label>
+                                            <input type="text" name="child_2_age" id="child_2_age" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                        </div>
+
+                                        <div class="md:col-span-1 flex items-start justify-start mt-8">
+                                            <button type="button" class="text-red-400 text-sm px-2 py-1 rounded remove-child italic">Remove</button>
                                         </div>
                                     </div>
                                 </div> 
 
-                                <div class="text-gray-600 mb-1">
-                                    <p class="font-medium text-lg">Child 2</p>
+                                <div class="text-gray-600 mb-1 hidden" id="child3-label">
+                                    <p class="font-medium text-lg">Child 3</p>
                                 </div>
 
-                                <div class="lg:col-span-2 mb-4">
-                                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-3">
+                                <div class="lg:col-span-2 mb-4 hidden" id="child3">
+                                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-4">
                                         <div class="md:col-span-2">
-                                            <label for="house">Full Name</label>
-                                            <input type="text" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                            <label for="child_3_name">Full Name</label>
+                                            <input type="text" name="child_3_name" id="child_3_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
                                         </div>
 
                                         <div class="md:col-span-1">
-                                            <label for="street">Age</label>
-                                            <input type="text" name="street" id="street" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                            <label for="child_3_age">Age</label>
+                                            <input type="text" name="child_3_age" id="child_3_age" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                        </div>
+
+                                        <div class="md:col-span-1 flex items-start justify-start mt-8">
+                                            <button type="button" class="text-red-400 text-sm px-2 py-1 rounded remove-child italic">Remove</button>
                                         </div>
                                     </div>
                                 </div> 
@@ -376,23 +407,23 @@
                                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6 mb-4">
 
                                         <div class="md:col-span-2">
-                                            <label for="first_name">Mother's Maiden First Name</label>
+                                            <label for="m_maiden_f_name">Mother's Maiden First Name</label>
                                             <div>
-                                                <input name="first_name" id="first_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                                <input name="m_maiden_f_name" id="m_maiden_f_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                             </div>
                                         </div>
 
                                         <div class="md:col-span-2">
-                                            <label for="last_name">Mother's Maiden Last Name</label>
+                                            <label for="m_maiden_l_name">Mother's Maiden Last Name</label>
                                             <div>
-                                                <input name="last_name" id="last_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                                <input name="m_maiden_l_name" id="m_maiden_l_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                             </div>
                                         </div>
 
                                         <div class="md:col-span-2">
-                                            <label for="middle_name">Mother's Maiden Middle Name</label>
+                                            <label for="m_maiden_m_name">Mother's Maiden Middle Name</label>
                                             <div>
-                                                <input name="middle_name" id="middle_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                                <input name="m_maiden_m_name" id="m_maiden_m_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                             </div>
                                         </div>
                                     </div>  
@@ -400,13 +431,13 @@
                                     <div class="lg:col-span-2">
                                         <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-3">
                                             <div class="md:col-span-2">
-                                                <label for="house">Occupation</label>
-                                                <input type="text" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                                <label for="m_occupation">Occupation</label>
+                                                <input type="text" name="m_occupation" id="m_occupation" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
                                             </div>
 
                                             <div class="md:col-span-1">
-                                                <label for="street">Phone No.</label>
-                                                <input type="text" name="street" id="street" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                                <label for="m_phone">Phone No.</label>
+                                                <input type="text" name="m_phone" id="m_phone" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
                                             </div>
                                         </div>
 
@@ -421,23 +452,23 @@
                                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6 mb-2">
 
                                         <div class="md:col-span-2">
-                                            <label for="first_name">Father's First Name</label>
+                                            <label for="father_f_name">Father's First Name</label>
                                             <div>
-                                                <input name="first_name" id="first_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                                <input name="father_f_name" id="father_f_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                             </div>
                                         </div>
 
                                         <div class="md:col-span-2">
-                                            <label for="last_name">Father's Last Name</label>
+                                            <label for="father_l_name">Father's Last Name</label>
                                             <div>
-                                                <input name="last_name" id="last_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                                <input name="father_l_name" id="father_l_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                             </div>
                                         </div>
 
                                         <div class="md:col-span-2">
-                                            <label for="middle_name">Father's Middle Name</label>
+                                            <label for="father_m_name">Father's Middle Name</label>
                                             <div>
-                                                <input name="middle_name" id="middle_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                                <input name="father_m_name" id="father_m_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                             </div>
                                         </div>
                                     </div>  
@@ -445,13 +476,13 @@
                                     <div class="lg:col-span-2">
                                         <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-3">
                                             <div class="md:col-span-2">
-                                                <label for="house">Occupation</label>
-                                                <input type="text" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                                <label for="f_occupation">Occupation</label>
+                                                <input type="text" name="f_occupation" id="f_occupation" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
                                             </div>
 
                                             <div class="md:col-span-1">
-                                                <label for="street">Phone No.</label>
-                                                <input type="text" name="street" id="street" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                                <label for="f_phone">Phone No.</label>
+                                                <input type="text" name="f_phone" id="f_phone" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
                                             </div>
                                         </div>
 
@@ -486,26 +517,12 @@
 
                             <div class="lg:col-span-2">
                                 <div class="lg:col-span-2 mb-8">
-                                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6 mb-4">
+                                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1 mb-4">
 
-                                        <div class="md:col-span-2">
-                                            <label for="first_name">First Name</label>
+                                        <div class="md:col-span-1">
+                                            <label for="person_emergency">Full Name</label>
                                             <div>
-                                                <input name="first_name" id="first_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
-                                            </div>
-                                        </div>
-
-                                        <div class="md:col-span-2">
-                                            <label for="last_name">Last Name</label>
-                                            <div>
-                                                <input name="last_name" id="last_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
-                                            </div>
-                                        </div>
-
-                                        <div class="md:col-span-2">
-                                            <label for="middle_name">Middle Name</label>
-                                            <div>
-                                                <input name="middle_name" id="middle_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                                <input name="person_emergency" id="person_emergency" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                             </div>
                                         </div>
                                     </div>  
@@ -523,11 +540,12 @@
                                             </div>
 
                                             <div class="md:col-span-1">
-                                                <label for="job_position">Relationship</label>
-                                                <select name="status" id="status" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
-                                                    <option value="single">Parents</option>
-                                                    <option value="married">Acquaintance</option>
-                                                    <option value="married">Siblings</option>
+                                                <label for="relationship">Relationship</label>
+                                                <select name="relationship" id="relationship" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                                    <option value="Parents">Parents</option>
+                                                    <option value="Acquintance">Acquaintance</option>
+                                                    <option value="Siblings">Siblings</option>
+                                                    <option value="Friend">Friend</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -593,7 +611,7 @@
                         <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3 mb-6">
                             <div>
                                 <h1 class="text-xl md:text-xl text-slate-600 dark:text-slate-100 font-bold mb-1">Educational Background</h1>
-                                <span>Fill up the inputs to add Employee's Edicational Background.</span>
+                                <span>Fill up the inputs to add Employee's Educational Background.</span>
                             </div>
 
                             <div class="lg:col-span-2">
@@ -613,23 +631,23 @@
                                 <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6">
 
                                     <div class="md:col-span-2">
-                                        <label for="first_name">Name of School</label>
+                                        <label for="elementary">Name of School</label>
                                         <div>
-                                            <input name="first_name" id="first_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="elementary" id="elementary" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
 
                                     <div class="md:col-span-2">
-                                        <label for="last_name">Address</label>
+                                        <label for="elem_address">Address</label>
                                         <div>
-                                            <input name="last_name" id="last_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="elem_address" id="elem_address" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
 
                                     <div class="md:col-span-2">
-                                        <label for="middle_name">Year Graduated</label>
+                                        <label for="elem_year">Year Graduated</label>
                                         <div>
-                                            <input name="middle_name" id="middle_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="elem_year" id="elem_year" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
                                 </div>  
@@ -647,23 +665,23 @@
                                 <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6">
 
                                     <div class="md:col-span-2">
-                                        <label for="first_name">Name of School</label>
+                                        <label for="secondary">Name of School</label>
                                         <div>
-                                            <input name="first_name" id="first_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="secondary" id="secondary" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
 
                                     <div class="md:col-span-2">
-                                        <label for="last_name">Address</label>
+                                        <label for="sec_address">Address</label>
                                         <div>
-                                            <input name="last_name" id="last_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="sec_address" id="sec_address" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
 
                                     <div class="md:col-span-2">
-                                        <label for="middle_name">Year Graduated</label>
+                                        <label for="sec_year">Year Graduated</label>
                                         <div>
-                                            <input name="middle_name" id="middle_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="sec_year" id="sec_year" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
                                 </div>  
@@ -681,23 +699,23 @@
                                 <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6">
 
                                     <div class="md:col-span-2">
-                                        <label for="first_name">Name of School</label>
+                                        <label for="college">Name of School</label>
                                         <div>
-                                            <input name="first_name" id="first_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="college" id="college" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
 
                                     <div class="md:col-span-2">
-                                        <label for="last_name">Address</label>
+                                        <label for="college_address">Address</label>
                                         <div>
-                                            <input name="last_name" id="last_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="college_address" id="college_address" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
 
                                     <div class="md:col-span-2">
-                                        <label for="middle_name">Year Graduated</label>
+                                        <label for="college_year">Year Graduated</label>
                                         <div>
-                                            <input name="middle_name" id="middle_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="college_year" id="college_year" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
                                 </div>  
@@ -715,23 +733,23 @@
                                 <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6">
 
                                     <div class="md:col-span-2">
-                                        <label for="first_name">Name of School</label>
+                                        <label for="course">Name of School</label>
                                         <div>
-                                            <input name="first_name" id="first_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="course" id="course" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
 
                                     <div class="md:col-span-2">
-                                        <label for="last_name">Address</label>
+                                        <label for="course_address">Address</label>
                                         <div>
-                                            <input name="last_name" id="last_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="course_address" id="course_address" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
 
                                     <div class="md:col-span-2">
-                                        <label for="middle_name">Year Graduated</label>
+                                        <label for="course_year">Year Graduated</label>
                                         <div>
-                                            <input name="middle_name" id="middle_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="course_year" id="course_year" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
                                 </div>  
@@ -749,23 +767,23 @@
                                 <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6">
 
                                     <div class="md:col-span-2">
-                                        <label for="first_name">Name of School</label>
+                                        <label for="vocational">Name of School</label>
                                         <div>
-                                            <input name="first_name" id="first_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="vocational" id="vocational" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
 
                                     <div class="md:col-span-2">
-                                        <label for="last_name">Address</label>
+                                        <label for="voc_address">Address</label>
                                         <div>
-                                            <input name="last_name" id="last_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="voc_address" id="voc_address" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
 
                                     <div class="md:col-span-2">
-                                        <label for="middle_name">Year Graduated</label>
+                                        <label for="voc_year">Year Graduated</label>
                                         <div>
-                                            <input name="middle_name" id="middle_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="voc_year" id="voc_year" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
                                 </div>  
@@ -846,23 +864,23 @@
                                 <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6 mb-4">
 
                                     <div class="md:col-span-2">
-                                        <label for="first_name">Name of Company</label>
+                                        <label for="n_company_1">Name of Company</label>
                                         <div>
-                                            <input name="first_name" id="first_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="n_company_1" id="n_company_1" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
 
                                     <div class="md:col-span-2">
-                                        <label for="last_name">Address</label>
+                                        <label for="a_company_1">Address</label>
                                         <div>
-                                            <input name="last_name" id="last_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="a_company_add_1" id="a_company_add_1" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
 
                                     <div class="md:col-span-2">
-                                        <label for="middle_name">Position</label>
+                                        <label for="p_company_1">Position</label>
                                         <div>
-                                            <input name="middle_name" id="middle_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="p_company_1" id="p_company_1" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
                                 </div>  
@@ -870,17 +888,20 @@
                                 <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6">
 
                                     <div class="md:col-span-2">
-                                        <label for="first_name">Date Hired (From)</label>
+                                        <label for="f_company_1">Date Hired (From)</label>
                                         <div>
-                                            <input type="date" name="first_name" id="first_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input type="date" name="f_company_1" id="f_company_1" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
 
                                     <div class="md:col-span-2">
-                                        <label for="last_name">To</label>
+                                        <label for="t_company_1">To</label>
                                         <div>
-                                            <input type="date" name="last_name" id="last_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input type="date" name="t_company_1" id="t_company_1" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
+                                    </div>
+                                    <div class="md:col-span-2 flex items-start justify-start mt-8">
+                                        <button type="button" id="add-employment" class="text-slate-600 px-2 py-1 rounded hover:text-orange-500 italic text-sm">Add Employment</button>
                                     </div>
                                 </div>  
                             </div>
@@ -893,47 +914,45 @@
                                 <p class="font-medium text-lg"></p>
                             </div>
 
-                            <div class="lg:col-span-2">
-                                <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6 mb-4">
-
-                                    <div class="md:col-span-2">
-                                        <label for="first_name">Name of Company</label>
-                                        <div>
-                                            <input name="first_name" id="first_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
-                                        </div>
-                                    </div>
-
-                                    <div class="md:col-span-2">
-                                        <label for="last_name">Address</label>
-                                        <div>
-                                            <input name="last_name" id="last_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
-                                        </div>
-                                    </div>
-
-                                    <div class="md:col-span-2">
-                                        <label for="middle_name">Position</label>
-                                        <div>
-                                            <input name="middle_name" id="middle_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
-                                        </div>
-                                    </div>
-                                </div>  
-
+                            <div class="lg:col-span-2 mb-4 hidden" id="employment2">
                                 <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6">
-
                                     <div class="md:col-span-2">
-                                        <label for="first_name">Date Hired (From)</label>
+                                        <label for="n_company_2">Name of Company</label>
                                         <div>
-                                            <input type="date" name="first_name" id="first_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="n_company_2" id="n_company_2" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
-
                                     <div class="md:col-span-2">
-                                        <label for="last_name">To</label>
+                                        <label for="a_company_add_2">Address</label>
                                         <div>
-                                            <input type="date" name="last_name" id="last_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="a_company_add_2" id="a_company_add_2" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
-                                </div>  
+                                    <div class="md:col-span-2">
+                                        <label for="p_company_2">Position</label>
+                                        <div>
+                                            <input name="p_company_2" id="p_company_2" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6 mt-4">
+                                    <div class="md:col-span-2">
+                                        <label for="f_company_2">Date Hired (From)</label>
+                                        <div>
+                                            <input type="date" name="f_company_2" id="f_company_2" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                        </div>
+                                    </div>
+                                    <div class="md:col-span-2">
+                                        <label for="t_company_2">To</label>
+                                        <div>
+                                            <input type="date" name="t_company_2" id="t_company_2" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                        </div>
+                                    </div>
+                                    <div class="md:col-span-2 flex items-start justify-start mt-8">
+                                        <button type="button" class="text-red-400 text-sm px-2 py-1 rounded remove-employment italic">Remove</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -945,47 +964,45 @@
                             </div>
 
 
-                            <div class="lg:col-span-2">
-                                <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6 mb-4">
-
-                                    <div class="md:col-span-2">
-                                        <label for="first_name">Name of Company</label>
-                                        <div>
-                                            <input name="first_name" id="first_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
-                                        </div>
-                                    </div>
-
-                                    <div class="md:col-span-2">
-                                        <label for="last_name">Address</label>
-                                        <div>
-                                            <input name="last_name" id="last_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
-                                        </div>
-                                    </div>
-
-                                    <div class="md:col-span-2">
-                                        <label for="middle_name">Position</label>
-                                        <div>
-                                            <input name="middle_name" id="middle_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
-                                        </div>
-                                    </div>
-                                </div>  
-
+                            <div class="lg:col-span-2 mb-4 hidden" id="employment3">
                                 <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6">
-
                                     <div class="md:col-span-2">
-                                        <label for="first_name">Date Hired (From)</label>
+                                        <label for="n_company_3">Name of Company</label>
                                         <div>
-                                            <input type="date" name="first_name" id="first_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="n_company_3" id="n_company_3" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
-
                                     <div class="md:col-span-2">
-                                        <label for="last_name">To</label>
+                                        <label for="a_company_add_3">Address</label>
                                         <div>
-                                            <input type="date" name="last_name" id="last_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="a_company_add_3" id="a_company_add_3" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
-                                </div>  
+                                    <div class="md:col-span-2">
+                                        <label for="p_company_3">Position</label>
+                                        <div>
+                                            <input name="p_company_3" id="p_company_3" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6 mt-4">
+                                    <div class="md:col-span-2">
+                                        <label for="f_company_3">Date Hired (From)</label>
+                                        <div>
+                                            <input type="date" name="f_company_3" id="f_company_3" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                        </div>
+                                    </div>
+                                    <div class="md:col-span-2">
+                                        <label for="t_company_3">To</label>
+                                        <div>
+                                            <input type="date" name="t_company_3" id="t_company_3" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                        </div>
+                                    </div>
+                                    <div class="md:col-span-2 flex items-start justify-start mt-8">
+                                        <button type="button" class="text-red-400 text-sm px-2 py-1 rounded remove-employment italic">Remove</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -998,37 +1015,38 @@
                                 <p class="font-medium text-lg">Character Reference <span class="text-slate-400">(not related to you)</span></p>
                             </div>
 
-                            <div class="lg:col-span-2">
-                                <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-8 mb-4">
-
+                            <div class="lg:col-span-2 mb-4">
+                                <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-10">
                                     <div class="md:col-span-2">
-                                        <label for="first_name">Name</label>
+                                        <label for="cf_name_1">Name</label>
                                         <div>
-                                            <input name="first_name" id="first_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="cf_name_1" id="cf_name_1" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
-
                                     <div class="md:col-span-2">
-                                        <label for="last_name">Occupation</label>
+                                        <label for="cf_occ_1">Occupation</label>
                                         <div>
-                                            <input name="last_name" id="last_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="cf_occ_1" id="cf_occ_1" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
-
                                     <div class="md:col-span-2">
-                                        <label for="last_name">Address</label>
+                                        <label for="cf_add_1">Address</label>
                                         <div>
-                                            <input name="last_name" id="last_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="cf_add_1" id="cf_add_1" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
-
                                     <div class="md:col-span-2">
-                                        <label for="middle_name">Tel/Phone Number</label>
+                                        <label for="cf_phone_1">Phone Number</label>
                                         <div>
-                                            <input name="middle_name" id="middle_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="cf_phone_1" id="cf_phone_1" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
-                                </div>  
+                                    <div class="md:col-span-2">
+                                        <div class="md:col-span-2 flex items-start justify-start mt-8">
+                                            <button type="button" id="add-character-reference" class="text-slate-600 px-2 py-1 rounded hover:text-orange-500 italic text-sm">Add Reference</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1039,38 +1057,40 @@
                                 <p class="font-medium text-lg"></p>
                             </div>
 
-                            <div class="lg:col-span-2">
-                                <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-8 mb-4">
-
+                            <div class="lg:col-span-2 mb-4 hidden" id="character-reference2">
+                                <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-10">
                                     <div class="md:col-span-2">
-                                        <label for="first_name">Name</label>
+                                        <label for="cf_name_2">Name</label>
                                         <div>
-                                            <input name="first_name" id="first_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="cf_name_2" id="cf_name_2" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
-
                                     <div class="md:col-span-2">
-                                        <label for="last_name">Occupation</label>
+                                        <label for="cf_occ_2">Occupation</label>
                                         <div>
-                                            <input name="last_name" id="last_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="cf_occ_2" id="cf_occ_2" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
-
                                     <div class="md:col-span-2">
-                                        <label for="last_name">Address</label>
+                                        <label for="cf_add_2">Address</label>
                                         <div>
-                                            <input name="last_name" id="last_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="cf_add_2" id="cf_add_2" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
-
                                     <div class="md:col-span-2">
-                                        <label for="middle_name">Tel/Phone Number</label>
+                                        <label for="cf_phone_2">Phone Number</label>
                                         <div>
-                                            <input name="middle_name" id="middle_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="cf_phone_2" id="cf_phone_2" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
-                                </div>  
+                                    <div class="md:col-span-2">
+                                        <div class="md:col-span-2 flex items-start justify-start mt-8">
+                                            <button type="button" class="text-red-400 text-sm px-2 py-1 rounded remove-character-reference italic">Remove</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+
                         </div>
                     </div>
 
@@ -1080,37 +1100,38 @@
                                 <p class="font-medium text-lg"></p>
                             </div>
 
-                            <div class="lg:col-span-2">
-                                <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-8 mb-4">
-
+                            <div class="lg:col-span-2 mb-4 hidden" id="character-reference3">
+                                <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-10">
                                     <div class="md:col-span-2">
-                                        <label for="first_name">Name</label>
+                                        <label for="cf_name_3">Name</label>
                                         <div>
-                                            <input name="first_name" id="first_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="cf_name_3" id="cf_name_3" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
-
                                     <div class="md:col-span-2">
-                                        <label for="last_name">Occupation</label>
+                                        <label for="cf_occ_3">Occupation</label>
                                         <div>
-                                            <input name="last_name" id="last_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="cf_occ_3" id="cf_occ_3" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
-
                                     <div class="md:col-span-2">
-                                        <label for="last_name">Address</label>
+                                        <label for="cf_add_3">Address</label>
                                         <div>
-                                            <input name="last_name" id="last_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="cf_add_3" id="cf_add_3" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
-
                                     <div class="md:col-span-2">
-                                        <label for="middle_name">Tel/Phone Number</label>
+                                        <label for="cf_phone_3">Phone Number</label>
                                         <div>
-                                            <input name="middle_name" id="middle_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="cf_phone_3" id="cf_phone_3" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
-                                </div>  
+                                    <div class="md:col-span-2">
+                                        <div class="md:col-span-2 flex items-start justify-start mt-8">
+                                            <button type="button" class="text-red-400 text-sm px-2 py-1 rounded remove-character-reference italic">Remove</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1187,16 +1208,16 @@
                             <div class="lg:col-span-2">
                                 <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2 mb-6">
                                     <div class="md:col-span-1">
-                                        <label for="job_position">SSS No.</label>
-                                        <select name="status" id="status" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                        <label for="sss">SSS No.</label>
+                                        <select name="sss" id="sss" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
                                             <option value="To Be Submitted">To Be Submitted</option>
                                             <option value="Pending">Pending</option>
                                         </select>
                                     </div>
 
                                     <div class="md:col-span-1">
-                                        <label for="job_position">PAG-IBIG No.</label>
-                                        <select name="status" id="status" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                        <label for="pagibig">PAG-IBIG No.</label>
+                                        <select name="pagibig" id="pagibig" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
                                             <option value="To Be Submitted">To Be Submitted</option>
                                             <option value="Pending">Pending</option>
                                         </select>
@@ -1205,16 +1226,16 @@
 
                                 <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2 mb-6">
                                     <div class="md:col-span-1">
-                                        <label for="job_position">PHILHEALTH No.</label>
-                                        <select name="status" id="status" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                        <label for="philhealth">PHILHEALTH No.</label>
+                                        <select name="philhealth" id="philhealth" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
                                             <option value="To Be Submitted">To Be Submitted</option>
                                             <option value="Pending">Pending</option>
                                         </select>
                                     </div>
 
                                     <div class="md:col-span-1">
-                                        <label for="job_position">TIN No.</label>
-                                        <select name="status" id="status" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                        <label for="tin">TIN No.</label>
+                                        <select name="tin" id="tin" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
                                             <option value="To Be Submitted">To Be Submitted</option>
                                             <option value="Pending">Pending</option>
                                         </select>
@@ -1311,4 +1332,91 @@
 
     // Initialize buttons on page load
     updateButtons();
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let childCount = 1;
+        const maxChildren = 3;
+        const addChildButton = document.getElementById('add-child');
+
+        addChildButton.addEventListener('click', function () {
+            if (childCount < maxChildren) {
+                childCount++;
+                    document.getElementById(`child${childCount}`).classList.remove('hidden');
+                document.getElementById(`child${childCount}-label`).classList.remove('hidden');
+            }
+        });
+
+        document.querySelectorAll('.remove-child').forEach(button => {
+            button.addEventListener('click', function () {
+                const parentDiv = this.parentElement.parentElement.parentElement;
+                parentDiv.classList.add('hidden');
+                    parentDiv.querySelectorAll('input').forEach(input => input.value = '');
+                    const labelDiv = document.getElementById(`${parentDiv.id}-label`);
+                    if (labelDiv) {
+                        labelDiv.classList.add('hidden');
+                }
+                childCount--;
+            });
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let employmentCount = 1;
+        const maxEmployment = 3;
+        const addEmploymentButton = document.getElementById('add-employment');
+
+        addEmploymentButton.addEventListener('click', function () {
+            if (employmentCount < maxEmployment) {
+                employmentCount++;
+                document.getElementById(`employment${employmentCount}`).classList.remove('hidden');
+                document.getElementById(`employment${employmentCount}-label`).classList.remove('hidden');
+            }
+        });
+
+        document.querySelectorAll('.remove-employment').forEach(button => {
+            button.addEventListener('click', function () {
+                const parentDiv = this.parentElement.parentElement.parentElement;
+                parentDiv.classList.add('hidden');
+                parentDiv.querySelectorAll('input').forEach(input => input.value = '');
+                const labelDiv = document.getElementById(`${parentDiv.id}-label`);
+                if (labelDiv) {
+                    labelDiv.classList.add('hidden');
+                }
+                employmentCount--;
+            });
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let characterReferenceCount = 1;
+        const maxCharacterReferences = 3;
+        const addCharacterReferenceButton = document.getElementById('add-character-reference');
+
+        addCharacterReferenceButton.addEventListener('click', function () {
+            if (characterReferenceCount < maxCharacterReferences) {
+                characterReferenceCount++;
+                document.getElementById(`character-reference${characterReferenceCount}`).classList.remove('hidden');
+                document.getElementById(`character-reference${characterReferenceCount}-label`).classList.remove('hidden');
+            }
+        });
+
+        document.querySelectorAll('.remove-character-reference').forEach(button => {
+            button.addEventListener('click', function () {
+                const parentDiv = this.parentElement.parentElement.parentElement;
+                parentDiv.classList.add('hidden');
+                parentDiv.querySelectorAll('input').forEach(input => input.value = '');
+                const labelDiv = document.getElementById(`${parentDiv.id}-label`);
+                if (labelDiv) {
+                    labelDiv.classList.add('hidden');
+                }
+                characterReferenceCount--;
+            });
+        });
+    });
 </script>
