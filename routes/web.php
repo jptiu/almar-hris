@@ -151,6 +151,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     // Employee
     Route::get('employee', [EmployeeController::class, 'index'])->name('employee.index');
+    Route::post('employee/store', [EmployeeController::class, 'store'])->name('employee.store');
     Route::get('employee-add', [EmployeeController::class, 'add'])->name('employee.add');
     
     // Auditor
