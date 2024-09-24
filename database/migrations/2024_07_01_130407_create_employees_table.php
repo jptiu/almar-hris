@@ -46,7 +46,9 @@ return new class extends Migration
             $table->string('father_l_name')->nullable();
             $table->string('f_occupation')->nullable();
             $table->string('f_phone')->nullable();
-            $table->string('person_emergency')->nullable();
+            $table->string('emergency_name')->nullable();
+            $table->string('emergency_address')->nullable();
+            $table->string('emergency_phone')->nullable();
             $table->string('relationship')->nullable();
             $table->string('elementary')->nullable();
             $table->string('secondary')->nullable();

@@ -530,13 +530,13 @@
                                     <div class="lg:col-span-2">
                                         <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-3">
                                             <div class="md:col-span-1">
-                                                <label for="house">Address</label>
-                                                <input type="text" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                                <label for="emergency_address">Address</label>
+                                                <input type="text" name="emergency_address" id="emergency_address" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
                                             </div>
 
                                             <div class="md:col-span-1">
-                                                <label for="street">Phone No.</label>
-                                                <input type="text" name="street" id="street" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                                <label for="emergency_phone">Phone No.</label>
+                                                <input type="text" name="emergency_phone" id="emergency_phone" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
                                             </div>
 
                                             <div class="md:col-span-1">
@@ -923,9 +923,9 @@
                                         </div>
                                     </div>
                                     <div class="md:col-span-2">
-                                        <label for="a_company_add_2">Address</label>
+                                        <label for="a_company_1">Address</label>
                                         <div>
-                                            <input name="a_company_add_2" id="a_company_add_2" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="a_company_1" id="a_company_1" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
                                         </div>
                                     </div>
                                     <div class="md:col-span-2">
