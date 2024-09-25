@@ -90,4 +90,31 @@ class HRController extends Controller
     {
         return view('pages.hr.evaluations.index');
     }
+
+    public function monthlyReport()
+    {
+        return view('pages.hr.monthlyrep.index');
+    }
+
+    public function payRoll()
+    {
+        return view('pages.hr.payroll.index');
+    }
+
+    public function biometricsAttendance()
+    {
+        return view('pages.hr.attendance.index');
+    }
+
+    public function approvedLoans()
+    {
+        return view('pages.hr.loanapprovals.approved.index');
+    }
+
+    public function rejectedLoans()
+    {
+        return view('pages.hr.loanapprovals.rejected.index');
+    }
+
+
 }

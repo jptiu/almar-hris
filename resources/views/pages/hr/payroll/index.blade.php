@@ -31,7 +31,8 @@
         
         <!-- Cards -->
         <div class="relative">
-            <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-12 lg:px-4">Loan Renewal</h1>
+            <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-12 lg:px-4">Employee Payroll
+            </h1>
         </div>
         <section class="container px-4 mx-auto">
             <div class="flex flex-col">
@@ -48,24 +49,28 @@
 
                                         <th scope="col"
                                             class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                            Name
+                                            Employee Name
                                         </th>
 
                                         <th scope="col"
                                             class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                            Address
+                                            Days of Work
                                         </th>
                                         <th scope="col"
                                             class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                            Loan Amount
+                                            Reg Rate
                                         </th>
                                         <th scope="col"
                                             class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                            Approval Date
+                                            Total Salay
                                         </th>
                                         <th scope="col"
                                             class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                            Status
+                                            Payslip
+                                        </th>
+                                        <th scope="col"
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            Action
                                         </th>
                                     </tr>
                                 </thead>

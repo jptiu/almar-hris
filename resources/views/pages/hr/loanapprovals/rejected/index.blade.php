@@ -31,7 +31,7 @@
         
         <!-- Cards -->
         <div class="relative">
-            <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-12 lg:px-4">Loan Renewal</h1>
+            <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-12 lg:px-4">Rejected Loans</h1>
         </div>
         <section class="container px-4 mx-auto">
             <div class="flex flex-col">
@@ -61,11 +61,15 @@
                                         </th>
                                         <th scope="col"
                                             class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                            Approval Date
+                                            Rejection Date
                                         </th>
                                         <th scope="col"
                                             class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                             Status
+                                        </th>
+                                        <th scope="col"
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            Action
                                         </th>
                                     </tr>
                                 </thead>
