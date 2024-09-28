@@ -22,7 +22,8 @@
 
 
         <div class="relative">
-            <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-12 lg:px-4">Employee Dashboard
+            <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-12 lg:px-4">Employee
+                Dashboard
             </h1>
         </div>
 
@@ -34,7 +35,8 @@
                     <div class="flex items-center">
                         <div class="w-20 h-20 rounded-md shrink-0 bg-sky-500">
                             <svg class="w-20 h-20 fill-current text-sky-50" viewBox="0 0 36 36">
-                                <path d="M23 11v2.085c-2.841.401-4.41 2.462-5.8 4.315-1.449 1.932-2.7 3.6-5.2 3.6h-1v2h1c3.5 0 5.253-2.338 6.8-4.4 1.449-1.932 2.7-3.6 5.2-3.6h3l-4-4zM15.406 16.455c.066-.087.125-.162.194-.254.314-.419.656-.872 1.033-1.33C15.475 13.802 14.038 13 12 13h-1v2h1c1.471 0 2.505.586 3.406 1.455zM24 21c-1.471 0-2.505-.586-3.406-1.455-.066.087-.125.162-.194.254-.316.422-.656.873-1.028 1.328.959.878 2.108 1.573 3.628 1.788V25l4-4h-3z" />
+                                <path
+                                    d="M23 11v2.085c-2.841.401-4.41 2.462-5.8 4.315-1.449 1.932-2.7 3.6-5.2 3.6h-1v2h1c3.5 0 5.253-2.338 6.8-4.4 1.449-1.932 2.7-3.6 5.2-3.6h3l-4-4zM15.406 16.455c.066-.087.125-.162.194-.254.314-.419.656-.872 1.033-1.33C15.475 13.802 14.038 13 12 13h-1v2h1c1.471 0 2.505.586 3.406 1.455zM24 21c-1.471 0-2.505-.586-3.406-1.455-.066.087-.125.162-.194.254-.316.422-.656.873-1.028 1.328.959.878 2.108 1.573 3.628 1.788V25l4-4h-3z" />
                             </svg>
                         </div>
                         <div class="ml-6">
@@ -52,7 +54,8 @@
                     <div class="flex items-center">
                         <div class="w-20 h-20 rounded-md shrink-0 bg-yellow-500">
                             <svg class="w-20 h-20 fill-current text-sky-50" viewBox="0 0 36 36">
-                                <path d="M23 11v2.085c-2.841.401-4.41 2.462-5.8 4.315-1.449 1.932-2.7 3.6-5.2 3.6h-1v2h1c3.5 0 5.253-2.338 6.8-4.4 1.449-1.932 2.7-3.6 5.2-3.6h3l-4-4zM15.406 16.455c.066-.087.125-.162.194-.254.314-.419.656-.872 1.033-1.33C15.475 13.802 14.038 13 12 13h-1v2h1c1.471 0 2.505.586 3.406 1.455zM24 21c-1.471 0-2.505-.586-3.406-1.455-.066.087-.125.162-.194.254-.316.422-.656.873-1.028 1.328.959.878 2.108 1.573 3.628 1.788V25l4-4h-3z" />
+                                <path
+                                    d="M23 11v2.085c-2.841.401-4.41 2.462-5.8 4.315-1.449 1.932-2.7 3.6-5.2 3.6h-1v2h1c3.5 0 5.253-2.338 6.8-4.4 1.449-1.932 2.7-3.6 5.2-3.6h3l-4-4zM15.406 16.455c.066-.087.125-.162.194-.254.314-.419.656-.872 1.033-1.33C15.475 13.802 14.038 13 12 13h-1v2h1c1.471 0 2.505.586 3.406 1.455zM24 21c-1.471 0-2.505-.586-3.406-1.455-.066.087-.125.162-.194.254-.316.422-.656.873-1.028 1.328.959.878 2.108 1.573 3.628 1.788V25l4-4h-3z" />
                             </svg>
                         </div>
                         <div class="ml-6">
@@ -64,13 +67,14 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
                 <div class="px-5 py-5">
                     <div class="flex items-center">
                         <div class="w-20 h-20 rounded-md shrink-0 bg-orange-500">
                             <svg class="w-20 h-20 fill-current text-sky-50" viewBox="0 0 36 36">
-                                <path d="M23 11v2.085c-2.841.401-4.41 2.462-5.8 4.315-1.449 1.932-2.7 3.6-5.2 3.6h-1v2h1c3.5 0 5.253-2.338 6.8-4.4 1.449-1.932 2.7-3.6 5.2-3.6h3l-4-4zM15.406 16.455c.066-.087.125-.162.194-.254.314-.419.656-.872 1.033-1.33C15.475 13.802 14.038 13 12 13h-1v2h1c1.471 0 2.505.586 3.406 1.455zM24 21c-1.471 0-2.505-.586-3.406-1.455-.066.087-.125.162-.194.254-.316.422-.656.873-1.028 1.328.959.878 2.108 1.573 3.628 1.788V25l4-4h-3z" />
+                                <path
+                                    d="M23 11v2.085c-2.841.401-4.41 2.462-5.8 4.315-1.449 1.932-2.7 3.6-5.2 3.6h-1v2h1c3.5 0 5.253-2.338 6.8-4.4 1.449-1.932 2.7-3.6 5.2-3.6h3l-4-4zM15.406 16.455c.066-.087.125-.162.194-.254.314-.419.656-.872 1.033-1.33C15.475 13.802 14.038 13 12 13h-1v2h1c1.471 0 2.505.586 3.406 1.455zM24 21c-1.471 0-2.505-.586-3.406-1.455-.066.087-.125.162-.194.254-.316.422-.656.873-1.028 1.328.959.878 2.108 1.573 3.628 1.788V25l4-4h-3z" />
                             </svg>
                         </div>
                         <div class="ml-6">
@@ -88,7 +92,8 @@
                     <div class="flex items-center">
                         <div class="w-20 h-20 rounded-md shrink-0 bg-red-500">
                             <svg class="w-20 h-20 fill-current text-sky-50" viewBox="0 0 36 36">
-                                <path d="M23 11v2.085c-2.841.401-4.41 2.462-5.8 4.315-1.449 1.932-2.7 3.6-5.2 3.6h-1v2h1c3.5 0 5.253-2.338 6.8-4.4 1.449-1.932 2.7-3.6 5.2-3.6h3l-4-4zM15.406 16.455c.066-.087.125-.162.194-.254.314-.419.656-.872 1.033-1.33C15.475 13.802 14.038 13 12 13h-1v2h1c1.471 0 2.505.586 3.406 1.455zM24 21c-1.471 0-2.505-.586-3.406-1.455-.066.087-.125.162-.194.254-.316.422-.656.873-1.028 1.328.959.878 2.108 1.573 3.628 1.788V25l4-4h-3z" />
+                                <path
+                                    d="M23 11v2.085c-2.841.401-4.41 2.462-5.8 4.315-1.449 1.932-2.7 3.6-5.2 3.6h-1v2h1c3.5 0 5.253-2.338 6.8-4.4 1.449-1.932 2.7-3.6 5.2-3.6h3l-4-4zM15.406 16.455c.066-.087.125-.162.194-.254.314-.419.656-.872 1.033-1.33C15.475 13.802 14.038 13 12 13h-1v2h1c1.471 0 2.505.586 3.406 1.455zM24 21c-1.471 0-2.505-.586-3.406-1.455-.066.087-.125.162-.194.254-.316.422-.656.873-1.028 1.328.959.878 2.108 1.573 3.628 1.788V25l4-4h-3z" />
                             </svg>
                         </div>
                         <div class="ml-6">
@@ -106,7 +111,8 @@
                     <div class="flex items-center">
                         <div class="w-20 h-20 rounded-md shrink-0 bg-green-500">
                             <svg class="w-20 h-20 fill-current text-sky-50" viewBox="0 0 36 36">
-                                <path d="M23 11v2.085c-2.841.401-4.41 2.462-5.8 4.315-1.449 1.932-2.7 3.6-5.2 3.6h-1v2h1c3.5 0 5.253-2.338 6.8-4.4 1.449-1.932 2.7-3.6 5.2-3.6h3l-4-4zM15.406 16.455c.066-.087.125-.162.194-.254.314-.419.656-.872 1.033-1.33C15.475 13.802 14.038 13 12 13h-1v2h1c1.471 0 2.505.586 3.406 1.455zM24 21c-1.471 0-2.505-.586-3.406-1.455-.066.087-.125.162-.194.254-.316.422-.656.873-1.028 1.328.959.878 2.108 1.573 3.628 1.788V25l4-4h-3z" />
+                                <path
+                                    d="M23 11v2.085c-2.841.401-4.41 2.462-5.8 4.315-1.449 1.932-2.7 3.6-5.2 3.6h-1v2h1c3.5 0 5.253-2.338 6.8-4.4 1.449-1.932 2.7-3.6 5.2-3.6h3l-4-4zM15.406 16.455c.066-.087.125-.162.194-.254.314-.419.656-.872 1.033-1.33C15.475 13.802 14.038 13 12 13h-1v2h1c1.471 0 2.505.586 3.406 1.455zM24 21c-1.471 0-2.505-.586-3.406-1.455-.066.087-.125.162-.194.254-.316.422-.656.873-1.028 1.328.959.878 2.108 1.573 3.628 1.788V25l4-4h-3z" />
                             </svg>
                         </div>
                         <div class="ml-6">
@@ -118,7 +124,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
 
         <!-- Dashboard actions -->
@@ -193,17 +199,19 @@
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                {{ $list->first_name }} {{ $list->last_name }}
+                                                {{ $list->f_name }} {{ $list->l_name }}
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                <div class="flex items-center gap-x-2">
-                                                    <div>
-                                                        <h2 class="text-sm font-medium text-gray-500 dark:text-white ">
-                                                            {{ $list->house }} {{ $list->street }}
-                                                            {{ $list->barangay }} {{ $list->city }}</h2>
-                                                    </div>
-                                                </div>
+                                                {{ $list->present_address }}
+                                            </td>
+                                            <td
+                                                class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                {{ $list->position_desired }}
+                                            </td>
+                                            <td
+                                                class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                
                                             </td>
                                             <td class="px-4 py-4 text-sm whitespace-nowrap">
                                                 <div class="flex items-center gap-x-6">
@@ -236,8 +244,8 @@
                                                         <button type="submit"
                                                             class="text-gray-500 mt-1 transition-colors duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                                height="16" fill="currentColor" class="bi bi-trash"
-                                                                viewBox="0 0 16 16">
+                                                                height="16" fill="currentColor"
+                                                                class="bi bi-trash" viewBox="0 0 16 16">
                                                                 <path
                                                                     d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
                                                                 <path
@@ -304,12 +312,13 @@
 
         <div class="grid grid-cols-12 gap-6 mt-14">
             <!-- Leave Request -->
-            <div class="col-span-full xl:col-span-6 bg-white dark:bg-slate-800 shadow-lg rounded-md border border-slate-200 dark:border-slate-700">
+            <div
+                class="col-span-full xl:col-span-6 bg-white dark:bg-slate-800 shadow-lg rounded-md border border-slate-200 dark:border-slate-700">
                 <header class="px-5 py-4 border-b border-slate-100 dark:border-slate-700">
                     <h2 class="font-semibold text-slate-800 dark:text-slate-100">Leave Request</h2>
                 </header>
                 <div class="p-3">
-                    
+
                     <!-- Table -->
                     <div class="overflow-x-auto">
                         <table class="table-auto w-full">
@@ -319,32 +328,35 @@
                                     <td class="p-2 whitespace-nowrap">
                                         <div class="flex items-center">
                                             <div class="w-10 h-10 shrink-0 mr-2 sm:mr-3">
-                                                <img class="rounded-full" src="{{ asset('images/user-36-05.jpg') }}" width="40" height="40" alt="Alex Shatov" />
+                                                <img class="rounded-full" src="{{ asset('images/user-36-05.jpg') }}"
+                                                    width="40" height="40" alt="Alex Shatov" />
                                             </div>
                                             <div class="font-medium text-slate-800"> Kent Paul</div>
                                         </div>
                                     </td>
                                     <td class="p-2 whitespace-nowrap">
                                         <div class="text-lg text-end text-sm">
-                                            <a class="font-medium text-green-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">Leave Request<span class="hidden sm:inline"></span></a>
+                                            <a class="font-medium text-green-500 hover:text-indigo-600 dark:hover:text-indigo-400"
+                                                href="#0">Leave Request<span class="hidden sm:inline"></span></a>
                                         </div>
                                     </td>
-                                </tr>                                                                            
+                                </tr>
                             </tbody>
                         </table>
-                    
+
                     </div>
-                
+
                 </div>
-            </div>  
-            
+            </div>
+
             <!-- Probation Reminder -->
-            <div class="col-span-full xl:col-span-6 bg-white dark:bg-slate-800 shadow-lg rounded-md border border-slate-200 dark:border-slate-700">
+            <div
+                class="col-span-full xl:col-span-6 bg-white dark:bg-slate-800 shadow-lg rounded-md border border-slate-200 dark:border-slate-700">
                 <header class="px-5 py-4 border-b border-slate-100 dark:border-slate-700">
                     <h2 class="font-semibold text-slate-800 dark:text-slate-100">Probation Reminder</h2>
                 </header>
                 <div class="p-3">
-                    
+
                     <!-- Table -->
                     <div class="overflow-x-auto">
                         <table class="table-auto w-full">
@@ -354,7 +366,8 @@
                                     <td class="p-2 whitespace-nowrap">
                                         <div class="flex items-center">
                                             <div class="w-10 h-10 shrink-0 mr-2 sm:mr-3">
-                                                <img class="rounded-full" src="{{ asset('images/user-36-05.jpg') }}" width="40" height="40" alt="Alex Shatov" />
+                                                <img class="rounded-full" src="{{ asset('images/user-36-05.jpg') }}"
+                                                    width="40" height="40" alt="Alex Shatov" />
                                             </div>
                                             <div class="font-medium text-slate-800"> JP Tiu</div>
                                         </div>
@@ -362,19 +375,20 @@
                                     <td class="p-2 whitespace-nowrap">
                                         <div class="text-lg text-end text-red-500 text-sm">5 days remaining</div>
                                     </td>
-                                </tr>                                                                            
+                                </tr>
                             </tbody>
                         </table>
-                    
+
                     </div>
-                
+
                 </div>
-            </div>    
+            </div>
         </div>
 
         <div class="grid grid-cols-12 gap-6 mt-14">
             <!-- Recent Activity -->
-            <div class="col-span-full xl:col-span-6 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+            <div
+                class="col-span-full xl:col-span-6 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
                 <header class="px-5 py-4 border-b border-slate-100 dark:border-slate-700">
                     <h2 class="font-semibold text-slate-800 dark:text-slate-100">Recent Logs</h2>
                 </header>
@@ -383,23 +397,30 @@
                     <!-- Card content -->
                     <!-- "Today" group -->
                     <div>
-                        <header class="text-xs uppercase text-slate-400 dark:text-slate-500 bg-slate-50 dark:bg-slate-700 dark:bg-opacity-50 rounded-sm font-semibold p-2">Today</header>
+                        <header
+                            class="text-xs uppercase text-slate-400 dark:text-slate-500 bg-slate-50 dark:bg-slate-700 dark:bg-opacity-50 rounded-sm font-semibold p-2">
+                            Today</header>
                         <ul class="my-1">
                             <!-- Item -->
                             <li class="flex px-2">
                                 <div class="w-9 h-9 rounded-full shrink-0 bg-indigo-500 my-2 mr-3">
                                     <svg class="w-9 h-9 fill-current text-indigo-50" viewBox="0 0 36 36">
-                                        <path d="M18 10c-4.4 0-8 3.1-8 7s3.6 7 8 7h.6l5.4 2v-4.4c1.2-1.2 2-2.8 2-4.6 0-3.9-3.6-7-8-7zm4 10.8v2.3L18.9 22H18c-3.3 0-6-2.2-6-5s2.7-5 6-5 6 2.2 6 5c0 2.2-2 3.8-2 3.8z" />
+                                        <path
+                                            d="M18 10c-4.4 0-8 3.1-8 7s3.6 7 8 7h.6l5.4 2v-4.4c1.2-1.2 2-2.8 2-4.6 0-3.9-3.6-7-8-7zm4 10.8v2.3L18.9 22H18c-3.3 0-6-2.2-6-5s2.7-5 6-5 6 2.2 6 5c0 2.2-2 3.8-2 3.8z" />
                                     </svg>
                                 </div>
-                                <div class="grow flex items-center border-b border-slate-100 dark:border-slate-700 text-sm py-2">
+                                <div
+                                    class="grow flex items-center border-b border-slate-100 dark:border-slate-700 text-sm py-2">
                                     <div class="grow flex justify-between">
-                                        <div class="self-center"><a class="font-medium text-slate-800 hover:text-slate-900 dark:text-slate-100 dark:hover:text-white" href="#0">
-                                            <p>Branch Manager 1</p>
-                                            <span class="text-gray-400 text-xs">Loan Approved 50,000</span>
+                                        <div class="self-center"><a
+                                                class="font-medium text-slate-800 hover:text-slate-900 dark:text-slate-100 dark:hover:text-white"
+                                                href="#0">
+                                                <p>Branch Manager 1</p>
+                                                <span class="text-gray-400 text-xs">Loan Approved 50,000</span>
                                         </div>
                                         <div class="shrink-0 self-end ml-2">
-                                            <a class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">View<span class="hidden sm:inline"> -&gt;</span></a>
+                                            <a class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400"
+                                                href="#0">View<span class="hidden sm:inline"> -&gt;</span></a>
                                         </div>
                                     </div>
                                 </div>
@@ -408,20 +429,26 @@
                     </div>
                     <!-- "Yesterday" group -->
                     <div>
-                        <header class="text-xs uppercase text-slate-400 dark:text-slate-500 bg-slate-50 dark:bg-slate-700 dark:bg-opacity-50 rounded-sm font-semibold p-2">Yesterday</header>
+                        <header
+                            class="text-xs uppercase text-slate-400 dark:text-slate-500 bg-slate-50 dark:bg-slate-700 dark:bg-opacity-50 rounded-sm font-semibold p-2">
+                            Yesterday</header>
                         <ul class="my-1">
                             <!-- Item -->
                             <li class="flex px-2">
                                 <div class="w-9 h-9 rounded-full shrink-0 bg-sky-500 my-2 mr-3">
                                     <svg class="w-9 h-9 fill-current text-sky-50" viewBox="0 0 36 36">
-                                        <path d="M23 11v2.085c-2.841.401-4.41 2.462-5.8 4.315-1.449 1.932-2.7 3.6-5.2 3.6h-1v2h1c3.5 0 5.253-2.338 6.8-4.4 1.449-1.932 2.7-3.6 5.2-3.6h3l-4-4zM15.406 16.455c.066-.087.125-.162.194-.254.314-.419.656-.872 1.033-1.33C15.475 13.802 14.038 13 12 13h-1v2h1c1.471 0 2.505.586 3.406 1.455zM24 21c-1.471 0-2.505-.586-3.406-1.455-.066.087-.125.162-.194.254-.316.422-.656.873-1.028 1.328.959.878 2.108 1.573 3.628 1.788V25l4-4h-3z" />
+                                        <path
+                                            d="M23 11v2.085c-2.841.401-4.41 2.462-5.8 4.315-1.449 1.932-2.7 3.6-5.2 3.6h-1v2h1c3.5 0 5.253-2.338 6.8-4.4 1.449-1.932 2.7-3.6 5.2-3.6h3l-4-4zM15.406 16.455c.066-.087.125-.162.194-.254.314-.419.656-.872 1.033-1.33C15.475 13.802 14.038 13 12 13h-1v2h1c1.471 0 2.505.586 3.406 1.455zM24 21c-1.471 0-2.505-.586-3.406-1.455-.066.087-.125.162-.194.254-.316.422-.656.873-1.028 1.328.959.878 2.108 1.573 3.628 1.788V25l4-4h-3z" />
                                     </svg>
                                 </div>
-                                <div class="grow flex items-center border-b border-slate-100 dark:border-slate-700 text-sm py-2">
+                                <div
+                                    class="grow flex items-center border-b border-slate-100 dark:border-slate-700 text-sm py-2">
                                     <div class="grow flex justify-between">
-                                        <div class="self-center"><a class="font-medium text-slate-800 hover:text-slate-900 dark:text-slate-100 dark:hover:text-white" href="#0">
-                                            <p>Branch Manager 2</p>
-                                            <span class="text-gray-400 text-xs">For approval</span>
+                                        <div class="self-center"><a
+                                                class="font-medium text-slate-800 hover:text-slate-900 dark:text-slate-100 dark:hover:text-white"
+                                                href="#0">
+                                                <p>Branch Manager 2</p>
+                                                <span class="text-gray-400 text-xs">For approval</span>
                                         </div>
                                     </div>
                                 </div>
