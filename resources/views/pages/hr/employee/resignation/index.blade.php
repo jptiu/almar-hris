@@ -17,7 +17,7 @@
             </div>
         @endif
         <div class="relative">
-            <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-12 lg:px-4">BM Probation
+            <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-12 lg:px-4">Resignation
             </h1>
         </div>
 
@@ -59,12 +59,7 @@
 
                                         <th scope="col"
                                             class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                            Date of Probation
-                                        </th>
-
-                                        <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                            Quota
+                                            Designation
                                         </th>
 
                                         <th scope="col"
@@ -74,7 +69,7 @@
 
                                         <th scope="col"
                                             class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                            Monthly/Daily
+                                            Date of Resignation
                                         </th>
 
                                         <th scope="col"
@@ -89,7 +84,7 @@
 
                                     </tr>
                                 </thead>
-                                <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
+                                    <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
                                         <tr>
                                             <td
                                                 class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
@@ -101,25 +96,21 @@
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                May 01, 2024 - May 02, 2025
+                                                Collector
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                Inc. 100 customers, 500k release
-                                            </td>
+                                                Davao
+                                            </td> 
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                Gingoog
-                                            </td>
-                                            <td
-                                                class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                Monthly
-                                            </td>
+                                                May 01, 2024
+                                            </td> 
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
                                                 <div
-                                                    class="px-2 border rounded-lg bg-green-500 text-white text-xs text-center w-full">
-                                                    Regular
+                                                    class="px-2 border rounded-lg bg-green-500 text-white text-xs text-center w-3/4">
+                                                    Approved
                                                 </div>
                                             </td>
                                             <td class="px-4 py-4 text-sm whitespace-nowrap">
@@ -165,7 +156,7 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                </tbody>
+                                    </tbody>
                             </table>
                         </div>
                     </div>

@@ -96,4 +96,40 @@ class EmployeeController extends Controller
 
         return redirect()->back()->with('success', 'Employee Deleted.');
     }
+
+    /**
+     * BM Probation Display
+     */
+    public function bmprobation()
+    {
+        abort_unless(Gate::allows('hr_access'), 404);
+        $lists = Employee::get();
+
+        return view('pages.hr.employee.bmprobation.index', compact('lists'));
+    }
+
+    public function newhire()
+    {
+        abort_unless(Gate::allows('hr_access'), 404);
+        $lists = Employee::get();
+
+        return view('pages.hr.employee.newhire.index', compact('lists'));
+    }
+
+    public function newhireadd()
+    {
+        abort_unless(Gate::allows('hr_access'), 404);
+        $lists = Employee::get();
+
+        return view('pages.hr.employee.newhire.add.index', compact('lists'));
+    }
+
+    public function resignation()
+    {
+        abort_unless(Gate::allows('hr_access'), 404);
+        $lists = Employee::get();
+
+        return view('pages.hr.employee.resignation.index', compact('lists'));
+    }
+
 }

@@ -153,6 +153,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('employee', [EmployeeController::class, 'index'])->name('employee.index');
     Route::post('employee/store', [EmployeeController::class, 'store'])->name('employee.store');
     Route::get('employee-add', [EmployeeController::class, 'add'])->name('employee.add');
+    Route::get('new-hire', [EmployeeController::class, 'newhire'])->name('newhire.index');
+    Route::get('new-hire/add', [EmployeeController::class, 'newhireadd'])->name('newhire.add');
+    Route::get('bm-probation', [EmployeeController::class, 'bmprobation'])->name('bmprobation.index');
+    Route::get('resignation', [EmployeeController::class, 'resignation'])->name('resignation.index');
     
     // Auditor
     Route::get('auditor', [AuditorController::class, 'index'])->name('auditor.index');
