@@ -90,36 +90,37 @@
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
+                                    @foreach ($lists as $list)
                                         <tr>
                                             <td
                                                 class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
-                                                111
+                                                {{ $list->employee->id }}
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                Test Name
+                                                {{$list->employee->f_name.' '.$list->employee->l_name}}
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                May 01, 2024 - May 02, 2025
+                                                {{$list->date_of_probation}}
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                Inc. 100 customers, 500k release
+                                                {{$list->quota}}
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                Gingoog
+                                                {{$list->branch}}
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                Monthly
+                                                {{$list->type}}
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
                                                 <div
-                                                    class="px-2 border rounded-lg bg-green-500 text-white text-xs text-center w-full">
-                                                    Regular
+                                                    class="px-2 border rounded-lg {{$list->status == 'Regular'? 'bg-green-500':'bg-blue-500'}} text-white text-xs text-center w-full">
+                                                    {{$list->status}}
                                                 </div>
                                             </td>
                                             <td class="px-4 py-4 text-sm whitespace-nowrap">
@@ -146,15 +147,14 @@
                                                         </svg>
                                                     </a>
 
-                                                    <form action="#"
-                                                        method="post">
+                                                    <form action="#" method="post">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit"
                                                             class="text-gray-500 mt-1 transition-colors duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                                height="16" fill="currentColor"
-                                                                class="bi bi-trash" viewBox="0 0 16 16">
+                                                                height="16" fill="currentColor" class="bi bi-trash"
+                                                                viewBox="0 0 16 16">
                                                                 <path
                                                                     d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
                                                                 <path
@@ -165,6 +165,7 @@
                                                 </div>
                                             </td>
                                         </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -217,8 +218,8 @@
                 </a>
             </div>
         </section>
-        
-            
+
+
 
 
     </div>

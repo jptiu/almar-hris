@@ -7,6 +7,8 @@ use App\Http\Requests\EmployeeUpdateRequest;
 use App\Http\Requests\HRCreateRequest;
 use App\Models\Employee;
 use App\Models\HR;
+use App\Models\NewHire;
+use App\Models\Probation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
@@ -49,6 +51,20 @@ class EmployeeController extends Controller
         if ($request->validated()) {
             $hr = Employee::create($request->all());
             $hr->save();
+
+            $new = new NewHire();
+            $new->user_id = $hr->id;
+            $new->date_hired = now()->toDateString();
+            $new->status = 'Probation';
+            $new->position = $hr->position_desired;
+            $new->save();
+
+            if($new->status == 'Probation'){
+                $prob = new Probation();
+                $prob->user_id = $new->user_id;
+                $prob->status = 'Probation';
+                $prob->save();
+            }
 
             return redirect(route("employee.index"))->with('success', 'Created Successfully');
         }
@@ -103,7 +119,7 @@ class EmployeeController extends Controller
     public function bmprobation()
     {
         abort_unless(Gate::allows('hr_access'), 404);
-        $lists = Employee::get();
+        $lists = Probation::with('employee')->get();
 
         return view('pages.hr.employee.bmprobation.index', compact('lists'));
     }
@@ -111,7 +127,7 @@ class EmployeeController extends Controller
     public function newhire()
     {
         abort_unless(Gate::allows('hr_access'), 404);
-        $lists = Employee::get();
+        $lists = NewHire::with('employee')->get();
 
         return view('pages.hr.employee.newhire.index', compact('lists'));
     }
