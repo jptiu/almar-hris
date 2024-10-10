@@ -137,7 +137,7 @@
                                                         </svg>
                                                     </button>
 
-                                                    <a href="#"
+                                                    <a href="{{ route('bmprobation.show', $list->id) }}"
                                                         class="text-gray-500 transition-colors duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                                             height="16" fill="currentColor" class="bi bi-pencil"

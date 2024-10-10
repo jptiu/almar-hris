@@ -124,6 +124,29 @@ class EmployeeController extends Controller
         return view('pages.hr.employee.bmprobation.index', compact('lists'));
     }
 
+    // public function update(CityTownUpdateRequest $request, $id)
+    // {
+    //     abort_unless(Gate::allows('loan_access'), 404);
+    //     if ($request->validated()) {
+    //         $city = CityTown::find($id);
+    //         $city->code = $request->code;
+    //         $city->city_town = $request->city_town;
+    //         $city->user_id = $request->user_id;
+    //         $city->update();
+
+    //         return redirect(route("city.index"))->with('success', 'City/Town Updated Successfully');
+    //     }
+    // }
+
+    public function bmp_show($id)
+    {
+        abort_unless(Gate::allows('hr_access'), 404);
+        $lists = Probation::with('employee')->get();
+        $employee = Employee::where('id', $id)->first();
+
+        return view('pages.hr.employee.bmprobation.edit.index', compact('lists','employee'));
+    }
+
     public function newhire()
     {
         abort_unless(Gate::allows('hr_access'), 404);
