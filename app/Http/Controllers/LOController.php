@@ -74,4 +74,9 @@ class LOController extends Controller
     {
         return view('pages.payroll.index');
     }
+
+    public function addLoan(Request $request)
+    {
+        return view('pages.addloan.index');
+    }
 }

@@ -171,6 +171,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     // Loan Officer
     Route::get('loanofficer', [LOController::class, 'index'])->name('loanofficer.index');
+    Route::get('addloan', [LOController::class, 'addLoan'])->name('addLoan.index');
+    
 
     // Employee Evaluation
     Route::get('branch/employee-evaluation', [BMController::class, 'employeeEvaluation'])->name('employeeEvaluation.index');
