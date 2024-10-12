@@ -17,7 +17,7 @@
             </div>
         @endif
         <div class="relative">
-            <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-12 lg:px-4">BM Probation
+            <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-12 lg:px-4">Probation
             </h1>
         </div>
 
@@ -25,14 +25,58 @@
 
         <!-- Dashboard actions -->
         <div class="sm:flex sm:justify-between sm:items-center mb-8">
-            <div></div>
+            <div>
+                <div class="relative inline-flex" x-data="{ open: false }">
+                    <button
+                        class="btn bg-white dark:bg-slate-800 border-slate-200 hover:border-slate-300 dark:border-slate-700 dark:hover:border-slate-600 text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"
+                        aria-haspopup="true" @click.prevent="open = !open" :aria-expanded="open">
+                        <span class="sr-only">Filter</span><wbr>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 16 16">
+                            <path
+                                d="M9 15H7a1 1 0 010-2h2a1 1 0 010 2zM11 11H5a1 1 0 010-2h6a1 1 0 010 2zM13 7H3a1 1 0 010-2h10a1 1 0 010 2zM15 3H1a1 1 0 010-2h14a1 1 0 010 2z" />
+                        </svg>
+                    </button>
+                    <form method="GET" action="{{ route('bmprobation.index') }}">
+                        <div class="origin-top-right z-10 absolute top-full left-0 right-auto min-w-56 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 pt-1.5 rounded shadow-lg overflow-hidden mt-1"
+                            @click.outside="open = false" @keydown.escape.window="open = false" x-show="open"
+                            x-transition:enter="transition ease-out duration-200 transform"
+                            x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0"
+                            x-transition:leave="transition ease-out duration-200" x-transition:leave-start="opacity-100"
+                            x-transition:leave-end="opacity-0" x-cloak>
+                            <div class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase pt-1.5 pb-2 px-3">Filters</div>
+                            <ul class="mb-4">
+                                <li class="py-1 px-3">
+                                    <label class="flex items-center">
+                                        <input type="checkbox" name="filter[]" value="Branch Manager" class="form-checkbox" />
+                                        <span class="text-sm font-medium ml-2">Branch Manager</span>
+                                    </label>
+                                </li>
+                                <li class="py-1 px-3">
+                                    <label class="flex items-center">
+                                        <input type="checkbox" name="filter[]" value="Collector" class="form-checkbox" />
+                                        <span class="text-sm font-medium ml-2">Collector</span>
+                                    </label>
+                                </li>
+                            </ul>
+                            <div class="py-2 px-3 border-t border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-700/20">
+                                <ul class="flex items-center justify-between">
+                                    <li>
+                                        <button type="reset"
+                                            class="btn-xs bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-slate-500 dark:text-slate-300 hover:text-slate-600 dark:hover:text-slate-200">Clear</button>
+                                    </li>
+                                    <li>
+                                        <button type="submit" class="btn-xs border-slate-200 hover:border-slate-300 text-slate-500"
+                                            @click="open = false" @focusout="open = false">Apply</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
 
             <!-- Right: Actions -->
             <div class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
-
-                <!-- Filter button -->
-                <x-dropdown-filter align="right" />
-
             </div>
 
         </div>
@@ -41,8 +85,8 @@
 
         <section class="container px-4 mx-auto">
             <div class="flex flex-col">
-                <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                    <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+                <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-4 lg:-mx-6">
+                    <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-2">
                         <div class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
                             <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                                 <thead class="bg-gray-50 dark:bg-gray-800">
