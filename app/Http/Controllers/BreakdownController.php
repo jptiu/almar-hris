@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Breakdown;
+use App\Models\Denomination;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
@@ -15,8 +16,9 @@ class BreakdownController extends Controller
     {
         //abort_unless(Gate::allows('loan_access'), 404);
         $lists = Breakdown::with('user')->get();
+        $dens = Denomination::get();
 
-        return view('pages.breakdown.index', compact('lists'));
+        return view('pages.breakdown.index', compact('dens'));
     }
 
     /**
@@ -65,5 +67,37 @@ class BreakdownController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function importCSV(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|mimes:csv,txt|max:2048', // Validate the uploaded file
+        ]);
+
+        $file = $request->file('file');
+
+        // Read the CSV data
+        $csvData = file_get_contents($file);
+        // dd($csvData);
+
+        // Split CSV data into rows
+        $rows = array_map('str_getcsv', explode("\n", $csvData));
+
+        // Remove the header row if it exists
+        $header = array_shift($rows);
+        // dd($header);
+
+        foreach ($rows as $row) {
+            // Create and save your model instance
+            Breakdown::create([
+                'ref_no' => $row[0],
+                'date' => $row[1],
+                'user_id' => $row[2],
+                'total_amount' => $row[3],
+            ]);
+        }
+
+        return redirect(route("breakdown.index"))->with('success', 'CSV Data Imported Successfully');
     }
 }

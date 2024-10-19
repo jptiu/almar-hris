@@ -104,6 +104,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::post('breakdown/store', [BreakdownController::class, 'store'])->name('breakdown.store');
     Route::post('breakdown/update/{id}', [BreakdownController::class, 'update'])->name('breakdown.update');
     Route::delete('breakdown/destroy/{id}', [BreakdownController::class, 'destroy'])->name('breakdown.destroy');
+    Route::post('breakdown/import', [BreakdownController::class, 'importCSV'])->name('breakdown.importcsv');
 
     // Expenses
     Route::get('expenses', [ExpensesController::class, 'index'])->name('expenses.index');
