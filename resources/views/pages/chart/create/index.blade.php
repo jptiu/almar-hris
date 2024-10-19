@@ -82,6 +82,25 @@
                 <div>
                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
                         <div class="text-gray-600">
+                            <p class="font-medium text-lg">Account Title</p>
+                        </div>
+
+                        <div class="lg:col-span-2">
+                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
+                                <div class="md:col-span-1">
+                                    <label for="acc_title">Account Title</label>
+                                    <input type="text" name="acc_title" id="acc_title" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <x-section-border />
+
+                <div>
+                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
+                        <div class="text-gray-600">
                             <p class="font-medium text-lg">Account Description</p>
                         </div>
 

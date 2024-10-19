@@ -30,14 +30,14 @@ class ChartController extends Controller
     public function store(Request $request)
     {
         $chart = new Chart();
-        $chart->acc_no = $request->no;
-        $chart->acc_class = $request->class;
-        $chart->acc_type = $request->type;
-        $chart->acc_title = $request->title;
-        $chart->acc_description = $request->description;
+        $chart->acc_no = $request->acc_no;
+        $chart->acc_class = $request->acc_class;
+        $chart->acc_type = $request->acc_type;
+        $chart->acc_title = $request->acc_title;
+        $chart->acc_description = $request->acc_description;
         $chart->save();
 
-        return redirect(route("pages.chart.index"))->with('success', 'Created Successfully');
+        return redirect(route("chart.index"))->with('success', 'Created Successfully');
     }
 
     /**
@@ -64,11 +64,11 @@ class ChartController extends Controller
     public function update(Request $request, string $id)
     {
         $chart = Chart::find($id);
-        $chart->acc_no = $request->no;
-        $chart->acc_class = $request->class;
-        $chart->acc_type = $request->type;
-        $chart->acc_title = $request->title;
-        $chart->acc_description = $request->description;
+        $chart->acc_no = $request->acc_no;
+        $chart->acc_class = $request->acc_class;
+        $chart->acc_type = $request->acc_type;
+        $chart->acc_title = $request->acc_title;
+        $chart->acc_description = $request->acc_description;
         $chart->update();
 
         return redirect(route("pages.chart.index"))->with('success', 'Created Successfully');
@@ -80,5 +80,38 @@ class ChartController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function importCSV(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|mimes:csv,txt|max:2048', // Validate the uploaded file
+        ]);
+
+        $file = $request->file('file');
+
+        // Read the CSV data
+        $csvData = file_get_contents($file);
+        // dd($csvData);
+
+        // Split CSV data into rows
+        $rows = array_map('str_getcsv', explode("\n", $csvData));
+
+        // Remove the header row if it exists
+        $header = array_shift($rows);
+        // dd($header);
+
+        foreach ($rows as $row) {
+            // Create and save your model instance
+            Chart::create([
+                'acc_no' => $row[0],
+                'acc_class' => $row[1],
+                'acc_type' => $row[2],
+                'acc_title' => $row[3],
+                'acc_description' => $row[4],
+            ]);
+        }
+
+        return redirect(route("chart.index"))->with('success', 'CSV Data Imported Successfully');
     }
 }

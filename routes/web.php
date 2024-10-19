@@ -220,5 +220,5 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::post('chart/update/{id}', [ChartController::class, 'update'])->name('chart.update');
     Route::get('chart/show/{id}', [ChartController::class, 'show'])->name('chart.show');
     Route::delete('chart/destroy/{id}', [ChartController::class, 'destroy'])->name('chart.destroy');
-
+    Route::post('chart/import', [ChartController::class, 'importCSV'])->name('chart.importcsv');
 });
