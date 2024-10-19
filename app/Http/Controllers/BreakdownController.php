@@ -134,4 +134,24 @@ class BreakdownController extends Controller
 
         return redirect(route("breakdown.index"))->with('success', 'CSV Data Imported Successfully');
     }
+
+    public function getBreakdownByRef($ref)
+    {
+        $breakdowns = CashBill::where('breakdown_id', $ref)->get();
+        
+        return response()->json($breakdowns);
+    }
+
+    public function storeBill(Request $request)
+    {
+        $denomination = new CashBill();
+        $denomination->denomination = $request->denomination;
+        $denomination->type = $request->type;
+        $denomination->qty = $request->qty;
+        $denomination->amount = $request->amount;
+        $denomination->save();
+
+        // Return the saved data as JSON
+        return response()->json($denomination);
+    }
 }

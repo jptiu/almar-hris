@@ -39,15 +39,16 @@
                     </svg>
                     <span class="hidden xs:block ml-2">Import Cash Bills</span>
                 </a>
-                <a id="show-modal-import-breakdown" href="#" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
+                <a id="show-modal-import-breakdown" href="#"
+                    class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
                     <svg class="w-4 h-4 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
                         <path
                             d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
                     </svg>
                     <span class="hidden xs:block ml-2">Import Breakdowns</span>
                 </a>
-                <div id="modal-import-breakdown" class="relative z-10 hidden" aria-labelledby="modal-title" role="dialog"
-                    aria-modal="true">
+                <div id="modal-import-breakdown" class="relative z-10 hidden" aria-labelledby="modal-title"
+                    role="dialog" aria-modal="true">
                     <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
 
                     <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
@@ -116,7 +117,8 @@
                                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                                     stroke-linejoin="round">
                                                     <polyline points="16 16 12 12 8 16" />
-                                                    <line x1="12" y1="12" x2="12" y2="21" />
+                                                    <line x1="12" y1="12" x2="12"
+                                                        y2="21" />
                                                     <path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3" />
                                                     <polyline points="16 16 12 12 8 16" />
                                                 </svg>
@@ -164,8 +166,8 @@
                                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
 
                                         <div class="md:col-span-1">
-                                            <label class="text-black font-medium">Ref No.</label>
-                                            <input type="text" id="refno"
+                                            <label for="ref">Ref No.</label>
+                                            <input type="text" name="ref" id="ref"
                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value=""
                                                 placeholder="" />
                                         </div>
@@ -200,9 +202,8 @@
                                         <div class="md:col-span-1">
                                             <label class="text-black font-medium" for="house">Cashier</label>
                                             <select name="type" id="type"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value=""
-                                            placeholder="" />
-                                            <option value="{{$user->name}}">{{$user->name}}</option>
+                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
+                                            <option value="{{ $user->name }}">{{ $user->name }}</option>
                                             </select>
                                         </div>
 
@@ -253,7 +254,7 @@
                                             </thead>
                                             <tbody
                                                 class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
-                                                
+
                                             </tbody>
                                         </table>
                                     </div>
@@ -265,9 +266,10 @@
                     <div class="text-end mt-12">
                         <div>
                             <h1 class="text-sm font-medium">Total Amount</h1>
-                            <span class="text-2xl font-bold text-red-600">10.00</span>
+                            <span id="total-amount" class="text-2xl font-bold text-red-600">0.00</span>
                         </div>
-                        <a id="show-modal" href="#" class="mt-4 btn bg-indigo-500 hover:bg-indigo-600 text-white">
+                        <a id="show-modal" href="#"
+                            class="mt-4 btn bg-indigo-500 hover:bg-indigo-600 text-white">
                             <svg class="w-4 h-4 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
                                 <path
                                     d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
@@ -287,7 +289,7 @@
                                         class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
                                         <div
                                             class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-                                            <form action="{{ route('city.importcsv') }}" method="POST"
+                                            <form action="{{ route('breakdown.storeBill') }}" method="POST"
                                                 enctype="multipart/form-data">
                                                 @csrf
                                                 <section class="container mx-auto">
@@ -321,9 +323,9 @@
                                                                 <div class="fields grid grid-cols-2 gap-4">
                                                                     <form class="space-y-4" action="#">
                                                                         <div>
-                                                                            <label for="email"
+                                                                            <label for="denomination"
                                                                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Denomination</label>
-                                                                            <select id="email"
+                                                                            <select id="denomination"
                                                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                                                                 <option selected>Select Denomination
                                                                                 </option>
@@ -332,9 +334,9 @@
                                                                             </select>
                                                                         </div>
                                                                         <div>
-                                                                            <label for="email"
+                                                                            <label for="type"
                                                                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Type</label>
-                                                                            <select id="email"
+                                                                            <select id="type"
                                                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                                                                 <option selected>Select Type</option>
                                                                                 <option value="US">Coin</option>
@@ -344,14 +346,14 @@
                                                                         <div>
                                                                             <label for="qty"
                                                                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Qty</label>
-                                                                            <input type="text" id="first_name"
+                                                                            <input type="text" id="qty"
                                                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                                                 placeholder="0.00" required />
                                                                         </div>
                                                                         <div>
                                                                             <label for="amount"
                                                                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Amount</label>
-                                                                            <input type="text" id="first_name"
+                                                                            <input type="text" id="amount"
                                                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                                                 placeholder="0.00" required />
                                                                         </div>
@@ -364,7 +366,7 @@
                                                 </div>
                                                 <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
                                                     <button type="submit"
-                                                        class="inline-flex w-full justify-center rounded-md bg-accent-100 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-accent-200 sm:ml-3 sm:w-auto">Upload</button>
+                                                        class="inline-flex w-full justify-center rounded-md bg-accent-100 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-accent-200 sm:ml-3 sm:w-auto">Submit</button>
                                                     <button id="hide-modal" type="button"
                                                         class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cancel</button>
                                                 </div>
@@ -418,4 +420,76 @@
     hideModalButtonImportBreakdown.addEventListener('click', () => {
         modalImportBreakdown.classList.add('hidden');
     });
+</script>
+<script>
+    document.getElementById('ref').addEventListener('change', function() {
+        var refNo = this.value;
+        let totalAmount = 0; // Initialize total amount
+
+        if (refNo) {
+            fetch(`/breakdowns/${refNo}`)
+                .then(response => response.json())
+                .then(data => {
+                    var tbody = document.querySelector('tbody');
+                    tbody.innerHTML = ''; // Clear previous data
+
+                    let totalAmount = 0; // Reset total amount before calculating
+
+                    data.forEach((row, index) => {
+                        tbody.innerHTML += `
+                    <tr>
+                        <td class="px-4 py-3.5 text-sm text-center">${index + 1}</td>
+                        <td class="px-4 py-3.5 text-sm text-center">${row.denomination}</td>
+                        <td class="px-4 py-3.5 text-sm text-center">${row.type}</td>
+                        <td class="px-4 py-3.5 text-sm text-center">${row.qty}</td>
+                        <td class="px-4 py-3.5 text-sm text-center">${row.amount}</td>
+                    </tr>
+                `;
+
+                        // Remove commas from amount string before parsing
+                        const cleanedAmount = row.amount.replace(/,/g, '');
+
+                        // Add new amount to total
+                        totalAmount += parseFloat(cleanedAmount);
+                    });
+
+                    // Update the total amount display
+                    document.getElementById('total-amount').textContent = totalAmount.toFixed(2);
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    });
+    // document.querySelector('form').addEventListener('submit', function(event) {
+    //     event.preventDefault(); // Prevent page reload
+
+    //     let formData = new FormData(this);
+
+    //     fetch("{{ route('breakdown.storeBill') }}", {
+    //         method: 'POST',
+    //         headers: {
+    //             'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+    //         },
+    //         body: formData
+    //     })
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         // Hide the modal
+    //         document.getElementById('modal').classList.add('hidden');
+
+    //         // Update the denomination list dynamically
+    //         let tbody = document.querySelector('tbody');
+    //         tbody.innerHTML += `
+    //             <tr>
+    //                 <td class="px-4 py-3.5 text-sm text-center">${data.denomination}</td>
+    //                 <td class="px-4 py-3.5 text-sm text-center">${data.type}</td>
+    //                 <td class="px-4 py-3.5 text-sm text-center">${data.qty}</td>
+    //                 <td class="px-4 py-3.5 text-sm text-center">${data.amount}</td>
+    //             </tr>
+    //         `;
+
+    //         // Reset the form
+    //         this.reset();
+    //     })
+    //     .catch(error => console.error('Error:', error));
+    // });
 </script>

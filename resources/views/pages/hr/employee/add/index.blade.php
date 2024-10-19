@@ -12,7 +12,7 @@
                     <div class="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-32 w-32 mb-4"></div>
                 </div>
 
-                <div id="step1">
+                <div id="step1" class="">
 
                     <div class="flex place-content-center justify-center items-center mb-16 mt-2">
                         <ol class="space-y-4 sm:flex sm:space-x-6 sm:space-y-0 rtl:space-x-reverse">
@@ -958,7 +958,7 @@
                     </div>
 
                     <div>
-                        <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3 mb-16">
+                        <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3 mb-10">
                             <div class="text-gray-600">
                                 <p class="font-medium text-lg"></p>
                             </div>
@@ -1003,6 +1003,53 @@
                                         <button type="button" class="text-red-400 text-sm px-2 py-1 rounded remove-employment italic">Remove</button>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <x-section-border />
+
+                    <div>                       
+                        <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3 mb-16">
+                            <div class="text-gray-600">
+                                <p class="font-medium text-lg">Employee Benefits</p>
+                                <div>
+                                    <span>If benefits have been provided, check the box.</span>
+                                </div>
+                            </div>
+
+                            <div class="lg:col-span-2">
+                                <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-4 mb-4">
+
+                                    <div class="md:col-span-1">
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" id="sss-benefit" class="form-checkbox h-5 w-5 text-blue-600" onchange="toggleInput('sss-input-container', 'sss-dropdown')" />
+                                            <span class="ml-2">SSS</span>
+                                        </label>
+
+                                    </div>
+
+                                    <div class="md:col-span-1">
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" id="pagibig-benefit" class="form-checkbox h-5 w-5 text-blue-600" onchange="toggleInput('pagibig-input-container', 'pagibig-dropdown')" />
+                                            <span class="ml-2">PAG-IBIG</span>
+                                        </label>
+                                    </div>
+
+                                    <div class="md:col-span-1">
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" id="philhealth-benefit" class="form-checkbox h-5 w-5 text-blue-600" onchange="toggleInput('philhealth-input-container', 'philhealth-dropdown')" />
+                                            <span class="ml-2">PHILHEALTH</span>
+                                        </label>
+                                    </div>
+
+                                    <div class="md:col-span-1">
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" id="tin-benefit" class="form-checkbox h-5 w-5 text-blue-600" onchange="toggleInput('tin-input-container', 'tin-dropdown')" />
+                                            <span class="ml-2">TIN</span>
+                                        </label>
+                                    </div>
+                                </div>  
                             </div>
                         </div>
                     </div>
@@ -1202,12 +1249,12 @@
                     <div>
                         <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3 mb-8">
                             <div class="text-gray-600">
-                                <p class="font-medium text-lg"></p>
+                                <p class="font-medium text-lg">Benefits Account No.</p>
                             </div>
 
                             <div class="lg:col-span-2">
                                 <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2 mb-6">
-                                    <div class="md:col-span-1">
+                                    <div id="sss-dropdown-container" class="md:col-span-1">
                                         <label for="sss">SSS No.</label>
                                         <select name="sss" id="sss" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
                                             <option value="To Be Submitted">To Be Submitted</option>
@@ -1215,7 +1262,7 @@
                                         </select>
                                     </div>
 
-                                    <div class="md:col-span-1">
+                                    <div id="pagibig-dropdown-container" class="md:col-span-1">
                                         <label for="pagibig">PAG-IBIG No.</label>
                                         <select name="pagibig" id="pagibig" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
                                             <option value="To Be Submitted">To Be Submitted</option>
@@ -1225,7 +1272,23 @@
                                 </div>
 
                                 <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2 mb-6">
-                                    <div class="md:col-span-1">
+                                    <div id="sss-input-container" class="md:col-span-1 hidden">
+                                        <label for="n_company_1">SSS No.</label>
+                                            <div>
+                                                <input name="n_company_1" id="n_company_1" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            </div>
+                                    </div>
+
+                                    <div id="pagibig-input-container" class="md:col-span-1 hidden">
+                                        <label for="pagibig">PAG-IBIG No.</label>
+                                            <div>
+                                                <input name="n_company_1" id="n_company_1" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            </div>
+                                    </div>
+                                </div>
+
+                                <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2 mb-6">
+                                    <div id="philhealth-dropdown-container" class="md:col-span-1">
                                         <label for="philhealth">PHILHEALTH No.</label>
                                         <select name="philhealth" id="philhealth" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
                                             <option value="To Be Submitted">To Be Submitted</option>
@@ -1233,12 +1296,28 @@
                                         </select>
                                     </div>
 
-                                    <div class="md:col-span-1">
+                                    <div id="tin-dropdown-container" class="md:col-span-1">
                                         <label for="tin">TIN No.</label>
                                         <select name="tin" id="tin" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
                                             <option value="To Be Submitted">To Be Submitted</option>
                                             <option value="Pending">Pending</option>
                                         </select>
+                                    </div>
+                                </div>
+
+                                <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2 mb-6">
+                                    <div id="philhealth-input-container" class="md:col-span-1 hidden">
+                                        <label for="n_company_1">PHILHEALTH No.</label>
+                                            <div>
+                                                <input name="n_company_1" id="n_company_1" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            </div>
+                                    </div>
+
+                                    <div id="tin-input-container" class="md:col-span-1 hidden">
+                                        <label for="pagibig">TIN No.</label>
+                                            <div>
+                                                <input name="n_company_1" id="n_company_1" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            </div>
                                     </div>
                                 </div>
                             </div>
@@ -1248,7 +1327,34 @@
                     <div>
                         <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3 mb-8">
                             <div class="text-gray-600">
-                                <p class="font-medium text-lg"></p>
+                                <p class="font-medium text-lg">Upload Additional Supporting Image/Documents</p>
+                            </div>
+
+                            <div class="lg:col-span-2">
+                                <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2 mb-6">
+                                    <div class="md:col-span-1">
+                                        <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
+                                            <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                                <svg class="w-8 h-8 mb-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
+                                                </svg>
+                                                <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Drag & Drop</span> or click to upload</p>
+                                                <p class="text-xs text-gray-500">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                                            </div>
+                                            <input id="dropzone-file" type="file" class="hidden" name="file">
+                                        </label>
+                                        <button type="submit" class="mt-4 px-4 py-2 bg-blue-600 text-white rounded">Upload</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3 mb-8">
+                            <div class="text-gray-600">
+                                <p class="font-medium text-lg">Upload Employee Profile Picture</p>
                             </div>
 
                             <div class="lg:col-span-2">
@@ -1417,6 +1523,45 @@
                 }
                 characterReferenceCount--;
             });
+        });
+    });
+</script>
+
+<script>
+    function toggleInput(containerId, dropdownId) {
+        const inputContainer = document.getElementById(containerId);
+        const dropdownContainer = document.getElementById(dropdownId);
+        const checkbox = document.getElementById(containerId.replace('-container', '-benefit'));
+
+        if (checkbox.checked) {
+            inputContainer.classList.remove('hidden');
+            dropdownContainer.classList.add('hidden');
+        } else {
+            inputContainer.classList.add('hidden');
+            dropdownContainer.classList.remove('hidden');
+        }
+    }
+</script>
+
+<script>
+    // Select all checkboxes
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            const containerId = this.id.replace('-benefit', '-input-container');
+            const dropdownId = this.id.replace('-benefit', '-dropdown-container');
+
+            const inputContainer = document.getElementById(containerId);
+            const dropdownContainer = document.getElementById(dropdownId);
+
+            if (this.checked) {
+                inputContainer.classList.remove('hidden');
+                dropdownContainer.classList.add('hidden');
+            } else {
+                inputContainer.classList.add('hidden');
+                dropdownContainer.classList.remove('hidden');
+            }
         });
     });
 </script>
