@@ -39,8 +39,8 @@
                                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
 
                                         <div class="md:col-span-1">
-                                            <label for="house">Ref No.</label>
-                                            <input type="text" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                            <label for="house" class="text-black font-medium">Ref No.</label>
+                                            <input type="text" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                         </div>
 
                                     </div>  
@@ -53,12 +53,12 @@
                                 <div class="lg:col-span-2">
                                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
                                         <div class="md:col-span-1">
-                                            <label for="house">Date</label>
-                                            <input type="date" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                            <label for="house" class="text-black font-medium">Date</label>
+                                            <input type="date" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                         </div>
                                         <div class="md:col-span-1">
-                                            <label for="house">Cash Beginning</label>
-                                            <input type="number" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                            <label for="house" class="text-black font-medium">Cash Beginning</label>
+                                            <input type="number" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                         </div>
                                     </div>  
                                 </div>
@@ -70,8 +70,8 @@
                                 <div class="lg:col-span-2">
                                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
                                         <div class="md:col-span-1">
-                                            <label for="house">Today's Transaction Date</label>
-                                            <input type="date" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                            <label for="house" class="text-black font-medium">Today's Transaction Date</label>
+                                            <input type="date" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                         </div>
                                     </div>  
                                 </div>
@@ -83,12 +83,12 @@
                                 <div class="lg:col-span-2">
                                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
                                         <div class="md:col-span-1">
-                                            <label for="house">Collection</label>
-                                            <input type="number" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                            <label for="house" class="text-black font-medium">Collection</label>
+                                            <input type="number" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                         </div>
                                         <div class="md:col-span-1">
-                                            <label for="house">Add Cash</label>
-                                            <input type="number" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                            <label for="house" class="text-black font-medium">Add Cash</label>
+                                            <input type="number" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                         </div>
                                     </div>  
                                 </div>
@@ -100,8 +100,8 @@
                                 <div class="lg:col-span-2">
                                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
                                         <div class="md:col-span-1">
-                                            <label for="house">Total</label>
-                                            <input type="number" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                            <label for="house" class="text-black font-medium">Total</label>
+                                            <input type="number" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                         </div>
                                     </div>  
                                 </div>
@@ -115,8 +115,8 @@
                                 <div class="lg:col-span-2">
                                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
                                         <div class="md:col-span-1">
-                                            <label for="house">Today's Loan Release</label>
-                                            <input type="date" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                            <label for="house" class="text-black font-medium">Today's Loan Release</label>
+                                            <input type="date" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                         </div>
                                     </div>  
                                 </div>
@@ -128,8 +128,8 @@
                                 <div class="lg:col-span-2">
                                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
                                         <div class="md:col-span-1">
-                                            <label for="house">Today's Expenses</label>
-                                            <input type="date" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                            <label for="house" class="text-black font-medium">Today's Expenses</label>
+                                            <input type="date" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                         </div>
                                     </div>  
                                 </div>
@@ -143,8 +143,8 @@
                                 <div class="lg:col-span-2">
                                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
                                         <div class="md:col-span-1">
-                                            <label for="house">New Cash On Hand</label>
-                                            <input type="date" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                            <label for="house" class="text-black font-medium">New Cash On Hand</label>
+                                            <input type="date" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                         </div>
                                     </div>  
                                 </div>
@@ -157,8 +157,8 @@
                                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
 
                                         <div class="md:col-span-1">
-                                            <label for="house">Cashier</label>
-                                            <select name="type" id="type" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                            <label for="house" class="text-black font-medium">Cashier</label>
+                                            <select name="type" id="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
                                                 <option value="business loan">Cashier 1</option>
                                                 <option value="personal loan">Cashier 2</option>
                                             </select>

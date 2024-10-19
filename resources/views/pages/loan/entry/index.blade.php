@@ -37,16 +37,16 @@
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6">
 
                                 <div class="md:col-span-1">
-                                    <label for="house">Loan Type</label>
-                                    <select name="type" id="type" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                    <label for="house" class="text-black font-medium">Loan Type</label>
+                                    <select name="type" id="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                                         <option value="business loan">Business Loan</option>
                                         <option value="personal loan">Personal Loan</option>
                                     </select>
                                 </div>
 
                                 <div class="md:col-span-1">
-                                    <label for="house">Transaction Type</label>
-                                    <select name="type" id="type" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                    <label for="house" class="text-black font-medium">Transaction Type</label>
+                                    <select name="type" id="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                                         <option value="business loan">Transaction 1</option>
                                         <option value="personal loan">Transaction 2</option>
                                     </select>
@@ -64,13 +64,13 @@
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6">
 
                                 <div class="md:col-span-2">
-                                    <label for="house">Transaction No.</label>
-                                    <input type="text" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                    <label for="house" class="text-black font-medium">Transaction No.</label>
+                                    <input type="text" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="" placeholder="" />
                                 </div>
 
                                 <div class="md:col-span-1">
-                                    <label for="house">Date of Loan</label>
-                                    <select name="type" id="type" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                    <label for="house" class="text-black font-medium">Date of Loan</label>
+                                    <select name="type" id="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                                         <option value="business loan">Transaction 1</option>
                                         <option value="personal loan">Transaction 2</option>
                                     </select>
@@ -88,21 +88,21 @@
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6">
 
                                 <div class="md:col-span-1">
-                                    <label for="house">Customer ID</label>
-                                    <input type="text" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                    <label for="house" class="text-black font-medium">Customer ID</label>
+                                    <input type="text" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="" placeholder="" />
                                 </div>
 
                                 <div class="md:col-span-1">
-                                    <label for="house">Customer Type</label>
-                                    <select name="type" id="type" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                    <label for="house" class="text-black font-medium">Customer Type</label>
+                                    <select name="type" id="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                                         <option value="business loan">Customer 1</option>
                                         <option value="personal loan">Customer 2</option>
                                     </select>
                                 </div>
 
                                 <div class="md:col-span-1">
-                                    <label for="house">Status</label>
-                                    <select name="type" id="type" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                    <label for="house" class="text-black font-medium">Status</label>
+                                    <select name="type" id="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                                         <option value="business loan">Active</option>
                                         <option value="personal loan">Inactive</option>
                                     </select>
@@ -131,29 +131,29 @@
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6">
 
                                 <div class="md:col-span-1">
-                                    <label for="house">Principal Amount</label>
-                                    <input type="text" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="₱" />
+                                    <label for="house" class="text-black font-medium">Principal Amount</label>
+                                    <input type="text" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="" placeholder="₱" />
                                 </div>
 
                                 <div class="md:col-span-1">
-                                    <label for="house">Days to pay</label>
-                                    <select name="type" id="type" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                    <label for="house" class="text-black font-medium">Days to pay</label>
+                                    <select name="type" id="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                                         <option value="business loan">15</option>
                                         <option value="personal loan">30</option>
                                     </select>
                                 </div>
 
                                 <div class="md:col-span-1">
-                                    <label for="house">Months to pay</label>
-                                    <select name="type" id="type" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                    <label for="house" class="text-black font-medium">Months to pay</label>
+                                    <select name="type" id="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                                         <option value="business loan">3 months</option>
                                         <option value="personal loan">6 months</option>
                                     </select>
                                 </div>
 
                                 <div class="md:col-span-1">
-                                    <label for="house">Interest %</label>
-                                    <select name="type" id="type" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                    <label for="house" class="text-black font-medium">Interest %</label>
+                                    <select name="type" id="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                                         <option value="business loan">5</option>
                                         <option value="personal loan">10</option>
                                     </select>
@@ -171,26 +171,26 @@
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6">
 
                                 <div class="md:col-span-1">
-                                    <label for="house">Interest Amount</label>
-                                    <input type="text" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="₱" />
+                                    <label for="house" class="text-black font-medium">Interest Amount</label>
+                                    <input type="text" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="" placeholder="₱" />
                                 </div>
 
                                 <div class="md:col-span-1">
-                                    <label for="house">Service Charge</label>
-                                    <select name="type" id="type" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                    <label for="house" class="text-black font-medium">Service Charge</label>
+                                    <select name="type" id="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                                         <option value="business loan">15</option>
                                         <option value="personal loan">30</option>
                                     </select>
                                 </div>
 
                                 <div class="md:col-span-1">
-                                    <label for="house">Actual Record</label>
-                                    <input type="text" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                    <label for="house" class="text-black font-medium">Actual Record</label>
+                                    <input type="text" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="" placeholder="" />
                                 </div>
 
                                 <div class="md:col-span-1">
-                                    <label for="house">Payable Amount</label>
-                                    <input type="text" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="₱" />
+                                    <label for="house" class="text-black font-medium">Payable Amount</label>
+                                    <input type="text" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="" placeholder="₱" />
                                 </div>
                             </div>  
                         </div>
