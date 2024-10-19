@@ -128,8 +128,7 @@
                                             <label for="house">Cashier</label>
                                             <select name="type" id="type"
                                                 class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
-                                            <option value="business loan">Cashier 1</option>
-                                            <option value="personal loan">Cashier 2</option>
+                                            <option value="{{$user->name}}">{{$user->name}}</option>
                                             </select>
                                         </div>
 
@@ -188,23 +187,19 @@
                                                         </td>
                                                         <td
                                                             class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                            {{ $den->first_name }} {{ $den->last_name }}
+                                                            {{ $den->denomination }}
                                                         </td>
                                                         <td
                                                             class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                            {{ $den->first_name }} {{ $den->last_name }}
+                                                            {{ $den->type }}
                                                         </td>
                                                         <td
                                                             class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                            {{ $den->first_name }} {{ $den->last_name }}
+                                                            {{ $den->qty }}
                                                         </td>
                                                         <td
                                                             class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                            {{ $den->first_name }} {{ $den->last_name }}
-                                                        </td>
-                                                        <td
-                                                            class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                            {{ $den->first_name }} {{ $den->last_name }}
+                                                            {{ $den->amount }}
                                                         </td>
                                                     </tr>
                                                 @endforeach
