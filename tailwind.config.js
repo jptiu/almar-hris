@@ -22,6 +22,7 @@ export default {
                 },
                 'accent': {
                 100: '#0B6ECA',
+                200: '#0859A5',
                 },
             },
             boxShadow: {
