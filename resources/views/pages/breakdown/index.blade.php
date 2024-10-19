@@ -17,14 +17,14 @@
                 <x-dropdown-filter align="right" />
 
                 <!-- Add view button -->
-                <a id="show-modal" href="#" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
+                <a id="show-modal-import" href="#" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
                     <svg class="w-4 h-4 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
                         <path
                             d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
                     </svg>
                     <span class="hidden xs:block ml-2">Import</span>
                 </a>
-                <div id="modal" class="relative z-10 hidden" aria-labelledby="modal-title" role="dialog"
+                <div id="modal-import" class="relative z-10 hidden" aria-labelledby="modal-title" role="dialog"
                     aria-modal="true">
                     <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
 
@@ -67,7 +67,7 @@
                                     <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
                                         <button type="submit"
                                             class="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto">Upload</button>
-                                        <button id="hide-modal" type="button"
+                                        <button id="hide-modal-import" type="button"
                                             class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cancel</button>
                                     </div>
                                 </form>
@@ -221,8 +221,7 @@
                             <h1 class="text-sm font-medium">Total Amount</h1>
                             <span class="text-2xl font-bold text-red-600">10.00</span>
                         </div>
-                        <a id="show-modal" href="#"
-                            class="mt-4 btn bg-indigo-500 hover:bg-indigo-600 text-white">
+                        <a id="show-modal" href="#" class="mt-4 btn bg-indigo-500 hover:bg-indigo-600 text-white">
                             <svg class="w-4 h-4 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
                                 <path
                                     d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
@@ -348,5 +347,17 @@
 
     hideModalButton.addEventListener('click', () => {
         modal.classList.add('hidden');
+    });
+
+    const showModalButtonImport = document.getElementById('show-modal-import');
+    const hideModalButtonImport = document.getElementById('hide-modal-import');
+    const modalImport = document.getElementById('modal-import');
+
+    showModalButtonImport.addEventListener('click', () => {
+        modalImport.classList.remove('hidden');
+    });
+
+    hideModalButtonImport.addEventListener('click', () => {
+        modalImport.classList.add('hidden');
     });
 </script>
