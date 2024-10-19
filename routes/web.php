@@ -153,10 +153,12 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('employee', [EmployeeController::class, 'index'])->name('employee.index');
     Route::post('employee/store', [EmployeeController::class, 'store'])->name('employee.store');
     Route::get('employee-add', [EmployeeController::class, 'add'])->name('employee.add');
+    Route::post('employee/update/{id}', [EmployeeController::class, 'employeeupdate'])->name('employee.update');
+    Route::get('employee/show/{id}', [EmployeeController::class, 'employeeshow'])->name('employee.show');
     Route::get('new-hire', [EmployeeController::class, 'newhire'])->name('newhire.index');
     Route::get('new-hire/add', [EmployeeController::class, 'newhireadd'])->name('newhire.add');
     Route::get('bm-probation', [EmployeeController::class, 'bmprobation'])->name('bmprobation.index');
-    Route::post('bm-probation/update/{id}', [EmployeeController::class, 'update'])->name('bmprobation.update');
+    Route::post('bm-probation/update/{id}', [EmployeeController::class, 'bmp_update'])->name('bmprobation.update');
     Route::get('bm-probation/show/{id}', [EmployeeController::class, 'bmp_show'])->name('bmprobation.show');
     Route::get('resignation', [EmployeeController::class, 'resignation'])->name('resignation.index');
     

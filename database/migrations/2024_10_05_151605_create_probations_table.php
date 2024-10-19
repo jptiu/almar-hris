@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('quota')->nullable();
             $table->string('branch')->nullable();
             $table->string('type')->nullable();
-            $table->string('status');
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

@@ -141,10 +141,43 @@ class EmployeeController extends Controller
     public function bmp_show($id)
     {
         abort_unless(Gate::allows('hr_access'), 404);
+        // $lists = Probation::with('employee')->get();
+        // $employee = Employee::where('id', $id)->first();
+        $prob = Probation::with('employee')->find($id);
+
+        return view('pages.hr.employee.bmprobation.edit.index', compact('prob'));
+    }
+
+    public function employeeshow($id)
+    {
+        abort_unless(Gate::allows('hr_access'), 404);
         $lists = Probation::with('employee')->get();
         $employee = Employee::where('id', $id)->first();
 
-        return view('pages.hr.employee.bmprobation.edit.index', compact('lists','employee'));
+        return view('pages.hr.employee.show.index', compact('lists','employee'));
+    }
+
+    public function bmp_update(Request $request, string $id)
+    {
+        $prob = Probation::find($id);
+        $prob->date_of_probation = $request->date_start.' - '.$request->date_end;
+        $prob->quota = $request->quota;
+        $prob->branch = $request->branch;
+        $prob->type = $request->type;
+        // $prob->status = $request->status;
+        $prob->update();
+
+        return redirect(route("bmprobation.index"))->with('success', 'Updated Successfully');
+    }
+
+    public function employeeupdate(EmployeeUpdateRequest $request, string $id)
+    {
+        if($request->validated()){
+            $employee = Employee::find($id);
+            $employee->update($request->all());
+
+            return redirect(route("employee.index"))->with('success', 'Updated Successfully');
+        }
     }
 
     public function newhire()
