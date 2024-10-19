@@ -168,7 +168,7 @@
                                         <div class="md:col-span-1">
                                             <label for="ref">Ref No.</label>
                                             <input type="text" name="ref" id="ref"
-                                                class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value=""
+                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value=""
                                                 placeholder="" />
                                         </div>
 
@@ -183,10 +183,10 @@
                                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
 
                                         <div class="md:col-span-1">
-                                            <label for="house">Date</label>
+                                            <label class="text-black font-medium" for="house">Date</label>
                                             <input type="date" name="house" id="house"
-                                                class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value=""
-                                                placeholder="" />
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value=""
+                                            placeholder="" />
                                         </div>
 
                                     </div>
@@ -200,9 +200,9 @@
                                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
 
                                         <div class="md:col-span-1">
-                                            <label for="house">Cashier</label>
+                                            <label class="text-black font-medium" for="house">Cashier</label>
                                             <select name="type" id="type"
-                                                class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
                                             <option value="{{ $user->name }}">{{ $user->name }}</option>
                                             </select>
                                         </div>
@@ -340,7 +340,7 @@
                                                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                                                                 <option selected>Select Type</option>
                                                                                 <option value="US">Coin</option>
-                                                                                <option value="CA">...</option>
+                                                                                <option value="CA">Pbil</option>
                                                                             </select>
                                                                         </div>
                                                                         <div>

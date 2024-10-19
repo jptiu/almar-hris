@@ -46,13 +46,15 @@
                         <div class="lg:col-span-2">
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6">
                                 <div class="md:col-span-1">
-                                    <label for="house">Customer ID</label>
-                                    <input type="text" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                    <label class="text-black font-medium" for="house">Customer ID</label>
+                                    <input type="text" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value=""
+                                            placeholder="" />
                                 </div>
 
                                 <div class="md:col-span-2">
-                                    <label for="house">Name</label>
-                                    <input type="text" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                    <label class="text-black font-medium" for="house">Name</label>
+                                    <input type="text" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value=""
+                                            placeholder="" />
                                 </div>
                             </div>  
                         </div>
@@ -67,18 +69,21 @@
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6">
 
                                 <div class="md:col-span-2">
-                                    <label for="house">Transaction No.</label>
-                                    <input type="text" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                    <label class="text-black font-medium" for="house">Transaction No.</label>
+                                    <input type="text" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value=""
+                                            placeholder="" />
                                 </div>
 
                                 <div class="md:col-span-1">
-                                    <label for="house">Date of Loan</label>
-                                    <input type="date" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                    <label class="text-black font-medium" for="house">Date of Loan</label>
+                                    <input type="date" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value=""
+                                            placeholder="" />
                                 </div>
 
                                 <div class="md:col-span-1">
-                                    <label for="house">Principal Amount</label>
-                                    <input type="number" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="₱" />
+                                    <label class="text-black font-medium" for="house">Principal Amount</label>
+                                    <input type="number" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value=""
+                                            placeholder="" value="" placeholder="₱" />
                                 </div>
                             </div>  
                         </div>
@@ -104,37 +109,42 @@
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
 
                                 <div class="md:col-span-1">
-                                    <label for="house">Days to pay</label>
-                                    <select name="type" id="type" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                    <label class="text-black font-medium" for="house">Days to pay</label>
+                                    <select name="type" id="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value=""
+                                            placeholder=""" />
                                         <option value="business loan">15</option>
                                         <option value="personal loan">30</option>
                                     </select>
                                 </div>
 
                                 <div class="md:col-span-1">
-                                    <label for="house">Months to pay</label>
-                                    <select name="type" id="type" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                    <label class="text-black font-medium" for="house">Months to pay</label>
+                                    <select name="type" id="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value=""
+                                            placeholder=""" />
                                         <option value="business loan">3 months</option>
                                         <option value="personal loan">6 months</option>
                                     </select>
                                 </div>
 
                                 <div class="md:col-span-1">
-                                    <label for="house">Monthly Interest %</label>
-                                    <select name="type" id="type" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                    <label class="text-black font-medium" for="house">Monthly Interest %</label>
+                                    <select name="type" id="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value=""
+                                            placeholder=""" />
                                         <option value="business loan">5</option>
                                         <option value="personal loan">10</option>
                                     </select>
                                 </div>
                                 
                                 <div class="md:col-span-1">
-                                    <label for="house">Amount with Interest</label>
-                                    <input type="number" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="₱" />
+                                    <label class="text-black font-medium" for="house">Amount with Interest</label>
+                                    <input type="number" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value=""
+                                            placeholder=""" value="" placeholder="₱" />
                                 </div>
 
                                 <div class="md:col-span-1">
-                                    <label for="house">Running Balance</label>
-                                    <input type="number" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="₱" />
+                                    <label class="text-black font-medium" for="house">Running Balance</label>
+                                    <input type="number" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value=""
+                                            placeholder=""" value="" placeholder="₱" />
                                 </div>
                             </div>  
                         </div>
