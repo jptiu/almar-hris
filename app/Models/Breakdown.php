@@ -13,6 +13,7 @@ class Breakdown extends Model
         'ref_no',
         'date',
         'user_id',
+        'total_amount',
     ];
 
     public function user(){
