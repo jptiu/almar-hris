@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Chart;
 use App\Models\Expenses;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -66,4 +67,19 @@ class ExpensesController extends Controller
     {
         //
     }
+
+    public function getAccountData($acctNo)
+{
+    $account = Chart::where('acc_no', $acctNo)->first();
+
+    if ($account) {
+        return response()->json([
+            'account_class' => $account->acc_class,
+            'account_type' => $account->acc_type,
+            'account_title' => $account->acc_title,
+        ]);
+    } else {
+        return response()->json(null);
+    }
+}
 }

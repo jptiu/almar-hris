@@ -54,26 +54,23 @@
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-8">
 
                                 <div class="md:col-span-2">
-                                    <label for="house" class="text-black font-medium">Exp Ref No.</label>
-                                    <input type="text" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
+                                    <label for="exp_ref_no" class="text-black font-medium">Exp Ref No.</label>
+                                    <input type="text" name="exp_ref_no" id="exp_ref_no" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                 </div>
 
                                 <div class="md:col-span-2">
-                                    <label for="house" class="text-black font-medium">Acct No.</label>
-                                    <input type="text" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
+                                    <label for="acct_no" class="text-black font-medium">Acct No.</label>
+                                    <input type="text" name="acct_no" id="acct_no" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                 </div>
 
                                 <div class="md:col-span-2">
-                                    <label for="house" class="text-black font-medium">Account Class</label>
-                                    <input type="text" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
+                                    <label for="acc_class" class="text-black font-medium">Account Class</label>
+                                    <input type="text" name="acc_class" id="acc_class" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                 </div>
 
                                 <div class="md:col-span-2">
-                                    <label for="house" class="text-black font-medium">Account Type</label>
-                                    <select name="type" id="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
-                                        <option value="business loan">Type 1</option>
-                                        <option value="personal loan">Type 2</option>
-                                    </select>
+                                    <label for="acc_type" class="text-black font-medium">Account Type</label>
+                                    <input type="text" name="acc_type" id="acc_type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                 </div>
                             </div>  
                         </div>
@@ -88,23 +85,23 @@
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-8">
 
                                 <div class="md:col-span-2">
-                                    <label for="house" class="text-black font-medium">Account Title</label>
-                                    <input type="text" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
+                                    <label for="acc_title" class="text-black font-medium">Account Title</label>
+                                    <input type="text" name="acc_title" id="acc_title" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                 </div>
 
                                 <div class="md:col-span-2">
-                                    <label for="house" class="text-black font-medium">Justification</label>
-                                    <input type="text" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
+                                    <label for="justification" class="text-black font-medium">Justification</label>
+                                    <input type="text" name="justification" id="justification" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                 </div>
 
                                 <div class="md:col-span-2">
-                                    <label for="house" class="text-black font-medium">O.R No.</label>
-                                    <input type="text" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
+                                    <label for="or_no" class="text-black font-medium">O.R No.</label>
+                                    <input type="text" name="or_no" id="or_no" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                 </div>
 
                                 <div class="md:col-span-2">
-                                    <label for="house" class="text-black font-medium">Amount</label>
-                                    <input type="number" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="₱" />
+                                    <label for="amount" class="text-black font-medium">Amount</label>
+                                    <input type="number" name="amount" id="amount" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="₱" />
                                 </div>
                             </div>  
                         </div>
@@ -261,3 +258,21 @@
 
     </div>
 </x-app-layout>
+<script>
+    document.getElementById('acct_no').addEventListener('input', function () {
+        var acctNo = this.value;
+
+        if (acctNo) {
+            fetch(`/get-account-data/${acctNo}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data) {
+                        document.getElementById('acc_class').value = data.account_class;
+                        document.getElementById('acc_type').value = data.account_type;
+                        document.getElementById('acc_title').value = data.account_title;
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    });
+</script>
