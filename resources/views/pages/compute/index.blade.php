@@ -165,49 +165,19 @@
                         <div class="mb-4">
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
                                 <div class="lg:col-span-2">
-                                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
+                                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
                                         <div class="md:col-span-1">
                                             <label for="house" class="text-black font-medium">Today's Loan Release</label>
                                             <input type="date" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                         </div>
-                                    </div>  
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="mb-4">
-                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
-                                <div class="lg:col-span-2">
-                                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
                                         <div class="md:col-span-1">
                                             <label for="house" class="text-black font-medium">Today's Expenses</label>
                                             <input type="date" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
-                                        </div>
-                                    </div>  
-                                </div>
-                            </div>
-                        </div>
-
-                        <x-section-border />
-
-                        <div class="mb-4">
-                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
-                                <div class="lg:col-span-2">
-                                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
+                                        </div> 
                                         <div class="md:col-span-1">
                                             <label for="house" class="text-black font-medium">New Cash On Hand</label>
                                             <input type="date" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                         </div>
-                                    </div>  
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="mb-4">
-                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
-                                <div class="lg:col-span-2">
-                                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
-
                                         <div class="md:col-span-1">
                                             <label for="house" class="text-black font-medium">Cashier</label>
                                             <select name="type" id="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
@@ -220,6 +190,8 @@
                                 </div>
                             </div>
                         </div>
+
+                        <x-section-border />
 
                     </form>
                     </div>
@@ -298,7 +270,7 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-2 gap-4">
+            <!-- <div class="grid grid-cols-2 gap-4">
             <section class="container mx-auto">
             <div class="flex flex-col">
                 <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -425,13 +397,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </section>
-
-        
-        
+                        </section> -->
 </div>
-
-        
-
     </div>
 </x-app-layout>
