@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('breakdowns', function (Blueprint $table) {
+        Schema::create('charts', function (Blueprint $table) {
             $table->id();
-            $table->string('ref_no');
-            $table->string('date');
-            $table->string('user_id');
-            $table->string('total_amount');
+            $table->string('acc_no');
+            $table->string('acc_class');
+            $table->string('acc_type');
+            $table->string('acc_title');
+            $table->string('acc_description');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('breakdowns');
+        Schema::dropIfExists('charts');
     }
 };

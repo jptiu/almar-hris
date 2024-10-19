@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('breakdowns', function (Blueprint $table) {
+        Schema::create('denominations', function (Blueprint $table) {
             $table->id();
-            $table->string('ref_no');
-            $table->string('date');
-            $table->string('user_id');
-            $table->string('total_amount');
+            $table->string('breakdown_id');
+            $table->string('denomination');
+            $table->string('type');
+            $table->string('qty');
+            $table->string('amount');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('breakdowns');
+        Schema::dropIfExists('denominations');
     }
 };

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuditorController;
 use App\Http\Controllers\BMController;
 use App\Http\Controllers\BreakdownController;
+use App\Http\Controllers\ChartController;
 use App\Http\Controllers\CityTownController;
 use App\Http\Controllers\CLDController;
 use App\Http\Controllers\CLMController;
@@ -52,7 +53,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('barangay/show/{id}', [BarangayController::class, 'show'])->name('barangay.show');
     Route::delete('barangay/destroy/{id}', [BarangayController::class, 'destroy'])->name('barangay.destroy');
     Route::post('barangay/import', [BarangayController::class, 'importCSV'])->name('barangay.importcsv');
-    
+
     // Customer
     // Route::resource('customer', App\Http\Controllers\CustomerController::class);
     Route::get('customer-add', [CustomerController::class, 'add'])->name('customer.add');
@@ -161,7 +162,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::post('bm-probation/update/{id}', [EmployeeController::class, 'bmp_update'])->name('bmprobation.update');
     Route::get('bm-probation/show/{id}', [EmployeeController::class, 'bmp_show'])->name('bmprobation.show');
     Route::get('resignation', [EmployeeController::class, 'resignation'])->name('resignation.index');
-    
+
     // Auditor
     Route::get('auditor', [AuditorController::class, 'index'])->name('auditor.index');
 
@@ -174,7 +175,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // Loan Officer
     Route::get('loanofficer', [LOController::class, 'index'])->name('loanofficer.index');
     Route::get('addloan', [LOController::class, 'addLoan'])->name('addLoan.index');
-    
+
 
     // Employee Evaluation
     Route::get('branch/employee-evaluation', [BMController::class, 'employeeEvaluation'])->name('employeeEvaluation.index');
@@ -209,7 +210,15 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // Payroll
     Route::get('loanofficer/pay-roll', [LOController::class, 'empPayroll'])->name('empPayroll.index');
 
-     // Monthly Report
-     Route::get('superadmin/pay-roll', [SuperAdminController::class, 'monthlyReport'])->name('monthlyReport.index');
+    // Monthly Report
+    Route::get('superadmin/pay-roll', [SuperAdminController::class, 'monthlyReport'])->name('monthlyReport.index');
+
+    //Chart
+    Route::get('chart', [ChartController::class, 'index'])->name('chart.index');
+    Route::post('chart/store', [ChartController::class, 'store'])->name('chart.store');
+    Route::get('chart/create', [ChartController::class, 'create'])->name('chart.create');
+    Route::post('chart/update/{id}', [ChartController::class, 'update'])->name('chart.update');
+    Route::get('chart/show/{id}', [ChartController::class, 'show'])->name('chart.show');
+    Route::delete('chart/destroy/{id}', [ChartController::class, 'destroy'])->name('chart.destroy');
 
 });
