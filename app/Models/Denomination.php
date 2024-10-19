@@ -10,10 +10,7 @@ class Denomination extends Model
     use HasFactory;
 
     protected $fillable = [
-        'breakdown_id',
-        'denomination',
-        'type',
-        'qty',
-        'amount',
+        'denom_amt',
+        'denom_typ',
     ];
 }

@@ -13,11 +13,8 @@ return new class extends Migration
     {
         Schema::create('denominations', function (Blueprint $table) {
             $table->id();
-            $table->string('breakdown_id');
-            $table->string('denomination');
-            $table->string('type');
-            $table->string('qty');
-            $table->string('amount');
+            $table->string('denom_amt');
+            $table->string('denom_typ');
             $table->timestamps();
         });
     }

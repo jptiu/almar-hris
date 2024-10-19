@@ -17,6 +17,7 @@ use App\Http\Controllers\HRController;
 use App\Http\Controllers\LoanController;
 use App\Http\Controllers\LOController;
 use App\Http\Controllers\SuperAdminController;
+use App\Http\Controllers\DenominationController;
 use App\Models\Employee;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataFeedController;
@@ -222,4 +223,14 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('chart/show/{id}', [ChartController::class, 'show'])->name('chart.show');
     Route::delete('chart/destroy/{id}', [ChartController::class, 'destroy'])->name('chart.destroy');
     Route::post('chart/import', [ChartController::class, 'importCSV'])->name('chart.importcsv');
+
+    //Denomination
+    Route::get('denomination', [DenominationController::class, 'index'])->name('denomination.index');
+    Route::post('denomination/store', [DenominationController::class, 'store'])->name('denomination.store');
+    Route::get('denomination/create', [DenominationController::class, 'create'])->name('denomination.create');
+    Route::post('denomination/update/{id}', [DenominationController::class, 'update'])->name('denomination.update');
+    Route::get('denomination/show/{id}', [DenominationController::class, 'show'])->name('denomination.show');
+    Route::delete('denomination/destroy/{id}', [DenominationController::class, 'destroy'])->name('denomination.destroy');
+    Route::post('denomination/import', [DenominationController::class, 'importCSV'])->name('denomination.importcsv');
+
 });
