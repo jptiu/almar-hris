@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Breakdown;
 use App\Models\Denomination;
+use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
@@ -17,8 +18,9 @@ class BreakdownController extends Controller
         //abort_unless(Gate::allows('loan_access'), 404);
         $lists = Breakdown::with('user')->get();
         $dens = Denomination::get();
+        $user = Auth::user();
 
-        return view('pages.breakdown.index', compact('dens'));
+        return view('pages.breakdown.index', compact('dens', 'user'));
     }
 
     /**
