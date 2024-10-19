@@ -2,25 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Breakdown;
 use App\Models\Denomination;
-use Auth;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Gate;
 
-class BreakdownController extends Controller
+class DenominationController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //abort_unless(Gate::allows('loan_access'), 404);
-        $lists = Breakdown::with('user')->get();
-        $dens = Denomination::get();
-        $user = Auth::user();
-
-        return view('pages.breakdown.index', compact('dens', 'user'));
+        $lists = Denomination::paginate(10);
+        return view('pages.denomination.index', compact('lists'));
     }
 
     /**
@@ -28,7 +21,7 @@ class BreakdownController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.denomination.create.index');
     }
 
     /**
@@ -36,7 +29,12 @@ class BreakdownController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $denom = new Denomination();
+        $denom->denom_amt = $request->denom_amt;
+        $denom->denom_typ = $request->denom_typ;
+        $denom->save();
+
+        return redirect(route("pages.denomination.index"))->with('success', 'Created Successfully');
     }
 
     /**
@@ -44,7 +42,9 @@ class BreakdownController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $denom = Denomination::where('id', $id)->first();
+
+        return view('pages.denomination.show.index', compact('denom'));
     }
 
     /**
@@ -52,7 +52,9 @@ class BreakdownController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $denom = Denomination::find($id);
+        
+        return view('pages.denomination.edit.index', compact('denom'));
     }
 
     /**
@@ -60,7 +62,12 @@ class BreakdownController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $denom = Denomination::find($id);
+        $denom->denom_amt = $request->denom_amt;
+        $denom->denom_typ = $request->denom_typ;
+        $denom->update();
+
+        return redirect(route("pages.denomination.index"))->with('success', 'Created Successfully');
     }
 
     /**
@@ -68,7 +75,10 @@ class BreakdownController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $denom = Denomination::find($id);
+        $denom->delete();
+
+        return redirect()->back()->with('success', 'Denomination deleted.');
     }
 
     public function importCSV(Request $request)
@@ -92,14 +102,12 @@ class BreakdownController extends Controller
 
         foreach ($rows as $row) {
             // Create and save your model instance
-            Breakdown::create([
-                'ref_no' => $row[0],
-                'date' => $row[1],
-                'user_id' => $row[2],
-                'total_amount' => $row[3],
+            Denomination::create([
+                'denom_amt' => $row[0],
+                'denom_typ' => $row[1],
             ]);
         }
 
-        return redirect(route("breakdown.index"))->with('success', 'CSV Data Imported Successfully');
+        return redirect(route("denomination.index"))->with('success', 'CSV Data Imported Successfully');
     }
 }
