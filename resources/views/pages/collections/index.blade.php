@@ -39,8 +39,8 @@
                                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
 
                                         <div class="md:col-span-1">
-                                            <label for="house">Select Customer</label>
-                                            <select name="type" id="type" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                            <label for="house" class="text-black font-medium">Select Customer</label>
+                                            <select name="type" id="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5 />
                                                 <option value="business loan">Customer 1</option>
                                                 <option value="personal loan">Customer 2</option>
                                             </select>
@@ -58,13 +58,13 @@
                                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
 
                                         <div class="md:col-span-1">
-                                            <label for="house">ID</label>
-                                            <input type="text" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                            <label for="house" class="text-black font-medium">ID</label>
+                                            <input type="text" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5 value="" placeholder="" />
                                         </div>
 
                                         <div class="md:col-span-1">
-                                            <label for="house">Name</label>
-                                            <input type="text" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                            <label for="house" class="text-black font-medium">Name</label>
+                                            <input type="text" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5 value="" placeholder="" />
                                         </div>
                                     </div>  
                                 </div>
@@ -77,16 +77,16 @@
                                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
 
                                         <div class="md:col-span-1">
-                                            <label for="house">Type</label>
-                                            <select name="type" id="type" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                            <label for="house" class="text-black font-medium">Type</label>
+                                            <select name="type" id="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5 />
                                                 <option value="business loan">Personal</option>
                                                 <option value="personal loan">Business</option>
                                             </select>
                                         </div>
 
                                         <div class="md:col-span-1">
-                                            <label for="house">Status</label>
-                                            <select name="type" id="type" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                            <label for="house" class="text-black font-medium">Status</label>
+                                            <select name="type" id="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5 />
                                                 <option value="business loan">Pendng</option>
                                                 <option value="personal loan">Approve</option>
                                             </select>
@@ -102,13 +102,13 @@
                                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
 
                                         <div class="md:col-span-1">
-                                            <label for="house">Transaction No.</label>
-                                            <input type="text" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                            <label for="house" class="text-black font-medium">Transaction No.</label>
+                                            <input type="text" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5 value="" placeholder="" />
                                         </div>
 
                                         <div class="md:col-span-1">
-                                            <label for="house">Collector</label>
-                                            <select name="type" id="type" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                            <label for="house" class="text-black font-medium">Collector</label>
+                                            <select name="type" id="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5 />
                                                 <option value="business loan">Collector 1</option>
                                                 <option value="personal loan">Collector 2</option>
                                             </select>
@@ -124,8 +124,8 @@
                                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
 
                                         <div class="md:col-span-1">
-                                            <label for="house">Date</label>
-                                            <input type="date" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                            <label for="house" class="text-black font-medium">Date</label>
+                                            <input type="date" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5 value="" placeholder="" />
                                         </div>
 
                                     </div>  
@@ -139,8 +139,8 @@
                                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
 
                                         <div class="md:col-span-1">
-                                            <label for="house">Select which unpaid Loan to pay</label>
-                                            <select name="type" id="type" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                            <label for="house" class="text-black font-medium">Select which unpaid Loan to pay</label>
+                                            <select name="type" id="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5 />
                                                 <option value="business loan">Loan 1</option>
                                                 <option value="personal loan">Loan 2</option>
                                             </select>
@@ -157,13 +157,13 @@
                                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
 
                                         <div class="md:col-span-1">
-                                            <label for="house">LTD Row #</label>
-                                            <input type="text" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                            <label for="house" class="text-black font-medium">LTD Row #</label>
+                                            <input type="text" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5 value="" placeholder="" />
                                         </div>
 
                                         <div class="md:col-span-1">
-                                            <label for="house">Due Date</label>
-                                            <input type="date" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                            <label for="house" class="text-black font-medium">Due Date</label>
+                                            <input type="date" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5 value="" placeholder="" />
                                         </div>
                                     </div>  
                                 </div>
@@ -176,13 +176,13 @@
                                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
 
                                         <div class="md:col-span-1">
-                                            <label for="house">Amount Due</label>
-                                            <input type="number" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                            <label for="house" class="text-black font-medium">Amount Due</label>
+                                            <input type="number" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5 value="" placeholder="" />
                                         </div>
 
                                         <div class="md:col-span-1">
-                                            <label for="house">Date Paid</label>
-                                            <input type="date" name="house" id="house" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                            <label for="house" class="text-black font-medium">Date Paid</label>
+                                            <input type="date" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5 value="" placeholder="" />
                                         </div>
                                     </div>  
                                 </div>
