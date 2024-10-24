@@ -64,37 +64,37 @@
                                 <thead class="bg-gray-50 dark:bg-gray-800">
                                     <tr>
                                         <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             ID
                                         </th>
 
                                         <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             Employee Name
                                         </th>
 
                                         <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             Days of work
                                         </th>
 
                                         <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             Reg Rate
                                         </th>
 
                                         <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             Total Salary
                                         </th>
 
                                         <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             Payslip
                                         </th>
 
                                         <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             Action
                                         </th>
 

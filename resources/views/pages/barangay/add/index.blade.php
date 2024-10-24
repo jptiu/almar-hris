@@ -32,7 +32,7 @@
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
                                 <div class="md:col-span-1">
                                     <label for="code">Area Code</label>
-                                    <input type="text" name="code" id="code" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                    <input type="text" name="code" id="code" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                 </div>
                             </div>
                         </div>
@@ -51,7 +51,7 @@
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
                                 <div class="md:col-span-1">
                                     <label for="city">City/Town</label>
-                                    <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                    <input type="text" name="city" id="city" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                 </div>
                             </div>
                         </div>
@@ -70,7 +70,7 @@
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
                                 <div class="md:col-span-1">
                                     <label for="barangay_name">Barangay Name</label>
-                                    <input type="text" name="barangay_name" id="barangay_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                    <input type="text" name="barangay_name" id="barangay_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                 </div>
                             </div>
                         </div>
@@ -88,7 +88,7 @@
                         <div class="lg:col-span-2">
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
                                 <div class="md:col-span-1">
-                                    <select name="user_id" id="user_id" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                    <select name="user_id" id="user_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
                                         @foreach($collectors as $collector)
                                         <option value="{{$collector->user_id}}">{{$collector->name}}</option>
                                         @endforeach
