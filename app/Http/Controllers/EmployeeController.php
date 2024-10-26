@@ -9,8 +9,10 @@ use App\Models\Employee;
 use App\Models\HR;
 use App\Models\NewHire;
 use App\Models\Probation;
+use App\Models\Resignation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Hash;
 
 class EmployeeController extends Controller
 {
@@ -45,18 +47,29 @@ class EmployeeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(EmployeeCreateRequest $request)
+    public function store(Request $request)
     {
         abort_unless(Gate::allows('hr_access'), 404);
-        if ($request->validated()) {
-            $hr = Employee::create($request->all());
-            $hr->save();
+            $acc = \App\Models\User::factory()->create([
+                'name' => $request->f_name.' '.$request->m_name.' '.$request->l_name,
+                'email' => $request->f_name.' '.$request->l_name.'@almarfinance.com',
+                'email_verified_at' => now(),
+                'password' => Hash::make('password'),
+                'created_at' => now(),
+                'updated_at' => now()
+            ]);
+            var_dump($acc->id);
+
+            $em = Employee::create($request->all());
+            $em->save();
+            $em->user_id = $acc->id;
+            $em->update();
 
             $new = new NewHire();
-            $new->user_id = $hr->id;
+            $new->user_id = $em->id;
             $new->date_hired = now()->toDateString();
             $new->status = 'Probation';
-            $new->position = $hr->position_desired;
+            $new->position = $em->position_desired;
             $new->save();
 
             if($new->status == 'Probation'){
@@ -67,7 +80,6 @@ class EmployeeController extends Controller
             }
 
             return redirect(route("employee.index"))->with('success', 'Created Successfully');
-        }
     }
 
     /**
@@ -123,20 +135,6 @@ class EmployeeController extends Controller
 
         return view('pages.hr.employee.bmprobation.index', compact('lists'));
     }
-
-    // public function update(CityTownUpdateRequest $request, $id)
-    // {
-    //     abort_unless(Gate::allows('loan_access'), 404);
-    //     if ($request->validated()) {
-    //         $city = CityTown::find($id);
-    //         $city->code = $request->code;
-    //         $city->city_town = $request->city_town;
-    //         $city->user_id = $request->user_id;
-    //         $city->update();
-
-    //         return redirect(route("city.index"))->with('success', 'City/Town Updated Successfully');
-    //     }
-    // }
 
     public function bmp_show($id)
     {
@@ -202,6 +200,25 @@ class EmployeeController extends Controller
         $lists = Employee::get();
 
         return view('pages.hr.employee.resignation.index', compact('lists'));
+    }
+
+    public function resigadd(Request $request)
+    {
+        abort_unless(Gate::allows('hr_access'), 404);
+        $employees = Employee::get();
+        
+        $resig = new Resignation();
+        $resig->employee_name = $request->employee_name;
+
+        return view('pages.hr.employee.resignation.add.index', compact('resig','employees'));
+    }
+
+    public function resigstore()
+    {
+        abort_unless(Gate::allows('hr_access'), 404);
+        $lists = Employee::get();
+
+        return redirect(route("employee.index"))->with('success', 'Created Successfully');
     }
 
 }

@@ -168,6 +168,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::post('bm-probation/update/{id}', [EmployeeController::class, 'bmp_update'])->name('bmprobation.update');
     Route::get('bm-probation/show/{id}', [EmployeeController::class, 'bmp_show'])->name('bmprobation.show');
     Route::get('resignation', [EmployeeController::class, 'resignation'])->name('resignation.index');
+    Route::get('resignation-add', [EmployeeController::class, 'resigadd'])->name('resignation.add');
+    Route::post('resignation/store', [EmployeeController::class, 'resigstore'])->name('resignation.store');
+    Route::post('resignation/update/{id}', [EmployeeController::class, 'resigupdate'])->name('resignation.update');
+    Route::get('resignation/show/{id}', [EmployeeController::class, 'resigshow'])->name('resignation.show');
 
     // Auditor
     Route::get('auditor', [AuditorController::class, 'index'])->name('auditor.index');
