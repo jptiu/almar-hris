@@ -43,25 +43,25 @@
                                 <thead class="bg-gray-50 dark:bg-gray-800">
                                     <tr>
                                         <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             ID
                                         </th>
 
                                         <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             Name
                                         </th>
 
                                         <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             Check-In Time
                                         </th>
                                         <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             Check-Out Time
                                         </th>
                                         <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             Status
                                         </th>
                                     </tr>

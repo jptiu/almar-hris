@@ -30,7 +30,7 @@
         <div></div>
 
         <div class="grid grid-cols-3 gap-4 mb-12">
-            <div class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+            <div class="bg-white rounded-lg border border-slate-200 shadow-[0px_8px_20px_rgba(0,0,0,0.08)]">
                 <div class="px-5 py-5">
                     <div class="flex items-center">
                         <div class="w-20 h-20 rounded-md shrink-0 bg-sky-500">
@@ -49,7 +49,7 @@
                 </div>
             </div>
 
-            <div class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+            <div class="bg-white rounded-lg border border-slate-200 shadow-[0px_8px_20px_rgba(0,0,0,0.08)]">
                 <div class="px-5 py-5">
                     <div class="flex items-center">
                         <div class="w-20 h-20 rounded-md shrink-0 bg-yellow-500">
@@ -68,7 +68,7 @@
                 </div>
             </div>
 
-            <div class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+            <div class="bg-white rounded-lg border border-slate-200 shadow-[0px_8px_20px_rgba(0,0,0,0.08)]">
                 <div class="px-5 py-5">
                     <div class="flex items-center">
                         <div class="w-20 h-20 rounded-md shrink-0 bg-orange-500">
@@ -87,7 +87,7 @@
                 </div>
             </div>
 
-            <div class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+            <div class="bg-white rounded-lg border border-slate-200 shadow-[0px_8px_20px_rgba(0,0,0,0.08)]">
                 <div class="px-5 py-5">
                     <div class="flex items-center">
                         <div class="w-20 h-20 rounded-md shrink-0 bg-red-500">
@@ -106,7 +106,7 @@
                 </div>
             </div>
 
-            <div class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+            <div class="bg-white rounded-lg border border-slate-200 shadow-[0px_8px_20px_rgba(0,0,0,0.08)]">
                 <div class="px-5 py-5">
                     <div class="flex items-center">
                         <div class="w-20 h-20 rounded-md shrink-0 bg-green-500">
@@ -313,7 +313,7 @@
         <div class="grid grid-cols-12 gap-6 mt-14">
             <!-- Leave Request -->
             <div
-                class="col-span-full xl:col-span-6 bg-white dark:bg-slate-800 shadow-lg rounded-md border border-slate-200 dark:border-slate-700">
+                class="col-span-full xl:col-span-6 bg-white bg-white rounded-lg border border-slate-200 shadow-[0px_8px_20px_rgba(0,0,0,0.08)]">
                 <header class="px-5 py-4 border-b border-slate-100 dark:border-slate-700">
                     <h2 class="font-semibold text-slate-800 dark:text-slate-100">Leave Request</h2>
                 </header>
@@ -351,7 +351,7 @@
 
             <!-- Probation Reminder -->
             <div
-                class="col-span-full xl:col-span-6 bg-white dark:bg-slate-800 shadow-lg rounded-md border border-slate-200 dark:border-slate-700">
+                class="col-span-full xl:col-span-6 bg-white bg-white rounded-lg border border-slate-200 shadow-[0px_8px_20px_rgba(0,0,0,0.08)]">
                 <header class="px-5 py-4 border-b border-slate-100 dark:border-slate-700">
                     <h2 class="font-semibold text-slate-800 dark:text-slate-100">Probation Reminder</h2>
                 </header>
@@ -388,7 +388,7 @@
         <div class="grid grid-cols-12 gap-6 mt-14">
             <!-- Recent Activity -->
             <div
-                class="col-span-full xl:col-span-6 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+                class="col-span-full xl:col-span-6 bg-white rounded-lg border border-slate-200 shadow-[0px_8px_20px_rgba(0,0,0,0.08)]">
                 <header class="px-5 py-4 border-b border-slate-100 dark:border-slate-700">
                     <h2 class="font-semibold text-slate-800 dark:text-slate-100">Recent Logs</h2>
                 </header>
