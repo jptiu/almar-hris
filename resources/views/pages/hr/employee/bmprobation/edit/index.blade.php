@@ -19,7 +19,7 @@
                                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
                                                 <div class="md:col-span-1">
                                                     <label for="payment_method">Employee Name</label>
-                                                    <input type="text" name="payment_method" id="payment_method" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{$prob->employee->f_name.' '.$prob->employee->l_name}}" placeholder="" />
+                                                    <input type="text" name="payment_method" id="payment_method" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="{{$prob->employee->f_name.' '.$prob->employee->l_name}}" placeholder="" />
                                                 </div>
                                             </div>  
                                         </div>
@@ -34,7 +34,7 @@
                                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
                                                 <div class="md:col-span-1">
                                                     <label for="status">Probation Status</label>
-                                                    <select name="status" id="status" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                                    <select name="status" id="status" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
                                                         <option value="status">Probation</option>
                                                         <option value="status">Regular</option>
                                                     </select>
@@ -55,11 +55,11 @@
                                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
                                                 <div class="md:col-span-1">
                                                     <label for="date_start">Start of Probation</label>
-                                                    <input type="date" name="date_start" id="date_start" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                                    <input type="date" name="date_start" id="date_start" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                                 </div>
                                                 <div class="md:col-span-1">
                                                     <label for="date_end">End of Probation</label>
-                                                    <input type="date" name="date_end" id="date_end" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                                    <input type="date" name="date_end" id="date_end" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                                 </div>
                                             </div>  
                                         </div>
@@ -71,7 +71,7 @@
                                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
                                                 <div class="md:col-span-1">
                                                     <label for="type">Monthly/Daily</label>
-                                                    <select name="type" id="type" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                                    <select name="type" id="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
                                                         <option value="Monthly">Monthly</option>
                                                         <option value="Daily">Daily</option>
                                                     </select>
@@ -89,7 +89,7 @@
                                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
                                                 <div class="md:col-span-1">
                                                     <label for="quota">Quota</label>
-                                                    <input type="text" name="quota" id="quota" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                                    <input type="text" name="quota" id="quota" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                                 </div>
                                             </div>  
                                         </div>
@@ -104,7 +104,7 @@
                                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
                                                 <div class="md:col-span-1">
                                                     <label for="branch">Branch/Department</label>
-                                                    <select name="branch" id="branch" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                                    <select name="branch" id="branch" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
                                                         <option value="Gingoog">Gingoog</option>
                                                         <option value="Lapu-Lapu-1">Lapu-Lapu-1</option>
                                                         <option value="Matina Davao">Matina Davao</option>

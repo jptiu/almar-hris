@@ -114,32 +114,32 @@
                                 <thead class="bg-gray-50 dark:bg-gray-800">
                                     <tr>
                                         <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             Employee ID
                                         </th>
 
                                         <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             Name
                                         </th>
 
                                         <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             Position
                                         </th>
 
                                         <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             Date Evaluated
                                         </th>
 
                                         <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             Status
                                         </th>
 
                                         <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             Action
                                         </th>
 

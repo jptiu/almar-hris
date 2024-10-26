@@ -83,7 +83,7 @@
                             <div class="lg:col-span-2">
                                 <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
                                     <div class="md:col-span-1">
-                                        <select name="position_desired" id="position_desired" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                        <select name="position_desired" id="position_desired" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
                                             <option value="Collector">Collector</option>
                                             <option value="Branch Manager">Branch Manager</option>
                                         </select>
@@ -107,21 +107,21 @@
                                     <div class="md:col-span-2">
                                         <label for="f_name">First Name</label>
                                         <div>
-                                            <input name="f_name" id="f_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="f_name" id="f_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
 
                                     <div class="md:col-span-2">
                                         <label for="l_name">Last Name</label>
                                         <div>
-                                            <input name="l_name" id="l_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="l_name" id="l_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
 
                                     <div class="md:col-span-2">
                                         <label for="m_name">Middle Name</label>
                                         <div>
-                                            <input name="m_name" id="m_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="m_name" id="m_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
                                 </div>  
@@ -141,12 +141,12 @@
                                 <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
                                     <div class="md:col-span-1">
                                         <label for="present_address">Present Address</label>
-                                        <input type="text" name="present_address" id="present_address" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                        <input type="text" name="present_address" id="present_address" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                     </div>
 
                                     <div class="md:col-span-1">
                                         <label for="provincial_address">Provincial Address</label>
-                                        <input type="text" name="provincial_address" id="provincial_address" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                        <input type="text" name="provincial_address" id="provincial_address" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                     </div>
                                 </div>
 
@@ -168,14 +168,14 @@
                                     <div class="md:col-span-1">
                                         <label for="phone_number">Phone Number</label>
                                         <div>
-                                            <input name="phone_number" id="phone_number" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="phone_number" id="phone_number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
 
                                     <div class="md:col-span-1">
                                         <label for="tel_number">Tel Number(optional)</label>
                                         <div>
-                                            <input name="tel_number" id="tel_number" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="tel_number" id="tel_number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
 
@@ -197,19 +197,19 @@
                                 <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
                                     <div class="md:col-span-1">
                                         <label for="birth_date">Birthdate</label>
-                                        <input type="date" name="birth_date" id="birth_date" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                        <input type="date" name="birth_date" id="birth_date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                     </div>
 
                                     <div class="md:col-span-1">
                                         <label for="age">Age</label>
-                                        <input type="number" name="age" id="age" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                        <input type="number" name="age" id="age" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                     </div>
                                 </div>
 
                                 <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2 mt-4 mb-4">
                                     <div class="md:col-span-1">
                                         <label for="birth_place">Birth Place</label>
-                                        <input type="text" name="birth_place" id="birth_place" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                        <input type="text" name="birth_place" id="birth_place" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                     </div>
                                 </div>
                             </div>
@@ -228,7 +228,7 @@
                                 <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
                                     <div class="md:col-span-1">
                                         <label for="civil_status">Civil Status</label>
-                                        <select name="civil_status" id="civil_status" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                        <select name="civil_status" id="civil_status" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
                                             <option value="Single">Single</option>
                                             <option value="Married">Married</option>
                                         </select>
@@ -236,7 +236,7 @@
 
                                     <div class="md:col-span-1">
                                         <label for="religion">Religion</label>
-                                        <select name="religion" id="religion" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                        <select name="religion" id="religion" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
                                             <option value="Roman Catholic">Roman Catholic</option>
                                             <option value="Muslim">Muslim</option>
                                             <option value="Born Again">Born Again</option>
@@ -260,12 +260,12 @@
                                 <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
                                     <div class="md:col-span-1">
                                         <label for="height">Height</label>
-                                        <input type="text" name="height" id="height" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="cm" />
+                                        <input type="text" name="height" id="height" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="cm" />
                                     </div>
 
                                     <div class="md:col-span-1">
                                         <label for="weight">Weight</label>
-                                        <input type="text" name="weight" id="weight" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="kg" />
+                                        <input type="text" name="weight" id="weight" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="kg" />
                                     </div>
                                 </div>
 
@@ -301,21 +301,21 @@
                                     <div class="md:col-span-2">
                                         <label for="f_spouse">Spouse First Name</label>
                                         <div>
-                                            <input name="f_spouse" id="f_spouse" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="f_spouse" id="f_spouse" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
 
                                     <div class="md:col-span-2">
                                         <label for="l_spouse">Spouse Last Name</label>
                                         <div>
-                                            <input name="l_spouse" id="l_spouse" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="l_spouse" id="l_spouse" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
 
                                     <div class="md:col-span-2">
                                         <label for="m_spouse">Spouse Middle Name</label>
                                         <div>
-                                            <input name="m_spouse" id="m_spouse" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="m_spouse" id="m_spouse" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
                                 </div>  
@@ -328,12 +328,12 @@
                                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-4">
                                         <div class="md:col-span-2">
                                             <label for="child_1_name">Full Name</label>
-                                            <input type="text" name="child_1_name" id="child_1_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                            <input type="text" name="child_1_name" id="child_1_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                         </div>
 
                                         <div class="md:col-span-1">
                                             <label for="child_1_age">Age</label>
-                                            <input type="text" name="child_1_age" id="child_1_age" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                            <input type="text" name="child_1_age" id="child_1_age" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                         </div>
 
                                         <div class="md:col-span-1 flex items-start justify-start mt-8">
@@ -350,12 +350,12 @@
                                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-4">
                                         <div class="md:col-span-2">
                                             <label for="child_2_name">Full Name</label>
-                                            <input type="text" name="child_2_name" id="child_2_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                            <input type="text" name="child_2_name" id="child_2_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                         </div>
 
                                         <div class="md:col-span-1">
                                             <label for="child_2_age">Age</label>
-                                            <input type="text" name="child_2_age" id="child_2_age" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                            <input type="text" name="child_2_age" id="child_2_age" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                         </div>
 
                                         <div class="md:col-span-1 flex items-start justify-start mt-8">
@@ -372,12 +372,12 @@
                                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-4">
                                         <div class="md:col-span-2">
                                             <label for="child_3_name">Full Name</label>
-                                            <input type="text" name="child_3_name" id="child_3_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                            <input type="text" name="child_3_name" id="child_3_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                         </div>
 
                                         <div class="md:col-span-1">
                                             <label for="child_3_age">Age</label>
-                                            <input type="text" name="child_3_age" id="child_3_age" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                            <input type="text" name="child_3_age" id="child_3_age" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                         </div>
 
                                         <div class="md:col-span-1 flex items-start justify-start mt-8">
@@ -409,21 +409,21 @@
                                         <div class="md:col-span-2">
                                             <label for="m_maiden_f_name">Mother's Maiden First Name</label>
                                             <div>
-                                                <input name="m_maiden_f_name" id="m_maiden_f_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                                <input name="m_maiden_f_name" id="m_maiden_f_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                             </div>
                                         </div>
 
                                         <div class="md:col-span-2">
                                             <label for="m_maiden_l_name">Mother's Maiden Last Name</label>
                                             <div>
-                                                <input name="m_maiden_l_name" id="m_maiden_l_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                                <input name="m_maiden_l_name" id="m_maiden_l_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                             </div>
                                         </div>
 
                                         <div class="md:col-span-2">
                                             <label for="m_maiden_m_name">Mother's Maiden Middle Name</label>
                                             <div>
-                                                <input name="m_maiden_m_name" id="m_maiden_m_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                                <input name="m_maiden_m_name" id="m_maiden_m_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                             </div>
                                         </div>
                                     </div>  
@@ -432,12 +432,12 @@
                                         <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-3">
                                             <div class="md:col-span-2">
                                                 <label for="m_occupation">Occupation</label>
-                                                <input type="text" name="m_occupation" id="m_occupation" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                                <input type="text" name="m_occupation" id="m_occupation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                             </div>
 
                                             <div class="md:col-span-1">
                                                 <label for="m_phone">Phone No.</label>
-                                                <input type="text" name="m_phone" id="m_phone" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                                <input type="text" name="m_phone" id="m_phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                             </div>
                                         </div>
 
@@ -454,21 +454,21 @@
                                         <div class="md:col-span-2">
                                             <label for="father_f_name">Father's First Name</label>
                                             <div>
-                                                <input name="father_f_name" id="father_f_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                                <input name="father_f_name" id="father_f_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                             </div>
                                         </div>
 
                                         <div class="md:col-span-2">
                                             <label for="father_l_name">Father's Last Name</label>
                                             <div>
-                                                <input name="father_l_name" id="father_l_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                                <input name="father_l_name" id="father_l_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                             </div>
                                         </div>
 
                                         <div class="md:col-span-2">
                                             <label for="father_m_name">Father's Middle Name</label>
                                             <div>
-                                                <input name="father_m_name" id="father_m_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                                <input name="father_m_name" id="father_m_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                             </div>
                                         </div>
                                     </div>  
@@ -477,12 +477,12 @@
                                         <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-3">
                                             <div class="md:col-span-2">
                                                 <label for="f_occupation">Occupation</label>
-                                                <input type="text" name="f_occupation" id="f_occupation" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                                <input type="text" name="f_occupation" id="f_occupation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                             </div>
 
                                             <div class="md:col-span-1">
                                                 <label for="f_phone">Phone No.</label>
-                                                <input type="text" name="f_phone" id="f_phone" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                                <input type="text" name="f_phone" id="f_phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                             </div>
                                         </div>
 
@@ -522,7 +522,7 @@
                                         <div class="md:col-span-1">
                                             <label for="person_emergency">Full Name</label>
                                             <div>
-                                                <input name="person_emergency" id="person_emergency" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                                <input name="person_emergency" id="person_emergency" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                             </div>
                                         </div>
                                     </div>  
@@ -531,17 +531,17 @@
                                         <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-3">
                                             <div class="md:col-span-1">
                                                 <label for="emergency_address">Address</label>
-                                                <input type="text" name="emergency_address" id="emergency_address" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                                <input type="text" name="emergency_address" id="emergency_address" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                             </div>
 
                                             <div class="md:col-span-1">
                                                 <label for="emergency_phone">Phone No.</label>
-                                                <input type="text" name="emergency_phone" id="emergency_phone" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                                <input type="text" name="emergency_phone" id="emergency_phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                             </div>
 
                                             <div class="md:col-span-1">
                                                 <label for="relationship">Relationship</label>
-                                                <select name="relationship" id="relationship" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                                <select name="relationship" id="relationship" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
                                                     <option value="Parents">Parents</option>
                                                     <option value="Acquintance">Acquaintance</option>
                                                     <option value="Siblings">Siblings</option>
@@ -633,21 +633,21 @@
                                     <div class="md:col-span-2">
                                         <label for="elementary">Name of School</label>
                                         <div>
-                                            <input name="elementary" id="elementary" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="elementary" id="elementary" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
 
                                     <div class="md:col-span-2">
                                         <label for="elem_address">Address</label>
                                         <div>
-                                            <input name="elem_address" id="elem_address" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="elem_address" id="elem_address" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
 
                                     <div class="md:col-span-2">
                                         <label for="elem_year">Year Graduated</label>
                                         <div>
-                                            <input name="elem_year" id="elem_year" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="elem_year" id="elem_year" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
                                 </div>  
@@ -667,21 +667,21 @@
                                     <div class="md:col-span-2">
                                         <label for="secondary">Name of School</label>
                                         <div>
-                                            <input name="secondary" id="secondary" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="secondary" id="secondary" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
 
                                     <div class="md:col-span-2">
                                         <label for="sec_address">Address</label>
                                         <div>
-                                            <input name="sec_address" id="sec_address" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="sec_address" id="sec_address" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
 
                                     <div class="md:col-span-2">
                                         <label for="sec_year">Year Graduated</label>
                                         <div>
-                                            <input name="sec_year" id="sec_year" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="sec_year" id="sec_year" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
                                 </div>  
@@ -701,21 +701,21 @@
                                     <div class="md:col-span-2">
                                         <label for="college">Name of School</label>
                                         <div>
-                                            <input name="college" id="college" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="college" id="college" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
 
                                     <div class="md:col-span-2">
                                         <label for="college_address">Address</label>
                                         <div>
-                                            <input name="college_address" id="college_address" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="college_address" id="college_address" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
 
                                     <div class="md:col-span-2">
                                         <label for="college_year">Year Graduated</label>
                                         <div>
-                                            <input name="college_year" id="college_year" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="college_year" id="college_year" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
                                 </div>  
@@ -735,21 +735,21 @@
                                     <div class="md:col-span-2">
                                         <label for="course">Name of School</label>
                                         <div>
-                                            <input name="course" id="course" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="course" id="course" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
 
                                     <div class="md:col-span-2">
                                         <label for="course_address">Address</label>
                                         <div>
-                                            <input name="course_address" id="course_address" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="course_address" id="course_address" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
 
                                     <div class="md:col-span-2">
                                         <label for="course_year">Year Graduated</label>
                                         <div>
-                                            <input name="course_year" id="course_year" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="course_year" id="course_year" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
                                 </div>  
@@ -769,21 +769,21 @@
                                     <div class="md:col-span-2">
                                         <label for="vocational">Name of School</label>
                                         <div>
-                                            <input name="vocational" id="vocational" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="vocational" id="vocational" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
 
                                     <div class="md:col-span-2">
                                         <label for="voc_address">Address</label>
                                         <div>
-                                            <input name="voc_address" id="voc_address" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="voc_address" id="voc_address" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
 
                                     <div class="md:col-span-2">
                                         <label for="voc_year">Year Graduated</label>
                                         <div>
-                                            <input name="voc_year" id="voc_year" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="voc_year" id="voc_year" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
                                 </div>  
@@ -866,21 +866,21 @@
                                     <div class="md:col-span-2">
                                         <label for="n_company_1">Name of Company</label>
                                         <div>
-                                            <input name="n_company_1" id="n_company_1" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="n_company_1" id="n_company_1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
 
                                     <div class="md:col-span-2">
                                         <label for="a_company_1">Address</label>
                                         <div>
-                                            <input name="a_company_add_1" id="a_company_add_1" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="a_company_add_1" id="a_company_add_1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
 
                                     <div class="md:col-span-2">
                                         <label for="p_company_1">Position</label>
                                         <div>
-                                            <input name="p_company_1" id="p_company_1" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="p_company_1" id="p_company_1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
                                 </div>  
@@ -890,14 +890,14 @@
                                     <div class="md:col-span-2">
                                         <label for="f_company_1">Date Hired (From)</label>
                                         <div>
-                                            <input type="date" name="f_company_1" id="f_company_1" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input type="date" name="f_company_1" id="f_company_1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
 
                                     <div class="md:col-span-2">
                                         <label for="t_company_1">To</label>
                                         <div>
-                                            <input type="date" name="t_company_1" id="t_company_1" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input type="date" name="t_company_1" id="t_company_1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
                                     <div class="md:col-span-2 flex items-start justify-start mt-8">
@@ -919,19 +919,19 @@
                                     <div class="md:col-span-2">
                                         <label for="n_company_2">Name of Company</label>
                                         <div>
-                                            <input name="n_company_2" id="n_company_2" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="n_company_2" id="n_company_2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
                                     <div class="md:col-span-2">
                                         <label for="a_company_1">Address</label>
                                         <div>
-                                            <input name="a_company_1" id="a_company_1" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="a_company_1" id="a_company_1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
                                     <div class="md:col-span-2">
                                         <label for="p_company_2">Position</label>
                                         <div>
-                                            <input name="p_company_2" id="p_company_2" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="p_company_2" id="p_company_2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
                                 </div>
@@ -940,13 +940,13 @@
                                     <div class="md:col-span-2">
                                         <label for="f_company_2">Date Hired (From)</label>
                                         <div>
-                                            <input type="date" name="f_company_2" id="f_company_2" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input type="date" name="f_company_2" id="f_company_2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
                                     <div class="md:col-span-2">
                                         <label for="t_company_2">To</label>
                                         <div>
-                                            <input type="date" name="t_company_2" id="t_company_2" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input type="date" name="t_company_2" id="t_company_2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
                                     <div class="md:col-span-2 flex items-start justify-start mt-8">
@@ -969,19 +969,19 @@
                                     <div class="md:col-span-2">
                                         <label for="n_company_3">Name of Company</label>
                                         <div>
-                                            <input name="n_company_3" id="n_company_3" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="n_company_3" id="n_company_3" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
                                     <div class="md:col-span-2">
                                         <label for="a_company_add_3">Address</label>
                                         <div>
-                                            <input name="a_company_add_3" id="a_company_add_3" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="a_company_add_3" id="a_company_add_3" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
                                     <div class="md:col-span-2">
                                         <label for="p_company_3">Position</label>
                                         <div>
-                                            <input name="p_company_3" id="p_company_3" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="p_company_3" id="p_company_3" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
                                 </div>
@@ -990,13 +990,13 @@
                                     <div class="md:col-span-2">
                                         <label for="f_company_3">Date Hired (From)</label>
                                         <div>
-                                            <input type="date" name="f_company_3" id="f_company_3" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input type="date" name="f_company_3" id="f_company_3" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
                                     <div class="md:col-span-2">
                                         <label for="t_company_3">To</label>
                                         <div>
-                                            <input type="date" name="t_company_3" id="t_company_3" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input type="date" name="t_company_3" id="t_company_3" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
                                     <div class="md:col-span-2 flex items-start justify-start mt-8">
@@ -1067,25 +1067,25 @@
                                     <div class="md:col-span-2">
                                         <label for="cf_name_1">Name</label>
                                         <div>
-                                            <input name="cf_name_1" id="cf_name_1" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="cf_name_1" id="cf_name_1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
                                     <div class="md:col-span-2">
                                         <label for="cf_occ_1">Occupation</label>
                                         <div>
-                                            <input name="cf_occ_1" id="cf_occ_1" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="cf_occ_1" id="cf_occ_1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
                                     <div class="md:col-span-2">
                                         <label for="cf_add_1">Address</label>
                                         <div>
-                                            <input name="cf_add_1" id="cf_add_1" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="cf_add_1" id="cf_add_1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
                                     <div class="md:col-span-2">
                                         <label for="cf_phone_1">Phone Number</label>
                                         <div>
-                                            <input name="cf_phone_1" id="cf_phone_1" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="cf_phone_1" id="cf_phone_1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
                                     <div class="md:col-span-2">
@@ -1109,25 +1109,25 @@
                                     <div class="md:col-span-2">
                                         <label for="cf_name_2">Name</label>
                                         <div>
-                                            <input name="cf_name_2" id="cf_name_2" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="cf_name_2" id="cf_name_2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
                                     <div class="md:col-span-2">
                                         <label for="cf_occ_2">Occupation</label>
                                         <div>
-                                            <input name="cf_occ_2" id="cf_occ_2" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="cf_occ_2" id="cf_occ_2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
                                     <div class="md:col-span-2">
                                         <label for="cf_add_2">Address</label>
                                         <div>
-                                            <input name="cf_add_2" id="cf_add_2" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="cf_add_2" id="cf_add_2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
                                     <div class="md:col-span-2">
                                         <label for="cf_phone_2">Phone Number</label>
                                         <div>
-                                            <input name="cf_phone_2" id="cf_phone_2" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="cf_phone_2" id="cf_phone_2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
                                     <div class="md:col-span-2">
@@ -1152,25 +1152,25 @@
                                     <div class="md:col-span-2">
                                         <label for="cf_name_3">Name</label>
                                         <div>
-                                            <input name="cf_name_3" id="cf_name_3" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="cf_name_3" id="cf_name_3" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
                                     <div class="md:col-span-2">
                                         <label for="cf_occ_3">Occupation</label>
                                         <div>
-                                            <input name="cf_occ_3" id="cf_occ_3" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="cf_occ_3" id="cf_occ_3" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
                                     <div class="md:col-span-2">
                                         <label for="cf_add_3">Address</label>
                                         <div>
-                                            <input name="cf_add_3" id="cf_add_3" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="cf_add_3" id="cf_add_3" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
                                     <div class="md:col-span-2">
                                         <label for="cf_phone_3">Phone Number</label>
                                         <div>
-                                            <input name="cf_phone_3" id="cf_phone_3" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                            <input name="cf_phone_3" id="cf_phone_3" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                         </div>
                                     </div>
                                     <div class="md:col-span-2">
@@ -1256,7 +1256,7 @@
                                 <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2 mb-6">
                                     <div id="sss-dropdown-container" class="md:col-span-1">
                                         <label for="sss">SSS No.</label>
-                                        <select name="sss" id="sss" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                        <select name="sss" id="sss" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
                                             <option value="To Be Submitted">To Be Submitted</option>
                                             <option value="Pending">Pending</option>
                                         </select>
@@ -1264,7 +1264,7 @@
 
                                     <div id="pagibig-dropdown-container" class="md:col-span-1">
                                         <label for="pagibig">PAG-IBIG No.</label>
-                                        <select name="pagibig" id="pagibig" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                        <select name="pagibig" id="pagibig" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
                                             <option value="To Be Submitted">To Be Submitted</option>
                                             <option value="Pending">Pending</option>
                                         </select>
@@ -1275,14 +1275,14 @@
                                     <div id="sss-input-container" class="md:col-span-1 hidden">
                                         <label for="n_company_1">SSS No.</label>
                                             <div>
-                                                <input name="n_company_1" id="n_company_1" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                                <input name="n_company_1" id="n_company_1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                             </div>
                                     </div>
 
                                     <div id="pagibig-input-container" class="md:col-span-1 hidden">
                                         <label for="pagibig">PAG-IBIG No.</label>
                                             <div>
-                                                <input name="n_company_1" id="n_company_1" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                                <input name="n_company_1" id="n_company_1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                             </div>
                                     </div>
                                 </div>
@@ -1290,7 +1290,7 @@
                                 <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2 mb-6">
                                     <div id="philhealth-dropdown-container" class="md:col-span-1">
                                         <label for="philhealth">PHILHEALTH No.</label>
-                                        <select name="philhealth" id="philhealth" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                        <select name="philhealth" id="philhealth" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
                                             <option value="To Be Submitted">To Be Submitted</option>
                                             <option value="Pending">Pending</option>
                                         </select>
@@ -1298,7 +1298,7 @@
 
                                     <div id="tin-dropdown-container" class="md:col-span-1">
                                         <label for="tin">TIN No.</label>
-                                        <select name="tin" id="tin" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                        <select name="tin" id="tin" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
                                             <option value="To Be Submitted">To Be Submitted</option>
                                             <option value="Pending">Pending</option>
                                         </select>
@@ -1309,14 +1309,14 @@
                                     <div id="philhealth-input-container" class="md:col-span-1 hidden">
                                         <label for="n_company_1">PHILHEALTH No.</label>
                                             <div>
-                                                <input name="n_company_1" id="n_company_1" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                                <input name="n_company_1" id="n_company_1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                             </div>
                                     </div>
 
                                     <div id="tin-input-container" class="md:col-span-1 hidden">
                                         <label for="pagibig">TIN No.</label>
                                             <div>
-                                                <input name="n_company_1" id="n_company_1" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                                                <input name="n_company_1" id="n_company_1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                                             </div>
                                     </div>
                                 </div>

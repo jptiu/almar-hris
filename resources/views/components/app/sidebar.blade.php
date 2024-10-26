@@ -793,16 +793,16 @@
                             </a>
                             <div class="">
                                 <ul class="pl-9 mt-1 "
-                                    :class="open ? 'hover:text-slate-200' : 'hover:text-white'">
+                                    class="open ? 'hover:text-slate-200' : 'hover:text-white'">
                                     <li class="mb-1 last:mb-0">
-                                        <a class="block text-neutral-50 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition truncate \"
+                                        <a class="block text-neutral-50 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition truncate"
                                             href="{{ route('todaysPayer.index') }}">
                                             <span
                                                 class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Todays Payer</span>
                                         </a>
                                     </li>
                                     <li class="mb-1 last:mb-0">
-                                        <a class="block text-gray-500/90 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition truncate"
+                                        <a class="block text-neutral-50 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition truncate"
                                             href="{{ route('latePayer.index') }}">
                                             <span
                                                 class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Late Payer</span>
@@ -837,7 +837,7 @@
                                         </a>
                                     </li>
                                     <li class="mb-1 last:mb-0">
-                                        <a class="block text-gray-500/90 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition truncate"
+                                        <a class="block text-neutral-50 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition truncate"
                                             href="{{ route('rejectedLoan.index') }}">
                                             <span
                                                 class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Rejected Loans</span>

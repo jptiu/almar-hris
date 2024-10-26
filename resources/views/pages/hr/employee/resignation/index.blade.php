@@ -48,37 +48,37 @@
                                 <thead class="bg-gray-50 dark:bg-gray-800">
                                     <tr>
                                         <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             ID
                                         </th>
 
                                         <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             Name
                                         </th>
 
                                         <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             Designation
                                         </th>
 
                                         <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             Branch/Department
                                         </th>
 
                                         <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             Date of Resignation
                                         </th>
 
                                         <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             Status
                                         </th>
 
                                         <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             Action
                                         </th>
 

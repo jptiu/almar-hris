@@ -43,41 +43,41 @@
                                 <thead class="bg-gray-50 dark:bg-gray-800">
                                     <tr>
                                         <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             ID
                                         </th>
 
                                         <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             Daily
                                         </th>
 
                                         <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             Remitance
                                         </th>
                                         <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             Processing Fee
                                         </th>
                                         <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             SSS
                                         </th>
                                         <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             Notary
                                         </th>
                                         <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             Add Notary
                                         </th>
                                         <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             Payroll
                                         </th>
                                         <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             DTR
                                         </th>
                                     </tr>
