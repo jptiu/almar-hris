@@ -219,7 +219,12 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('branch/loan-renewal', [BMController::class, 'loanRenewal'])->name('loanRenewal.index');
 
     // Payroll
-    Route::get('loanofficer/pay-roll', [LOController::class, 'empPayroll'])->name('empPayroll.index');
+    Route::get('payroll', [EmployeeController::class, 'empPayroll'])->name('payroll.index');
+    Route::get('payroll-add', [EmployeeController::class, 'payrollAdd'])->name('payroll.add');
+    Route::get('payroll/payslip', [EmployeeController::class, 'payrollPrint'])->name('payroll.print');
+    // Route::post('payroll/store', [EmployeeController::class, 'resigstore'])->name('payroll.store');
+    // Route::post('payroll/update/{id}', [EmployeeController::class, 'resigupdate'])->name('payroll.update');
+    // Route::get('payroll/show/{id}', [EmployeeController::class, 'resigshow'])->name('payroll.show');
 
     // Monthly Report
     Route::get('superadmin/pay-roll', [SuperAdminController::class, 'monthlyReport'])->name('monthlyReport.index');

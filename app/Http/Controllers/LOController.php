@@ -70,11 +70,6 @@ class LOController extends Controller
         return view('pages.badacc.index');
     }
 
-    public function empPayroll(Request $request)
-    {
-        return view('pages.payroll.index');
-    }
-
     public function addLoan(Request $request)
     {
         return view('pages.addloan.index');

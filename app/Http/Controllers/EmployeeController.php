@@ -221,4 +221,24 @@ class EmployeeController extends Controller
         return redirect(route("employee.index"))->with('success', 'Created Successfully');
     }
 
+    public function empPayroll(Request $request)
+    {
+        return view('pages.hr.payroll.index');
+    }
+
+    public function payrollAdd(Request $request)
+    {
+        abort_unless(Gate::allows('hr_access'), 404);
+
+        return view('pages.hr.payroll.add.index');
+        
+    }
+
+    public function payrollPrint(Request $request)
+    {
+        abort_unless(Gate::allows('hr_access'), 404);
+
+        return view('pages.hr.payroll.print.index');
+    }
+
 }
