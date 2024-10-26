@@ -35,7 +35,7 @@
             <div>
                 <ul class="mt-3">
                     @can('hr_access')
-                        <li
+                        <!-- <li
                             class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['hr'])) {{ 'bg-accent-100' }} @endif">
                             <a href="{{ route('hr.index') }}"
                                 class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
@@ -45,7 +45,7 @@
                                         class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Dashboard</span>
                                 </div>
                             </a>
-                        </li>
+                        </li> -->
                         <li
                             class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['employee'])) {{ 'bg-accent-100' }} @endif">
                             <a href="{{ route('employee.index') }}"
@@ -59,22 +59,22 @@
                             <div class="lg:hidden lg:sidebar-expanded:block 2xl:block">
                                 <ul class="pl-9 mt-1 @if(!in_array(Request::segment(1), ['employee'])){{ 'hidden' }}@endif" :class="open ? '!block' : 'hidden'">
                                     <li class="mb-1 last:mb-0">
-                                        <a class="block text-gray-500/90 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('employee.add')){{ '!text-violet-500' }}@endif" href="{{ route('employee.add') }}">
+                                        <a class="block text-white dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('employee.add')){{ '!text-violet-500' }}@endif" href="{{ route('employee.add') }}">
                                             <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Add Employee</span>
                                         </a>
                                     </li>
                                     <li class="mb-1 last:mb-0">
-                                        <a class="block text-gray-500/90 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('bmprobation.index')){{ '!text-violet-500' }}@endif" href="{{ route('bmprobation.index') }}">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('bmprobation.index')){{ '!text-violet-500' }}@endif" href="{{ route('bmprobation.index') }}">
                                             <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Probation</span>
                                         </a>
                                     </li>
                                     <li class="mb-1 last:mb-0">
-                                        <a class="block text-gray-500/90 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('newhire.index')){{ '!text-violet-500' }}@endif" href="{{ route('newhire.index') }}">
+                                        <a class="block text-white dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('newhire.index')){{ '!text-violet-500' }}@endif" href="{{ route('newhire.index') }}">
                                             <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">New Hire</span>
                                         </a>
                                     </li>
                                     <li class="mb-1 last:mb-0">
-                                        <a class="block text-gray-500/90 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('resignation.index')){{ '!text-violet-500' }}@endif" href="{{ route('resignation.index') }}">
+                                        <a class="block text-white dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('resignation.index')){{ '!text-violet-500' }}@endif" href="{{ route('resignation.index') }}">
                                             <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Resignation</span>
                                         </a>
                                     </li>
@@ -120,12 +120,12 @@
                             <div class="lg:hidden lg:sidebar-expanded:block 2xl:block">
                                 <ul class="pl-9 mt-1 @if(!in_array(Request::segment(1), ['employee'])){{ 'hidden' }}@endif" :class="open ? '!block' : 'hidden'">
                                     <li class="mb-1 last:mb-0">
-                                        <a class="block text-gray-500/90 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('employee.add')){{ '!text-violet-500' }}@endif" href="{{ route('approved.index') }}">
+                                        <a class="block text-white dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('employee.add')){{ '!text-violet-500' }}@endif" href="{{ route('approved.index') }}">
                                             <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Approved Loans</span>
                                         </a>
                                     </li>
                                     <li class="mb-1 last:mb-0">
-                                        <a class="block text-gray-500/90 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('employee.add')){{ '!text-violet-500' }}@endif" href="{{ route('rejected.index') }}">
+                                        <a class="block text-white dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('employee.add')){{ '!text-violet-500' }}@endif" href="{{ route('rejected.index') }}">
                                             <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Rejected Loans</span>
                                         </a>
                                     </li>
@@ -801,7 +801,7 @@
                                         </a>
                                     </li>
                                     <li class="mb-1 last:mb-0">
-                                        <a class="block text-neutral-50 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition truncate"
+                                        <a class="block text-white dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition truncate"
                                             href="{{ route('latePayer.index') }}">
                                             <span
                                                 class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Late Payer</span>
@@ -836,7 +836,7 @@
                                         </a>
                                     </li>
                                     <li class="mb-1 last:mb-0">
-                                        <a class="block text-neutral-50 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition truncate"
+                                        <a class="block text-white dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition truncate"
                                             href="{{ route('rejectedLoan.index') }}">
                                             <span
                                                 class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Rejected Loans</span>

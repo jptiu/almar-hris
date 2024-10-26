@@ -4,8 +4,13 @@
         <!-- Welcome banner -->
         <x-dashboard.welcome-banner />
 
+        
+        <!-- Cards -->
+        <div class="flex justify-between relative items-center mb-4">
+            <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold lg:px-4">Rejected Loans</h1>
+
         <!-- Dashboard actions -->
-        <div class="sm:flex sm:justify-between sm:items-center mb-8">
+        <div class="sm:flex sm:justify-between sm:items-center">
             <div></div>
 
             <!-- Right: Actions -->
@@ -28,10 +33,6 @@
             </div>
 
         </div>
-        
-        <!-- Cards -->
-        <div class="relative">
-            <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-12 lg:px-4">Rejected Loans</h1>
         </div>
         <section class="container px-4 mx-auto">
             <div class="flex flex-col">
