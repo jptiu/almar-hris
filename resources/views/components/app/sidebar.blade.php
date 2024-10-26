@@ -280,10 +280,10 @@
                         </li>
                         <!-- Compute Cash On Hand -->
                         <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['calendar'])) {{ 'bg-accent-100' }} @endif">
+                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['compute'])) {{ 'bg-accent-100' }} @endif">
                             <a 
                             href="{{ route('compute.index') }}"
-                            class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['calendar'])) {{ 'hover:text-slate-200' }} @endif">
+                            class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['compute'])) {{ 'hover:text-slate-200' }} @endif">
                                 <div class="flex items-center">
                                 <svg width="24" height="24" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_2062_17774)">
@@ -618,9 +618,10 @@
                         </li>
                         <!-- Compute Cash On Hand -->
                         <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['calendar'])) {{ 'bg-accent-100' }} @endif">
-                            <a href="{{ route('compute.index') }}"
-                            class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['calendar'])) {{ 'hover:text-slate-200' }} @endif">
+                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['compute'])) {{ 'bg-accent-100' }} @endif">
+                            <a 
+                            href="{{ route('compute.index') }}"
+                            class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['compute'])) {{ 'hover:text-slate-200' }} @endif">
                                 <div class="flex items-center">
                                 <svg width="24" height="24" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_2062_17774)">

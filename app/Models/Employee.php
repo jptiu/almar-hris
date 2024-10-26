@@ -67,4 +67,9 @@ class Employee extends Model
         'tin',
         'file',
     ];
+
+    public function branch()
+    {
+        return $this->belongsTo(Probation::class, 'user_id');
+    }
 }
