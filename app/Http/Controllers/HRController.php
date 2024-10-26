@@ -116,5 +116,10 @@ class HRController extends Controller
         return view('pages.hr.loanapprovals.rejected.index');
     }
 
+    public function announcementHr()
+    {
+        return view('pages.hr.announce.index');
+    }
+
 
 }

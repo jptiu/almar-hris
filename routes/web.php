@@ -150,6 +150,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('monthlyrep', [HRController::class, 'monthlyReport'])->name('monthlyrep.index');
     Route::get('payroll', [HRController::class, 'payRoll'])->name('payroll.index');
     Route::get('attendance', [HRController::class, 'biometricsAttendance'])->name('attendance.index');
+    Route::get('announce', [HRController::class, 'announcementHr'])->name('announce.index');
 
     // Pending Loan Approval
     Route::get('loanapprovals-approved', [HRController::class, 'approvedLoans'])->name('approved.index');
