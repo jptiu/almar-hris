@@ -403,9 +403,9 @@
                         </li>
 
                         <!-- Payroll -->
-                        <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['empPayroll'])) {{ 'bg-accent-100' }} @endif"
-                            x-data="{ open: {{ in_array(Request::segment(1), ['empPayroll']) ? 1 : 0 }} }">
-                            <a href="{{ route('empPayroll.index') }}"
+                        <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['payroll'])) {{ 'bg-accent-100' }} @endif"
+                            x-data="{ open: {{ in_array(Request::segment(1), ['payroll']) ? 1 : 0 }} }">
+                            <a href="{{ route('payroll.index') }}"
                                 class="block text-slate-200 transition duration-150"
                                 :class="open ? 'hover:text-slate-200' : 'hover:text-white'">
                                 <div class="flex items-center justify-between">
