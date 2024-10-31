@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LoanCreateRequest;
 use App\Http\Requests\LoanUpdateRequest;
+use App\Models\CustomerType;
 use App\Models\Loan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -17,8 +18,9 @@ class LoanController extends Controller
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
         $lists = Loan::get();
+        $types = CustomerType::get();
 
-        return view('pages.loan.entry.index', compact('lists'));
+        return view('pages.loan.entry.index', compact('lists', 'types'));
     }
 
     /**
