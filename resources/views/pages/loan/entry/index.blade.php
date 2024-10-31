@@ -39,16 +39,22 @@
                                 <div class="md:col-span-1">
                                     <label for="house" class="text-black font-medium">Loan Type</label>
                                     <select name="type" id="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
-                                        <option value="business loan">Business Loan</option>
-                                        <option value="personal loan">Personal Loan</option>
+                                        <option value="daily">Daily</option>
+                                        <option value="weekly">Weekly</option>
+                                        <option value="semi-monthly">Semi-Monthly</option>
+                                        <option value="monthly">Monthly</option>
                                     </select>
                                 </div>
 
                                 <div class="md:col-span-1">
                                     <label for="house" class="text-black font-medium">Transaction Type</label>
                                     <select name="type" id="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
-                                        <option value="business loan">Transaction 1</option>
-                                        <option value="personal loan">Transaction 2</option>
+                                        <option value="renew">Renew</option>
+                                        <option value="recons">Recons</option>
+                                        <option value="w-collat">With Collat</option>
+                                        <option value="c/a">C/A</option>
+                                        <option value="with-cert">With Cert</option>
+                                        <option value="c/a-becomes-b/a">C/A Becomes B.A.</option>
                                     </select>
                                 </div>
                             </div>  
