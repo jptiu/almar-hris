@@ -17,6 +17,13 @@ class CollectorController extends Controller
         return view('pages.collector.index');
     }
 
+    public function leave()
+    {
+        abort_unless(Gate::allows('collector_access'), 404);
+        
+        return view('pages.collector.leave.index');
+    }
+
     /**
      * Show the form for creating a new resource.
      */
