@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CustomerCreateRequest;
 use App\Http\Requests\CustomerUpdateRequest;
 use App\Models\Customer;
+use App\Models\CustomerType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
@@ -24,8 +25,8 @@ class CustomerController extends Controller
     public function add()
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
-
-        return view('pages.customer.add.index');
+        $types = CustomerType::get();
+        return view('pages.customer.add.index', compact('types'));
     }
 
     /**
