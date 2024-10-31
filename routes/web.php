@@ -226,7 +226,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // Route::get('payroll/show/{id}', [EmployeeController::class, 'resigshow'])->name('payroll.show');
 
     // Monthly Report
-    Route::get('superadmin/pay-roll', [SuperAdminController::class, 'monthlyReport'])->name('monthlyReport.index');
+    Route::get('superadmin/monthlyreport', [SuperAdminController::class, 'monthlyReport'])->name('monthlyReport.index');
+    Route::get('superadmin', [SuperAdminController::class, 'index'])->name('superadmin.index');
 
     //Chart
     Route::get('chart', [ChartController::class, 'index'])->name('chart.index');

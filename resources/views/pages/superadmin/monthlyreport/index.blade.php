@@ -19,7 +19,7 @@
         @endif
 
         <div class="relative">
-            <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-12 lg:px-4">Super Admin</h1>
+            <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-12 lg:px-4">Monthly Report</h1>
         </div>
 
         <div></div>
@@ -81,7 +81,6 @@
                                             class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                             Action
                                         </th>
-
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
@@ -93,6 +92,33 @@
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
                                                 cdo
+                                            </td>
+                                            <td
+                                                class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                <div class="flex items-center gap-x-2">
+                                                    <div>
+                                                        <h2 class="text-sm font-medium text-gray-500 dark:text-white ">
+                                                            test
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td
+                                                class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                <div class="flex items-center gap-x-2">
+                                                    <div>
+                                                        <h2 class="text-sm font-medium text-gray-500 dark:text-white ">
+                                                            test
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td
+                                                class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                <div class="flex items-center gap-x-2">
+                                                    <div>
+                                                        <h2 class="text-sm font-medium text-gray-500 dark:text-white ">
+                                                            test
+                                                    </div>
+                                                </div>
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
