@@ -31,6 +31,30 @@
         <form action="{{ route('customer.store') }}" method="POST">
             @csrf
             <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
+                
+                <div>
+                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
+                        <div class="lg:col-span-2">
+                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6">
+                                <div class="md:col-span-1">
+                                    <label for="transaction" class="text-black font-medium">Transaction No.</label>
+                                    <input type="number" name="transaction" id="transaction" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="" placeholder="" />
+                                </div>
+
+                                <div class="md:col-span-1">
+                                    <label for="house" class="text-black font-medium">Date of Loan</label>
+                                    <select name="type" id="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                                        <option value="business loan">Transaction 1</option>
+                                        <option value="personal loan">Transaction 2</option>
+                                    </select>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+
+                <x-section-border />
+
                 <div>
                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
                         <div class="lg:col-span-2">
@@ -69,33 +93,14 @@
                         <div class="lg:col-span-2">
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6">
 
-                                <div class="md:col-span-2">
-                                    <label for="house" class="text-black font-medium">Transaction No.</label>
-                                    <input type="text" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="" placeholder="" />
-                                </div>
-
-                                <div class="md:col-span-1">
-                                    <label for="house" class="text-black font-medium">Date of Loan</label>
-                                    <select name="type" id="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
-                                        <option value="business loan">Transaction 1</option>
-                                        <option value="personal loan">Transaction 2</option>
-                                    </select>
-                                </div>
-                            </div>  
-                        </div>
-                    </div>
-                </div>
-
-                <x-section-border />
-
-                <div>
-                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
-                        <div class="lg:col-span-2">
-                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6">
-
                                 <div class="md:col-span-1">
                                     <label for="house" class="text-black font-medium">Customer ID</label>
                                     <input type="text" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="" placeholder="" />
+                                </div>
+
+                                <div class="md:col-span-2">
+                                    <label for="name" class="text-black font-medium">Customer Name</label>
+                                    <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="" placeholder="" />
                                 </div>
 
                                 <div class="md:col-span-1">
