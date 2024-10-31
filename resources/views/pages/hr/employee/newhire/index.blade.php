@@ -80,10 +80,10 @@
                                             Position
                                         </th>
 
-                                        <th scope="col"
+                                        {{-- <th scope="col"
                                             class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             Action
-                                        </th>
+                                        </th> --}}
 
                                     </tr>
                                 </thead>
@@ -105,15 +105,15 @@
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
                                                 <div
-                                                    class="px-2 border rounded-lg {{$list->status == 'Regular' ? 'bg-green-500': 'bg-blue-500'}} text-white text-xs text-center w-1/2">
-                                                    {{$list->status}}
+                                                    class="px-2 border rounded-lg {{$list->probation->status == 'Regular' ? 'bg-green-500': 'bg-blue-500'}} text-white text-xs text-center w-1/2">
+                                                    {{$list->probation->status}}
                                                 </div>
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
                                                 {{$list->position}}
                                             </td> 
-                                            <td class="px-4 py-4 text-sm whitespace-nowrap">
+                                            {{-- <td class="px-4 py-4 text-sm whitespace-nowrap">
                                                 <div class="flex items-center gap-x-6">
                                                     <button
                                                         class="text-gray-500 transition-colors duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none">
@@ -154,7 +154,7 @@
                                                         </button>
                                                     </form>
                                                 </div>
-                                            </td>
+                                            </td> --}}
                                         </tr>
                                         @endforeach
                                     </tbody>

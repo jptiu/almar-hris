@@ -34,7 +34,7 @@
                                     <label for="employee_name">Employee Name</label>
                                         <select name="employee_name" id="employee_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
                                         @foreach ( $employees as $employee )
-                                            <option value="{{$employee->f_name.' '.$employee->m_name.' '.$employee->l_name}}">{{$employee->f_name.' '.$employee->m_name.' '.$employee->l_name}}</option>
+                                            <option value="{{$employee->user_id}}">{{$employee->f_name.' '.$employee->m_name.' '.$employee->l_name}}</option>
                                         @endforeach
                                         </select>
                                 </div>
@@ -73,16 +73,16 @@
                         <div class="lg:col-span-2">
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-4">
                                 <div class="md:col-span-2">
-                                    <label for="denom_typ">Date of Resignation</label>
-                                    <input type="date" name="denom_typ" id="denom_typ" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                    <label for="date_of_resignation">Date of Resignation</label>
+                                    <input type="date" name="date_of_resignation" id="date_of_resignation" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
                                 </div>
                                 <div class="md:col-span-1">
-                                    <label for="denom_typ">Start of Rendering Period</label>
-                                    <input type="date" name="denom_typ" id="denom_typ" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                    <label for="render_start">Start of Rendering Period</label>
+                                    <input type="date" name="render_start" id="render_start" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
                                 </div>
                                 <div class="md:col-span-1">
-                                    <label for="denom_typ">End of Rendering Period</label>
-                                    <input type="date" name="denom_typ" id="denom_typ" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                    <label for="render_end">End of Rendering Period</label>
+                                    <input type="date" name="render_end" id="render_end" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
                                 </div>
                             </div>
                         </div>
@@ -98,8 +98,8 @@
                         <div class="lg:col-span-2">
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-4">
                                 <div class="md:col-span-2">
-                                    <label for="employee_name">Status</label>
-                                        <select name="employee_name" id="employee_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                    <label for="status">Status</label>
+                                        <select name="status" id="status" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
                                             <option value="TBD">TBD</option>
                                             <option value="Approved">Approved</option>
                                         </select>

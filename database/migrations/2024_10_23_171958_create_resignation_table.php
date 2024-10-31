@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('resignation', function (Blueprint $table) {
+        Schema::create('resignations', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
+            $table->string('user_id')->nullable();
             $table->string('date_of_resignation')->nullable();
             $table->string('render_start')->nullable();
             $table->string('render_end')->nullable();

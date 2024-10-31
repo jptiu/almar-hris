@@ -18,6 +18,11 @@ class NewHire extends Model
     
     public function employee()
     {
-        return $this->belongsTo(Employee::class, 'user_id');
+        return $this->belongsTo(Employee::class, 'user_id', 'user_id');
+    }
+
+    public function probation()
+    {
+        return $this->belongsTo(Probation::class, 'user_id', 'user_id');
     }
 }
