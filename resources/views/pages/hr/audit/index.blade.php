@@ -5,7 +5,7 @@
         <x-dashboard.welcome-banner />
 
         <!-- Dashboard actions -->
-        <div class="sm:flex sm:justify-between sm:items-center mb-8">
+        <div class="sm:flex sm:justify-between sm:items-center mb-4">
             <div></div>
 
             <!-- Right: Actions -->
