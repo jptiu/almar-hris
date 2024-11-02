@@ -213,7 +213,7 @@
             <!-- recent logs and announcemnts -->
 
             <section>
-            <div class="col-span-full xl:col-span-6 bg-white rounded-lg border border-slate-200 shadow-[0px_8px_20px_rgba(0,0,0,0.08)] p-6 w-full max-w-lg mb-4">
+            <div class="col-span-full xl:col-span-6 bg-white rounded-lg border border-slate-200 shadow-[0px_8px_20px_rgba(0,0,0,0.08)] p-6 mb-4">
                         <!-- Header Section -->
                         <div class="flex justify-between items-center mb-4">
                             <h2 class="font-semibold text-slate-800 dark:text-slate-100">Announcements</h2>
