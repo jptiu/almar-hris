@@ -31,8 +31,8 @@
                         <div class="lg:col-span-2">
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
                                 <div class="md:col-span-1">
-                                    <label for="employee_name">Employee Name</label>
-                                        <select name="employee_name" id="employee_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                    <label class="text-black font-medium" for="employee_name">Employee Name</label>
+                                        <select name="employee_name" id="employee_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
                                         @foreach ( $employees as $employee )
                                             <option value="{{$employee->user_id}}">{{$employee->f_name.' '.$employee->m_name.' '.$employee->l_name}}</option>
                                         @endforeach
@@ -52,12 +52,12 @@
                         <div class="lg:col-span-2">
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
                                 <div class="md:col-span-1">
-                                    <label for="denom_typ">Designation</label>
-                                    <input type="text" name="denom_typ" id="denom_typ" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                    <label class="text-black font-medium" for="denom_typ">Designation</label>
+                                    <input type="text" name="denom_typ" id="denom_typ" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                 </div>
                                 <div class="md:col-span-1">
-                                    <label for="denom_typ">Branch/Department</label>
-                                    <input type="text" name="denom_typ" id="denom_typ" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                    <label class="text-black font-medium" for="denom_typ">Branch/Department</label>
+                                    <input type="text" name="denom_typ" id="denom_typ" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                 </div>
                             </div>
                         </div>
@@ -73,16 +73,16 @@
                         <div class="lg:col-span-2">
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-4">
                                 <div class="md:col-span-2">
-                                    <label for="date_of_resignation">Date of Resignation</label>
-                                    <input type="date" name="date_of_resignation" id="date_of_resignation" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                    <label class="text-black font-medium" for="date_of_resignation">Date of Resignation</label>
+                                    <input type="date" name="date_of_resignation" id="date_of_resignation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                 </div>
                                 <div class="md:col-span-1">
-                                    <label for="render_start">Start of Rendering Period</label>
-                                    <input type="date" name="render_start" id="render_start" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                    <label class="text-black font-medium" for="render_start">Start of Rendering Period</label>
+                                    <input type="date" name="render_start" id="render_start" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                 </div>
                                 <div class="md:col-span-1">
-                                    <label for="render_end">End of Rendering Period</label>
-                                    <input type="date" name="render_end" id="render_end" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                    <label class="text-black font-medium" for="render_end">End of Rendering Period</label>
+                                    <input type="date" name="render_end" id="render_end" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                 </div>
                             </div>
                         </div>
@@ -98,8 +98,8 @@
                         <div class="lg:col-span-2">
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-4">
                                 <div class="md:col-span-2">
-                                    <label for="status">Status</label>
-                                        <select name="status" id="status" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                    <label class="text-black font-medium" for="status">Status</label>
+                                        <select name="status" id="status" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
                                             <option value="TBD">TBD</option>
                                             <option value="Approved">Approved</option>
                                         </select>

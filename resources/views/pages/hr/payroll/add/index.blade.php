@@ -31,8 +31,8 @@
                         <div class="lg:col-span-2">
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
                                 <div class="md:col-span-1">
-                                    <label for="employee_name">Employee Name</label>
-                                        <select name="employee_name" id="employee_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                    <label class="text-black font-medium" for="employee_name">Employee Name</label>
+                                        <select name="employee_name" id="employee_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
                                             <option value="Employee 1">Employee 1</option>
                                             <option value="Employee 2">Employee 2</option>
                                         </select>
@@ -51,12 +51,12 @@
                         <div class="lg:col-span-2">
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
                                 <div class="md:col-span-1">
-                                    <label for="denom_typ">Position</label>
-                                    <input type="text" name="denom_typ" id="denom_typ" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                    <label class="text-black font-medium" for="denom_typ">Position</label>
+                                    <input type="text" name="denom_typ" id="denom_typ" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                 </div>
                                 <div class="md:col-span-1">
-                                    <label for="denom_typ">Regular Rate</label>
-                                    <input type="text" name="denom_typ" id="denom_typ" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                    <label class="text-black font-medium" for="denom_typ">Regular Rate</label>
+                                    <input type="text" name="denom_typ" id="denom_typ" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                 </div>
                             </div>
                         </div>
@@ -72,16 +72,16 @@
                         <div class="lg:col-span-2">
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-4">
                                 <div class="md:col-span-2">
-                                    <label for="denom_typ">Date of Payroll</label>
-                                    <input type="date" name="denom_typ" id="denom_typ" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                    <label class="text-black font-medium" for="denom_typ">Date of Payroll</label>
+                                    <input type="date" name="denom_typ" id="denom_typ" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                 </div>
                                 <div class="md:col-span-1">
-                                    <label for="denom_typ">Start Day of Work</label>
-                                    <input type="date" name="denom_typ" id="denom_typ" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                    <label class="text-black font-medium" for="denom_typ">Start Day of Work</label>
+                                    <input type="date" name="denom_typ" id="denom_typ" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                 </div>
                                 <div class="md:col-span-1">
-                                    <label for="denom_typ">End Day of Work</label>
-                                    <input type="date" name="denom_typ" id="denom_typ" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                    <label class="text-black font-medium" for="denom_typ">End Day of Work</label>
+                                    <input type="date" name="denom_typ" id="denom_typ" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                 </div>
                             </div>
                         </div>
@@ -97,12 +97,12 @@
                         <div class="lg:col-span-2">
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-3">
                                 <div class="md:col-span-1">
-                                    <label for="denom_typ">Days of Work</label>
-                                    <input type="text" name="denom_typ" id="denom_typ" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                    <label class="text-black font-medium" for="denom_typ">Days of Work</label>
+                                    <input type="text" name="denom_typ" id="denom_typ" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                 </div>
                                 <div class="md:col-span-2">
-                                    <label for="denom_typ">Total Salary</label>
-                                    <input type="text" name="denom_typ" id="denom_typ" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                    <label class="text-black font-medium" for="denom_typ">Total Salary</label>
+                                    <input type="text" name="denom_typ" id="denom_typ" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                 </div>
                             </div>
                         </div>

@@ -475,23 +475,23 @@
                                         </tr>
                                     </thead>
                                     <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
-                                        @foreach ($lists as $list)
+                                        
                                             <tr>
                                                 <td
                                                     class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
-                                                    {{ $list->id }}
+                                                    
                                                 </td>
                                                 <td
                                                     class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    {{ $list->f_name }} {{ $list->l_name }}
+                                                    
                                                 </td>
                                                 <td
                                                     class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    {{ $list->present_address }}
+                                                    
                                                 </td>
                                                 <td
                                                     class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    {{ $list->position_desired }}
+                                                    
                                                 </td>
                                                 <td
                                                     class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
@@ -511,7 +511,7 @@
                                                             </svg>
                                                         </button>
 
-                                                        <a href="{{ route('employee.show', $list->id) }}"
+                                                        <a href="/"
                                                             class="text-gray-500 transition-colors duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                                                 height="16" fill="currentColor" class="bi bi-pencil"
@@ -521,7 +521,7 @@
                                                             </svg>
                                                         </a>
 
-                                                        <form action="{{ route('customer.destroy', $list->id) }}"
+                                                        <form action="/"
                                                             method="post">
                                                             @csrf
                                                             @method('DELETE')
@@ -540,7 +540,7 @@
                                                     </div>
                                                 </td>
                                             </tr>
-                                        @endforeach
+                                        
                                     </tbody>
                                 </table>
                             </div>

@@ -11,7 +11,7 @@ class SuperAdminController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.superadmin.index');
     }
 
     /**
@@ -65,5 +65,25 @@ class SuperAdminController extends Controller
     public function monthlyReport(Request $request)
     {
         return view('pages.superadmin.monthlyreport.index');
+    }
+
+    public function userAccounts(Request $request)
+    {
+        return view('pages.superadmin.useracc.index');
+    }
+
+    public function deactivateAccounts(Request $request)
+    {
+        return view('pages.superadmin.useracc.deleted.index');
+    }
+
+    public function updateAccounts(Request $request)
+    {
+        return view('pages.superadmin.useracc.update.index');
+    }
+
+    public function createAccounts(Request $request)
+    {
+        return view('pages.superadmin.useracc.create.index');
     }
 }

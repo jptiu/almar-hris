@@ -225,8 +225,14 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // Route::post('payroll/update/{id}', [EmployeeController::class, 'resigupdate'])->name('payroll.update');
     // Route::get('payroll/show/{id}', [EmployeeController::class, 'resigshow'])->name('payroll.show');
 
-    // Monthly Report
-    Route::get('superadmin/pay-roll', [SuperAdminController::class, 'monthlyReport'])->name('monthlyReport.index');
+    // Superadmin
+    Route::get('superadmin/monthlyreport', [SuperAdminController::class, 'monthlyReport'])->name('monthlyReport.index');
+    Route::get('superadmin', [SuperAdminController::class, 'index'])->name('superadmin.index');
+    Route::get('useracc', [SuperAdminController::class, 'userAccounts'])->name('useracc.index');
+    Route::get('deleted', [SuperAdminController::class, 'deactivateAccounts'])->name('deleted.index');
+    Route::get('update', [SuperAdminController::class, 'updateAccounts'])->name('update.index');
+    Route::get('create', [SuperAdminController::class, 'createAccounts'])->name('create.index');
+    
 
     //Chart
     Route::get('chart', [ChartController::class, 'index'])->name('chart.index');
