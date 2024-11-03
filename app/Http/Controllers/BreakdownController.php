@@ -18,8 +18,9 @@ class BreakdownController extends Controller
     {
         //abort_unless(Gate::allows('loan_access'), 404);
         $user = Auth::user();
+        $denoms = Denomination::get();
 
-        return view('pages.breakdown.index', compact('user'));
+        return view('pages.breakdown.index', compact('user', 'denoms'));
     }
 
     /**

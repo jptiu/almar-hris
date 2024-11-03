@@ -42,11 +42,8 @@
                                 </div>
 
                                 <div class="md:col-span-1">
-                                    <label for="house" class="text-black font-medium">Date of Loan</label>
-                                    <select name="type" id="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
-                                        <option value="business loan">Transaction 1</option>
-                                        <option value="personal loan">Transaction 2</option>
-                                    </select>
+                                    <label for="date_of_loan" class="text-black font-medium">Date of Loan</label>
+                                    <input type="date" name="transaction" id="transaction" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="" placeholder="" />
                                 </div>
                             </div>  
                         </div>

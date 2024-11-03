@@ -168,8 +168,8 @@
                                         <div class="md:col-span-1">
                                             <label class="text-black font-medium" for="ref">Ref No.</label>
                                             <input type="text" name="ref" id="ref"
-                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value=""
-                                                placeholder="" />
+                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
+                                                value="" placeholder="" />
                                         </div>
 
                                     </div>
@@ -185,8 +185,8 @@
                                         <div class="md:col-span-1">
                                             <label class="text-black font-medium" for="house">Date</label>
                                             <input type="date" name="house" id="house"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value=""
-                                            placeholder="" />
+                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
+                                                value="" placeholder="" />
                                         </div>
 
                                     </div>
@@ -327,10 +327,12 @@
                                                                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Denomination</label>
                                                                             <select id="denomination"
                                                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                                                                <option selected>Select Denomination
-                                                                                </option>
-                                                                                <option value="US">0.1</option>
-                                                                                <option value="CA">0.005</option>
+                                                                                @foreach ($denoms as $denom)
+                                                                                    <option
+                                                                                        value="{{ $denom->denom_amt }}">
+                                                                                        {{ $denom->denom_amt }}
+                                                                                    </option>
+                                                                                @endforeach
                                                                             </select>
                                                                         </div>
                                                                         <div>
