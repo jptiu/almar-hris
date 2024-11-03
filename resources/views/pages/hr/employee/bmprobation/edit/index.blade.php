@@ -89,7 +89,10 @@
                                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
                                                 <div class="md:col-span-1">
                                                     <label for="quota">Quota</label>
-                                                    <input type="text" name="quota" id="quota" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="{{$prob->quota}}" placeholder="" />
+                                                    <select name="quota" id="quota" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
+                                                        <option value="Inc. 100 customers, 500k release">Inc. 100 customers, 500k release</option>
+                                                        <option value="Inc. Daily to 30k">Inc. Daily to 30k</option>
+                                                    </select>
                                                 </div>
                                             </div>  
                                         </div>
