@@ -24,6 +24,13 @@ class CollectorController extends Controller
         return view('pages.collector.leave.index');
     }
 
+    public function profile()
+    {
+        abort_unless(Gate::allows('collector_access'), 404);
+        
+        return view('pages.collector.profile.index');
+    }
+
     /**
      * Show the form for creating a new resource.
      */

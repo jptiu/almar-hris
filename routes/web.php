@@ -182,6 +182,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // Collector
     Route::get('collector', [CollectorController::class, 'index'])->name('collector.index');
     Route::get('collector/leave', [CollectorController::class, 'leave'])->name('collector.leave');
+    Route::get('collector/profile', [CollectorController::class, 'profile'])->name('collector.profile');
 
     // Loan Officer
     Route::get('loanofficer', [LOController::class, 'index'])->name('loanofficer.index');
