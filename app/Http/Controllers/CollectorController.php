@@ -19,7 +19,7 @@ class CollectorController extends Controller
 
     public function leave()
     {
-        abort_unless(Gate::allows('collector_access'), 404);
+        //abort_unless(Gate::allows('collector_access'), 404);
         
         return view('pages.collector.leave.index');
     }

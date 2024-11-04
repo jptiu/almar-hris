@@ -15,16 +15,16 @@
             </div>
         </div>
         <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
-            <x-section-border />
-            <div class="grid grid-cols-3 gap-4">
-                <div class="bg-white p-4 border-r-2 border-gray-300 col-span-1">
+            
+            <div class="grid grid-cols-4 gap-4">
+                <div class="bg-white p-4 border-r-2 border-gray-100 col-span-1">
                     <ul class="space-y-4"> 
                         <li> <strong>Full Name:</strong> John Doe </li> 
                         <li> <strong>Available Leave Credits:</strong> 15 </li> 
                         <li> <strong>Current Leave Credits:</strong> 5 </li> 
                     </ul>
                 </div>
-                <div class="bg-white p-4 rounded-lg col-span-2">
+                <div class="bg-white p-4 rounded-lg col-span-3">
                     <form action="#" method="POST">
                         @csrf
                         <div class="mb-4">
