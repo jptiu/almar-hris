@@ -234,6 +234,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('deleted', [SuperAdminController::class, 'deactivateAccounts'])->name('deleted.index');
     Route::get('update', [SuperAdminController::class, 'updateAccounts'])->name('update.index');
     Route::get('create', [SuperAdminController::class, 'createAccounts'])->name('create.index');
+    Route::get('customerprof', [SuperAdminController::class, 'customerProf'])->name('customerprof.index');
+    Route::get('customerprof-add', [SuperAdminController::class, 'add'])->name('customerprof.add');
     
 
     //Chart

@@ -22,6 +22,13 @@ class SuperAdminController extends Controller
         //
     }
 
+    public function add()
+    {
+        // abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
+        // $types = CustomerType::get();
+        return view('pages.superadmin.customerprof.add.index');
+    }
+
     /**
      * Store a newly created resource in storage.
      */
@@ -85,5 +92,10 @@ class SuperAdminController extends Controller
     public function createAccounts(Request $request)
     {
         return view('pages.superadmin.useracc.create.index');
+    }
+
+    public function customerProf(Request $request)
+    {
+        return view('pages.superadmin.customerprof.index');
     }
 }
