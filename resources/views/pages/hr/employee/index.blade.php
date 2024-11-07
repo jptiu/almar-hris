@@ -227,8 +227,13 @@
                                 <div class="bg-white rounded-lg shadow p-4 flex items-start justify-between">
                                     <div>
                                         <p class="text-gray-400 text-xs mb-1">5 minutes ago</p>
-                                        <h3 class="text-gray-800 font-semibold">Outing schedule for every department</h3>
-                                        <p class="text-gray-500 text-sm">Saturday, October 26, 2024</p>
+                                        <h3 class="text-gray-800 font-semibold mb-4">Announcement Title</h3>
+                                        <div class="flex items-center space-x-2">
+                                        <!-- Icon -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#789DE5"><path d="M760-200H320q-33 0-56.5-23.5T240-280v-560q0-33 23.5-56.5T320-920h280l240 240v400q0 33-23.5 56.5T760-200ZM560-640v-200H320v560h440v-360H560ZM160-40q-33 0-56.5-23.5T80-120v-560h80v560h440v80H160Zm160-800v200-200 560-560Z"/></svg>
+                                            <!-- Text -->
+                                        <span class="text-gray-500 text-sm">Monthly Report</span>
+                                        </div>
                                     </div>
                                     <div class="flex items-center space-x-2">
                                         <!-- Pin Icon -->
@@ -243,21 +248,28 @@
                                 </div>
 
                                 <!-- Card 2 -->
-                                    <div class="bg-white rounded-lg shadow p-4 flex items-start justify-between">
-                                        <div>
-                                            <p class="text-gray-400 text-xs mb-1">5 minutes ago</p>
-                                            <h3 class="text-gray-800 font-semibold">Meeting Design Department</h3>
-                                            <p class="text-gray-500 text-sm">Saturday, October 26, 2024</p>
-                                        </div>
+                                <div class="bg-white rounded-lg shadow p-4 flex items-start justify-between">
+                                    <div>
+                                        <p class="text-gray-400 text-xs mb-1">5 minutes ago</p>
+                                        <h3 class="text-gray-800 font-semibold mb-4">Announcement Title</h3>
                                         <div class="flex items-center space-x-2">
-                                            <svg class="w-4 h-4 text-gray-400" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                                <path d="M12 1c.554 0 1 .446 1 1v7h5.075c.626 0 .977.715.554 1.153l-3.632 3.785c-.022.028-.054.065-.071.091-.065.105-.204.457-.387.94-.147.395-.318.879-.494 1.375l-4.361 4.429c-.201.202-.554.059-.554-.226v-5h-3c-.554 0-1-.446-1-1v-3c0-.554.446-1 1-1h7v-7c0-.554.446-1 1-1z"/>
-                                            </svg>
-                                            <svg class="w-4 h-4 text-gray-400" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                                <path d="M12 6c-1.1 0-2 .899-2 2s.9 2 2 2 2-.899 2-2-.9-2-2-2zm0 8c-1.1 0-2 .899-2 2s.9 2 2 2 2-.899 2-2-.9-2-2-2zm0-4c-1.1 0-2 .899-2 2s.9 2 2 2 2-.899 2-2-.9-2-2-2z"/>
-                                            </svg>
+                                        <!-- Icon -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#789DE5"><path d="M760-200H320q-33 0-56.5-23.5T240-280v-560q0-33 23.5-56.5T320-920h280l240 240v400q0 33-23.5 56.5T760-200ZM560-640v-200H320v560h440v-360H560ZM160-40q-33 0-56.5-23.5T80-120v-560h80v560h440v80H160Zm160-800v200-200 560-560Z"/></svg>
+                                            <!-- Text -->
+                                        <span class="text-gray-500 text-sm">Monthly Report</span>
                                         </div>
                                     </div>
+                                    <div class="flex items-center space-x-2">
+                                        <!-- Pin Icon -->
+                                        <svg class="w-4 h-4 text-gray-400" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                            <path d="M12 1c.554 0 1 .446 1 1v7h5.075c.626 0 .977.715.554 1.153l-3.632 3.785c-.022.028-.054.065-.071.091-.065.105-.204.457-.387.94-.147.395-.318.879-.494 1.375l-4.361 4.429c-.201.202-.554.059-.554-.226v-5h-3c-.554 0-1-.446-1-1v-3c0-.554.446-1 1-1h7v-7c0-.554.446-1 1-1z"/>
+                                        </svg>
+                                        <!-- More Options Icon -->
+                                        <svg class="w-4 h-4 text-gray-400" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                            <path d="M12 6c-1.1 0-2 .899-2 2s.9 2 2 2 2-.899 2-2-.9-2-2-2zm0 8c-1.1 0-2 .899-2 2s.9 2 2 2 2-.899 2-2-.9-2-2-2zm0-4c-1.1 0-2 .899-2 2s.9 2 2 2 2-.899 2-2-.9-2-2-2z"/>
+                                        </svg>
+                                    </div>
+                                </div>
                             <!-- Duplicate more cards as needed... -->
                             </div>
                     </div>
