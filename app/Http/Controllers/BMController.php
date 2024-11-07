@@ -94,6 +94,10 @@ class BMController extends Controller
     {
         return view('pages.latepayer.index');
     }
+    public function paymentHistory(Request $request)
+    {
+        return view('pages.payhistory.index');
+    }
 
     public function pendingLoandApproval(Request $request)
     {
@@ -113,5 +117,15 @@ class BMController extends Controller
     public function loanRenewal(Request $request)
     {
         return view('pages.loanrenewal.index');
+    }
+
+    public function overdueAcc(Request $request)
+    {
+        return view('pages.overdueacc.index');
+    }
+
+    public function biometricsAttendance()
+    {
+        return view('pages.attendancebm.index');
     }
 }
