@@ -224,52 +224,74 @@
                         <!-- Announcement Cards -->
                             <div class="space-y-4">
                                 <!-- Card 1 -->
-                                <div class="bg-white rounded-lg shadow p-4 flex items-start justify-between">
+                                <div onclick="openModal()" class="bg-white rounded-lg shadow p-4 flex items-end justify-between">
                                     <div>
                                         <p class="text-gray-400 text-xs mb-1">5 minutes ago</p>
-                                        <h3 class="text-gray-800 font-semibold mb-4">Announcement Title</h3>
+                                        <a  href="#0">
+                                        <h3 class="text-gray-800 font-semibold mb-4" >Announcement Title</h3>
                                         <div class="flex items-center space-x-2">
                                         <!-- Icon -->
                                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#789DE5"><path d="M760-200H320q-33 0-56.5-23.5T240-280v-560q0-33 23.5-56.5T320-920h280l240 240v400q0 33-23.5 56.5T760-200ZM560-640v-200H320v560h440v-360H560ZM160-40q-33 0-56.5-23.5T80-120v-560h80v560h440v80H160Zm160-800v200-200 560-560Z"/></svg>
                                             <!-- Text -->
                                         <span class="text-gray-500 text-sm">Monthly Report</span>
                                         </div>
+                                        
                                     </div>
-                                    <div class="flex items-center space-x-2">
-                                        <!-- Pin Icon -->
-                                        <svg class="w-4 h-4 text-gray-400" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                            <path d="M12 1c.554 0 1 .446 1 1v7h5.075c.626 0 .977.715.554 1.153l-3.632 3.785c-.022.028-.054.065-.071.091-.065.105-.204.457-.387.94-.147.395-.318.879-.494 1.375l-4.361 4.429c-.201.202-.554.059-.554-.226v-5h-3c-.554 0-1-.446-1-1v-3c0-.554.446-1 1-1h7v-7c0-.554.446-1 1-1z"/>
-                                        </svg>
-                                        <!-- More Options Icon -->
-                                        <svg class="w-4 h-4 text-gray-400" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                            <path d="M12 6c-1.1 0-2 .899-2 2s.9 2 2 2 2-.899 2-2-.9-2-2-2zm0 8c-1.1 0-2 .899-2 2s.9 2 2 2 2-.899 2-2-.9-2-2-2zm0-4c-1.1 0-2 .899-2 2s.9 2 2 2 2-.899 2-2-.9-2-2-2z"/>
-                                        </svg>
+                                    <div class="flex items-center space-y-2">
+                                        <div class="shrink-0 self-end ml-2">
+                                            <a class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400"
+                                                href="#0">View<span class="hidden sm:inline"> -&gt;</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Modal Overlay -->
+                                <div id="modal-overlay" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
+                                    <!-- Modal Content -->
+                                    <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-lg">
+                                        <!-- Modal Header -->
+                                        <div class="flex justify-between items-center border-b pb-3">
+                                            <h3 class="text-xl font-semibold text-gray-800">Announcement Details</h3>
+                                            <button onclick="closeModal()" class="text-gray-400 hover:text-gray-600">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <!-- Modal Body -->
+                                        <div class="mt-4">
+                                            <p class="text-gray-500">With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.</p>
+                                            <p class="text-gray-500 mt-2">The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union.</p>
+                                        </div>
+                                        <!-- Modal Footer -->
+                                        <div class="flex justify-end mt-6">
+                                            <button onclick="closeModal()" class="text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-4 py-2">Close</button>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <!-- Card 2 -->
-                                <div class="bg-white rounded-lg shadow p-4 flex items-start justify-between">
+                                <div class="bg-white rounded-lg shadow p-4 flex items-end justify-between">
                                     <div>
                                         <p class="text-gray-400 text-xs mb-1">5 minutes ago</p>
-                                        <h3 class="text-gray-800 font-semibold mb-4">Announcement Title</h3>
+                                        <a  href="#0">
+                                        <h3 class="text-gray-800 font-semibold mb-4" >Announcement Title</h3>
                                         <div class="flex items-center space-x-2">
                                         <!-- Icon -->
                                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#789DE5"><path d="M760-200H320q-33 0-56.5-23.5T240-280v-560q0-33 23.5-56.5T320-920h280l240 240v400q0 33-23.5 56.5T760-200ZM560-640v-200H320v560h440v-360H560ZM160-40q-33 0-56.5-23.5T80-120v-560h80v560h440v80H160Zm160-800v200-200 560-560Z"/></svg>
                                             <!-- Text -->
                                         <span class="text-gray-500 text-sm">Monthly Report</span>
                                         </div>
+                                        
                                     </div>
-                                    <div class="flex items-center space-x-2">
-                                        <!-- Pin Icon -->
-                                        <svg class="w-4 h-4 text-gray-400" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                            <path d="M12 1c.554 0 1 .446 1 1v7h5.075c.626 0 .977.715.554 1.153l-3.632 3.785c-.022.028-.054.065-.071.091-.065.105-.204.457-.387.94-.147.395-.318.879-.494 1.375l-4.361 4.429c-.201.202-.554.059-.554-.226v-5h-3c-.554 0-1-.446-1-1v-3c0-.554.446-1 1-1h7v-7c0-.554.446-1 1-1z"/>
-                                        </svg>
-                                        <!-- More Options Icon -->
-                                        <svg class="w-4 h-4 text-gray-400" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                            <path d="M12 6c-1.1 0-2 .899-2 2s.9 2 2 2 2-.899 2-2-.9-2-2-2zm0 8c-1.1 0-2 .899-2 2s.9 2 2 2 2-.899 2-2-.9-2-2-2zm0-4c-1.1 0-2 .899-2 2s.9 2 2 2 2-.899 2-2-.9-2-2-2z"/>
-                                        </svg>
+                                    <div class="flex items-center space-y-2">
+                                        <div class="shrink-0 self-end ml-2">
+                                            <a class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400"
+                                                href="#0">View<span class="hidden sm:inline"> -&gt;</span></a>
+                                        </div>
                                     </div>
                                 </div>
+
                             <!-- Duplicate more cards as needed... -->
                             </div>
                     </div>
@@ -565,3 +587,14 @@
         
     </div>
 </x-app-layout>
+
+<script>
+    // JavaScript to open and close the modal
+    function openModal() {
+      document.getElementById("modal-overlay").classList.remove("hidden");
+    }
+
+    function closeModal() {
+      document.getElementById("modal-overlay").classList.add("hidden");
+    }
+</script>

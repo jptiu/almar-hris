@@ -10,36 +10,27 @@
             <div class="w-full max-w-lg p-6 bg-white shadow-md rounded-lg relative">
             <!-- Header -->
             <div class="flex items-center justify-between mb-4">
-                <h2 class="text-2xl font-semibold text-slate-800">New Message</h2>
+                <h2 class="text-2xl font-semibold text-slate-800">Create Post</h2>
             </div>
 
             <!-- To & CC/BCC Toggle -->
-            <div class="mb-4">
-                <label class="block text-sm font-medium text-gray-700 mb-1">To</label>
-                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Joan Bates" />
-                <div class="flex items-center mt-2">
-                
+            <div class="mb-4 grid grid-cols-4 gap-4">
+                <div class="col-span-3">
+                <input  type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Announcement Title" />
                 </div>
-            </div>
-
-            <!-- Subject -->
-            <div class="mb-4">
-                <label class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
-                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Review" />
             </div>
 
             <!-- Message Area -->
             <div class="mb-4">
-                <label class="block text-sm font-medium text-gray-700 mb-1">Message</label>
                 </div>
-                <textarea class="w-full px-3 py-2 border-t border-gray-300 rounded-md focus:outline-none resize-none" rows="4" placeholder="Write a text"></textarea>
-                <div class="m-4">
-                <button class="w-full max-w-lg p-6 bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 focus:outline-none flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a1 1 0 001.22 0L21 8M5 19h14a2 2 0 002-2v-5a2 2 0 00-2-2H5a2 2 0 00-2 2v5a2 2 0 002 2z" />
+                <textarea class="w-full px-3 py-2 border-t border-gray-300 mb-4 rounded-md focus:outline-none resize-none" rows="4" placeholder="Write announcement"></textarea>
+                <a href="/" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
+                    <svg class="w-4 h-4 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
+                        <path
+                            d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
                     </svg>
-                    Send
-                </button>  
+                    <span class="xs:block ml-2">Post</span>
+                </a>
             </div>
             </div>    
             </div>
