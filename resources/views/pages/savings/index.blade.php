@@ -17,7 +17,7 @@
             </div>
         @endif
         <div class="relative">
-            <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-12 lg:px-4">Payment History
+            <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-12 lg:px-4">Savings
             </h1>
         </div>
 
@@ -33,7 +33,7 @@
                         </div>
                         <input type="text" id="search" name="search"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Search customer name..." required />
+                            placeholder="Search employee name..." required />
                     </div>
                     <button type="submit"
                         class="btn bg-indigo-500 hover:bg-indigo-600 text-white ml-2">
@@ -49,14 +49,15 @@
                 <!-- Filter button -->
                 <x-dropdown-filter align="right" />
 
+
                 <!-- Add view button -->
-                <!-- <a href="{{ route('barangay.add') }}" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
+                <a href="{{route('savings.create')}}" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
                     <svg class="w-4 h-4 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
                         <path
                             d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
                     </svg>
-                    <span class="hidden xs:block ml-2">Add Barangay</span>
-                </a> -->
+                    <span class="hidden xs:block ml-2">Add Employee</span>
+                </a> 
                 <a id="show-modal" href="#" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
                     <svg class="w-4 h-4 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
                         <path
@@ -131,21 +132,22 @@
                                     <tr>
                                         <th scope="col"
                                             class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
-                                            Customer ID
+                                            ID
                                         </th>
 
                                         <th scope="col"
                                             class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
-                                            Name
+                                            Employee Name
                                         </th>
 
                                         <th scope="col"
                                             class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
-                                            Payment Date
+                                            Total Savings
                                         </th>
+
                                         <th scope="col"
                                             class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
-                                            Payment Method
+                                            Balance
                                         </th>
 
                                         <th scope="col"
@@ -156,23 +158,23 @@
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
-                                    
+                                @foreach ($lists as $list)
                                         <tr>
                                             <td
                                                 class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
-                                                1
+                                                {{ $list->id }}
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                James Simene
+                                                {{ $list->employee_id }}
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                ₱5,000
+                                                {{ $list->total_savings }}
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                11/5/2024
+                                                {{ $list->balance }}
                                             </td>
                                             <td class="px-4 py-4 text-sm whitespace-nowrap">
                                                 <div class="flex items-center gap-x-6">
@@ -186,7 +188,7 @@
                                                         <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#6b7280"><path d="M648-624v-120H312v120h-72v-192h480v192h-72Zm-480 72h625-625Zm539.79 96q15.21 0 25.71-10.29t10.5-25.5q0-15.21-10.29-25.71t-25.5-10.5q-15.21 0-25.71 10.29t-10.5 25.5q0 15.21 10.29 25.71t25.5 10.5ZM648-216v-144H312v144h336Zm72 72H240v-144H96v-240q0-40 28-68t68-28h576q40 0 68 28t28 68v240H720v144Zm73-216v-153.67Q793-530 781-541t-28-11H206q-16.15 0-27.07 11.04Q168-529.92 168-513.6V-360h72v-72h480v72h73Z"/></svg>
                                                     </a>
 
-                                                    <!-- <form action="/"
+                                                    <form action="{{ route('savings.destroy', $list->id) }}"
                                                         method="post">
                                                         @csrf
                                                         @method('DELETE')
@@ -201,19 +203,18 @@
                                                                     d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
                                                             </svg>
                                                         </button>
-                                                    </form> -->
+                                                    </form>
                                                 </div>
                                             </td>
                                         </tr>
-                                   
+                                        @endforeach
                                 </tbody>
+                                
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
-
-            
         </section>
         
             

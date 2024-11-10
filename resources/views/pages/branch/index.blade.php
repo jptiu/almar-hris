@@ -60,7 +60,7 @@
 
                             <div class="ml-4">
                                 <div class="self-center">
-                                    <p class="text-gray-400 text-sm">Total Sales</p>
+                                    <p class="text-gray-400 text-sm">Total Savings</p>
                                     <span class="text-3xl font-semibold text-gray-800">₱2,134,900</span>
                                 </div>
                             </div>
