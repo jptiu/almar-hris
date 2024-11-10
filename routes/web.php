@@ -207,6 +207,12 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // Late Payer
     Route::get('branch/late-payer', [BMController::class, 'latePayer'])->name('latePayer.index');
 
+    // Payment History
+    Route::get('branch/payhistory', [BMController::class, 'paymentHistory'])->name('paymentHistory.index');
+
+    //  Attendance
+    Route::get('attendancebm', [BMController::class, 'biometricsAttendance'])->name('biometricsAttendance.index');
+
     // Pending Loan Approval
     Route::get('branch/pending-loan-approval', [BMController::class, 'pendingLoandApproval'])->name('pendingLoandApproval.index');
 
@@ -218,6 +224,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     // Loan Renewal
     Route::get('branch/loan-renewal', [BMController::class, 'loanRenewal'])->name('loanRenewal.index');
+
+    //OverdueAccounts
+    Route::get('overdueacc', [BMController::class, 'overdueAcc'])->name('overdueacc.index');
 
     // Payroll
     Route::get('payroll', [EmployeeController::class, 'empPayroll'])->name('payroll.index');
@@ -255,5 +264,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('denomination/show/{id}', [DenominationController::class, 'show'])->name('denomination.show');
     Route::delete('denomination/destroy/{id}', [DenominationController::class, 'destroy'])->name('denomination.destroy');
     Route::post('denomination/import', [DenominationController::class, 'importCSV'])->name('denomination.importcsv');
+
+    
 
 });
