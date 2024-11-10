@@ -10,6 +10,8 @@ use App\Models\HR;
 use App\Models\NewHire;
 use App\Models\Probation;
 use App\Models\Resignation;
+use App\Models\Announcement;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
@@ -23,8 +25,11 @@ class EmployeeController extends Controller
     {
         abort_unless(Gate::allows('hr_access'), 404);
         $lists = Employee::get();
+        $announcements = Announcement::where('status', 1)->get(); // Fetch only active announcements
+        $activeCount = $announcements->count(); // Count active announcements 
+        $currentDate = Carbon::now()->format('F d, Y'); // Get the current date
 
-        return view('pages.hr.employee.index', compact('lists'));
+        return view('pages.hr.employee.index', compact('lists','announcements', 'activeCount', 'currentDate'));
     }
 
     public function add()

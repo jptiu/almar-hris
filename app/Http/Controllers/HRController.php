@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Announcement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
@@ -118,8 +119,62 @@ class HRController extends Controller
 
     public function announcementHr()
     {
-        return view('pages.hr.announce.index');
+        $lists = Announcement::get();
+
+        return view('pages.hr.announce.index', compact('lists'));
     }
 
+    public function addAnnouncement()
+    {
+        abort_unless(Gate::allows('hr_access'), 404);
+        $lists = Announcement::get();
+
+        return view('pages.hr.announce.add.index', compact('lists'));
+    }
+
+    public function storeAnnouncement(Request $request) 
+    { 
+        abort_unless(Gate::allows('hr_access'), 404);
+        $request->validate([ 
+            'title' => 'required',
+            'subject' => 'nullable|string',
+            'content' => 'required',
+            'status' => 'required|in:0,1', 
+        ]); 
+        
+        Announcement::create($request->all()); 
+        
+        return redirect()->route('announce.index')->with('success', 'Announcement created successfully.'); 
+    }
+
+    public function showAnnouncement($id)
+    {
+        abort_unless(Gate::allows('hr_access'), 404);
+        $announcement = Announcement::where('id', $id)->first();
+
+        return view('pages.hr.announce.show.index', compact('announcement'));
+    }
+
+    public function updateAnnouncement(Request $request, $id)
+    {
+        abort_unless(Gate::allows('hr_access'), 404);
+            $announcement = Announcement::find($id);
+            $announcement->title = $request->title;
+            $announcement->subject = $request->subject;
+            $announcement->content = $request->content;
+            $announcement->status = $request->status;
+            $announcement->update();
+
+            return redirect(route("announce.index"))->with('success', 'Announcement Updated Successfully');
+    }
+
+    public function destroyAnnouncement($id)
+    {
+        abort_unless(Gate::allows('hr_access'), 404);
+        $announcement = Announcement::find($id);
+        $announcement->delete();
+
+        return redirect()->back()->with('success', 'Announcement deleted.');
+    }
 
 }
