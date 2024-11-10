@@ -150,6 +150,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('monthlyrep', [HRController::class, 'monthlyReport'])->name('monthlyrep.index');
     Route::get('attendance', [HRController::class, 'biometricsAttendance'])->name('attendance.index');
     Route::get('announce', [HRController::class, 'announcementHr'])->name('announce.index');
+    Route::get('announce/add', [HRController::class, 'addAnnouncement'])->name('announce.add');
+    Route::post('announce/store', [HRController::class, 'storeAnnouncement'])->name('announce.store');
+    Route::get('announce/show/{id}', [HRController::class, 'showAnnouncement'])->name('announce.show');
+    Route::post('announce/update/{id}', [HRController::class, 'updateAnnouncement'])->name('announce.update');
+    Route::delete('announce/destroy/{id}', [HRController::class, 'destroyAnnouncement'])->name('announce.destroy');
 
     // Pending Loan Approval
     Route::get('loanapprovals-approved', [HRController::class, 'approvedLoans'])->name('approved.index');

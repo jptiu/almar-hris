@@ -214,140 +214,53 @@
 
             <section>
             <div class="col-span-full xl:col-span-6 bg-white rounded-lg border border-slate-200 shadow-[0px_8px_20px_rgba(0,0,0,0.08)] p-6 mb-4">
-                        <!-- Header Section -->
-                        <div class="flex justify-between items-center mb-4">
-                            <h2 class="font-semibold text-slate-800 dark:text-slate-100">Announcements</h2>
-                            <span class="bg-blue-100 text-blue-600 text-sm px-3 py-1 rounded-lg">Today, Oct. 26, 2024</span>
-                        </div>
-                        <p class="text-gray-500 text-sm mb-4">2 active tasks</p>
+                        <!-- Header Section --> 
+                         <div class="flex justify-between items-center mb-4"> 
+                            <h2 class="font-semibold text-slate-800 dark:text-slate-100">Announcements</h2> 
+                            <span class="bg-blue-100 text-blue-600 text-sm px-3 py-1 rounded-lg">Today, {{ $currentDate }}</span> 
+                        </div> 
+                        <p class="text-gray-500 text-sm mb-4">{{ $activeCount }} active announcement{{ $activeCount != 1 ? 's' : '' }}</p>
 
                         <!-- Announcement Cards -->
                             <div class="space-y-4">
                                 <!-- Card 1 -->
-                                <div onclick="openModal()" class="bg-white rounded-lg shadow p-4 flex items-end justify-between">
-                                    <div>
-                                        <p class="text-gray-400 text-xs mb-1">5 minutes ago</p>
-                                        <a  href="#0">
-                                        <h3 class="text-gray-800 font-semibold mb-4" >Announcement Title</h3>
-                                        <div class="flex items-center space-x-2">
-                                        <!-- Icon -->
-                                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#789DE5"><path d="M760-200H320q-33 0-56.5-23.5T240-280v-560q0-33 23.5-56.5T320-920h280l240 240v400q0 33-23.5 56.5T760-200ZM560-640v-200H320v560h440v-360H560ZM160-40q-33 0-56.5-23.5T80-120v-560h80v560h440v80H160Zm160-800v200-200 560-560Z"/></svg>
-                                            <!-- Text -->
-                                        <span class="text-gray-500 text-sm">Monthly Report</span>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="flex items-center space-y-2">
-                                        <div class="shrink-0 self-end ml-2">
-                                            <a class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400"
-                                                href="#0">View<span class="hidden sm:inline"> -&gt;</span></a>
-                                        </div>
-                                    </div>
+                                @foreach ($announcements as $announcement) 
+                                    <div onclick="openModal({{ $announcement->id }})" class="bg-white rounded-lg shadow p-4 flex items-end justify-between mb-4"> 
+                                        <div> 
+                                            <p class="text-gray-400 text-xs mb-1">{{ $announcement->created_at->diffForHumans() }}</p> 
+                                            <h3 class="text-gray-800 font-semibold mb-4">{{ $announcement->title }}</h3> 
+                                            <div class="flex items-center space-x-2"> 
+                                                <!-- Icon -->
+                                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#789DE5"><path d="M760-200H320q-33 0-56.5-23.5T240-280v-560q0-33 23.5-56.5T320-920h280l240 240v400q0 33-23.5 56.5T760-200ZM560-640v-200H320v560h440v-360H560ZM160-40q-33 0-56.5-23.5T80-120v-560h80v560h440v80H160Zm160-800v200-200 560-560Z"/></svg> 
+                                                <!-- Text --> 
+                                                <span class="text-gray-500 text-sm">{{ $announcement->subject }}</span>
+                                            </div> 
+                                        </div> 
+                                        <div class="flex items-center space-y-2"> 
+                                            <div class="shrink-0 self-end ml-2"> 
+                                                <a class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="#0">View<span class="hidden sm:inline"> -&gt;</span></a> 
+                                            </div> 
+                                        </div> 
+                                    </div> 
+                                @endforeach
+
+                                <!-- Modal Overlay --> 
+                                 <div id="modal-overlay" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center"> 
+                                    <!-- Modal Content --> 
+                                     <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-3xl"> 
+                                        <!-- Modal Header --> 
+                                         <div class="flex items-center mb-8"> 
+                                            <h2 id="modal-title" class="text-2xl font-semibold text-gray-800"></h2> 
+                                        </div> 
+                                        <!-- Message Body --> 
+                                         <div id="modal-content" class="mb-6"> 
+                                            <p class="text-gray-700"></p> 
+                                        </div> <!-- Close Button --> 
+                                        <div class="flex justify-end mt-4"> 
+                                            <button onclick="closeModal()" class="text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-4 py-2">Close</button> 
+                                        </div> 
+                                    </div> 
                                 </div>
-
-                                <!-- Modal Overlay -->
-                                <div id="modal-overlay" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
-                                    <!-- Modal Content -->
-                                    <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-3xl">
-                                        <!-- Modal Header -->
-                                        <div class="flex items-center mb-8">
-                                        <h2 class="text-2xl font-semibold text-gray-800">Announcement Title</h2>
-                                        </div>
-                                        
-                                        <!-- User Information -->
-                                         
-                                        <div class="flex items-center mb-6">
-                                        
-                                            <div class="flex items-center justify-center">
-                                            <svg width="75" height="75" viewBox="0 0 75 75" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <circle cx="37.5" cy="37.5" r="37.5" fill="#0B6ECA"/>
-                                            <path d="M30.374 25.4438H33.3476V42.9977C33.3476 44.5644 33.0598 45.8953 32.4843 46.9904C31.9088 48.0855 31.0974 48.9169 30.0503 49.4844C29.0031 50.052 27.7681 50.3357 26.3453 50.3357C25.0023 50.3357 23.8073 50.0919 22.7602 49.6043C21.713 49.1087 20.8897 48.4053 20.2901 47.494C19.6906 46.5828 19.3909 45.4996 19.3909 44.2447H22.3165C22.3165 44.9401 22.4884 45.5476 22.8321 46.0672C23.1838 46.5788 23.6634 46.9784 24.2709 47.2662C24.8784 47.554 25.5699 47.6979 26.3453 47.6979C27.2006 47.6979 27.928 47.518 28.5275 47.1583C29.127 46.7986 29.5826 46.271 29.8944 45.5756C30.2141 44.8721 30.374 44.0128 30.374 42.9977V25.4438ZM52.7359 31.5829C52.592 30.3679 52.0085 29.4246 50.9853 28.7532C49.9622 28.0817 48.7072 27.746 47.2204 27.746C46.1333 27.746 45.182 27.9218 44.3667 28.2736C43.5593 28.6253 42.9278 29.1089 42.4722 29.7244C42.0246 30.3399 41.8008 31.0393 41.8008 31.8227C41.8008 32.4782 41.9566 33.0417 42.2684 33.5133C42.5881 33.977 42.9958 34.3646 43.4914 34.6764C43.987 34.9801 44.5066 35.2319 45.0501 35.4318C45.5937 35.6236 46.0933 35.7795 46.5489 35.8994L49.0429 36.5709C49.6824 36.7387 50.3938 36.9705 51.1772 37.2663C51.9685 37.5621 52.7239 37.9657 53.4433 38.4773C54.1708 38.9809 54.7703 39.6284 55.2419 40.4197C55.7135 41.2111 55.9493 42.1823 55.9493 43.3334C55.9493 44.6603 55.6016 45.8593 54.9062 46.9305C54.2187 48.0016 53.2115 48.8529 51.8846 49.4844C50.5657 50.1159 48.963 50.4317 47.0765 50.4317C45.3179 50.4317 43.7951 50.1479 42.5082 49.5803C41.2292 49.0128 40.222 48.2214 39.4866 47.2063C38.7592 46.1911 38.3476 45.012 38.2516 43.6691H41.3211C41.4011 44.5964 41.7128 45.3637 42.2564 45.9713C42.8079 46.5708 43.5034 47.0184 44.3427 47.3142C45.19 47.6019 46.1013 47.7458 47.0765 47.7458C48.2116 47.7458 49.2308 47.562 50.134 47.1943C51.0373 46.8186 51.7527 46.299 52.2803 45.6355C52.8079 44.9641 53.0716 44.1807 53.0716 43.2854C53.0716 42.4701 52.8438 41.8066 52.3882 41.295C51.9326 40.7835 51.3331 40.3678 50.5897 40.048C49.8463 39.7283 49.0429 39.4485 48.1796 39.2087L45.158 38.3454C43.2396 37.7939 41.7208 37.0065 40.6017 35.9833C39.4826 34.9602 38.9231 33.6212 38.9231 31.9666C38.9231 30.5917 39.2948 29.3927 40.0382 28.3695C40.7896 27.3383 41.7968 26.539 43.0597 25.9714C44.3307 25.3959 45.7496 25.1081 47.3163 25.1081C48.899 25.1081 50.3059 25.3919 51.5369 25.9594C52.7679 26.519 53.7431 27.2864 54.4625 28.2616C55.1899 29.2368 55.5736 30.3439 55.6136 31.5829H52.7359Z" fill="white"/>
-                                            </svg>
-
-                                            </div>
-                                            <div class="ml-3">
-                                                <p class="text-gray-800 font-medium">James Simene</p>
-                                                <p class="text-gray-500 text-sm">Nov 5, 2024, 6:39 PM (1 day ago)</p>
-                                            </div>
-                                        </div>
-                                        <!-- Message Body -->
-                                        <div class="mb-6">
-                                            <p class="text-gray-700">
-                                                I hope this email finds you well.
-                                            </p>
-                                            <p class="text-gray-700 mt-2">
-                                                [Introduction] Begin by stating the purpose of your email. This could be a brief greeting, introduction, or context-setting sentence.
-                                            </p>
-                                            <p class="text-gray-700 mt-2">
-                                                [Main Content] Provide the details or body of your email. Break this section into paragraphs if necessary to ensure clarity and flow. Make sure to stay concise and to the point.
-                                            </p>
-                                            <p class="text-gray-700 mt-2">
-                                                If you are making a request, be clear about what you need from the recipient.
-                                                If you're giving information, ensure it's easy to understand.
-                                                If you're providing updates or asking questions, make them clear and organized.
-                                                [Conclusion] Summarize any next steps or action items, and express appreciation or anticipation for a reply.
-                                            </p>
-                                            <p class="text-gray-700 mt-2">
-                                                Thank you for your time and attention. I look forward to hearing from you.
-                                            </p>
-                                            <p class="text-gray-700 mt-2">
-                                                Best regards,<br>
-                                                [Your Full Name]<br>
-                                                [Your Job Title, if applicable]<br>
-                                                [Your Contact Information, if applicable]
-                                            </p>
-                                        </div>
-                                        <!-- File Attachments -->
-                                        <div class="mb-4">
-                                            <h4 class="text-gray-800 font-medium">File Attachments</h4>
-                                            <div class="flex space-x-4 mt-2">
-                                                <div class="bg-gray-100 border border-gray-200 rounded-lg p-3 flex items-center space-x-2">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="24" height="24" class="text-gray-600">
-                                                        <path d="M6 2h9l5 5v13c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2zm5 1.5v4h4.5L11 3.5zm1 13.5h-1.5v-1.5H10v1.5H8.5v-3H10v1.5h1.5v-1.5h1.5v3zm4.5 0H15v-1.5h1.5v-1.5H15v-1.5h2.5V17zm-6-1.5h1.5V17H11v-1.5zm6-6H7V4h5v5h5v3z"/>
-                                                    </svg>
-                                                    <span class="text-gray-600 text-sm">loanfiles.pdf (7kb)</span>
-                                                    <a href="#" class="text-blue-500 hover:text-blue-600 ml-auto">Download</a>
-                                                </div>
-                                                <div class="bg-gray-100 border border-gray-200 rounded-lg p-3 flex items-center space-x-2">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="24" height="24" class="text-gray-600">
-                                                        <path d="M6 2h9l5 5v13c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2zm5 1.5v4h4.5L11 3.5zm1 13.5h-1.5v-1.5H10v1.5H8.5v-3H10v1.5h1.5v-1.5h1.5v3zm4.5 0H15v-1.5h1.5v-1.5H15v-1.5h2.5V17zm-6-1.5h1.5V17H11v-1.5zm6-6H7V4h5v5h5v3z"/>
-                                                    </svg>
-                                                    <span class="text-gray-600 text-sm">loanfiles2.pdf (7kb)</span>
-                                                    <a href="#" class="text-blue-500 hover:text-blue-600 ml-auto">Download</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Close Button -->
-                                        <div class="flex justify-end mt-4">
-                                            <button onclick="closeModal()" class="text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm px-4 py-2">Close</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-
-                                <!-- Card 2 -->
-                                <div class="bg-white rounded-lg shadow p-4 flex items-end justify-between">
-                                    <div>
-                                        <p class="text-gray-400 text-xs mb-1">5 minutes ago</p>
-                                        <a  href="#0">
-                                        <h3 class="text-gray-800 font-semibold mb-4" >Announcement Title</h3>
-                                        <div class="flex items-center space-x-2">
-                                        <!-- Icon -->
-                                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#789DE5"><path d="M760-200H320q-33 0-56.5-23.5T240-280v-560q0-33 23.5-56.5T320-920h280l240 240v400q0 33-23.5 56.5T760-200ZM560-640v-200H320v560h440v-360H560ZM160-40q-33 0-56.5-23.5T80-120v-560h80v560h440v80H160Zm160-800v200-200 560-560Z"/></svg>
-                                            <!-- Text -->
-                                        <span class="text-gray-500 text-sm">Monthly Report</span>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="flex items-center space-y-2">
-                                        <div class="shrink-0 self-end ml-2">
-                                            <a class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400"
-                                                href="#0">View<span class="hidden sm:inline"> -&gt;</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            <!-- Duplicate more cards as needed... -->
                             </div>
                     </div>
 
@@ -645,11 +558,11 @@
 
 <script>
     // JavaScript to open and close the modal
-    function openModal() {
-      document.getElementById("modal-overlay").classList.remove("hidden");
-    }
+    function openModal(id) { 
+        const announcement = @json($announcements).find(a => a.id == id); 
+        document.getElementById("modal-title").textContent = announcement.title; 
+        document.getElementById("modal-content").innerHTML = announcement.content; 
+        document.getElementById("modal-overlay").classList.remove("hidden"); }
 
-    function closeModal() {
-      document.getElementById("modal-overlay").classList.add("hidden");
-    }
+    function closeModal() { document.getElementById("modal-overlay").classList.add("hidden"); }
 </script>
