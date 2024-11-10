@@ -30,6 +30,7 @@ use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\BarangayController;
+use App\Http\Controllers\SavingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -232,6 +233,13 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     //OverdueAccounts
     Route::get('overdueacc', [BMController::class, 'overdueAcc'])->name('overdueacc.index');
+
+    //Savings
+    Route::get('savings', [SavingsController::class, 'index'])->name('savings.index');
+    Route::get('savings/create', [SavingsController::class, 'create'])->name('savings.create');
+    Route::post('savings/store', [SavingsController::class, 'store'])->name('savings.store');
+    Route::delete('savings/destroy/{id}', [SavingsController::class, 'destroy'])->name('savings.destroy');
+    
 
     // Payroll
     Route::get('payroll', [EmployeeController::class, 'empPayroll'])->name('payroll.index');

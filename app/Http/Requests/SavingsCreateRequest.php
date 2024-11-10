@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
 
-class BarangayCreateRequest extends FormRequest
+class SavingsCreateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,10 +23,9 @@ class BarangayCreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'barangay_name' => 'string',
-            'code' => 'string',
-            'city' => 'string',
-            'user_id' => 'string'
+            'employee_id' => 'string',
+            'total_savings' => 'string',
+            'balance' => 'string',
         ];
     }
 }
