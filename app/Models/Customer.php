@@ -25,4 +25,9 @@ class Customer extends Model
         'civil_status',
         'status',
     ];
+
+    public function loan()
+    {
+        return $this->belongsTo(Loan::class, 'id', 'customer_id');
+    }
 }

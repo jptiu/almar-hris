@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Collection;
 use App\Models\Customer;
+use App\Models\Loan;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -13,7 +14,7 @@ class CollectionController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         //abort_unless(Gate::allows('loan_access'), 404);
         $lists = Collection::with('user')->get();
@@ -22,6 +23,21 @@ class CollectionController extends Controller
         ->join('role_user', 'users.id', '=', 'role_user.user_id')
         ->join('roles', 'role_user.role_id', '=', 'roles.id')
         ->get();
+        $loan = [];
+        $customer = [];
+        if ($request->transaction_no) {
+            $loan = Loan::with('customer')->find($request->transaction_no);
+        }
+        if ($request->customer_id) {
+            $customer = Customer::with('loan')->find($request->customer_id);
+        }
+        // Check if the request is an AJAX call
+        if ($request->ajax()) {
+            return response()->json([
+                'customer' => $customer,
+                'loan' => $loan,
+            ]);
+        }
 
         return view('pages.collections.index', compact('lists', 'customers', 'collectors'));
     }

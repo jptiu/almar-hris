@@ -12,15 +12,15 @@ return new class extends Migration {
     {
         Schema::create('expenses', function (Blueprint $table) {
             $table->id();
-            $table->string('exp_ref_no');
-            $table->string('acc_no');
-            $table->string('acc_class');
-            $table->string('acc_type');
-            $table->string('acc_title');
-            $table->string('justification');
-            $table->string('or_no');
-            $table->string('amount');
-            $table->string('exp_date');
+            $table->string('exp_ref_no')->nullable();
+            $table->string('acc_no')->nullable();
+            $table->string('acc_class')->nullable();
+            $table->string('acc_type')->nullable();
+            $table->string('acc_title')->nullable();
+            $table->string('justification')->nullable();
+            $table->string('or_no')->nullable();
+            $table->string('amount')->nullable();
+            $table->string('exp_date')->nullable();
             $table->timestamps();
         });
     }

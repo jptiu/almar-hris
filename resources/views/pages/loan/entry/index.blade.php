@@ -371,7 +371,8 @@
         },
         success: function(response) {
             if (response.loan) {
-                const customerData = response.customer;
+                const customerData = response.loan.customer;
+                const loanData = response.loan;
 
                 // Loop through each key in customerData to update the respective field
                 Object.keys(customerData).forEach(key => {
@@ -385,6 +386,21 @@
                         } else {
                             // For input fields, directly set the value
                             element.value = customerData[key];
+                        }
+                    }
+                });
+                // Loop through each key in customerData to update the respective field
+                Object.keys(loanData).forEach(key => {
+                    const element = document.getElementById(key);
+
+                    if (element) {
+                        if (element.tagName === "SELECT") {
+                            // If the element is a <select>, set its value to match an option
+                            element.value = loanData[key];
+                            element.dispatchEvent(new Event('change')); // Trigger change event if necessary
+                        } else {
+                            // For input fields, directly set the value
+                            element.value = loanData[key];
                         }
                     }
                 });
