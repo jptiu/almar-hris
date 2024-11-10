@@ -22,6 +22,7 @@ class Customer extends Model
         'salary_sched',
         'tel_number',
         'cell_number',
+        'civil_status',
         'status',
     ];
 }

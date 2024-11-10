@@ -26,4 +26,9 @@ class Loan extends Model
         'actual_record',
         'payable_amount',
     ];
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class, 'customer_id');
+    }
 }

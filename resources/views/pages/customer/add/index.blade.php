@@ -185,7 +185,7 @@
                         <div class="lg:col-span-2">
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
                                 <div class="md:col-span-1">
-                                    <select name="status" id="status"
+                                    <select name="civil_status" id="civil_status"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                                     <option value="single">Single</option>
                                     <option value="married">Married</option>

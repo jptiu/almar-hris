@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('salary_sched');
             $table->string('tel_number')->nullable();
             $table->string('cell_number')->nullable();
+            $table->string('civil_status');
             $table->string('status');
             $table->timestamps();
             $table->softDeletes();

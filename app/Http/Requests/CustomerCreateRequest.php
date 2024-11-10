@@ -36,6 +36,7 @@ class CustomerCreateRequest extends FormRequest
             'salary_sched' => 'string',
             'tel_number' => 'string',
             'cell_number' => 'string',
+            'civil_status' => 'string',
             'status' => 'string',
         ];
     }

@@ -43,6 +43,7 @@
                                             <label for="house" class="text-black font-medium">Select Customer</label>
                                             <select name="type" id="type"
                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
+                                            <option value="">Select</option>
                                             @foreach ($customers as $customer)
                                                 <option value="{{ $customer->id }}">
                                                     {{ $customer->first_name . ' ' . $customer->last_name }}</option>

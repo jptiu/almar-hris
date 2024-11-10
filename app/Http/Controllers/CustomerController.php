@@ -57,7 +57,8 @@ class CustomerController extends Controller
             $customer->salary_sched = $request->salary_sched;
             $customer->tel_number = $request->tel_number;
             $customer->cell_number = $request->cell_number;
-            $customer->status = $request->status;
+            $customer->civil_status = $request->civil_status;
+            $customer->status = 1;
             $customer->save();
 
             return redirect(route("customer.index"))->with('success', 'Created Successfully');
