@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Loan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
@@ -101,7 +102,9 @@ class BMController extends Controller
 
     public function pendingLoandApproval(Request $request)
     {
-        return view('pages.pendingloanapp.index');
+        $lists = Loan::get();
+
+        return view('pages.pendingloanapp.index', compact('lists'));
     }
 
     public function approvedLoan(Request $request)

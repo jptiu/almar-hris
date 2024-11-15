@@ -456,7 +456,7 @@
                     });
 
                     // Update the total amount display
-                    document.getElementById('total-amount').textContent = totalAmount.toFixed(2);
+                    document.getElementById('total-amount').textContent = totalAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
                 })
                 .catch(error => console.error('Error:', error));
         }

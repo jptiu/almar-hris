@@ -33,7 +33,20 @@ class ExpensesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $exp = new Expenses();
+        $exp->exp_ref_no = $request->exp_ref_no;
+        $exp->acc_no = $request->acc_no;
+        $exp->acc_class = $request->acc_class;
+        $exp->acc_type = $request->acc_type;
+        $exp->acc_title = $request->acc_title;
+        $exp->justification = $request->justification;
+        $exp->or_no = $request->or_no;
+        $exp->amount = $request->amount;
+        $exp->exp_date = $request->exp_date;
+        $exp->save();
+
+        return redirect(route("expenses.index"))->with('success', 'Created Successfully');
+
     }
 
     /**

@@ -40,8 +40,8 @@
                                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
 
                                         <div class="md:col-span-1">
-                                            <label for="house" class="text-black font-medium">Select Customer</label>
-                                            <select name="type" id="type"
+                                            <label for="customer" class="text-black font-medium">Select Customer</label>
+                                            <select onchange="getCustomer()" name="customer" id="customer"
                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
                                             <option value="">Select</option>
                                             @foreach ($customers as $customer)
@@ -63,15 +63,15 @@
                                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
 
                                         <div class="md:col-span-1">
-                                            <label for="house" class="text-black font-medium">ID</label>
-                                            <input type="text" name="house" id="house"
+                                            <label for="id" class="text-black font-medium">ID</label>
+                                            <input type="text" name="id" id="id"
                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
                                                 value="" placeholder="" />
                                         </div>
 
                                         <div class="md:col-span-1">
-                                            <label for="house" class="text-black font-medium">Name</label>
-                                            <input type="text" name="house" id="house"
+                                            <label for="name" class="text-black font-medium">Name</label>
+                                            <input type="text" name="name" id="name"
                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
                                                 value="" placeholder="" />
                                         </div>
@@ -86,7 +86,7 @@
                                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
 
                                         <div class="md:col-span-1">
-                                            <label for="house" class="text-black font-medium">Type</label>
+                                            <label for="type" class="text-black font-medium">Type</label>
                                             <select name="type" id="type"
                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5 />
                                                 <option value="business
@@ -96,8 +96,8 @@
                                         </div>
 
                                         <div class="md:col-span-1">
-                                            <label for="house" class="text-black font-medium">Status</label>
-                                            <select name="type" id="type"
+                                            <label for="status" class="text-black font-medium">Status</label>
+                                            <select name="status" id="status"
                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5 />
                                                 <option value="business
                                                 loan">Pendng</option>
@@ -115,15 +115,15 @@
                                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
 
                                         <div class="md:col-span-1">
-                                            <label for="house" class="text-black font-medium">Transaction No.</label>
-                                            <input type="text" name="house" id="house"
+                                            <label for="trans_no" class="text-black font-medium">Transaction No.</label>
+                                            <input type="text" name="trans_no" id="trans_no"
                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
                                                 value="" placeholder="" />
                                         </div>
 
                                         <div class="md:col-span-1">
-                                            <label for="house" class="text-black font-medium">Collector</label>
-                                            <select name="type" id="type"
+                                            <label for="collector" class="text-black font-medium">Collector</label>
+                                            <select name="collector" id="collector"
                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
                                             @foreach ($collectors as $collector)
                                                 <option value="{{ $collector->id }}">{{ $collector->name }}</option>
@@ -141,8 +141,8 @@
                                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
 
                                         <div class="md:col-span-1">
-                                            <label for="house" class="text-black font-medium">Date</label>
-                                            <input type="date" name="house" id="house"
+                                            <label for="date_of_loan" class="text-black font-medium">Date</label>
+                                            <input type="date" name="date_of_loan" id="date_of_loan"
                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
                                                 value="" placeholder="" />
                                         </div>
@@ -375,3 +375,79 @@
 
     </div>
 </x-app-layout>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    function getCustomer() {
+        const customerID = document.getElementById("customer").value;
+
+        $.ajax({
+            url: '{{ route('collection.index') }}',
+            type: 'GET',
+            data: {
+                _token: '{{ csrf_token() }}',
+                customer_id: customerID,
+            },
+            success: function(response) {
+                if (response.customer) {
+                    const customerData = response.customer;
+                    const loanData = response.customer.loan;
+
+                    // Handle the special case for "name" input field
+                    const nameField = document.getElementById("name");
+                    const transactionField = document.getElementById("trans_no");
+
+                    if (nameField && customerData.first_name && customerData.last_name &&
+                        transactionField && loanData.id) {
+                        nameField.value = `${customerData.first_name} ${customerData.last_name}`;
+                        transactionField.value = loanData.id; // No need for template literal here unless formatting is required
+                    }
+
+
+                    // Handle the special case for "trans_no" input field
+                    // if (transactionField && loanData.id) {
+                    //     // console.log(loanData.id);
+                    //     transactionField.value = loanData.id;
+                    // }
+
+                    // Loop through each key in customerData to update respective fields
+                    Object.keys(customerData).forEach(key => {
+                        if (key !== "first_name" && key !==
+                            "last_name") { // Skip first and last name as we already handled it
+                            const element = document.getElementById(key);
+                            if (element) {
+                                if (element.tagName === "SELECT") {
+                                    element.value = customerData[key];
+                                    element.dispatchEvent(new Event('change'));
+                                } else {
+                                    element.value = customerData[key];
+                                }
+                            }
+                        }
+                    });
+
+                    // Loop through each key in loanData to update respective fields
+                    Object.keys(loanData).forEach(key => {
+                        if (key !== "id") {
+                            const element = document.getElementById(key);
+                            if (element) {
+                                if (element.tagName === "SELECT") {
+                                    element.value = loanData[key];
+                                    element.dispatchEvent(new Event('change'));
+                                } else {
+                                    element.value = loanData[key];
+                                }
+                            }
+                        }
+                    });
+                } else {
+                    console.log('Collection not found.');
+                    alert('Collection not found.');
+                }
+            },
+            error: function(xhr) {
+                console.log('Error:', xhr.responseText);
+                alert("Unable to retrieve customer information. Please try again.");
+            }
+        });
+    }
+</script>
