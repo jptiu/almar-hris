@@ -139,7 +139,7 @@ class EmployeeController extends Controller
             $prob->save();
         }
 
-        return redirect(route("employee.index"))->with('success', 'Created Successfully');
+        return redirect(route("hr.index"))->with('success', 'Created Successfully');
     }
 
     /**
@@ -234,7 +234,7 @@ class EmployeeController extends Controller
             $employee = Employee::find($id);
             $employee->update($request->all());
 
-            return redirect(route("employee.index"))->with('success', 'Updated Successfully');
+            return redirect(route("hr.index"))->with('success', 'Updated Successfully');
         }
     }
 
@@ -283,27 +283,7 @@ class EmployeeController extends Controller
         $resig->status = $request->status;
         $resig->save();
 
-        return redirect(route("employee.index"))->with('success', 'Created Successfully');
-    }
-
-    public function empPayroll(Request $request)
-    {
-        return view('pages.hr.payroll.index');
-    }
-
-    public function payrollAdd(Request $request)
-    {
-        abort_unless(Gate::allows('hr_access'), 404);
-
-        return view('pages.hr.payroll.add.index');
-
-    }
-
-    public function payrollPrint(Request $request)
-    {
-        abort_unless(Gate::allows('hr_access'), 404);
-
-        return view('pages.hr.payroll.print.index');
+        return redirect(route("hr.index"))->with('success', 'Created Successfully');
     }
 
 }

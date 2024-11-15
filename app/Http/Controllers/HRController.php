@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Announcement;
 use Illuminate\Http\Request;
+use App\Models\Employee;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Gate;
 
 class HRController extends Controller
@@ -14,8 +16,12 @@ class HRController extends Controller
     public function index()
     {
         abort_unless(Gate::allows('hr_access'), 404);
-        
-        return view('pages.hr.index');
+        $lists = Employee::get();
+        $announcements = Announcement::where('status', 1)->get(); // Fetch only active announcements
+        $activeCount = $announcements->count(); // Count active announcements 
+        $currentDate = Carbon::now()->format('F d, Y'); // Get the current date
+
+        return view('pages.hr.index', compact('lists','announcements', 'activeCount', 'currentDate'));
     }
 
     /**
