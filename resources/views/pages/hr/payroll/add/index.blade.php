@@ -5,7 +5,7 @@
             <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-12">Employee Payroll</h1>
         </div>
 
-        <form action="#" method="POST">
+        <form action="{{ route('payroll.store') }}" method="POST">
             @csrf
             <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
                 <div>
@@ -33,8 +33,9 @@
                                 <div class="md:col-span-1">
                                     <label class="text-black font-medium" for="employee_name">Employee Name</label>
                                         <select name="employee_name" id="employee_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
-                                            <option value="Employee 1">Employee 1</option>
-                                            <option value="Employee 2">Employee 2</option>
+                                        @foreach ( $employees as $employee )
+                                            <option value="{{$employee->user_id}}">{{$employee->f_name.' '.$employee->m_name.' '.$employee->l_name}}</option>
+                                        @endforeach
                                         </select>
                                 </div>
                             </div>
@@ -56,7 +57,7 @@
                                 </div>
                                 <div class="md:col-span-1">
                                     <label class="text-black font-medium" for="denom_typ">Regular Rate</label>
-                                    <input type="text" name="denom_typ" id="denom_typ" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
+                                    <input type="text" name="denom_typ" id="denom_typ" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="450" placeholder="" />
                                 </div>
                             </div>
                         </div>
@@ -66,22 +67,22 @@
                 <div>
                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3 mb-6 mt-12">
                         <div class="text-gray-600">
-                            <p class="font-medium text-lg">Render Details</p>
+                            <p class="font-medium text-lg"></p>
                         </div>
 
                         <div class="lg:col-span-2">
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-4">
                                 <div class="md:col-span-2">
-                                    <label class="text-black font-medium" for="denom_typ">Date of Payroll</label>
-                                    <input type="date" name="denom_typ" id="denom_typ" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
+                                    <label class="text-black font-medium" for="date_of_payroll">Date of Payroll</label>
+                                    <input type="date" name="date_of_payroll" id="date_of_payroll" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                 </div>
                                 <div class="md:col-span-1">
-                                    <label class="text-black font-medium" for="denom_typ">Start Day of Work</label>
-                                    <input type="date" name="denom_typ" id="denom_typ" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
+                                    <label class="text-black font-medium" for="start_date">Start Date of Work</label>
+                                    <input type="date" name="start_date" id="start_date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                 </div>
                                 <div class="md:col-span-1">
-                                    <label class="text-black font-medium" for="denom_typ">End Day of Work</label>
-                                    <input type="date" name="denom_typ" id="denom_typ" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
+                                    <label class="text-black font-medium" for="end_date">End Date of Work</label>
+                                    <input type="date" name="end_date" id="end_date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                 </div>
                             </div>
                         </div>
@@ -91,18 +92,18 @@
                 <div>
                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3 mb-6 mt-12">
                         <div class="text-gray-600">
-                            <p class="font-medium text-lg">Total Salary</p>
+                            <p class="font-medium text-lg"></p>
                         </div>
 
                         <div class="lg:col-span-2">
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-3">
                                 <div class="md:col-span-1">
-                                    <label class="text-black font-medium" for="denom_typ">Days of Work</label>
-                                    <input type="text" name="denom_typ" id="denom_typ" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
+                                    <label class="text-black font-medium" for="days_of_work">Days of Work</label>
+                                    <input type="text" name="days_of_work" id="days_of_work" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                 </div>
                                 <div class="md:col-span-2">
-                                    <label class="text-black font-medium" for="denom_typ">Total Salary</label>
-                                    <input type="text" name="denom_typ" id="denom_typ" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
+                                    <label class="text-black font-medium" for="total_salary">Total Salary</label>
+                                    <input type="text" name="total_salary" id="total_salary" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                 </div>
                             </div>
                         </div>

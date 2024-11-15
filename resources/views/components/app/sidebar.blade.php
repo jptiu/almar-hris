@@ -35,7 +35,7 @@
             <div>
                 <ul class="mt-3">
                     @can('hr_access')
-                        <!-- <li
+                        <li
                             class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['hr'])) {{ 'bg-accent-100' }} @endif">
                             <a href="{{ route('hr.index') }}"
                                 class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
@@ -45,21 +45,26 @@
                                         class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Dashboard</span>
                                 </div>
                             </a>
-                        </li> -->
-                        <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['employee'])) {{ 'bg-accent-100' }} @endif">
-                            <a href="{{ route('employee.index') }}"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['employee'])) {{ 'hover:text-slate-200' }} @endif">
-                                <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2c-4.97 0-9 4.03-9 9 0 4.17 2.84 7.67 6.69 8.69L12 22l2.31-2.31C18.16 18.67 21 15.17 21 11c0-4.97-4.03-9-9-9zm0 2c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.3c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
-                                    <span
-                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Employee</span>
+                        </li>
+                        <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 bg-[linear-gradient(135deg,var(--tw-gradient-stops))] @if(in_array(Request::segment(1), ['employee', 'employee-add', 'bm-probation', 'new-hire', 'resignation'])){{ 'from-violet-500/[0.12] dark:from-violet-500/[0.24] to-violet-500/[0.04]' }}@endif" x-data="{ open: {{ in_array(Request::segment(1), ['employee', 'employee-add', 'bm-probation', 'new-hire', 'resignation']) ? 1 : 0 }} }">
+                            <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if(!in_array(Request::segment(1), ['employee', 'employee-add', 'bm-probation', 'new-hire', 'resignation'])){{ 'hover:text-gray-900 dark:hover:text-white' }}@endif" href="#0" @click.prevent="open = !open; sidebarExpanded = true">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2c-4.97 0-9 4.03-9 9 0 4.17 2.84 7.67 6.69 8.69L12 22l2.31-2.31C18.16 18.67 21 15.17 21 11c0-4.97-4.03-9-9-9zm0 2c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.3c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+                                        <span class="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Employee</span>
+                                    </div>
+                                    <!-- Icon -->
+                                    <div class="flex shrink-0 ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
+                                        <svg class="w-3 h-3 shrink-0 ml-1 fill-current text-gray-400 dark:text-gray-500 @if(in_array(Request::segment(1), ['employee'])){{ 'rotate-180' }}@endif" :class="open ? 'rotate-180' : 'rotate-0'" viewBox="0 0 12 12">
+                                            <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
+                                        </svg>
+                                    </div>
                                 </div>
                             </a>
                             <div class="lg:hidden lg:sidebar-expanded:block 2xl:block">
-                                <ul class="pl-9 mt-1 @if(!in_array(Request::segment(1), ['employee'])){{ 'hidden' }}@endif" :class="open ? '!block' : 'hidden'">
+                                <ul class="pl-10 mt-1 @if(!in_array(Request::segment(1), ['employee', 'employee-add', 'bm-probation', 'new-hire', 'resignation'])){{ 'hidden' }}@endif" :class="open ? '!block' : 'hidden'">
                                     <li class="mb-1 last:mb-0">
-                                        <a class="block text-white dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('employee.add')){{ '!text-violet-500' }}@endif" href="{{ route('employee.add') }}">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('employee.add')){{ '!text-violet-500' }}@endif" href="{{ route('employee.add') }}">
                                             <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Add Employee</span>
                                         </a>
                                     </li>
@@ -69,12 +74,12 @@
                                         </a>
                                     </li>
                                     <li class="mb-1 last:mb-0">
-                                        <a class="block text-white dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('newhire.index')){{ '!text-violet-500' }}@endif" href="{{ route('newhire.index') }}">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('newhire.index')){{ '!text-violet-500' }}@endif" href="{{ route('newhire.index') }}">
                                             <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">New Hire</span>
                                         </a>
                                     </li>
                                     <li class="mb-1 last:mb-0">
-                                        <a class="block text-white dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('resignation.index')){{ '!text-violet-500' }}@endif" href="{{ route('resignation.index') }}">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('resignation.index')){{ '!text-violet-500' }}@endif" href="{{ route('resignation.index') }}">
                                             <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Resignation</span>
                                             <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-6 text-sm font-semibold text-red-700 bg-red-200 rounded-full">2</span>
                                         </a>
@@ -944,7 +949,7 @@
                                 <ul class="pl-9 mt-1 "
                                     :class="open ? 'hover:text-slate-200' : 'hover:text-white'">
                                     <li class="mb-1 last:mb-0">
-                                        <a class="block text-neutral-50 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition truncate \"
+                                        <a class="block text-neutral-50 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition truncate"
                                             href="{{ route('approvedLoan.index') }}">
                                             <span
                                                 class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Approved Loans</span>

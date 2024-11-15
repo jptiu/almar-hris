@@ -30,6 +30,7 @@ use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\BarangayController;
+use App\Http\Controllers\PayrollController;
 
 /*
 |--------------------------------------------------------------------------
@@ -234,12 +235,12 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('overdueacc', [BMController::class, 'overdueAcc'])->name('overdueacc.index');
 
     // Payroll
-    Route::get('payroll', [EmployeeController::class, 'empPayroll'])->name('payroll.index');
-    Route::get('payroll-add', [EmployeeController::class, 'payrollAdd'])->name('payroll.add');
-    Route::get('payroll/payslip', [EmployeeController::class, 'payrollPrint'])->name('payroll.print');
-    // Route::post('payroll/store', [EmployeeController::class, 'resigstore'])->name('payroll.store');
-    // Route::post('payroll/update/{id}', [EmployeeController::class, 'resigupdate'])->name('payroll.update');
-    // Route::get('payroll/show/{id}', [EmployeeController::class, 'resigshow'])->name('payroll.show');
+    Route::get('payroll', [PayrollController::class, 'index'])->name('payroll.index');
+    Route::get('payroll-add', [PayrollController::class, 'create'])->name('payroll.add');
+    Route::post('payroll/store', [PayrollController::class, 'store'])->name('payroll.store');
+    Route::get('payroll/payslip', [PayrollController::class, 'payrollPrint'])->name('payroll.print');
+    // Route::post('payroll/update/{id}', [PayrollController::class, 'resigupdate'])->name('payroll.update');
+    // Route::get('payroll/show/{id}', [PayrollController::class, 'resigshow'])->name('payroll.show');
 
     // Superadmin
     Route::get('superadmin/monthlyreport', [SuperAdminController::class, 'monthlyReport'])->name('monthlyReport.index');
