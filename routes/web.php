@@ -94,6 +94,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::post('loan/store', [LoanController::class, 'store'])->name('loan.store');
     Route::post('loan/update/{id}', [LoanController::class, 'update'])->name('loan.update');
     Route::delete('loan/destroy/{id}', [LoanController::class, 'destroy'])->name('loan.destroy');
+    Route::post('loan/import', [LoanController::class, 'importCSV'])->name('loan.importcsv');
+    Route::post('loan/import-details', [LoanController::class, 'importCSVDetails'])->name('loan.importcsvdetails');
 
     // Collection
     Route::get('collection', [CollectionController::class, 'index'])->name('collection.index');

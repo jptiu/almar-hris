@@ -7,6 +7,7 @@ use App\Http\Requests\LoanUpdateRequest;
 use App\Models\Customer;
 use App\Models\CustomerType;
 use App\Models\Loan;
+use App\Models\LoanDetails;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
@@ -72,7 +73,7 @@ class LoanController extends Controller
                 $loan->actual_record = $request->actual_record;
                 $loan->payable_amount = $request->payable_amount;
                 $loan->save();
-    
+
                 return redirect()->back()->with('success', 'Loan Entry Created.');
             }
         } catch (\Throwable $th) {
@@ -138,5 +139,91 @@ class LoanController extends Controller
         $loan->delete();
 
         return redirect()->back()->with('success', 'Loan deleted.');
+    }
+
+    public function importCSV(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|mimes:csv,txt|max:2048', // Validate the uploaded file
+        ]);
+
+        $file = $request->file('file');
+
+        // Read the CSV data
+        $csvData = file_get_contents($file);
+        // dd($csvData);
+
+        // Split CSV data into rows
+        $rows = array_map('str_getcsv', explode("\n", $csvData));
+
+        // Remove the header row if it exists
+        $header = array_shift($rows);
+        // dd($header);
+
+        foreach ($rows as $row) {
+            // Create and save your model instance
+            Loan::create([
+                'id' => $row[0],
+                'date_of_loan' => $row[1],
+                'customer_id' => $row[2],
+                'principal_amount' => $row[3],
+                'payable_amount' => $row[4],
+                'days_to_pay' => $row[5],
+                'months_to_pay' => $row[6],
+                'interest' => $row[7],
+                'status' => $row[9],
+                'transaction_customer_status' => $row[10],
+                'transaction_customer_status_date' => $row[11],
+                'transaction_type' => $row[12],
+                'transaction_with_collateral' => $row[13],
+                'transaction_with_cert' => $row[14],
+                'user_id' => $row[15],
+            ]);
+        }
+
+        return redirect(route("loan.index"))->with('success', 'CSV Data Imported Successfully');
+    }
+
+    public function importCSVDetails(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|mimes:csv,txt|max:20000', // Validate the uploaded file
+        ]);
+
+        $file = $request->file('file');
+
+        // Read the CSV data
+        $csvData = file_get_contents($file);
+        // dd($csvData);
+
+        // Split CSV data into rows
+        $rows = array_map('str_getcsv', explode("\n", $csvData));
+
+        // Remove the header row if it exists
+        $header = array_shift($rows);
+        // dd($header);
+
+        foreach ($rows as $row) {
+            // Create and save your model instance
+            LoanDetails::create([
+                'id' => $row[1],
+                'loan_id'=> $row[0],//Lnkltranh_no
+                'loan_day_no'=> $row[2],//ltrand_dayno
+                'loan_due_date'=> $row[3],//ltrand_duedate
+                'loan_due_amount'=> $row[4],//ltrand_dueamt
+                'loan_date_paid'=> $row[5],//ltrand_datepaid
+                'loan_amount_paid'=> $row[6],//ltrand_amtpaid
+                'loan_running_balance'=> $row[7],//ltrand_runbal
+                'user_id'=> $row[9],//ltrand_clctor
+                'loan_bank'=> $row[10],//ltrand_bank
+                'loan_check_no'=> $row[11],//ltrand_chkno
+                'loan_remarks'=> $row[12],//ltrand_rem
+                'loan_amount_tenderd'=> $row[13],//ltrand_amttend
+                'loan_amount_change'=> $row[14],//ltrand_amtchange
+                'loan_withdraw_from_bank'=> $row[15],//ltrand_withdrawn_frombank
+            ]);
+        }
+
+        return redirect(route("loan.index"))->with('success', 'Loan Details Imported Successfully');
     }
 }
