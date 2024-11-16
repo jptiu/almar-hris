@@ -92,6 +92,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     // Loan
     Route::get('loan', [LoanController::class, 'index'])->name('loan.index');
+    Route::get('loan/create', [LoanController::class, 'create'])->name('loan.create');
     Route::get('loan/show/{id}', [LoanController::class, 'show'])->name('loan.show');
     Route::post('loan/store', [LoanController::class, 'store'])->name('loan.store');
     Route::post('loan/update/{id}', [LoanController::class, 'update'])->name('loan.update');

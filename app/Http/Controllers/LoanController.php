@@ -19,7 +19,7 @@ class LoanController extends Controller
     public function index(Request $request)
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
-        $lists = Loan::get();
+        $lists = Loan::paginate(10);
         $types = CustomerType::get();
         $loan = [];
         $customer = [];
@@ -43,9 +43,27 @@ class LoanController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
+        $types = CustomerType::get();
+        $loan = [];
+        $customer = [];
+        if ($request->transaction_no) {
+            $loan = Loan::with('customer')->find($request->transaction_no);
+        }
+        if ($request->id) {
+            $customer = Customer::find($request->id);
+        }
+        // Check if the request is an AJAX call
+        if ($request->ajax()) {
+            return response()->json([
+                'customer' => $customer,
+                'loan' => $loan,
+            ]);
+        }
+
+        return view('pages.loan.entry.index', compact('types', 'customer', 'loan'));
     }
 
     /**
