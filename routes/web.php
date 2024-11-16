@@ -91,12 +91,14 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     // Loan
     Route::get('loan', [LoanController::class, 'index'])->name('loan.index');
+    Route::get('loan/show/{id}', [LoanController::class, 'show'])->name('loan.show');
     Route::post('loan/store', [LoanController::class, 'store'])->name('loan.store');
     Route::post('loan/update/{id}', [LoanController::class, 'update'])->name('loan.update');
     Route::delete('loan/destroy/{id}', [LoanController::class, 'destroy'])->name('loan.destroy');
 
     // Collection
     Route::get('collection', [CollectionController::class, 'index'])->name('collection.index');
+    Route::get('collection/show/{id}', [CollectionController::class, 'show'])->name('collection.show');
     Route::post('collection/store', [CollectionController::class, 'store'])->name('collection.store');
     Route::post('collection/update/{id}', [CollectionController::class, 'update'])->name('collection.update');
     Route::delete('collection/destroy/{id}', [CollectionController::class, 'destroy'])->name('collection.destroy');
@@ -113,6 +115,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     // Expenses
     Route::get('expenses', [ExpensesController::class, 'index'])->name('expenses.index');
+    Route::get('expenses/show/{id}', [ExpensesController::class, 'show'])->name('expenses.show');
     Route::post('expenses/store', [ExpensesController::class, 'store'])->name('expenses.store');
     Route::post('expenses/update/{id}', [ExpensesController::class, 'update'])->name('expenses.update');
     Route::delete('expenses/destroy/{id}', [ExpensesController::class, 'destroy'])->name('expenses.destroy');
@@ -120,6 +123,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     // Compute Cash on Hand
     Route::get('compute', [ComputeCOHController::class, 'index'])->name('compute.index');
+    Route::get('compute/show/{id}', [ComputeCOHController::class, 'show'])->name('compute.show');
 
     // Daily
     Route::get('daily', [CLDController::class, 'index'])->name('daily.index');
@@ -206,6 +210,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     // Bad Account
     Route::get('branch/bad-account', [BMController::class, 'badAccount'])->name('badAccount.index');
+
+    // Regular Account
+    Route::get('branch/regular-account', [BMController::class, 'regAccount'])->name('regAccount.index');
 
     // Todays Payer
     Route::get('branch/todays-payer', [BMController::class, 'todaysPayer'])->name('todaysPayer.index');

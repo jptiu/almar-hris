@@ -86,6 +86,11 @@ class BMController extends Controller
         return view('pages.badacc.index');
     }
 
+    public function regAccount(Request $request)
+    {
+        return view('pages.regacc.index');
+    }
+
     public function todaysPayer(Request $request)
     {
         return view('pages.todaypayer.index');

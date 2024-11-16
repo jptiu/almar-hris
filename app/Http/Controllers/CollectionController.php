@@ -63,7 +63,10 @@ class CollectionController extends Controller
      */
     public function show(string $id)
     {
-        //
+        abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
+        $collection = Collection::where('id', $id)->first();
+
+        return view('pages.collections.show.index', compact('collection'));
     }
 
     /**

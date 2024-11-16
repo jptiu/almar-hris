@@ -54,7 +54,10 @@ class ExpensesController extends Controller
      */
     public function show(string $id)
     {
-        //
+        abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
+        $expenses = Expenses::where('id', $id)->first();
+
+        return view('pages.expenses.show.index', compact('expenses'));
     }
 
     /**

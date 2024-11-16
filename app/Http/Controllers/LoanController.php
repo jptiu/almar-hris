@@ -36,7 +36,7 @@ class LoanController extends Controller
             ]);
         }
 
-        return view('pages.loan.entry.index', compact('lists', 'types', 'customer', 'loan'));
+        return view('pages.loan.index', compact('lists', 'types', 'customer', 'loan'));
     }
 
     /**
@@ -86,9 +86,9 @@ class LoanController extends Controller
     public function show(string $id)
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
-        $loan = Loan::find($id);
+        $loan = Loan::where('id', $id)->first();
 
-        return view('pages.loan.entry.index', compact('loan'));
+        return view('pages.loan.show.index', compact('loan'));
     }
 
     /**
