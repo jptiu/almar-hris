@@ -47,7 +47,14 @@ class CollectionController extends Controller
      */
     public function create()
     {
-        //
+        abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
+        $customers = Customer::get();
+        $collectors = User::where('roles.title', 'Collector')
+        ->join('role_user', 'users.id', '=', 'role_user.user_id')
+        ->join('roles', 'role_user.role_id', '=', 'roles.id')
+        ->get();
+        
+        return view('pages.collections.entry.index', compact('customers', 'collectors'));
     }
 
     /**

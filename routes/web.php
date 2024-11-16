@@ -102,6 +102,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     // Collection
     Route::get('collection', [CollectionController::class, 'index'])->name('collection.index');
+    Route::get('collection/create', [CollectionController::class, 'create'])->name('collection.create');
     Route::get('collection/show/{id}', [CollectionController::class, 'show'])->name('collection.show');
     Route::post('collection/store', [CollectionController::class, 'store'])->name('collection.store');
     Route::post('collection/update/{id}', [CollectionController::class, 'update'])->name('collection.update');
@@ -119,6 +120,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     // Expenses
     Route::get('expenses', [ExpensesController::class, 'index'])->name('expenses.index');
+    Route::get('expenses/create', [ExpensesController::class, 'create'])->name('expenses.create');
     Route::get('expenses/show/{id}', [ExpensesController::class, 'show'])->name('expenses.show');
     Route::post('expenses/store', [ExpensesController::class, 'store'])->name('expenses.store');
     Route::post('expenses/update/{id}', [ExpensesController::class, 'update'])->name('expenses.update');

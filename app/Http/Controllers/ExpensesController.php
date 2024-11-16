@@ -25,7 +25,10 @@ class ExpensesController extends Controller
      */
     public function create()
     {
-        //
+        abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
+        
+        
+        return view('pages.expenses.entry.index');
     }
 
     /**
