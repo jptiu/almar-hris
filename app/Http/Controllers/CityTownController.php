@@ -125,7 +125,7 @@ class CityTownController extends Controller
      */
     public function destroy($id)
     {
-        abort_unless(Gate::allows('loan_access'), 404);
+        // abort_unless(Gate::allows('loan_access'), 404);
         $city = CityTown::find($id);
         $city->delete();
 
@@ -155,9 +155,9 @@ class CityTownController extends Controller
         foreach ($rows as $row) {
             // Create and save your model instance
             CityTown::create([
-                'city_town' => $row[0],
-                'code' => $row[1],
-                'user_id' => $row[2],
+                'city_town' => $row[1],
+                'code' => $row[0],
+                'user_id' => $row[3],
             ]);
         }
 

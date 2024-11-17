@@ -24,8 +24,7 @@ class BarangayUpdateRequest extends FormRequest
     {
         return [
             'barangay_name' => 'string',
-            'code' => 'string',
-            'city' => 'string',
+            'city_town_id' => 'string',
             'user_id' => 'string'
         ];
     }

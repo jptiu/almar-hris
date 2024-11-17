@@ -11,12 +11,16 @@ class Barangay extends Model
 
     protected $fillable = [
         'barangay_name',
-        'code',
-        'city',
+        'city_town_id',
         'user_id'
     ];
 
     public function user(){
         return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    public function city()
+    {
+        return $this->belongsTo(CityTown::class, 'city_town_id', 'id');
     }
 }

@@ -16,8 +16,7 @@ return new class extends Migration
         Schema::create('barangays', function (Blueprint $table) {
             $table->id();
             $table->string('barangay_name');
-            $table->string('code');
-            $table->string('city');
+            $table->string('city_town_id');
             $table->string('user_id');
             $table->timestamps();
         });

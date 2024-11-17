@@ -211,12 +211,13 @@
                                 <label for="transaction_type" class="text-black font-medium">Transaction Type</label>
                                 <select name="transaction_type" id="transaction_type"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
-                                <option value="renew">Renew</option>
-                                <option value="recons">Recons</option>
-                                <option value="w-collat">With Collat</option>
-                                <option value="c/a">C/A</option>
-                                <option value="with-cert">With Cert</option>
-                                <option value="c/a-becomes-b/a">C/A Becomes B.A.</option>
+                                <option value="NEW">NEW</option>
+                                <option value="RENEW">Renew</option>
+                                <option value="RECONS">Recons</option>
+                                <option value="W/COLLAT">With Collat</option>
+                                <option value="CA">CA</option>
+                                <option value="W/CERT">With Cert</option>
+                                <option value="CBA">C/A Becomes B.A.</option>
                                 </select>
                             </div>
                         </div>
@@ -246,22 +247,17 @@
                             </div>
 
                             <div class="md:col-span-1">
-                                <label for="customer_type" class="text-black font-medium">Customer Type</label>
-                                <select name="customer_type" id="customer_type"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
-                                @foreach ($types as $type)
-                                    <option value="{{ $type->description }}">{{ $type->description }}</option>
-                                @endforeach
-                                </select>
+                                <label for="type" class="text-black font-medium">Customer Type</label>
+                                <input type="text" name="type" id="type"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
+                                    value="{{ $customer->type ?? '' }}" placeholder="" disabled/>
                             </div>
 
                             <div class="md:col-span-1">
                                 <label for="status" class="text-black font-medium">Status</label>
-                                <select name="status" id="status"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
-                                <option value="Active">Active</option>
-                                <option value="Inactive">Inactive</option>
-                                </select>
+                                <input type="text" name="status" id="status"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
+                                    value="{{ $customer->status ?? '' }}" placeholder="" />
                             </div>
                         </div>
                     </div>
@@ -498,7 +494,7 @@
                                 // If the element is a <select>, set its value to match an option
                                 element.value = customerData[key];
                                 element.dispatchEvent(new Event(
-                                'change')); // Trigger change event if necessary
+                                    'change')); // Trigger change event if necessary
                             } else {
                                 // For input fields, directly set the value
                                 element.value = customerData[key];
@@ -514,13 +510,14 @@
                                 // If the element is a <select>, set its value to match an option
                                 element.value = loanData[key];
                                 element.dispatchEvent(new Event(
-                                'change')); // Trigger change event if necessary
+                                    'change')); // Trigger change event if necessary
                             } else {
                                 // For input fields, directly set the value
                                 element.value = loanData[key];
                             }
                         }
                     });
+                    getCustomerID();
                 } else {
                     console.log('Transaction not found.');
                     alert('Transaction not found.');
@@ -552,7 +549,8 @@
                 if (response.customer) {
                     // Display customer data (e.g., name, address) in specific elements
                     document.getElementById("name").value = response.customer.first_name;
-                    document.getElementById("customer_type").value = response.customer.type;
+                    document.getElementById("type").value = response.customer.type;
+                    document.getElementById("status").value = response.customer.status;
                     // Add more fields as needed
                 } else {
                     console.log('Customer not found.');

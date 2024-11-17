@@ -149,11 +149,11 @@
                                         <tr>
                                             <td
                                                 class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
-                                                {{ $list->code }}
+                                                {{ $list->city->code }}
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                {{ $list->city }}
+                                                {{ $list->city->city_town }}
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
@@ -168,7 +168,7 @@
                                                 <div class="flex items-center gap-x-2">
                                                     <div>
                                                         <h2 class="text-sm font-medium text-gray-500 dark:text-white ">
-                                                            {{ $list->user->name }}</h2>
+                                                            {{ $list->user_id }}</h2>
                                                     </div>
                                                 </div>
                                             </td>

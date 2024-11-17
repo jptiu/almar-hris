@@ -153,7 +153,7 @@
                                                 <div class="flex items-center gap-x-2">
                                                     <div>
                                                         <h2 class="text-sm font-medium text-gray-500 dark:text-white ">
-                                                            {{ $list->user->name }}</h2>
+                                                            {{ $list->user_id }}</h2>
                                                     </div>
                                                 </div>
                                             </td>

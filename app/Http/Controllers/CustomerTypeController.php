@@ -154,9 +154,9 @@ class CustomerTypeController extends Controller
         foreach ($rows as $row) {
             // Create and save your model instance
             CustomerType::create([
-                'description' => $row[0],
                 'code' => $row[1],
-                'user_id' => $row[2],
+                'description' => $row[2],
+                'user_id' => $row[3],
             ]);
         }
 

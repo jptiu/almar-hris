@@ -153,7 +153,8 @@ class CustomerController extends Controller
         foreach ($rows as $row) {
             // Create and save your model instance
             Customer::create([
-                'type' => $row[0],
+                'id' => $row[0],
+                'type' => $row[9],
                 'first_name' => $row[1],
                 'middle_name' => $row[2],
                 'last_name' => $row[3],
@@ -161,11 +162,12 @@ class CustomerController extends Controller
                 'street' => $row[5],
                 'barangay' => $row[6],
                 'city' => $row[7],
-                'job_position' => $row[8],
-                'salary_sched' => $row[9],
-                'tel_number' => $row[10],
-                'cell_number' => $row[11],
-                'status' => $row[12],
+                'job_position' => $row[14],
+                'salary_sched' => $row[18],
+                'tel_number' => $row[15],
+                'cell_number' => $row[16],
+                'status' => $row[8],
+                'civil_status' => '',
             ]);
         }
 

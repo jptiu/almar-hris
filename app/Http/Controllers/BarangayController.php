@@ -18,8 +18,7 @@ class BarangayController extends Controller
     public function index(Request $request)
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
-        $lists = Barangay::with('user')
-        ->where('barangay_name', 'LIKE', '%', $request->search, '%')->orderBy("created_at", "asc")
+        $lists = Barangay::where('barangay_name', 'LIKE', '%', $request->search, '%')->orderBy("created_at", "asc")
         ->get();
 
         return view('pages.barangay.index', compact('lists'));
@@ -155,9 +154,8 @@ class BarangayController extends Controller
         foreach ($rows as $row) {
             // Create and save your model instance
             Barangay::create([
-                'barangay_name' => $row[0],
-                'code' => $row[1],
-                'city' => $row[2],
+                'city_town_id' => $row[0],
+                'barangay_name' => $row[2],
                 'user_id' => $row[3],
             ]);
         }
