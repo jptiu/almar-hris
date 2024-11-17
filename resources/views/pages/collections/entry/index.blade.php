@@ -30,6 +30,12 @@
         </div>
 
         <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
+            <div class="flex items-center text-gray-600 mb-12">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            <a href="{{ route('customer.index') }}" class="text-base font-semibold">Back</a>
+            </div>
             <div class="grid grid-cols-2 gap-4">
                 <div class="...">
                     <form action="{{ route('customer.store') }}" method="POST">
@@ -220,23 +226,39 @@
                                 </div>
                             </div>
                         </div>
-
+                    </form>
                         <div class="mb-8">
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
                                 <div class="lg:col-span-2">
-                                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
+                                    <div class="flex justify-between grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
 
                                         <div class="md:col-span-1">
                                             <input type="checkbox" name="house" id="house"
                                                 class="border px-2 py-2 bg-gray-50" value="" placeholder="" />
                                             <label for="house" class="mt-2 ml-1">Allow Grace period</label>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </form>
+
+                        <div class="mb-8 flex flex-row-reverse">
+                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
+                                <div class="lg:col-span-2">
+                                    <div class="flex justify-between grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
+
+                                        <div class="md:col-span-1">
+                                        {{-- <button type="submit"
+                                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Input
+                                            Check Number</button> --}}
+                                            <button type="submit"
+                                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                 </div>
 
                 <div class="...">
