@@ -196,8 +196,22 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="mb-8 mt-8 flex flex-row-reverse">
+                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
+                                <div class="lg:col-span-2">
+                                    <div class="flex justify-between grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
 
-                        <x-section-border />
+                                        <div class="md:col-span-1">
+                                        {{-- <button type="submit"
+                                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Input
+                                            Check Number</button> --}}
+                                            <button type="submit"
+                                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                     </form>
                     </div>
