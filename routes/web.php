@@ -129,6 +129,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     // Compute Cash on Hand
     Route::get('compute', [ComputeCOHController::class, 'index'])->name('compute.index');
+    Route::get('compute/create', [ComputeCOHController::class, 'create'])->name('compute.create');
     Route::get('compute/show/{id}', [ComputeCOHController::class, 'show'])->name('compute.show');
 
     // Daily
