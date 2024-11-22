@@ -194,6 +194,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     // Branch
     Route::get('branch', [BMController::class, 'index'])->name('branch.index');
+    Route::get('csor', [BMController::class, 'csor'])->name('csor.index');
 
     // Collector
     Route::get('collector', [CollectorController::class, 'index'])->name('collector.index');

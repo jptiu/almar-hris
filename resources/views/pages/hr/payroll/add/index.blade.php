@@ -31,12 +31,8 @@
                         <div class="lg:col-span-2">
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
                                 <div class="md:col-span-1">
-                                    <label class="text-black font-medium" for="employee_name">Employee Name</label>
-                                        <select name="employee_name" id="employee_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
-                                        @foreach ( $employees as $employee )
-                                            <option value="{{$employee->user_id}}">{{$employee->f_name.' '.$employee->m_name.' '.$employee->l_name}}</option>
-                                        @endforeach
-                                        </select>
+                                    <label class="text-black font-medium" for="full_name">Full Name</label>
+                                    <input type="text" name="full_name" id="full_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                 </div>
                             </div>
                         </div>
@@ -52,12 +48,12 @@
                         <div class="lg:col-span-2">
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
                                 <div class="md:col-span-1">
-                                    <label class="text-black font-medium" for="denom_typ">Position</label>
-                                    <input type="text" name="denom_typ" id="denom_typ" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
+                                    <label class="text-black font-medium" for="position">Position</label>
+                                    <input type="text" name="position" id="position" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                 </div>
                                 <div class="md:col-span-1">
-                                    <label class="text-black font-medium" for="denom_typ">Regular Rate</label>
-                                    <input type="text" name="denom_typ" id="denom_typ" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="450" placeholder="" />
+                                    <label class="text-black font-medium" for="current_rate">Current Rate</label>
+                                    <input type="text" name="current_rate" id="current_rate" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                 </div>
                             </div>
                         </div>
