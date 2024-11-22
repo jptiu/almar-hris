@@ -35,6 +35,9 @@ class PayrollController extends Controller
     {
         $payroll = new Payroll();
         $payroll->user_id = $request->user_id;
+        $payroll->full_name = $request->full_name;
+        $payroll->position = $request->position;
+        $payroll->current_rate = $request->current_rate;
         $payroll->date_of_payroll = $request->date_of_payroll;
         $payroll->start_date = $request->start_date;
         $payroll->end_date = $request->end_date;

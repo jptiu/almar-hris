@@ -136,4 +136,11 @@ class BMController extends Controller
     {
         return view('pages.attendancebm.index');
     }
+
+    public function csor()
+    {
+        abort_unless(Gate::allows('branch_access'), 404);
+        
+        return view('pages.csor.index');
+    }
 }
