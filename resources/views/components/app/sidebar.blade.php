@@ -912,7 +912,7 @@
                             </a>
                         </li>
                         <!-- Customer Profile -->
-                        <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['customer'])) {{ 'bg-accent-100' }} @endif"
+                        {{-- <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['customer'])) {{ 'bg-accent-100' }} @endif"
                             x-data="{ open: {{ in_array(Request::segment(1), ['customer']) ? 1 : 0 }} }">
                             <a href="{{ route('customer.index') }}"
                                 class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['customer'])) {{ 'hover:text-slate-200' }} @endif">
@@ -925,9 +925,9 @@
                                     </div>
                                 </div>
                             </a>
-                        </li>
+                        </li> --}}
                         <!-- Grant Loan Entry -->
-                        <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['loan'])) {{ 'bg-accent-100' }} @endif"
+                        {{-- <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['loan'])) {{ 'bg-accent-100' }} @endif"
                             x-data="{ open: {{ in_array(Request::segment(1), ['loan']) ? 1 : 0 }} }">
                             <a href="{{ route('loan.index') }}"
                                 class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['loan'])) {{ 'hover:text-slate-200' }} @endif">
@@ -940,9 +940,9 @@
                                     </div>
                                 </div>
                             </a>
-                        </li>
+                        </li> --}}
                         <!-- Collection Data Entry -->
-                        <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['collection'])) {{ 'bg-accent-100' }} @endif"
+                        {{-- <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['collection'])) {{ 'bg-accent-100' }} @endif"
                             x-data="{ open: {{ in_array(Request::segment(1), ['collection']) ? 1 : 0 }} }">
                             <a href="{{ route('collection.index') }}"
                                 class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['collection'])) {{ 'hover:text-slate-200' }} @endif">
@@ -955,9 +955,9 @@
                                     </div>
                                 </div>
                             </a>
-                        </li>
+                        </li> --}}
                         <!-- Breakdown of Cash Bills -->
-                        <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['breakdown'])) {{ 'bg-accent-100' }} @endif"
+                        {{-- <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['breakdown'])) {{ 'bg-accent-100' }} @endif"
                             x-data="{ open: {{ in_array(Request::segment(1), ['breakdown']) ? 1 : 0 }} }">
                             <a href="{{ route('breakdown.index') }}"
                                 class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['breakdown'])) {{ 'hover:text-slate-200' }} @endif">
@@ -970,9 +970,9 @@
                                     </div>
                                 </div>
                             </a>
-                        </li>
+                        </li> --}}
                         <!-- Expenses Data Entry -->
-                        <li
+                        {{-- <li
                             class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['expenses'])) {{ 'bg-accent-100' }} @endif">
                             <a href="{{ route('expenses.index') }}"
                                 class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['expenses'])) {{ 'hover:text-slate-200' }} @endif">
@@ -983,9 +983,9 @@
                                         Data Entry</span>
                                 </div>
                             </a>
-                        </li>
+                        </li> --}}
                         <!-- Compute Cash On Hand -->
-                        <li
+                        {{-- <li
                             class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['compute'])) {{ 'bg-accent-100' }} @endif">
                             <a 
                             href="{{ route('compute.index') }}"
@@ -1007,9 +1007,9 @@
                                         Cash On Hand</span>
                                 </div>
                             </a>
-                        </li>
+                        </li> --}}
                         <!-- Customer Ledger - Daily -->
-                        <li
+                        {{-- <li
                             class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['campaigns'])) {{ 'bg-accent-100' }} @endif">
                             <a href="{{ route('daily.index') }}" class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['campaigns'])) {{ 'hover:text-slate-200' }} @endif"
                                 href="#0">
@@ -1020,9 +1020,9 @@
                                         Ledger - Daily</span>
                                 </div>
                             </a>
-                        </li>
+                        </li> --}}
                         <!-- Customer Ledger - ATM -->
-                        <li
+                        {{-- <li
                             class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['campaigns'])) {{ 'bg-accent-100' }} @endif">
                             <a href="{{ route('monthly.index') }}" class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['campaigns'])) {{ 'hover:text-slate-200' }} @endif"
                                 href="#0">
@@ -1033,9 +1033,9 @@
                                         Ledger - ATM</span>
                                 </div>
                             </a>
-                        </li>
+                        </li> --}}
                         <!-- Setup Cities/Towns -->
-                        <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['city'])) {{ 'bg-accent-100' }} @endif"
+                        {{-- <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['city'])) {{ 'bg-accent-100' }} @endif"
                             x-data="{ open: {{ in_array(Request::segment(1), ['city']) ? 1 : 0 }} }">
                             <a href="{{ route('city.index') }}"
                                 class="block text-slate-200 hover:text-white truncate transition duration-150">
@@ -1048,9 +1048,9 @@
                                     </div>
                                 </div>
                             </a>
-                        </li>
+                        </li> --}}
                         <!-- Setup Barangays -->
-                        <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['barangay'])) {{ 'bg-accent-100' }} @endif"
+                        {{-- <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['barangay'])) {{ 'bg-accent-100' }} @endif"
                             x-data="{ open: {{ in_array(Request::segment(1), ['barangay']) ? 1 : 0 }} }">
                             <a href="{{ route('barangay.index') }}" class="block text-slate-200 transition duration-150"
                                 :class="open ? 'hover:text-slate-200' : 'hover:text-white'">
@@ -1063,9 +1063,9 @@
                                     </div>
                                 </div>
                             </a>
-                        </li>
+                        </li> --}}
                         <!-- Setup Customer Type -->
-                        <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['customer-type'])) {{ 'bg-accent-100' }} @endif"
+                        {{-- <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['customer-type'])) {{ 'bg-accent-100' }} @endif"
                             x-data="{ open: {{ in_array(Request::segment(1), ['customer-type']) ? 1 : 0 }} }">
                             <a href="{{ route('customerType.index') }}"
                                 class="block text-slate-200 transition duration-150"
@@ -1079,7 +1079,7 @@
                                     </div>
                                 </div>
                             </a>
-                        </li>
+                        </li> --}}
 
                          <!-- Employee Evaluation -->
                          <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['employee-evaluation'])) {{ 'bg-accent-100' }} @endif"
