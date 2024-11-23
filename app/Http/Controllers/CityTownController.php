@@ -19,9 +19,13 @@ class CityTownController extends Controller
     {
         //abort_unless(Gate::allows('loan_access'), 404);
         $branch = auth()->user()->branch_id;
-        $lists = CityTown::where('branch_id', $branch)->with('user')
-        ->where('city_town', 'LIKE', '%', $request->search, '%')->orderBy("created_at", "asc")
-        ->get();
+        if (isset($request->search)) {
+            $lists = CityTown::where('branch_id', $branch)->with('user')
+                ->where('city_town', 'LIKE', '%', $request->search, '%')->orderBy("created_at", "asc")
+                ->get();
+        } else {
+            $lists = CityTown::where('branch_id', $branch)->with('user')->get();
+        }
 
         return view('pages.city.index', compact('lists'));
     }
@@ -31,9 +35,9 @@ class CityTownController extends Controller
         abort_unless(Gate::allows('loan_access'), 404);
         $branch = auth()->user()->branch_id;
         $collectors = User::where('branch_id', $branch)->where('roles.title', 'Collector')
-        ->join('role_user', 'users.id', '=', 'role_user.user_id')
-        ->join('roles', 'role_user.role_id', '=', 'roles.id')
-        ->get();
+            ->join('role_user', 'users.id', '=', 'role_user.user_id')
+            ->join('roles', 'role_user.role_id', '=', 'roles.id')
+            ->get();
 
         return view('pages.city.add.index', compact('collectors'));
     }
@@ -82,11 +86,11 @@ class CityTownController extends Controller
         $branch = auth()->user()->branch_id;
         $city = CityTown::where('branch_id', $branch)->where('id', $id)->first();
         $collectors = User::where('branch_id', $branch)->where('roles.title', 'Collector')
-        ->join('role_user', 'users.id', '=', 'role_user.user_id')
-        ->join('roles', 'role_user.role_id', '=', 'roles.id')
-        ->get();
+            ->join('role_user', 'users.id', '=', 'role_user.user_id')
+            ->join('roles', 'role_user.role_id', '=', 'roles.id')
+            ->get();
 
-        return view('pages.city.update.index', compact('city','collectors'));
+        return view('pages.city.update.index', compact('city', 'collectors'));
     }
 
     /**
@@ -163,6 +167,7 @@ class CityTownController extends Controller
                 'city_town' => $row[1],
                 'code' => $row[0],
                 'user_id' => $row[3],
+                'branch_id' => $branch,
             ]);
         }
 
