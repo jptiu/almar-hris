@@ -14,7 +14,8 @@ class BMController extends Controller
     public function index()
     {
         abort_unless(Gate::allows('branch_access'), 404);
-        
+        $branch = auth()->user()->branch_id;
+
         return view('pages.branch.index');
     }
 
@@ -83,7 +84,8 @@ class BMController extends Controller
 
     public function badAccount(Request $request)
     {
-        return view('pages.badacc.index');
+        $lists = Loan::where('transaction_customer_status', 'BA')->paginate(20);
+        return view('pages.badacc.index', compact('lists'));
     }
 
     public function regAccount(Request $request)
@@ -107,7 +109,8 @@ class BMController extends Controller
 
     public function pendingLoandApproval(Request $request)
     {
-        $lists = Loan::get();
+        $branch = auth()->user()->branch_id;
+        $lists = Loan::where('branch_id', $branch)->get();
 
         return view('pages.pendingloanapp.index', compact('lists'));
     }

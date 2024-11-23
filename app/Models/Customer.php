@@ -24,10 +24,11 @@ class Customer extends Model
         'cell_number',
         'civil_status',
         'status',
+        'branch_id',
     ];
 
     public function loan()
     {
-        return $this->belongsTo(Loan::class, 'id', 'customer_id');
+        return $this->hasMany(Loan::class, 'id', 'customer_id');
     }
 }

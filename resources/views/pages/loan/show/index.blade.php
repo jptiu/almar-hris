@@ -49,18 +49,18 @@
                         </svg>
                         </div>
                             <div>
-                                <h1 class="text-lg font-bold">Luther Harber</h1>
-                                <p class="text-sm text-gray-500">ID: 100232124</p>
+                                <h1 class="text-lg font-bold">{{$loan->customer->first_name}} {{$loan->customer->last_name}}</h1>
+                                <p class="text-sm text-gray-500">ID: {{$loan->id}}</p>
                             </div>
                         </div>
                         <div class="flex flex-row gap-12 mb-12">
                             <div class="">
                                 <p class="text-sm text-gray-500 mr-4">Customer Type:</p>
-                                <h1 class="text-sm text-gray-900 font-bold">Type C</h1> 
+                                <h1 class="text-sm text-gray-900 font-bold">{{$loan->customer->type}}</h1> 
                             </div>
                             <div class="">
                                 <p class="text-sm text-gray-500 mr-4">Status:</p>
-                                <h1 class="text-sm text-gray-900 font-bold">Active</h1> 
+                                <h1 class="text-sm text-gray-900 font-bold">{{$loan->customer->status}}</h1> 
                             </div>
                         </div> 
 
@@ -74,19 +74,19 @@
                             <div class="grid grid-cols-3 gap-8 mt-4 mb-12 text-sm text-gray-500">
                                 <div>
                                     <p class="text-gray-900 text-sm">Transaction No.</p>
-                                    <p class="font-bold text-gray-900 text-base">Business</p>
+                                    <p class="font-bold text-gray-900 text-base">{{$loan->id}}</p>
                                 </div>
                                 <div>
                                     <p class="text-gray-900 text-sm">Date of Loan </p>
-                                    <p class="font-bold text-gray-900 text-base">Business</p>
+                                    <p class="font-bold text-gray-900 text-base">{{$loan->date_of_loan}}</p>
                                 </div>
                                 <div>
                                     <p class="text-gray-900 text-sm">Loan Type</p>
-                                    <p class="font-bold text-gray-900 text-base">Business</p>
+                                    <p class="font-bold text-gray-900 text-base">{{$loan->loan_type}}</p>
                                 </div>
                                 <div>
                                     <p class="text-gray-900 text-sm">Transaction Type</p>
-                                    <p class="font-bold text-gray-900 text-base">Business</p>
+                                    <p class="font-bold text-gray-900 text-base">{{$loan->transaction_type}}</p>
                                 </div>
                             </div>
                         </div>
@@ -100,31 +100,31 @@
                             <div class="grid grid-cols-3 gap-8 mt-4 mb-12 text-sm text-gray-500">
                                 <div>
                                     <p class="text-gray-900 text-sm">Principal Amount</p>
-                                    <p class="font-bold text-gray-900 text-base">Business</p>
+                                    <p class="font-bold text-gray-900 text-base">{{$loan->principal_amount}}</p>
                                 </div>
                                 <div>
                                     <p class="text-gray-900 text-sm">Interest</p>
-                                    <p class="font-bold text-gray-900 text-base">Business</p>
+                                    <p class="font-bold text-gray-900 text-base">{{$loan->interest}}</p>
                                 </div>
                                 <div>
                                     <p class="text-gray-900 text-sm">Interest Amount</p>
-                                    <p class="font-bold text-gray-900 text-base"value="" placeholder="₱">Business</p>
+                                    <p class="font-bold text-gray-900 text-base"value="" placeholder="₱">{{$loan->interest_amount}}</p>
                                 </div>
                                 <div>
                                     <p class="text-gray-900 text-sm">Service Charge</p>
-                                    <p class="font-bold text-gray-900 text-base">Business</p>
+                                    <p class="font-bold text-gray-900 text-base">{{$loan->svc_charge}}</p>
                                 </div>
                                 <div>
                                     <p class="text-gray-900 text-sm">Payable Amount</p>
-                                    <p class="font-bold text-gray-900 text-base">Business</p>
+                                    <p class="font-bold text-gray-900 text-base">{{$loan->payable_amount}}</p>
                                 </div>
                                 <div>
                                     <p class="text-gray-900 text-sm">Days to Pay</p>
-                                    <p class="font-bold text-gray-900 text-base">Business</p>
+                                    <p class="font-bold text-gray-900 text-base">{{$loan->days_to_pay}}</p>
                                 </div>
                                 <div>
                                     <p class="text-gray-900 text-sm">Months to Pay</p>
-                                    <p class="font-bold text-gray-900 text-base">Business</p>
+                                    <p class="font-bold text-gray-900 text-base">{{$loan->months_to_pay}}</p>
                                 </div>
                                 <div>
                                     <p class="text-gray-900 text-sm">Actual Record </p>
@@ -183,27 +183,42 @@
                                                         </tr>
                                                     </thead>
                                                         <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
-                                                        
+                                                        @foreach($loan->details as $details)
                                                             <tr>
                                                                 <td
                                                                     class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
-                                                                    
+                                                                    {{$details->loan_day_no}}
                                                                 </td>
                                                                 <td
                                                                     class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                                    
+                                                                    {{$details->loan_due_date}}
                                                                 </td>
                                                                 <td
                                                                     class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                                    <div class="flex items-center gap-x-2">
-                                                                        <div>
-                                                                            <h2 class="text-sm font-medium text-gray-500 dark:text-white ">
-                                                                                </h2>
-                                                                        </div>
-                                                                    </div>
+                                                                    {{$details->loan_due_amount}}
+                                                                </td>
+                                                                <td
+                                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                                    {{$details->loan_date_paid}}
+                                                                </td>
+                                                                <td
+                                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                                    {{$details->loan_running_balance}}
+                                                                </td>
+                                                                <td
+                                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                                    {{$details->loan_bank}}
+                                                                </td>
+                                                                <td
+                                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                                    {{$details->loan_check_no}}
+                                                                </td>
+                                                                <td
+                                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                                    {{$details->loan_remarks}}
                                                                 </td>
                                                             </tr>
-                                                        
+                                                        @endforeach
                                                     </tbody>
                                                 </table>
                                             </div>

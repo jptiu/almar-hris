@@ -17,6 +17,7 @@ class BreakdownController extends Controller
     public function index()
     {
         //abort_unless(Gate::allows('loan_access'), 404);
+        $branch = auth()->user()->branch_id;
         $user = Auth::user();
         $denoms = Denomination::get();
 
@@ -76,6 +77,7 @@ class BreakdownController extends Controller
         $request->validate([
             'file' => 'required|mimes:csv,txt|max:2048', // Validate the uploaded file
         ]);
+        $branch = auth()->user()->branch_id;
 
         $file = $request->file('file');
 
@@ -97,6 +99,7 @@ class BreakdownController extends Controller
                 'date' => $row[1],
                 'user_id' => $row[2],
                 'total_amount' => $row[3],
+                'branch_id' => $branch,
             ]);
         }
 
@@ -108,6 +111,7 @@ class BreakdownController extends Controller
         $request->validate([
             'file' => 'required|mimes:csv,txt|max:2048', // Validate the uploaded file
         ]);
+        $branch = auth()->user()->branch_id;
 
         $file = $request->file('file');
 
@@ -130,6 +134,7 @@ class BreakdownController extends Controller
                 'type' => $row[3],
                 'qty' => $row[4],
                 'amount' => $row[5],
+                'branch_id' => $branch,
             ]);
         }
 
@@ -138,13 +143,15 @@ class BreakdownController extends Controller
 
     public function getBreakdownByRef($ref)
     {
-        $breakdowns = CashBill::where('breakdown_id', $ref)->get();
+        $branch = auth()->user()->branch_id;
+        $breakdowns = CashBill::where('branch_id', $branch)->where('breakdown_id', $ref)->get();
         
         return response()->json($breakdowns);
     }
 
     public function storeBill(Request $request)
     {
+        $branch = auth()->user()->branch_id;
         $denomination = new CashBill();
         $denomination->denomination = $request->denomination;
         $denomination->type = $request->type;

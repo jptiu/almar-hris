@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Requests\CustomerCreateRequest;
 use App\Http\Requests\CustomerUpdateRequest;
@@ -25,11 +25,11 @@ class CustomerController extends Controller
             $lists = Customer::where('branch_id', $branch)->get();
 
 
-            return view('pages.customer.index', compact('lists'));
+            return response()->json($lists, 200);
         } catch (\Throwable $th) {
             //throw $th;
             $lists = Customer::where('branch_id', $branch)->get();
-            return view('pages.customer.index', compact('lists'));
+            return response()->json($lists, 200);
         }
     }
 

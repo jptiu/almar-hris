@@ -15,7 +15,8 @@ class ExpensesController extends Controller
     public function index()
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access') || Gate::allows('hr_access'), 404);
-        $lists = Expenses::get();
+        $branch = auth()->user()->branch_id;
+        $lists = Expenses::where('branch_id', $branch)->get();
 
         return view('pages.expenses.index', compact('lists'));
     }
@@ -26,8 +27,8 @@ class ExpensesController extends Controller
     public function create()
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
-        
-        
+
+
         return view('pages.expenses.entry.index');
     }
 
@@ -88,17 +89,18 @@ class ExpensesController extends Controller
     }
 
     public function getAccountData($acctNo)
-{
-    $account = Chart::where('acc_no', $acctNo)->first();
+    {
+        $branch = auth()->user()->branch_id;
+        $account = Chart::where('branch_id', $branch)->where('acc_no', $acctNo)->first();
 
-    if ($account) {
-        return response()->json([
-            'account_class' => $account->acc_class,
-            'account_type' => $account->acc_type,
-            'account_title' => $account->acc_title,
-        ]);
-    } else {
-        return response()->json(null);
+        if ($account) {
+            return response()->json([
+                'account_class' => $account->acc_class,
+                'account_type' => $account->acc_type,
+                'account_title' => $account->acc_title,
+            ]);
+        } else {
+            return response()->json(null);
+        }
     }
-}
 }

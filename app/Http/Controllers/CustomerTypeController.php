@@ -19,9 +19,16 @@ class CustomerTypeController extends Controller
     public function index(Request $request)
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
-        $lists = CustomerType::with('user')
-        ->where('code', 'LIKE', '%', $request->search, '%')->orderBy("created_at", "asc")
-        ->get();
+        $branch = auth()->user()->branch_id;
+        if ($request->search) {
+            $lists = CustomerType::with('user')
+                ->where('branch_id', $branch)
+                ->where('code', 'LIKE', '%', $request->search, '%')->orderBy("created_at", "asc")
+                ->get();
+        }else{
+            $lists = CustomerType::with('user')->where('branch_id', $branch)->get();
+        }
+        
 
         return view('pages.customerType.index', compact('lists'));
     }
@@ -29,10 +36,11 @@ class CustomerTypeController extends Controller
     public function add()
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
-        $collectors = User::where('roles.title', 'Collector')
-        ->join('role_user', 'users.id', '=', 'role_user.user_id')
-        ->join('roles', 'role_user.role_id', '=', 'roles.id')
-        ->get();
+        $branch = auth()->user()->branch_id;
+        $collectors = User::where('branch_id', $branch)->where('roles.title', 'Collector')
+            ->join('role_user', 'users.id', '=', 'role_user.user_id')
+            ->join('roles', 'role_user.role_id', '=', 'roles.id')
+            ->get();
 
         return view('pages.customerType.add.index', compact('collectors'));
     }
@@ -56,7 +64,8 @@ class CustomerTypeController extends Controller
     public function store(CustomerTypeCreateRequest $request)
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
-        if($request->validated()){
+        $branch = auth()->user()->branch_id;
+        if ($request->validated()) {
             $customer = new CustomerType();
             $customer->code = $request->code;
             $customer->description = $request->description;
@@ -78,11 +87,11 @@ class CustomerTypeController extends Controller
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
         $customer = CustomerType::where('id', $id)->first();
         $collectors = User::where('roles.title', 'Collector')
-        ->join('role_user', 'users.id', '=', 'role_user.user_id')
-        ->join('roles', 'role_user.role_id', '=', 'roles.id')
-        ->get();
+            ->join('role_user', 'users.id', '=', 'role_user.user_id')
+            ->join('roles', 'role_user.role_id', '=', 'roles.id')
+            ->get();
 
-        return view('pages.customerType.update.index', compact('customer','collectors'));
+        return view('pages.customerType.update.index', compact('customer', 'collectors'));
 
     }
     /**
@@ -106,7 +115,7 @@ class CustomerTypeController extends Controller
     public function update(CustomerTypeUpdateRequest $request, string $id)
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
-        if($request->validated()){
+        if ($request->validated()) {
             $customer = CustomerType::find($id);
             $customer->code = $request->code;
             $customer->description = $request->description;
@@ -137,6 +146,7 @@ class CustomerTypeController extends Controller
         $request->validate([
             'file' => 'required|mimes:csv,txt|max:2048', // Validate the uploaded file
         ]);
+        $branch = auth()->user()->branch_id;
 
         $file = $request->file('file');
 
@@ -157,6 +167,7 @@ class CustomerTypeController extends Controller
                 'code' => $row[1],
                 'description' => $row[2],
                 'user_id' => $row[3],
+                'branch_id' => $branch,
             ]);
         }
 

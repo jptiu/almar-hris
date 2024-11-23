@@ -63,16 +63,13 @@ class AuthController extends Controller
                 if (!Auth::guard('web')->attempt($credentials)) {
                     return response()->json(['message' => 'Wrong username or password'], 401);
                 }
-            }else if($user->block=='1'){
-                return response()->json(['message' => 'You have been blocked'], 401);
             } else {
                 return response()->json(['message' => 'Email not verified'], 401);
             }
 
         }
-        $user = User::where('email', $request->email)->first();
         $user->last_login_at =  now();
-        $user->device_token = $request->device_token;
+        $user->device_token = $request->device_token??null;
         $user->save();
         if (!$request->remember_me) {
             Passport::personalAccessTokensExpireIn(Carbon::now()->addDays(1));

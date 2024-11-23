@@ -13,6 +13,7 @@ class CustomerType extends Model
         'code',
         'description',
         'user_id',
+        'branch_id',
     ];
 
     public function user(){

@@ -17,7 +17,8 @@ class SavingsController extends Controller
     public function index()
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
-        $lists = Savings::get();
+        $branch = auth()->user()->branch_id;
+        $lists = Savings::where('branch_id', $branch)->get();
 
         return view('pages.savings.index', compact('lists'));
     }
@@ -28,7 +29,8 @@ class SavingsController extends Controller
     public function create()
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
-        $lists = Savings::get();
+        $branch = auth()->user()->branch_id;
+        $lists = Savings::where('branch_id', $branch)->get();
         return view('pages.savings.add.index', compact('lists'));
     }
 

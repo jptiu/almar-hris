@@ -18,7 +18,10 @@ class BarangayController extends Controller
     public function index(Request $request)
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
-        $lists = Barangay::where('barangay_name', 'LIKE', '%', $request->search, '%')->orderBy("created_at", "asc")
+        $branch = auth()->user()->branch_id;
+
+        $lists = Barangay::where('branch_id', $branch)
+        ->where('barangay_name', 'LIKE', '%', $request->search, '%')->orderBy("created_at", "asc")
         ->get();
 
         return view('pages.barangay.index', compact('lists'));
@@ -27,7 +30,8 @@ class BarangayController extends Controller
     public function add()
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
-        $collectors = User::where('roles.title', 'Collector')
+        $branch = auth()->user()->branch_id;
+        $collectors = User::where('branch_id', $branch)->where('roles.title', 'Collector')
         ->join('role_user', 'users.id', '=', 'role_user.user_id')
         ->join('roles', 'role_user.role_id', '=', 'roles.id')
         ->get();
@@ -54,6 +58,7 @@ class BarangayController extends Controller
     public function store(BarangayCreateRequest $request)
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
+        $branch = auth()->user()->branch_id;
         if($request->validated()){
             $brgy = new Barangay();
             $brgy->barangay_name = $request->barangay_name;
@@ -75,8 +80,9 @@ class BarangayController extends Controller
     public function show($id)
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
-        $brgy = Barangay::where('id', $id)->first();
-        $collectors = User::where('roles.title', 'Collector')
+        $branch = auth()->user()->branch_id;
+        $brgy = Barangay::where('branch_id', $branch)->where('id', $id)->first();
+        $collectors = User::where('branch_id', $branch)->where('roles.title', 'Collector')
         ->join('role_user', 'users.id', '=', 'role_user.user_id')
         ->join('roles', 'role_user.role_id', '=', 'roles.id')
         ->get();
@@ -105,6 +111,7 @@ class BarangayController extends Controller
     public function update(BarangayUpdateRequest $request, string $id)
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
+        $branch = auth()->user()->branch_id;
         if($request->validated()){
             $brgy = Barangay::find($id);
             $brgy->barangay_name = $request->barangay_name;
@@ -137,6 +144,7 @@ class BarangayController extends Controller
         $request->validate([
             'file' => 'required|mimes:csv,txt|max:2048', // Validate the uploaded file
         ]);
+        $branch = auth()->user()->branch_id;
 
         $file = $request->file('file');
 

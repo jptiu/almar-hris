@@ -30,6 +30,7 @@ class Loan extends Model
         'actual_record',
         'payable_amount',//ltranh_actrcvd
         'user_id',//ltranh_uid
+        'branch_id',
     ];
 
     public function customer()
@@ -40,5 +41,10 @@ class Loan extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function details()
+    {
+        return $this->hasMany(LoanDetails::class, 'loan_id');
     }
 }

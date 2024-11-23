@@ -1,8 +1,9 @@
 <x-app-layout>
     <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
-        
+
         <div class="relative">
-            <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-12">Customer Ledger - Atm</h1>
+            <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-12">Customer Ledger - Atm
+            </h1>
         </div>
 
         <!-- Dashboard actions -->
@@ -37,17 +38,21 @@
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-8">
                                 <div class="md:col-span-2">
                                     <label for="house" class="text-black font-medium">Branch</label>
-                                    <select name="type" id="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
-                                        <option value="business loan">CDO</option>
-                                        <option value="personal loan">...</option>
+                                    <select name="type" id="type"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
+                                    @foreach ($branches as $branch)
+                                        <option value="{{$branch->id}}">{{$branch->name}}</option>
+                                    @endforeach
                                     </select>
                                 </div>
                                 <div class="md:col-span-2">
                                     <label for="house" class="text-black font-medium">Customer ID</label>
-                                    <input type="text" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
+                                    <input type="text" name="house" id="house"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
+                                        value="" placeholder="" />
                                 </div>
 
-                            </div>  
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -56,36 +61,46 @@
                 <div>
                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
                         <div class="lg:col-span-2">
-                        <div>
-                            <h1 class="text-xl md:text-xl text-slate-600 dark:text-slate-100 font-bold mb-2 -mt-4">Date</h1>
-                        </div>
+                            <div>
+                                <h1 class="text-xl md:text-xl text-slate-600 dark:text-slate-100 font-bold mb-2 -mt-4">
+                                    Date</h1>
+                            </div>
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-8">
                                 <div class="md:col-span-2">
                                     <label for="house" class="text-black font-medium">From</label>
-                                    <input type="date" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
+                                    <input type="date" name="house" id="house"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
+                                        value="" placeholder="" />
                                 </div>
                                 <div class="md:col-span-2">
                                     <label for="house" class="text-black font-medium">To</label>
-                                    <input type="date" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
+                                    <input type="date" name="house" id="house"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
+                                        value="" placeholder="" />
                                 </div>
-                            </div>  
+                            </div>
                         </div>
                     </div>
 
                     <div class="flex items-center mt-4">
-                    <input id="link-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                    <label for="link-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">For statement of account</label>
-                </div>
-                </div>
-                    <div class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
-                        <button id="hide-modal" type="button" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cancel</button>
-                        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Process Data</button>
+                        <input id="link-checkbox" type="checkbox" value=""
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="link-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">For
+                            statement of account</label>
                     </div>
                 </div>
-
-
-
+                <div class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
+                    <button id="hide-modal" type="button"
+                        class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cancel</button>
+                    <button type="submit"
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Process
+                        Data</button>
+                </div>
             </div>
-        </form>
+
+
+
+    </div>
+    </form>
     </div>
 </x-app-layout>

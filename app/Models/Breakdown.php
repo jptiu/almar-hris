@@ -14,6 +14,7 @@ class Breakdown extends Model
         'date',
         'user_id',
         'total_amount',
+        'branch_id',
     ];
 
     public function user(){
