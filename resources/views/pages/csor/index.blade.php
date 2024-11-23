@@ -113,6 +113,28 @@
                                     </div>
 
                                     <div class="grid grid-cols-1 gap-12">
+
+                                    <div class="mb-1">
+                                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
+                                                <div class="lg:col-span-2">
+                                                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
+                                                        <div class="lg:col-span-2">
+                                                            <div
+                                                                class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-3">
+                                                                <div class="md:col-span-1">
+                                                                    <label for="ref_no">Reference No.</label>
+                                                                    <input type="text" name="ref_no"
+                                                                        id="ref_no"
+                                                                        class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                                                                        value="" placeholder="" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                         <div class="...">
                                             <div class="mb-1">
                                                 <div

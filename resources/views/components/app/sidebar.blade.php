@@ -10,7 +10,7 @@
             </a>
         </div>
     <div id="sidebar"
-        class="flex flex-col absolute z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 h-screen overflow-y-scroll lg:overflow-y-auto no-scrollbar w-64 lg:w-20 lg:sidebar-expanded:!w-64 2xl:!w-64 shrink-0 bg-primary-100 p-4 transition-all duration-200 ease-in-out"
+        class="flex flex-col absolute z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 h-screen overflow-y-scroll lg:overflow-y-auto no-scrollbar w-72 lg:sidebar-expanded:!w-72 2xl:!w-72 shrink-0 bg-primary-100 p-4 transition-all duration-200 ease-in-out"
         :class="sidebarOpen ? 'translate-x-0' : '-translate-x-64'" @click.outside="sidebarOpen = false"
         @keydown.escape.window="sidebarOpen = false" x-cloak="lg">
         
@@ -35,11 +35,6 @@
             <div>
                 <ul class="mt-3">
                     @can('hr_access')
-                        <h3 class="text-xs uppercase text-slate-500 font-semibold pl-3">
-                            <span class="hidden lg:block lg:sidebar-expanded:hidden 2xl:hidden text-center w-6"
-                                aria-hidden="true">•••</span>
-                            <span class="lg:hidden lg:sidebar-expanded:block 2xl:block">Old Sidebar</span>
-                        </h3>
                         <li
                             class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['hr'])) {{ 'bg-accent-100' }} @endif">
                             <a href="{{ route('hr.index') }}"
@@ -51,6 +46,7 @@
                                 </div>
                             </a>
                         </li>
+                        
                         <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 bg-[linear-gradient(135deg,var(--tw-gradient-stops))] @if(in_array(Request::segment(1), ['employee', 'employee-add', 'bm-probation', 'new-hire', 'resignation'])){{ 'from-violet-500/[0.12] dark:from-violet-500/[0.24] to-violet-500/[0.04]' }}@endif" x-data="{ open: {{ in_array(Request::segment(1), ['employee', 'employee-add', 'bm-probation', 'new-hire', 'resignation']) ? 1 : 0 }} }">
                             <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if(!in_array(Request::segment(1), ['employee', 'employee-add', 'bm-probation', 'new-hire', 'resignation'])){{ 'hover:text-gray-900 dark:hover:text-white' }}@endif" href="#0" @click.prevent="open = !open; sidebarExpanded = true">
                                 <div class="flex items-center justify-between">
@@ -117,32 +113,39 @@
                                 </div>
                             </a>
                         </li>
-                        <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['loan-approvals'])) {{ 'bg-accent-100' }} @endif">
-                            <a href="{{ route('loan-approvals.index') }}"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['loan-approvals'])) {{ 'hover:text-slate-200' }} @endif">
-                                <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><g><rect fill="none" height="24" width="24"/><path d="M17,12c-2.76,0-5,2.24-5,5s2.24,5,5,5c2.76,0,5-2.24,5-5S19.76,12,17,12z M18.65,19.35l-2.15-2.15V14h1v2.79l1.85,1.85 L18.65,19.35z M18,3h-3.18C14.4,1.84,13.3,1,12,1S9.6,1.84,9.18,3H6C4.9,3,4,3.9,4,5v15c0,1.1,0.9,2,2,2h6.11 c-0.59-0.57-1.07-1.25-1.42-2H6V5h2v3h8V5h2v5.08c0.71,0.1,1.38,0.31,2,0.6V5C20,3.9,19.1,3,18,3z M12,5c-0.55,0-1-0.45-1-1 c0-0.55,0.45-1,1-1c0.55,0,1,0.45,1,1C13,4.55,12.55,5,12,5z"/></g></svg>
-                                    <span
-                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Pending
-                                        Loan Approvals</span>
+
+                        <!-- Loan Status -->
+                        <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 bg-[linear-gradient(135deg,var(--tw-gradient-stops))] @if(in_array(Request::segment(1), ['loanapprovals-approved', 'loanapprovals-rejected'])){{ 'from-violet-500/[0.12] dark:from-violet-500/[0.24] to-violet-500/[0.04]' }}@endif" x-data="{ open: {{ in_array(Request::segment(1), ['loanapprovals-approved', 'loanapprovals-rejected']) ? 1 : 0 }} }">
+                            <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if(!in_array(Request::segment(1), ['loanapprovals-approved', 'loanapprovals-rejected'])){{ 'hover:text-gray-900 dark:hover:text-white' }}@endif" href="#0" @click.prevent="open = !open; sidebarExpanded = true">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><g><rect fill="none" height="24" width="24"/><path d="M17,12c-2.76,0-5,2.24-5,5s2.24,5,5,5c2.76,0,5-2.24,5-5S19.76,12,17,12z M18.65,19.35l-2.15-2.15V14h1v2.79l1.85,1.85 L18.65,19.35z M18,3h-3.18C14.4,1.84,13.3,1,12,1S9.6,1.84,9.18,3H6C4.9,3,4,3.9,4,5v15c0,1.1,0.9,2,2,2h6.11 c-0.59-0.57-1.07-1.25-1.42-2H6V5h2v3h8V5h2v5.08c0.71,0.1,1.38,0.31,2,0.6V5C20,3.9,19.1,3,18,3z M12,5c-0.55,0-1-0.45-1-1 c0-0.55,0.45-1,1-1c0.55,0,1,0.45,1,1C13,4.55,12.55,5,12,5z"/></g></svg>
+                                        <span class="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Loan Status</span>
+                                    </div>
+                                    <!-- Icon -->
+                                    <div class="flex shrink-0 ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
+                                        <svg class="w-3 h-3 shrink-0 ml-1 fill-current text-gray-400 dark:text-gray-500 @if(in_array(Request::segment(1), ['employee'])){{ 'rotate-180' }}@endif" :class="open ? 'rotate-180' : 'rotate-0'" viewBox="0 0 12 12">
+                                            <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
+                                        </svg>
+                                    </div>
                                 </div>
                             </a>
                             <div class="lg:hidden lg:sidebar-expanded:block 2xl:block">
-                                <ul class="pl-9 mt-1 @if(!in_array(Request::segment(1), ['employee'])){{ 'hidden' }}@endif" :class="open ? '!block' : 'hidden'">
+                                <ul class="pl-10 mt-1 @if(!in_array(Request::segment(1), ['loanapprovals-approved', 'loanapprovals-rejected'])){{ 'hidden' }}@endif" :class="open ? '!block' : 'hidden'">
                                     <li class="mb-1 last:mb-0">
-                                        <a class="block text-white dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('employee.add')){{ '!text-violet-500' }}@endif" href="{{ route('approved.index') }}">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('approved.index')){{ '!text-violet-500' }}@endif" href="{{ route('approved.index') }}">
                                             <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Approved Loans</span>
                                         </a>
                                     </li>
                                     <li class="mb-1 last:mb-0">
-                                        <a class="block text-white dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('employee.add')){{ '!text-violet-500' }}@endif" href="{{ route('rejected.index') }}">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('rejected.index')){{ '!text-violet-500' }}@endif" href="{{ route('rejected.index') }}">
                                             <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Rejected Loans</span>
                                         </a>
                                     </li>
                                 </ul>
                             </div>
                         </li>
+                    
                         <li
                             class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['evaluations'])) {{ 'bg-accent-100' }} @endif">
                             <a href="{{ route('evaluations.index') }}"
@@ -155,18 +158,7 @@
                                 </div>
                             </a>
                         </li>
-                        <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['expenses'])) {{ 'bg-accent-100' }} @endif">
-                            <a href="{{ route('monthlyrep.index') }}"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['expenses'])) {{ 'hover:text-slate-200' }} @endif">
-                                <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><g><path d="M0,0h24v24H0V0z" fill="none"/></g><g><g><path d="M15,3H5C3.9,3,3.01,3.9,3.01,5L3,19c0,1.1,0.89,2,1.99,2H19c1.1,0,2-0.9,2-2V9L15,3z M8,17c-0.55,0-1-0.45-1-1s0.45-1,1-1 s1,0.45,1,1S8.55,17,8,17z M8,13c-0.55,0-1-0.45-1-1s0.45-1,1-1s1,0.45,1,1S8.55,13,8,13z M8,9C7.45,9,7,8.55,7,8s0.45-1,1-1 s1,0.45,1,1S8.55,9,8,9z M14,10V4.5l5.5,5.5H14z"/></g></g></svg>
-                                    <span
-                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Monthly
-                                        Report</span>
-                                </div>
-                            </a>
-                        </li>
+
                         <li
                             class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['expenses'])) {{ 'bg-accent-100' }} @endif">
                             <a href="{{ route('payroll.index') }}"
@@ -179,29 +171,6 @@
                                 </div>
                             </a>
                         </li>
-                        <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['expenses'])) {{ 'bg-accent-100' }} @endif">
-                            <a href=""
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['expenses'])) {{ 'hover:text-slate-200' }} @endif">
-                                <div class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/></svg>
-                                    <span
-                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">AFC Booklet</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['expenses'])) {{ 'bg-accent-100' }} @endif">
-                            <a href="{{ route('attendance.index') }}"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['expenses'])) {{ 'hover:text-slate-200' }} @endif">
-                                <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M17.81 4.47c-.08 0-.16-.02-.23-.06C15.66 3.42 14 3 12.01 3c-1.98 0-3.86.47-5.57 1.41-.24.13-.54.04-.68-.2-.13-.24-.04-.55.2-.68C7.82 2.52 9.86 2 12.01 2c2.13 0 3.99.47 6.03 1.52.25.13.34.43.21.67-.09.18-.26.28-.44.28zM3.5 9.72c-.1 0-.2-.03-.29-.09-.23-.16-.28-.47-.12-.7.99-1.4 2.25-2.5 3.75-3.27C9.98 4.04 14 4.03 17.15 5.65c1.5.77 2.76 1.86 3.75 3.25.16.22.11.54-.12.7-.23.16-.54.11-.7-.12-.9-1.26-2.04-2.25-3.39-2.94-2.87-1.47-6.54-1.47-9.4.01-1.36.7-2.5 1.7-3.4 2.96-.08.14-.23.21-.39.21zm6.25 12.07c-.13 0-.26-.05-.35-.15-.87-.87-1.34-1.43-2.01-2.64-.69-1.23-1.05-2.73-1.05-4.34 0-2.97 2.54-5.39 5.66-5.39s5.66 2.42 5.66 5.39c0 .28-.22.5-.5.5s-.5-.22-.5-.5c0-2.42-2.09-4.39-4.66-4.39-2.57 0-4.66 1.97-4.66 4.39 0 1.44.32 2.77.93 3.85.64 1.15 1.08 1.64 1.85 2.42.19.2.19.51 0 .71-.11.1-.24.15-.37.15zm7.17-1.85c-1.19 0-2.24-.3-3.1-.89-1.49-1.01-2.38-2.65-2.38-4.39 0-.28.22-.5.5-.5s.5.22.5.5c0 1.41.72 2.74 1.94 3.56.71.48 1.54.71 2.54.71.24 0 .64-.03 1.04-.1.27-.05.53.13.58.41.05.27-.13.53-.41.58-.57.11-1.07.12-1.21.12zM14.91 22c-.04 0-.09-.01-.13-.02-1.59-.44-2.63-1.03-3.72-2.1-1.4-1.39-2.17-3.24-2.17-5.22 0-1.62 1.38-2.94 3.08-2.94 1.7 0 3.08 1.32 3.08 2.94 0 1.07.93 1.94 2.08 1.94s2.08-.87 2.08-1.94c0-3.77-3.25-6.83-7.25-6.83-2.84 0-5.44 1.58-6.61 4.03-.39.81-.59 1.76-.59 2.8 0 .78.07 2.01.67 3.61.1.26-.03.55-.29.64-.26.1-.55-.04-.64-.29-.49-1.31-.73-2.61-.73-3.96 0-1.2.23-2.29.68-3.24 1.33-2.79 4.28-4.6 7.51-4.6 4.55 0 8.25 3.51 8.25 7.83 0 1.62-1.38 2.94-3.08 2.94s-3.08-1.32-3.08-2.94c0-1.07-.93-1.94-2.08-1.94s-2.08.87-2.08 1.94c0 1.71.66 3.31 1.87 4.51.95.94 1.86 1.46 3.27 1.85.27.07.42.35.35.61-.05.23-.26.38-.47.38z"/></svg>
-                                    <span
-                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Biometrics Attendance</span>
-                                </div>
-                            </a>
-                        </li>
-
 
                         <li
                             class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['expenses'])) {{ 'bg-accent-100' }} @endif">
@@ -212,25 +181,6 @@
                                     <span
                                         class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Announcement</span>
                                     <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-6 text-sm font-semibold text-red-700 bg-red-200 rounded-full">5</span>
-                                </div>
-                            </a>
-                        </li>
-
-                        <!-- New Sidebar of HR -->
-                        <h3 class="text-xs uppercase text-slate-500 font-semibold pl-3">
-                            <span class="hidden lg:block lg:sidebar-expanded:hidden 2xl:hidden text-center w-6"
-                                aria-hidden="true">•••</span>
-                            <span class="lg:hidden lg:sidebar-expanded:block 2xl:block">New Sidebar</span>
-                        </h3>
-
-                        <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
-                            <a href="{{ route('hr.index') }}"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
-                                <div class="flex items-center">
-                                <!-- <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg> -->
-                                    <span
-                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Employee Records</span>
                                 </div>
                             </a>
                         </li>
@@ -247,76 +197,125 @@
                             </a>
                         </li>
 
-                        <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
-                            <a href="{{ route('hr.index') }}"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
-                                <div class="flex items-center">
-                                <!-- <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg> -->
-                                    <span
-                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Resume & Application Documents</span>
+                        <!-- Employee Records -->
+                        <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 bg-[linear-gradient(135deg,var(--tw-gradient-stops))] @if(in_array(Request::segment(1), ['leaveRequest', 'underRequest', 'idRequest', 'clearance', 'cashReqForm', 'cashBond'])){{ 'from-violet-500/[0.12] dark:from-violet-500/[0.24] to-violet-500/[0.04]' }}@endif" x-data="{ open: {{ in_array(Request::segment(1), ['leaveRequest', 'underRequest', 'idRequest', 'clearance', 'cashReqForm', 'cashBond']) ? 1 : 0 }} }">
+                            <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if(!in_array(Request::segment(1), ['leaveRequest', 'underRequest', 'idRequest', 'clearance', 'cashReqForm', 'cashBond'])){{ 'hover:text-gray-900 dark:hover:text-white' }}@endif" href="#0" @click.prevent="open = !open; sidebarExpanded = true">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M17.81 4.47c-.08 0-.16-.02-.23-.06C15.66 3.42 14 3 12.01 3c-1.98 0-3.86.47-5.57 1.41-.24.13-.54.04-.68-.2-.13-.24-.04-.55.2-.68C7.82 2.52 9.86 2 12.01 2c2.13 0 3.99.47 6.03 1.52.25.13.34.43.21.67-.09.18-.26.28-.44.28zM3.5 9.72c-.1 0-.2-.03-.29-.09-.23-.16-.28-.47-.12-.7.99-1.4 2.25-2.5 3.75-3.27C9.98 4.04 14 4.03 17.15 5.65c1.5.77 2.76 1.86 3.75 3.25.16.22.11.54-.12.7-.23.16-.54.11-.7-.12-.9-1.26-2.04-2.25-3.39-2.94-2.87-1.47-6.54-1.47-9.4.01-1.36.7-2.5 1.7-3.4 2.96-.08.14-.23.21-.39.21zm6.25 12.07c-.13 0-.26-.05-.35-.15-.87-.87-1.34-1.43-2.01-2.64-.69-1.23-1.05-2.73-1.05-4.34 0-2.97 2.54-5.39 5.66-5.39s5.66 2.42 5.66 5.39c0 .28-.22.5-.5.5s-.5-.22-.5-.5c0-2.42-2.09-4.39-4.66-4.39-2.57 0-4.66 1.97-4.66 4.39 0 1.44.32 2.77.93 3.85.64 1.15 1.08 1.64 1.85 2.42.19.2.19.51 0 .71-.11.1-.24.15-.37.15zm7.17-1.85c-1.19 0-2.24-.3-3.1-.89-1.49-1.01-2.38-2.65-2.38-4.39 0-.28.22-.5.5-.5s.5.22.5.5c0 1.41.72 2.74 1.94 3.56.71.48 1.54.71 2.54.71.24 0 .64-.03 1.04-.1.27-.05.53.13.58.41.05.27-.13.53-.41.58-.57.11-1.07.12-1.21.12zM14.91 22c-.04 0-.09-.01-.13-.02-1.59-.44-2.63-1.03-3.72-2.1-1.4-1.39-2.17-3.24-2.17-5.22 0-1.62 1.38-2.94 3.08-2.94 1.7 0 3.08 1.32 3.08 2.94 0 1.07.93 1.94 2.08 1.94s2.08-.87 2.08-1.94c0-3.77-3.25-6.83-7.25-6.83-2.84 0-5.44 1.58-6.61 4.03-.39.81-.59 1.76-.59 2.8 0 .78.07 2.01.67 3.61.1.26-.03.55-.29.64-.26.1-.55-.04-.64-.29-.49-1.31-.73-2.61-.73-3.96 0-1.2.23-2.29.68-3.24 1.33-2.79 4.28-4.6 7.51-4.6 4.55 0 8.25 3.51 8.25 7.83 0 1.62-1.38 2.94-3.08 2.94s-3.08-1.32-3.08-2.94c0-1.07-.93-1.94-2.08-1.94s-2.08.87-2.08 1.94c0 1.71.66 3.31 1.87 4.51.95.94 1.86 1.46 3.27 1.85.27.07.42.35.35.61-.05.23-.26.38-.47.38z"/></svg>
+                                        <span class="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Employee Records</span>
+                                    </div>
+                                    <!-- Icon -->
+                                    <div class="flex shrink-0 ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
+                                        <svg class="w-3 h-3 shrink-0 ml-1 fill-current text-gray-400 dark:text-gray-500 @if(in_array(Request::segment(1), ['employee'])){{ 'rotate-180' }}@endif" :class="open ? 'rotate-180' : 'rotate-0'" viewBox="0 0 12 12">
+                                            <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
+                                        </svg>
+                                    </div>
                                 </div>
                             </a>
+                            <div class="lg:hidden lg:sidebar-expanded:block 2xl:block">
+                                <ul class="pl-10 mt-1 @if(!in_array(Request::segment(1), ['leaveRequest', 'underRequest', 'idRequest', 'clearance', 'cashReqForm', 'cashBond'])){{ 'hidden' }}@endif" :class="open ? '!block' : 'hidden'">
+                                    <li class="mb-1 last:mb-0">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('leaveRequest.add')){{ '!text-violet-500' }}@endif" href="{{ route('attendance.index') }}">
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Attendance Records</span>
+                                        </a>
+                                    </li>
+                                    <li class="mb-1 last:mb-0">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('underRequest.index')){{ '!text-violet-500' }}@endif" href="#">
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Leave Records</span>
+                                        </a>
+                                    </li>
+                                    <li class="mb-1 last:mb-0">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('idRequest.index')){{ '!text-violet-500' }}@endif" href="#">
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Disciplinary Records</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
 
-                        <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
-                            <a href="{{ route('hr.index') }}"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
-                                <div class="flex items-center">
-                                <!-- <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg> -->
-                                    <span
-                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Disciplinary Records</span>
+                        <!-- Documents -->
+                        <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 bg-[linear-gradient(135deg,var(--tw-gradient-stops))] @if(in_array(Request::segment(1), ['leaveRequest', 'underRequest', 'idRequest', 'clearance', 'cashReqForm', 'cashBond'])){{ 'from-violet-500/[0.12] dark:from-violet-500/[0.24] to-violet-500/[0.04]' }}@endif" x-data="{ open: {{ in_array(Request::segment(1), ['leaveRequest', 'underRequest', 'idRequest', 'clearance', 'cashReqForm', 'cashBond']) ? 1 : 0 }} }">
+                            <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if(!in_array(Request::segment(1), ['leaveRequest', 'underRequest', 'idRequest', 'clearance', 'cashReqForm', 'cashBond'])){{ 'hover:text-gray-900 dark:hover:text-white' }}@endif" href="#0" @click.prevent="open = !open; sidebarExpanded = true">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/></svg>
+                                        <span class="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Documents</span>
+                                    </div>
+                                    <!-- Icon -->
+                                    <div class="flex shrink-0 ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
+                                        <svg class="w-3 h-3 shrink-0 ml-1 fill-current text-gray-400 dark:text-gray-500 @if(in_array(Request::segment(1), ['employee'])){{ 'rotate-180' }}@endif" :class="open ? 'rotate-180' : 'rotate-0'" viewBox="0 0 12 12">
+                                            <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
+                                        </svg>
+                                    </div>
                                 </div>
                             </a>
+                            <div class="lg:hidden lg:sidebar-expanded:block 2xl:block">
+                                <ul class="pl-10 mt-1 @if(!in_array(Request::segment(1), ['leaveRequest', 'underRequest', 'idRequest', 'clearance', 'cashReqForm', 'cashBond'])){{ 'hidden' }}@endif" :class="open ? '!block' : 'hidden'">
+                                    <li class="mb-1 last:mb-0">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('leaveRequest.add')){{ '!text-violet-500' }}@endif" href="#">
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Resume Documents</span>
+                                        </a>
+                                    </li>
+                                    <li class="mb-1 last:mb-0">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('underRequest.index')){{ '!text-violet-500' }}@endif" href="#">
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Application Documents</span>
+                                        </a>
+                                    </li>
+                                    <li class="mb-1 last:mb-0">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('idRequest.index')){{ '!text-violet-500' }}@endif" href="#">
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Separation Pay Documents</span>
+                                        </a>
+                                    </li>
+                                    <li class="mb-1 last:mb-0">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('idRequest.index')){{ '!text-violet-500' }}@endif" href="#">
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Resignation Documents</span>
+                                        </a>
+                                    </li>
+                                    <li class="mb-1 last:mb-0">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('idRequest.index')){{ '!text-violet-500' }}@endif" href="#">
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">AFC Booklet</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
 
-                        <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
-                            <a href="{{ route('hr.index') }}"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
-                                <div class="flex items-center">
-                                <!-- <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg> -->
-                                    <span
-                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Attendance and Leave Records</span>
+                        <!-- Reports -->
+                        <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 bg-[linear-gradient(135deg,var(--tw-gradient-stops))] @if(in_array(Request::segment(1), ['leaveRequest', 'underRequest', 'idRequest', 'clearance', 'cashReqForm', 'cashBond'])){{ 'from-violet-500/[0.12] dark:from-violet-500/[0.24] to-violet-500/[0.04]' }}@endif" x-data="{ open: {{ in_array(Request::segment(1), ['leaveRequest', 'underRequest', 'idRequest', 'clearance', 'cashReqForm', 'cashBond']) ? 1 : 0 }} }">
+                            <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if(!in_array(Request::segment(1), ['leaveRequest', 'underRequest', 'idRequest', 'clearance', 'cashReqForm', 'cashBond'])){{ 'hover:text-gray-900 dark:hover:text-white' }}@endif" href="#0" @click.prevent="open = !open; sidebarExpanded = true">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><g><path d="M0,0h24v24H0V0z" fill="none"/></g><g><g><path d="M15,3H5C3.9,3,3.01,3.9,3.01,5L3,19c0,1.1,0.89,2,1.99,2H19c1.1,0,2-0.9,2-2V9L15,3z M8,17c-0.55,0-1-0.45-1-1s0.45-1,1-1 s1,0.45,1,1S8.55,17,8,17z M8,13c-0.55,0-1-0.45-1-1s0.45-1,1-1s1,0.45,1,1S8.55,13,8,13z M8,9C7.45,9,7,8.55,7,8s0.45-1,1-1 s1,0.45,1,1S8.55,9,8,9z M14,10V4.5l5.5,5.5H14z"/></g></g></svg>
+                                        <span class="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Reports</span>
+                                    </div>
+                                    <!-- Icon -->
+                                    <div class="flex shrink-0 ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
+                                        <svg class="w-3 h-3 shrink-0 ml-1 fill-current text-gray-400 dark:text-gray-500 @if(in_array(Request::segment(1), ['employee'])){{ 'rotate-180' }}@endif" :class="open ? 'rotate-180' : 'rotate-0'" viewBox="0 0 12 12">
+                                            <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
+                                        </svg>
+                                    </div>
                                 </div>
                             </a>
-                        </li>
-
-                        <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
-                            <a href="{{ route('hr.index') }}"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
-                                <div class="flex items-center">
-                                <!-- <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg> -->
-                                    <span
-                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Separation Pay & Resignation Documents</span>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
-                            <a href="{{ route('hr.index') }}"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
-                                <div class="flex items-center">
-                                <!-- <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg> -->
-                                    <span
-                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">SEC Annual Reports</span>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
-                            <a href="{{ route('hr.index') }}"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
-                                <div class="flex items-center">
-                                <!-- <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg> -->
-                                    <span
-                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Monthly Remittance w/ Attachments</span>
-                                </div>
-                            </a>
+                            <div class="lg:hidden lg:sidebar-expanded:block 2xl:block">
+                                <ul class="pl-10 mt-1 @if(!in_array(Request::segment(1), ['leaveRequest', 'underRequest', 'idRequest', 'clearance', 'cashReqForm', 'cashBond'])){{ 'hidden' }}@endif" :class="open ? '!block' : 'hidden'">
+                                    <li class="mb-1 last:mb-0">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('leaveRequest.add')){{ '!text-violet-500' }}@endif" href="{{ route('monthlyrep.index') }}">
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Monthly Report</span>
+                                        </a>
+                                    </li>
+                                    <li class="mb-1 last:mb-0">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('underRequest.index')){{ '!text-violet-500' }}@endif" href="#">
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">SEC Annual Report</span>
+                                        </a>
+                                    </li>
+                                    <li class="mb-1 last:mb-0">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('underRequest.index')){{ '!text-violet-500' }}@endif" href="#">
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Monthly Remittance</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
 
                         <li
@@ -333,11 +332,6 @@
                     @endcan
                     @can('loan_access')
                         <!-- Dashboard -->
-                        <h3 class="text-xs uppercase text-slate-500 font-semibold pl-3">
-                            <span class="hidden lg:block lg:sidebar-expanded:hidden 2xl:hidden text-center w-6"
-                                aria-hidden="true">•••</span>
-                            <span class="lg:hidden lg:sidebar-expanded:block 2xl:block">Old Sidebar</span>
-                        </h3>
                         <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['dashboard'])) {{ 'bg-accent-100' }} @endif"
                             x-data="{ open: {{ in_array(Request::segment(1), ['dashboard']) ? 1 : 0 }} }">
                             <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['dashboard'])) {{ 'hover:text-slate-200' }} @endif"
@@ -519,44 +513,43 @@
                                 </div>
                             </a>
                         </li>
-                        <!-- Bad Accounts -->
-                        <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['badAccount'])) {{ 'bg-accent-100' }} @endif"
-                            x-data="{ open: {{ in_array(Request::segment(1), ['badAccount']) ? 1 : 0 }} }">
-                            <a href="{{ route('badAccount.index') }}"
-                                class="block text-slate-200 transition duration-150"
-                                :class="open ? 'hover:text-slate-200' : 'hover:text-white'">
+
+                        <!-- Loan Accounts -->
+                        <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 bg-[linear-gradient(135deg,var(--tw-gradient-stops))] @if(in_array(Request::segment(1), ['regAccount', 'badAccount', 'overdueacc'])){{ 'from-violet-500/[0.12] dark:from-violet-500/[0.24] to-violet-500/[0.04]' }}@endif" x-data="{ open: {{ in_array(Request::segment(1), ['regAccount', 'badAccount', 'overdueacc']) ? 1 : 0 }} }">
+                            <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if(!in_array(Request::segment(1), ['regAccount', 'badAccount', 'overdueacc'])){{ 'hover:text-gray-900 dark:hover:text-white' }}@endif" href="#0" @click.prevent="open = !open; sidebarExpanded = true">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
-                                        <span
-                                            class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Bad Accounts</span>
+                                        <span class="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Loan Accounts</span>
+                                    </div>
+                                    <!-- Icon -->
+                                    <div class="flex shrink-0 ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
+                                        <svg class="w-3 h-3 shrink-0 ml-1 fill-current text-gray-400 dark:text-gray-500 @if(in_array(Request::segment(1), ['employee'])){{ 'rotate-180' }}@endif" :class="open ? 'rotate-180' : 'rotate-0'" viewBox="0 0 12 12">
+                                            <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
+                                        </svg>
                                     </div>
                                 </div>
                             </a>
+                            <div class="lg:hidden lg:sidebar-expanded:block 2xl:block">
+                                <ul class="pl-10 mt-1 @if(!in_array(Request::segment(1), ['regAccount', 'badAccount', 'overdueacc'])){{ 'hidden' }}@endif" :class="open ? '!block' : 'hidden'">
+                                    <li class="mb-1 last:mb-0">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('regAccount.index')){{ '!text-violet-500' }}@endif" href="{{ route('regAccount.index') }}">
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Regular Accounts</span>
+                                        </a>
+                                    </li>
+                                    <li class="mb-1 last:mb-0">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('badAccount.index')){{ '!text-violet-500' }}@endif" href="{{ route('badAccount.index') }}">
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Bad Accounts</span>
+                                        </a>
+                                    </li>
+                                    <li class="mb-1 last:mb-0">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('overdueacc.index')){{ '!text-violet-500' }}@endif" href="{{ route('overdueacc.index') }}">
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Overdue Accounts</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
-
-                        <!-- Payroll -->
-                        <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['payroll'])) {{ 'bg-accent-100' }} @endif"
-                            x-data="{ open: {{ in_array(Request::segment(1), ['payroll']) ? 1 : 0 }} }">
-                            <a href="{{ route('payroll.index') }}"
-                                class="block text-slate-200 transition duration-150"
-                                :class="open ? 'hover:text-slate-200' : 'hover:text-white'">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 14V6c0-1.1-.9-2-2-2H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zm-9-1c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm13-6v11c0 1.1-.9 2-2 2H4v-2h17V7h2z"/></svg>
-                                        <span
-                                            class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Payroll</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-
-                        <!-- New Sidebar of Loan Officer -->
-                        <h3 class="text-xs uppercase text-slate-500 font-semibold pl-3">
-                            <span class="hidden lg:block lg:sidebar-expanded:hidden 2xl:hidden text-center w-6"
-                                aria-hidden="true">•••</span>
-                            <span class="lg:hidden lg:sidebar-expanded:block 2xl:block">New Sidebar</span>
-                        </h3>
 
                         <li
                             class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
@@ -570,6 +563,7 @@
                             </a>
                         </li>
 
+                        <!-- Automated Payment Reminders -->
                         <li
                             class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
                             <a href="/"
@@ -582,30 +576,7 @@
                             </a>
                         </li>
 
-                        <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
-                            <a href="/"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
-                                <div class="flex items-center">
-                                <!-- <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg> -->
-                                    <span
-                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Cash Advance Request</span>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
-                            <a href="/"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
-                                <div class="flex items-center">
-                                <!-- <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg> -->
-                                    <span
-                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Cash Bond Loan Request</span>
-                                </div>
-                            </a>
-                        </li>
-
+                        <!-- Daily Work order -->
                         <li
                             class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
                             <a href="/"
@@ -618,62 +589,85 @@
                             </a>
                         </li>
 
-                        <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
-                            <a href="/"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
-                                <div class="flex items-center">
-                                <!-- <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg> -->
-                                    <span
-                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Leave/Undertime Application</span>
+                        <!-- Employee Request Forms -->
+                        <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 bg-[linear-gradient(135deg,var(--tw-gradient-stops))] @if(in_array(Request::segment(1), ['leaveRequest', 'underRequest', 'idRequest', 'clearance', 'cashReqForm', 'cashBond'])){{ 'from-violet-500/[0.12] dark:from-violet-500/[0.24] to-violet-500/[0.04]' }}@endif" x-data="{ open: {{ in_array(Request::segment(1), ['leaveRequest', 'underRequest', 'idRequest', 'clearance', 'cashReqForm', 'cashBond']) ? 1 : 0 }} }">
+                            <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if(!in_array(Request::segment(1), ['leaveRequest', 'underRequest', 'idRequest', 'clearance', 'cashReqForm', 'cashBond'])){{ 'hover:text-gray-900 dark:hover:text-white' }}@endif" href="#0" @click.prevent="open = !open; sidebarExpanded = true">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2c-4.97 0-9 4.03-9 9 0 4.17 2.84 7.67 6.69 8.69L12 22l2.31-2.31C18.16 18.67 21 15.17 21 11c0-4.97-4.03-9-9-9zm0 2c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.3c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+                                        <span class="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Request Form</span>
+                                    </div>
+                                    <!-- Icon -->
+                                    <div class="flex shrink-0 ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
+                                        <svg class="w-3 h-3 shrink-0 ml-1 fill-current text-gray-400 dark:text-gray-500 @if(in_array(Request::segment(1), ['employee'])){{ 'rotate-180' }}@endif" :class="open ? 'rotate-180' : 'rotate-0'" viewBox="0 0 12 12">
+                                            <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
+                                        </svg>
+                                    </div>
                                 </div>
                             </a>
+                            <div class="lg:hidden lg:sidebar-expanded:block 2xl:block">
+                                <ul class="pl-10 mt-1 @if(!in_array(Request::segment(1), ['leaveRequest', 'underRequest', 'idRequest', 'clearance', 'cashReqForm', 'cashBond'])){{ 'hidden' }}@endif" :class="open ? '!block' : 'hidden'">
+                                    <li class="mb-1 last:mb-0">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('leaveRequest.add')){{ '!text-violet-500' }}@endif" href="#">
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Leave Request</span>
+                                        </a>
+                                    </li>
+                                    <li class="mb-1 last:mb-0">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('underRequest.index')){{ '!text-violet-500' }}@endif" href="#">
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Undertime Request</span>
+                                        </a>
+                                    </li>
+                                    <li class="mb-1 last:mb-0">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('idRequest.index')){{ '!text-violet-500' }}@endif" href="#">
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">ID Request</span>
+                                        </a>
+                                    </li>
+                                    <li class="mb-1 last:mb-0">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('clearance.index')){{ '!text-violet-500' }}@endif" href="#">
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Clearance Request</span>
+                                            <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-6 text-sm font-semibold text-red-700 bg-red-200 rounded-full">2</span>
+                                        </a>
+                                    </li>
+                                    <li class="mb-1 last:mb-0">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('cashReqForm.index')){{ '!text-violet-500' }}@endif" href="#">
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Cash Advance</span>
+                                            <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-6 text-sm font-semibold text-red-700 bg-red-200 rounded-full">2</span>
+                                        </a>
+                                    </li>
+                                    <li class="mb-1 last:mb-0">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('cashBond.index')){{ '!text-violet-500' }}@endif" href="#">
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Cash Bond Loan</span>
+                                            <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-6 text-sm font-semibold text-red-700 bg-red-200 rounded-full">2</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
 
+                        <!-- Payslip & Payroll -->
                         <li
                             class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
-                            <a href="/"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
+                            <a href="{{ route('payroll.index') }}"
+                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['loan_access'])) {{ 'hover:text-slate-200' }} @endif">
                                 <div class="flex items-center">
-                                <!-- <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg> -->
-                                    <span
-                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">ID Request Form</span>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
-                            <a href="/"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
-                                <div class="flex items-center">
-                                <!-- <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg> -->
-                                    <span
-                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Clearance Form</span>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
-                            <a href="/"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
-                                <div class="flex items-center">
-                                <!-- <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg> -->
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 14V6c0-1.1-.9-2-2-2H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zm-9-1c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm13-6v11c0 1.1-.9 2-2 2H4v-2h17V7h2z"/></svg>
                                     <span
                                         class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Payslip & Payroll</span>
                                 </div>
                             </a>
                         </li>
 
-                        <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
-                            <a href="/"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
-                                <div class="flex items-center">
-                                <!-- <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg> -->
-                                    <span
-                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Attendance</span>
+                        <!-- Attendance -->
+                        <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['leave'])) {{ 'bg-accent-100' }} @endif"
+                            x-data="{ open: {{ in_array(Request::segment(1), ['leave']) ? 1 : 0 }} }">
+                            <a href="{{ route('biometricsAttendance.index') }}"
+                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['leave'])) {{ 'hover:text-slate-200' }} @endif">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M17.81 4.47c-.08 0-.16-.02-.23-.06C15.66 3.42 14 3 12.01 3c-1.98 0-3.86.47-5.57 1.41-.24.13-.54.04-.68-.2-.13-.24-.04-.55.2-.68C7.82 2.52 9.86 2 12.01 2c2.13 0 3.99.47 6.03 1.52.25.13.34.43.21.67-.09.18-.26.28-.44.28zM3.5 9.72c-.1 0-.2-.03-.29-.09-.23-.16-.28-.47-.12-.7.99-1.4 2.25-2.5 3.75-3.27C9.98 4.04 14 4.03 17.15 5.65c1.5.77 2.76 1.86 3.75 3.25.16.22.11.54-.12.7-.23.16-.54.11-.7-.12-.9-1.26-2.04-2.25-3.39-2.94-2.87-1.47-6.54-1.47-9.4.01-1.36.7-2.5 1.7-3.4 2.96-.08.14-.23.21-.39.21zm6.25 12.07c-.13 0-.26-.05-.35-.15-.87-.87-1.34-1.43-2.01-2.64-.69-1.23-1.05-2.73-1.05-4.34 0-2.97 2.54-5.39 5.66-5.39s5.66 2.42 5.66 5.39c0 .28-.22.5-.5.5s-.5-.22-.5-.5c0-2.42-2.09-4.39-4.66-4.39-2.57 0-4.66 1.97-4.66 4.39 0 1.44.32 2.77.93 3.85.64 1.15 1.08 1.64 1.85 2.42.19.2.19.51 0 .71-.11.1-.24.15-.37.15zm7.17-1.85c-1.19 0-2.24-.3-3.1-.89-1.49-1.01-2.38-2.65-2.38-4.39 0-.28.22-.5.5-.5s.5.22.5.5c0 1.41.72 2.74 1.94 3.56.71.48 1.54.71 2.54.71.24 0 .64-.03 1.04-.1.27-.05.53.13.58.41.05.27-.13.53-.41.58-.57.11-1.07.12-1.21.12zM14.91 22c-.04 0-.09-.01-.13-.02-1.59-.44-2.63-1.03-3.72-2.1-1.4-1.39-2.17-3.24-2.17-5.22 0-1.62 1.38-2.94 3.08-2.94 1.7 0 3.08 1.32 3.08 2.94 0 1.07.93 1.94 2.08 1.94s2.08-.87 2.08-1.94c0-3.77-3.25-6.83-7.25-6.83-2.84 0-5.44 1.58-6.61 4.03-.39.81-.59 1.76-.59 2.8 0 .78.07 2.01.67 3.61.1.26-.03.55-.29.64-.26.1-.55-.04-.64-.29-.49-1.31-.73-2.61-.73-3.96 0-1.2.23-2.29.68-3.24 1.33-2.79 4.28-4.6 7.51-4.6 4.55 0 8.25 3.51 8.25 7.83 0 1.62-1.38 2.94-3.08 2.94s-3.08-1.32-3.08-2.94c0-1.07-.93-1.94-2.08-1.94s-2.08.87-2.08 1.94c0 1.71.66 3.31 1.87 4.51.95.94 1.86 1.46 3.27 1.85.27.07.42.35.35.61-.05.23-.26.38-.47.38z"/></svg>
+                                        <span
+                                            class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Attendance</span>
+                                    </div>
                                 </div>
                             </a>
                         </li>
@@ -892,16 +886,11 @@
                     @endcan
 
                     @can('branch_access')
-                        <!-- Dashboard -->
-                        <h3 class="text-xs uppercase text-slate-500 font-semibold pl-3">
-                            <span class="hidden lg:block lg:sidebar-expanded:hidden 2xl:hidden text-center w-6"
-                                aria-hidden="true">•••</span>
-                            <span class="lg:hidden lg:sidebar-expanded:block 2xl:block">Old Sidebar</span>
-                        </h3>
-                      <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['dashboard'])) {{ 'bg-accent-100' }} @endif"
+                        <!-- Loan Officer -->
+                        <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['dashboard'])) {{ 'bg-accent-100' }} @endif"
                             x-data="{ open: {{ in_array(Request::segment(1), ['dashboard']) ? 1 : 0 }} }">
                             <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['dashboard'])) {{ 'hover:text-slate-200' }} @endif"
-                                href="/">
+                                href="/branch">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
@@ -910,333 +899,6 @@
                                     </div>
                                 </div>
                             </a>
-                        </li>
-                        <!-- Customer Profile -->
-                        {{-- <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['customer'])) {{ 'bg-accent-100' }} @endif"
-                            x-data="{ open: {{ in_array(Request::segment(1), ['customer']) ? 1 : 0 }} }">
-                            <a href="{{ route('customer.index') }}"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['customer'])) {{ 'hover:text-slate-200' }} @endif">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M16.5 12c1.38 0 2.49-1.12 2.49-2.5S17.88 7 16.5 7C15.12 7 14 8.12 14 9.5s1.12 2.5 2.5 2.5zM9 11c1.66 0 2.99-1.34 2.99-3S10.66 5 9 5C7.34 5 6 6.34 6 8s1.34 3 3 3zm7.5 3c-1.83 0-5.5.92-5.5 2.75V19h11v-2.25c0-1.83-3.67-2.75-5.5-2.75zM9 13c-2.33 0-7 1.17-7 3.5V19h7v-2.25c0-.85.33-2.34 2.37-3.47C10.5 13.1 9.66 13 9 13z"/></svg>
-                                        <span
-                                            class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Customer
-                                            Profile</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </li> --}}
-                        <!-- Grant Loan Entry -->
-                        {{-- <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['loan'])) {{ 'bg-accent-100' }} @endif"
-                            x-data="{ open: {{ in_array(Request::segment(1), ['loan']) ? 1 : 0 }} }">
-                            <a href="{{ route('loan.index') }}"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['loan'])) {{ 'hover:text-slate-200' }} @endif">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><g><rect fill="none" height="24" width="24"/></g><g><path d="M16.48,10.41c-0.39,0.39-1.04,0.39-1.43,0l-4.47-4.46l-7.05,7.04l-0.66-0.63c-1.17-1.17-1.17-3.07,0-4.24l4.24-4.24 c1.17-1.17,3.07-1.17,4.24,0L16.48,9C16.87,9.39,16.87,10.02,16.48,10.41z M17.18,8.29c0.78,0.78,0.78,2.05,0,2.83 c-1.27,1.27-2.61,0.22-2.83,0l-3.76-3.76l-5.57,5.57c-0.39,0.39-0.39,1.02,0,1.41c0.39,0.39,1.02,0.39,1.42,0l4.62-4.62l0.71,0.71 l-4.62,4.62c-0.39,0.39-0.39,1.02,0,1.41c0.39,0.39,1.02,0.39,1.42,0l4.62-4.62l0.71,0.71l-4.62,4.62c-0.39,0.39-0.39,1.02,0,1.41 c0.39,0.39,1.02,0.39,1.41,0l4.62-4.62l0.71,0.71l-4.62,4.62c-0.39,0.39-0.39,1.02,0,1.41c0.39,0.39,1.02,0.39,1.41,0l8.32-8.34 c1.17-1.17,1.17-3.07,0-4.24l-4.24-4.24c-1.15-1.15-3.01-1.17-4.18-0.06L17.18,8.29z"/></g></svg>
-                                        <span
-                                            class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Grant
-                                            Loan Entry</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </li> --}}
-                        <!-- Collection Data Entry -->
-                        {{-- <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['collection'])) {{ 'bg-accent-100' }} @endif"
-                            x-data="{ open: {{ in_array(Request::segment(1), ['collection']) ? 1 : 0 }} }">
-                            <a href="{{ route('collection.index') }}"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['collection'])) {{ 'hover:text-slate-200' }} @endif">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm-2 14l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-                                        <span
-                                            class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Collection
-                                            Data Entry</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </li> --}}
-                        <!-- Breakdown of Cash Bills -->
-                        {{-- <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['breakdown'])) {{ 'bg-accent-100' }} @endif"
-                            x-data="{ open: {{ in_array(Request::segment(1), ['breakdown']) ? 1 : 0 }} }">
-                            <a href="{{ route('breakdown.index') }}"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['breakdown'])) {{ 'hover:text-slate-200' }} @endif">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><g><rect fill="none" height="24" width="24"/></g><g><path d="M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2z M12.88,17.76V19h-1.75v-1.29 c-0.74-0.18-2.39-0.77-3.02-2.96l1.65-0.67c0.06,0.22,0.58,2.09,2.4,2.09c0.93,0,1.98-0.48,1.98-1.61c0-0.96-0.7-1.46-2.28-2.03 c-1.1-0.39-3.35-1.03-3.35-3.31c0-0.1,0.01-2.4,2.62-2.96V5h1.75v1.24c1.84,0.32,2.51,1.79,2.66,2.23l-1.58,0.67 c-0.11-0.35-0.59-1.34-1.9-1.34c-0.7,0-1.81,0.37-1.81,1.39c0,0.95,0.86,1.31,2.64,1.9c2.4,0.83,3.01,2.05,3.01,3.45 C15.9,17.17,13.4,17.67,12.88,17.76z"/></g></svg>
-                                        <span
-                                            class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Breakdown
-                                            of Cash Bills</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </li> --}}
-                        <!-- Expenses Data Entry -->
-                        {{-- <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['expenses'])) {{ 'bg-accent-100' }} @endif">
-                            <a href="{{ route('expenses.index') }}"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['expenses'])) {{ 'hover:text-slate-200' }} @endif">
-                                <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
-                                    <span
-                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Expenses
-                                        Data Entry</span>
-                                </div>
-                            </a>
-                        </li> --}}
-                        <!-- Compute Cash On Hand -->
-                        {{-- <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['compute'])) {{ 'bg-accent-100' }} @endif">
-                            <a 
-                            href="{{ route('compute.index') }}"
-                            class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['compute'])) {{ 'hover:text-slate-200' }} @endif">
-                                <div class="flex items-center">
-                                <svg width="24" height="24" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g clip-path="url(#clip0_2062_17774)">
-                                <path d="M3.25 0C2.35117 0 1.625 0.726172 1.625 1.625V4.875C1.625 5.77383 2.35117 6.5 3.25 6.5H7.3125V8.125H4.41797C2.81328 8.125 1.44727 9.29805 1.20352 10.8875L0.0558594 18.4895C0.0203125 18.7281 0 18.9719 0 19.2156V22.75C0 24.5426 1.45742 26 3.25 26H22.75C24.5426 26 26 24.5426 26 22.75V19.2156C26 18.9719 25.9797 18.7281 25.9441 18.4844L24.7914 10.8875C24.5527 9.29805 23.1867 8.125 21.582 8.125H10.5625V6.5H14.625C15.5238 6.5 16.25 5.77383 16.25 4.875V1.625C16.25 0.726172 15.5238 0 14.625 0H3.25ZM4.875 2.4375H13C13.4469 2.4375 13.8125 2.80312 13.8125 3.25C13.8125 3.69688 13.4469 4.0625 13 4.0625H4.875C4.42812 4.0625 4.0625 3.69688 4.0625 3.25C4.0625 2.80312 4.42812 2.4375 4.875 2.4375ZM3.25 21.9375C3.25 21.4906 3.61562 21.125 4.0625 21.125H21.9375C22.3844 21.125 22.75 21.4906 22.75 21.9375C22.75 22.3844 22.3844 22.75 21.9375 22.75H4.0625C3.61562 22.75 3.25 22.3844 3.25 21.9375ZM5.6875 13.4062C5.36427 13.4062 5.05427 13.2778 4.82571 13.0493C4.59715 12.8207 4.46875 12.5107 4.46875 12.1875C4.46875 11.8643 4.59715 11.5543 4.82571 11.3257C5.05427 11.0972 5.36427 10.9688 5.6875 10.9688C6.01073 10.9688 6.32073 11.0972 6.54929 11.3257C6.77785 11.5543 6.90625 11.8643 6.90625 12.1875C6.90625 12.5107 6.77785 12.8207 6.54929 13.0493C6.32073 13.2778 6.01073 13.4062 5.6875 13.4062ZM11.7812 12.1875C11.7812 12.5107 11.6528 12.8207 11.4243 13.0493C11.1957 13.2778 10.8857 13.4062 10.5625 13.4062C10.2393 13.4062 9.92927 13.2778 9.70071 13.0493C9.47215 12.8207 9.34375 12.5107 9.34375 12.1875C9.34375 11.8643 9.47215 11.5543 9.70071 11.3257C9.92927 11.0972 10.2393 10.9688 10.5625 10.9688C10.8857 10.9688 11.1957 11.0972 11.4243 11.3257C11.6528 11.5543 11.7812 11.8643 11.7812 12.1875ZM8.125 17.4688C7.80177 17.4688 7.49177 17.3403 7.26321 17.1118C7.03465 16.8832 6.90625 16.5732 6.90625 16.25C6.90625 15.9268 7.03465 15.6168 7.26321 15.3882C7.49177 15.1597 7.80177 15.0312 8.125 15.0312C8.44823 15.0312 8.75823 15.1597 8.98679 15.3882C9.21535 15.6168 9.34375 15.9268 9.34375 16.25C9.34375 16.5732 9.21535 16.8832 8.98679 17.1118C8.75823 17.3403 8.44823 17.4688 8.125 17.4688ZM16.6562 12.1875C16.6562 12.5107 16.5278 12.8207 16.2993 13.0493C16.0707 13.2778 15.7607 13.4062 15.4375 13.4062C15.1143 13.4062 14.8043 13.2778 14.5757 13.0493C14.3472 12.8207 14.2188 12.5107 14.2188 12.1875C14.2188 11.8643 14.3472 11.5543 14.5757 11.3257C14.8043 11.0972 15.1143 10.9688 15.4375 10.9688C15.7607 10.9688 16.0707 11.0972 16.2993 11.3257C16.5278 11.5543 16.6562 11.8643 16.6562 12.1875ZM13 17.4688C12.6768 17.4688 12.3668 17.3403 12.1382 17.1118C11.9097 16.8832 11.7813 16.5732 11.7812 16.25C11.7812 15.9268 11.9097 15.6168 12.1382 15.3882C12.3668 15.1597 12.6768 15.0312 13 15.0312C13.3232 15.0312 13.6332 15.1597 13.8618 15.3882C14.0903 15.6168 14.2188 15.9268 14.2188 16.25C14.2188 16.5732 14.0903 16.8832 13.8618 17.1118C13.6332 17.3403 13.3232 17.4688 13 17.4688ZM21.5312 12.1875C21.5313 12.3475 21.4997 12.506 21.4385 12.6539C21.3772 12.8018 21.2875 12.9361 21.1743 13.0493C21.0611 13.1625 20.9268 13.2522 20.7789 13.3135C20.631 13.3747 20.4725 13.4063 20.3125 13.4062C20.1525 13.4063 19.994 13.3747 19.8461 13.3135C19.6982 13.2522 19.5639 13.1625 19.4507 13.0493C19.3375 12.9361 19.2478 12.8018 19.1865 12.6539C19.1253 12.506 19.0937 12.3475 19.0938 12.1875C19.0937 12.0275 19.1253 11.869 19.1865 11.7211C19.2478 11.5732 19.3375 11.4389 19.4507 11.3257C19.5639 11.2125 19.6982 11.1228 19.8461 11.0615C19.994 11.0003 20.1525 10.9688 20.3125 10.9688C20.4725 10.9687 20.631 11.0003 20.7789 11.0615C20.9268 11.1228 21.0611 11.2125 21.1743 11.3257C21.2875 11.4389 21.3772 11.5732 21.4385 11.7211C21.4997 11.869 21.5313 12.0275 21.5312 12.1875ZM17.875 17.4688C17.5518 17.4688 17.2418 17.3403 17.0132 17.1118C16.7847 16.8832 16.6562 16.5732 16.6562 16.25C16.6562 15.9268 16.7847 15.6168 17.0132 15.3882C17.2418 15.1597 17.5518 15.0312 17.875 15.0312C18.1982 15.0312 18.5082 15.1597 18.7368 15.3882C18.9653 15.6168 19.0938 15.9268 19.0938 16.25C19.0938 16.5732 18.9653 16.8832 18.7368 17.1118C18.5082 17.3403 18.1982 17.4688 17.875 17.4688Z" fill="#E8EAED"/>
-                                </g>
-                                <defs>
-                                <clipPath id="clip0_2062_17774">
-                                <rect width="26" height="26" fill="white"/>
-                                </clipPath>
-                                </defs>
-                                </svg>
-
-                                    <span
-                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Compute
-                                        Cash On Hand</span>
-                                </div>
-                            </a>
-                        </li> --}}
-                        <!-- Customer Ledger - Daily -->
-                        {{-- <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['campaigns'])) {{ 'bg-accent-100' }} @endif">
-                            <a href="{{ route('daily.index') }}" class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['campaigns'])) {{ 'hover:text-slate-200' }} @endif"
-                                href="#0">
-                                <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><rect fill="none" height="24" width="24"/><path d="M14,2H6C4.9,2,4,2.9,4,4v16c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8L14,2z M12,10c1.1,0,2,0.9,2,2c0,1.1-0.9,2-2,2s-2-0.9-2-2 C10,10.9,10.9,10,12,10z M16,18H8v-0.57c0-0.81,0.48-1.53,1.22-1.85C10.07,15.21,11.01,15,12,15c0.99,0,1.93,0.21,2.78,0.58 C15.52,15.9,16,16.62,16,17.43V18z"/></svg>
-                                    <span
-                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Customer
-                                        Ledger - Daily</span>
-                                </div>
-                            </a>
-                        </li> --}}
-                        <!-- Customer Ledger - ATM -->
-                        {{-- <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['campaigns'])) {{ 'bg-accent-100' }} @endif">
-                            <a href="{{ route('monthly.index') }}" class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['campaigns'])) {{ 'hover:text-slate-200' }} @endif"
-                                href="#0">
-                                <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><g><path d="M0,0h24v24H0V0z" fill="none"/></g><g><path d="M20,4H4C2.89,4,2.01,4.89,2.01,6L2,18c0,1.11,0.89,2,2,2h5v-2H4v-6h18V6C22,4.89,21.11,4,20,4z M20,8H4V6h16V8z M14.93,19.17l-2.83-2.83l-1.41,1.41L14.93,22L22,14.93l-1.41-1.41L14.93,19.17z"/></g></svg>
-                                    <span
-                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Customer
-                                        Ledger - ATM</span>
-                                </div>
-                            </a>
-                        </li> --}}
-                        <!-- Setup Cities/Towns -->
-                        {{-- <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['city'])) {{ 'bg-accent-100' }} @endif"
-                            x-data="{ open: {{ in_array(Request::segment(1), ['city']) ? 1 : 0 }} }">
-                            <a href="{{ route('city.index') }}"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M15 11V5l-3-3-3 3v2H3v14h18V11h-6zm-8 8H5v-2h2v2zm0-4H5v-2h2v2zm0-4H5V9h2v2zm6 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V9h2v2zm0-4h-2V5h2v2zm6 12h-2v-2h2v2zm0-4h-2v-2h2v2z"/></svg>
-                                        <span
-                                            class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Setup
-                                            Cities/Towns</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </li> --}}
-                        <!-- Setup Barangays -->
-                        {{-- <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['barangay'])) {{ 'bg-accent-100' }} @endif"
-                            x-data="{ open: {{ in_array(Request::segment(1), ['barangay']) ? 1 : 0 }} }">
-                            <a href="{{ route('barangay.index') }}" class="block text-slate-200 transition duration-150"
-                                :class="open ? 'hover:text-slate-200' : 'hover:text-white'">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                                        <span
-                                            class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Setup
-                                            Barangays</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </li> --}}
-                        <!-- Setup Customer Type -->
-                        {{-- <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['customer-type'])) {{ 'bg-accent-100' }} @endif"
-                            x-data="{ open: {{ in_array(Request::segment(1), ['customer-type']) ? 1 : 0 }} }">
-                            <a href="{{ route('customerType.index') }}"
-                                class="block text-slate-200 transition duration-150"
-                                :class="open ? 'hover:text-slate-200' : 'hover:text-white'">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0zm0 0h24v24H0zm0 0h24v24H0z" fill="none"/><path d="M20 0H4v2h16V0zM4 24h16v-2H4v2zM20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 2.75c1.24 0 2.25 1.01 2.25 2.25s-1.01 2.25-2.25 2.25S9.75 10.24 9.75 9 10.76 6.75 12 6.75zM17 17H7v-1.5c0-1.67 3.33-2.5 5-2.5s5 .83 5 2.5V17z"/></svg>
-                                        <span
-                                            class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Setup
-                                            Customer Type</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </li> --}}
-
-                         <!-- Employee Evaluation -->
-                         <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['employee-evaluation'])) {{ 'bg-accent-100' }} @endif"
-                            x-data="{ open: {{ in_array(Request::segment(1), ['employee-evaluation']) ? 1 : 0 }} }">
-                            <a href="{{ route('employeeEvaluation.index') }}"
-                                class="block text-slate-200 transition duration-150"
-                                :class="open ? 'hover:text-slate-200' : 'hover:text-white'">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M21,8c-1.45,0-2.26,1.44-1.93,2.51l-3.55,3.56c-0.3-0.09-0.74-0.09-1.04,0l-2.55-2.55C12.27,10.45,11.46,9,10,9 c-1.45,0-2.27,1.44-1.93,2.52l-4.56,4.55C2.44,15.74,1,16.55,1,18c0,1.1,0.9,2,2,2c1.45,0,2.26-1.44,1.93-2.51l4.55-4.56 c0.3,0.09,0.74,0.09,1.04,0l2.55,2.55C12.73,16.55,13.54,18,15,18c1.45,0,2.27-1.44,1.93-2.52l3.56-3.55 C21.56,12.26,23,11.45,23,10C23,8.9,22.1,8,21,8z"/><polygon points="15,9 15.94,6.93 18,6 15.94,5.07 15,3 14.08,5.07 12,6 14.08,6.93"/><polygon points="3.5,11 4,9 6,8.5 4,8 3.5,6 3,8 1,8.5 3,9"/></g></g></svg>
-                                        <span
-                                            class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Employee Evaluation</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-
-                        <!-- Cash Advance Request Form -->
-                        <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['cash-advance-req-form'])) {{ 'bg-accent-100' }} @endif"
-                            x-data="{ open: {{ in_array(Request::segment(1), ['cash-advance-req-form']) ? 1 : 0 }} }">
-                            <a href="{{ route('cashReqForm.index') }}"
-                                class="block text-slate-200 transition duration-150"
-                                :class="open ? 'hover:text-slate-200' : 'hover:text-white'">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><rect fill="none" height="24" width="24"/><path d="M14,2H6C4.9,2,4,2.9,4,4v16c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8L14,2z M15,11h-4v1h3c0.55,0,1,0.45,1,1v3 c0,0.55-0.45,1-1,1h-1v1h-2v-1H9v-2h4v-1h-3c-0.55,0-1-0.45-1-1v-3c0-0.55,0.45-1,1-1h1V8h2v1h2V11z"/></svg>
-                                        <span
-                                            class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Cash Advance Request Form</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-
-                         <!-- Cash Bond -->
-                         <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['customer-type'])) {{ 'bg-accent-100' }} @endif"
-                            x-data="{ open: {{ in_array(Request::segment(1), ['customer-type']) ? 1 : 0 }} }">
-                            <a href="{{ route('cashBond.index') }}"
-                                class="block text-slate-200 transition duration-150"
-                                :class="open ? 'hover:text-slate-200' : 'hover:text-white'">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
-                                        <span
-                                            class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Cash Bond</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-
-                         <!-- Regular Account -->
-                         <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['badAccount'])) {{ 'bg-accent-100' }} @endif"
-                            x-data="{ open: {{ in_array(Request::segment(1), ['badAccount']) ? 1 : 0 }} }">
-                            <a href="{{ route('regAccount.index') }}"
-                                class="block text-slate-200 transition duration-150"
-                                :class="open ? 'hover:text-slate-200' : 'hover:text-white'">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
-                                        <span
-                                            class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Regular Account</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-
-                        <!-- Bad Account -->
-                        <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['badAccount'])) {{ 'bg-accent-100' }} @endif"
-                            x-data="{ open: {{ in_array(Request::segment(1), ['badAccount']) ? 1 : 0 }} }">
-                            <a href="{{ route('badAccount.index') }}"
-                                class="block text-slate-200 transition duration-150"
-                                :class="open ? 'hover:text-slate-200' : 'hover:text-white'">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
-                                        <span
-                                            class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Bad Account</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-
-                         <!-- Customer Payments -->
-                         <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['customer-type'])) {{ 'bg-accent-100' }} @endif"
-                            x-data="{ open: {{ in_array(Request::segment(1), ['customer-type']) ? 1 : 0 }} }">
-                            <a href="{{ route('badAccount.index') }}"
-                                class="block text-slate-200 transition duration-150"
-                                :class="open ? 'hover:text-slate-200' : 'hover:text-white'">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0,0h24v24H0V0z" fill="none"/><g><path d="M19.5,3.5L18,2l-1.5,1.5L15,2l-1.5,1.5L12,2l-1.5,1.5L9,2L7.5,3.5L6,2v14H3v3c0,1.66,1.34,3,3,3h12c1.66,0,3-1.34,3-3V2 L19.5,3.5z M19,19c0,0.55-0.45,1-1,1s-1-0.45-1-1v-3H8V5h11V19z"/><rect height="2" width="6" x="9" y="7"/><rect height="2" width="2" x="16" y="7"/><rect height="2" width="6" x="9" y="10"/><rect height="2" width="2" x="16" y="10"/></g></svg>
-                                        <span
-                                            class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Customer Payments</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <div class="">
-                                <ul class="pl-9 mt-1 "
-                                    class="open ? 'hover:text-slate-200' : 'hover:text-white'">
-                                    <li class="mb-1 last:mb-0">
-                                        <a class="block text-neutral-50 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition truncate"
-                                            href="{{ route('todaysPayer.index') }}">
-                                            <span
-                                                class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Todays Payer</span>
-                                        </a>
-                                    </li>
-                                    <li class="mb-1 last:mb-0">
-                                        <a class="block text-white dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition truncate"
-                                            href="{{ route('latePayer.index') }}">
-                                            <span
-                                                class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Late Payer</span>
-                                        </a>
-                                    </li>
-                                    <li class="mb-1 last:mb-0">
-                                        <a class="block text-white dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition truncate"
-                                            href="{{ route('paymentHistory.index') }}">
-                                            <span
-                                                class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Payment History</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-
-                        <!-- Pending Loan Approvals -->
-                        <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['customer-type'])) {{ 'bg-accent-100' }} @endif"
-                            x-data="{ open: {{ in_array(Request::segment(1), ['customer-type']) ? 1 : 0 }} }">
-                            <a href="{{ route('pendingLoandApproval.index') }}"
-                                class="block text-slate-200 transition duration-150"
-                                :class="open ? 'hover:text-slate-200' : 'hover:text-white'">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><g><rect fill="none" height="24" width="24"/><path d="M17,12c-2.76,0-5,2.24-5,5s2.24,5,5,5c2.76,0,5-2.24,5-5S19.76,12,17,12z M18.65,19.35l-2.15-2.15V14h1v2.79l1.85,1.85 L18.65,19.35z M18,3h-3.18C14.4,1.84,13.3,1,12,1S9.6,1.84,9.18,3H6C4.9,3,4,3.9,4,5v15c0,1.1,0.9,2,2,2h6.11 c-0.59-0.57-1.07-1.25-1.42-2H6V5h2v3h8V5h2v5.08c0.71,0.1,1.38,0.31,2,0.6V5C20,3.9,19.1,3,18,3z M12,5c-0.55,0-1-0.45-1-1 c0-0.55,0.45-1,1-1c0.55,0,1,0.45,1,1C13,4.55,12.55,5,12,5z"/></g></svg>
-                                        <span
-                                            class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Pending Loan</span>
-                                            <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-6 text-sm font-semibold text-red-700 bg-red-200 rounded-full">2</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <div class="">
-                                <ul class="pl-9 mt-1 "
-                                    :class="open ? 'hover:text-slate-200' : 'hover:text-white'">
-                                    <li class="mb-1 last:mb-0">
-                                        <a class="block text-neutral-50 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition truncate"
-                                            href="{{ route('approvedLoan.index') }}">
-                                            <span
-                                                class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Approved Loans</span>
-                                        </a>
-                                    </li>
-                                    <li class="mb-1 last:mb-0">
-                                        <a class="block text-white dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition truncate"
-                                            href="{{ route('rejectedLoan.index') }}">
-                                            <span
-                                                class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Rejected Loans</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
                         </li>
 
                         <!-- Loan Renewal -->
@@ -1255,35 +917,254 @@
                             </a>
                         </li>
 
-                        <!-- Leave -->
-                        <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['leave'])) {{ 'bg-accent-100' }} @endif"
-                            x-data="{ open: {{ in_array(Request::segment(1), ['leave']) ? 1 : 0 }} }">
-                            <a href="{{ route('collector.leave') }}"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['leave'])) {{ 'hover:text-slate-200' }} @endif">
+                        <!-- Customer Payments -->
+                        <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 bg-[linear-gradient(135deg,var(--tw-gradient-stops))] @if(in_array(Request::segment(1), ['todaysPayer', 'latePayer', 'paymentHistory'])){{ 'from-violet-500/[0.12] dark:from-violet-500/[0.24] to-violet-500/[0.04]' }}@endif" x-data="{ open: {{ in_array(Request::segment(1), ['todaysPayer', 'latePayer', 'paymentHistory']) ? 1 : 0 }} }">
+                            <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if(!in_array(Request::segment(1), ['todaysPayer', 'latePayer', 'paymentHistory'])){{ 'hover:text-gray-900 dark:hover:text-white' }}@endif" href="#0" @click.prevent="open = !open; sidebarExpanded = true">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><g><rect fill="none" height="24" width="24"/></g><g><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 4c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm0 14c-2.03 0-4.43-.82-6.14-2.88C7.55 15.8 9.68 15 12 15s4.45.8 6.14 2.12C16.43 19.18 14.03 20 12 20z"/></g></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0,0h24v24H0V0z" fill="none"/><g><path d="M19.5,3.5L18,2l-1.5,1.5L15,2l-1.5,1.5L12,2l-1.5,1.5L9,2L7.5,3.5L6,2v14H3v3c0,1.66,1.34,3,3,3h12c1.66,0,3-1.34,3-3V2 L19.5,3.5z M19,19c0,0.55-0.45,1-1,1s-1-0.45-1-1v-3H8V5h11V19z"/><rect height="2" width="6" x="9" y="7"/><rect height="2" width="2" x="16" y="7"/><rect height="2" width="6" x="9" y="10"/><rect height="2" width="2" x="16" y="10"/></g></svg>
+                                        <span class="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Customer Payments</span>
+                                    </div>
+                                    <!-- Icon -->
+                                    <div class="flex shrink-0 ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
+                                        <svg class="w-3 h-3 shrink-0 ml-1 fill-current text-gray-400 dark:text-gray-500 @if(in_array(Request::segment(1), ['employee'])){{ 'rotate-180' }}@endif" :class="open ? 'rotate-180' : 'rotate-0'" viewBox="0 0 12 12">
+                                            <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="lg:hidden lg:sidebar-expanded:block 2xl:block">
+                                <ul class="pl-10 mt-1 @if(!in_array(Request::segment(1), ['todaysPayer', 'latePayer', 'paymentHistory'])){{ 'hidden' }}@endif" :class="open ? '!block' : 'hidden'">
+                                    <li class="mb-1 last:mb-0">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('todaysPayer.index')){{ '!text-violet-500' }}@endif" href="{{ route('todaysPayer.index') }}">
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Todays Payer</span>
+                                        </a>
+                                    </li>
+                                    <li class="mb-1 last:mb-0">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('latePayer.index')){{ '!text-violet-500' }}@endif" href="{{ route('latePayer.index') }}"">
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Late Payer</span>
+                                        </a>
+                                    </li>
+                                    <li class="mb-1 last:mb-0">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('paymentHistory.index')){{ '!text-violet-500' }}@endif" href="{{ route('paymentHistory.index') }}">
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Payment History</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <!-- Loan Status -->
+                        <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 bg-[linear-gradient(135deg,var(--tw-gradient-stops))] @if(in_array(Request::segment(1), ['approvedLoan', 'pendingLoandApproval', 'rejectedLoan'])){{ 'from-violet-500/[0.12] dark:from-violet-500/[0.24] to-violet-500/[0.04]' }}@endif" x-data="{ open: {{ in_array(Request::segment(1), ['approvedLoan', 'pendingLoandApproval', 'rejectedLoan']) ? 1 : 0 }} }">
+                            <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if(!in_array(Request::segment(1), ['approvedLoan', 'pendingLoandApproval', 'rejectedLoan'])){{ 'hover:text-gray-900 dark:hover:text-white' }}@endif" href="#0" @click.prevent="open = !open; sidebarExpanded = true">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><g><rect fill="none" height="24" width="24"/><path d="M17,12c-2.76,0-5,2.24-5,5s2.24,5,5,5c2.76,0,5-2.24,5-5S19.76,12,17,12z M18.65,19.35l-2.15-2.15V14h1v2.79l1.85,1.85 L18.65,19.35z M18,3h-3.18C14.4,1.84,13.3,1,12,1S9.6,1.84,9.18,3H6C4.9,3,4,3.9,4,5v15c0,1.1,0.9,2,2,2h6.11 c-0.59-0.57-1.07-1.25-1.42-2H6V5h2v3h8V5h2v5.08c0.71,0.1,1.38,0.31,2,0.6V5C20,3.9,19.1,3,18,3z M12,5c-0.55,0-1-0.45-1-1 c0-0.55,0.45-1,1-1c0.55,0,1,0.45,1,1C13,4.55,12.55,5,12,5z"/></g></svg>
+                                        <span class="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Loan Status</span>
+                                    </div>
+                                    <!-- Icon -->
+                                    <div class="flex shrink-0 ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
+                                        <svg class="w-3 h-3 shrink-0 ml-1 fill-current text-gray-400 dark:text-gray-500 @if(in_array(Request::segment(1), ['employee'])){{ 'rotate-180' }}@endif" :class="open ? 'rotate-180' : 'rotate-0'" viewBox="0 0 12 12">
+                                            <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="lg:hidden lg:sidebar-expanded:block 2xl:block">
+                                <ul class="pl-10 mt-1 @if(!in_array(Request::segment(1), ['approvedLoan', 'pendingLoandApproval', 'rejectedLoan'])){{ 'hidden' }}@endif" :class="open ? '!block' : 'hidden'">
+                                    <li class="mb-1 last:mb-0">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('approvedLoan.index')){{ '!text-violet-500' }}@endif" href="{{ route('approvedLoan.index') }}">
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Approved Loans</span>
+                                        </a>
+                                    </li>
+                                    <li class="mb-1 last:mb-0">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('pendingLoandApproval.index')){{ '!text-violet-500' }}@endif" href="{{ route('pendingLoandApproval.index') }}">
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Pending Loans</span>
+                                            <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-6 text-sm font-semibold text-red-700 bg-red-200 rounded-full">2</span>
+                                        </a>
+                                    </li>
+                                    <li class="mb-1 last:mb-0">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('rejectedLoan.index')){{ '!text-violet-500' }}@endif" href="{{ route('rejectedLoan.index') }}">
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Rejected Loans</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <!-- Customer Loan History -->
+                        <li
+                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
+                            <a href="/"
+                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
+                                <div class="flex items-center">
+                                <!-- <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg> -->
+                                    <span
+                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Customer Loan History</span>
+                                </div>
+                            </a>
+                        </li>
+
+                        <!-- CSOR -->
+                        <li
+                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
+                            <a href="{{ route('csor.index') }}"
+                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
+                                <div class="flex items-center">
+                                <!-- <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg> -->
+                                    <span
+                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">CSOR</span>
+                                </div>
+                            </a>
+                        </li>
+
+                        <!-- Automated Payment Reminders -->
+                        <li
+                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
+                            <a href="/"
+                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
+                                <div class="flex items-center">
+                                <!-- <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg> -->
+                                    <span
+                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Automated Payment Reminders</span>
+                                </div>
+                            </a>
+                        </li>
+
+                        <!-- Daily Work Order -->
+                        <li
+                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
+                            <a href="/"
+                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
+                                <div class="flex items-center">
+                                <!-- <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg> -->
+                                    <span
+                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Daily Work order</span>
+                                </div>
+                            </a>
+                        </li>
+
+                        <!-- Loan Accounts -->
+                        <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 bg-[linear-gradient(135deg,var(--tw-gradient-stops))] @if(in_array(Request::segment(1), ['regAccount', 'badAccount', 'overdueacc'])){{ 'from-violet-500/[0.12] dark:from-violet-500/[0.24] to-violet-500/[0.04]' }}@endif" x-data="{ open: {{ in_array(Request::segment(1), ['regAccount', 'badAccount', 'overdueacc']) ? 1 : 0 }} }">
+                            <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if(!in_array(Request::segment(1), ['regAccount', 'badAccount', 'overdueacc'])){{ 'hover:text-gray-900 dark:hover:text-white' }}@endif" href="#0" @click.prevent="open = !open; sidebarExpanded = true">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+                                        <span class="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Loan Accounts</span>
+                                    </div>
+                                    <!-- Icon -->
+                                    <div class="flex shrink-0 ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
+                                        <svg class="w-3 h-3 shrink-0 ml-1 fill-current text-gray-400 dark:text-gray-500 @if(in_array(Request::segment(1), ['employee'])){{ 'rotate-180' }}@endif" :class="open ? 'rotate-180' : 'rotate-0'" viewBox="0 0 12 12">
+                                            <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="lg:hidden lg:sidebar-expanded:block 2xl:block">
+                                <ul class="pl-10 mt-1 @if(!in_array(Request::segment(1), ['regAccount', 'badAccount', 'overdueacc'])){{ 'hidden' }}@endif" :class="open ? '!block' : 'hidden'">
+                                    <li class="mb-1 last:mb-0">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('regAccount.index')){{ '!text-violet-500' }}@endif" href="{{ route('regAccount.index') }}">
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Regular Accounts</span>
+                                        </a>
+                                    </li>
+                                    <li class="mb-1 last:mb-0">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('badAccount.index')){{ '!text-violet-500' }}@endif" href="{{ route('badAccount.index') }}">
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Bad Accounts</span>
+                                        </a>
+                                    </li>
+                                    <li class="mb-1 last:mb-0">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('overdueacc.index')){{ '!text-violet-500' }}@endif" href="{{ route('overdueacc.index') }}">
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Overdue Accounts</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <!-- Employee Request Forms -->
+                        <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 bg-[linear-gradient(135deg,var(--tw-gradient-stops))] @if(in_array(Request::segment(1), ['leaveRequest', 'underRequest', 'idRequest', 'clearance', 'cashReqForm', 'cashBond'])){{ 'from-violet-500/[0.12] dark:from-violet-500/[0.24] to-violet-500/[0.04]' }}@endif" x-data="{ open: {{ in_array(Request::segment(1), ['leaveRequest', 'underRequest', 'idRequest', 'clearance', 'cashReqForm', 'cashBond']) ? 1 : 0 }} }">
+                            <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if(!in_array(Request::segment(1), ['leaveRequest', 'underRequest', 'idRequest', 'clearance', 'cashReqForm', 'cashBond'])){{ 'hover:text-gray-900 dark:hover:text-white' }}@endif" href="#0" @click.prevent="open = !open; sidebarExpanded = true">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2c-4.97 0-9 4.03-9 9 0 4.17 2.84 7.67 6.69 8.69L12 22l2.31-2.31C18.16 18.67 21 15.17 21 11c0-4.97-4.03-9-9-9zm0 2c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.3c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+                                        <span class="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Request Form</span>
+                                    </div>
+                                    <!-- Icon -->
+                                    <div class="flex shrink-0 ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
+                                        <svg class="w-3 h-3 shrink-0 ml-1 fill-current text-gray-400 dark:text-gray-500 @if(in_array(Request::segment(1), ['employee'])){{ 'rotate-180' }}@endif" :class="open ? 'rotate-180' : 'rotate-0'" viewBox="0 0 12 12">
+                                            <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="lg:hidden lg:sidebar-expanded:block 2xl:block">
+                                <ul class="pl-10 mt-1 @if(!in_array(Request::segment(1), ['leaveRequest', 'underRequest', 'idRequest', 'clearance', 'cashReqForm', 'cashBond'])){{ 'hidden' }}@endif" :class="open ? '!block' : 'hidden'">
+                                    <li class="mb-1 last:mb-0">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('leaveRequest.add')){{ '!text-violet-500' }}@endif" href="#">
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Leave Request</span>
+                                        </a>
+                                    </li>
+                                    <li class="mb-1 last:mb-0">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('underRequest.index')){{ '!text-violet-500' }}@endif" href="#">
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Undertime Request</span>
+                                        </a>
+                                    </li>
+                                    <li class="mb-1 last:mb-0">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('idRequest.index')){{ '!text-violet-500' }}@endif" href="#">
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">ID Request</span>
+                                        </a>
+                                    </li>
+                                    <li class="mb-1 last:mb-0">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('clearance.index')){{ '!text-violet-500' }}@endif" href="#">
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Clearance Request</span>
+                                            <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-6 text-sm font-semibold text-red-700 bg-red-200 rounded-full">2</span>
+                                        </a>
+                                    </li>
+                                    <li class="mb-1 last:mb-0">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('cashReqForm.index')){{ '!text-violet-500' }}@endif" href="#">
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Cash Advance</span>
+                                            <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-6 text-sm font-semibold text-red-700 bg-red-200 rounded-full">2</span>
+                                        </a>
+                                    </li>
+                                    <li class="mb-1 last:mb-0">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('cashBond.index')){{ '!text-violet-500' }}@endif" href="#">
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Cash Bond Loan</span>
+                                            <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-6 text-sm font-semibold text-red-700 bg-red-200 rounded-full">2</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                         <!-- Employee Evaluation -->
+                         <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['employee-evaluation'])) {{ 'bg-accent-100' }} @endif"
+                            x-data="{ open: {{ in_array(Request::segment(1), ['employee-evaluation']) ? 1 : 0 }} }">
+                            <a href="{{ route('employeeEvaluation.index') }}"
+                                class="block text-slate-200 transition duration-150"
+                                :class="open ? 'hover:text-slate-200' : 'hover:text-white'">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M21,8c-1.45,0-2.26,1.44-1.93,2.51l-3.55,3.56c-0.3-0.09-0.74-0.09-1.04,0l-2.55-2.55C12.27,10.45,11.46,9,10,9 c-1.45,0-2.27,1.44-1.93,2.52l-4.56,4.55C2.44,15.74,1,16.55,1,18c0,1.1,0.9,2,2,2c1.45,0,2.26-1.44,1.93-2.51l4.55-4.56 c0.3,0.09,0.74,0.09,1.04,0l2.55,2.55C12.73,16.55,13.54,18,15,18c1.45,0,2.27-1.44,1.93-2.52l3.56-3.55 C21.56,12.26,23,11.45,23,10C23,8.9,22.1,8,21,8z"/><polygon points="15,9 15.94,6.93 18,6 15.94,5.07 15,3 14.08,5.07 12,6 14.08,6.93"/><polygon points="3.5,11 4,9 6,8.5 4,8 3.5,6 3,8 1,8.5 3,9"/></g></g></svg>
                                         <span
-                                            class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Request Leave</span>
+                                            class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Employee Evaluation</span>
                                     </div>
                                 </div>
                             </a>
                         </li>
 
-                        <!-- Delinquency Management -->
-                        <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['leave'])) {{ 'bg-accent-100' }} @endif"
-                            x-data="{ open: {{ in_array(Request::segment(1), ['leave']) ? 1 : 0 }} }">
-                            <a href="{{ route('overdueacc.index') }}"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['leave'])) {{ 'hover:text-slate-200' }} @endif">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
-                                        <span
-                                            class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Overdue Accounts</span>
-                                    </div>
+                        <!-- Payslip & Payroll -->
+                        <li
+                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
+                            <a href="/"
+                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
+                                <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 14V6c0-1.1-.9-2-2-2H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zm-9-1c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm13-6v11c0 1.1-.9 2-2 2H4v-2h17V7h2z"/></svg>
+                                    <span
+                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Payslip & Payroll</span>
                                 </div>
                             </a>
                         </li>
+
                         <!-- Savings -->
                         <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['leave'])) {{ 'bg-accent-100' }} @endif"
                             x-data="{ open: {{ in_array(Request::segment(1), ['leave']) ? 1 : 0 }} }">
@@ -1298,7 +1179,7 @@
                                 </div>
                             </a>
                         </li>
-
+                        
                         <!-- Attendance -->
                         <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['leave'])) {{ 'bg-accent-100' }} @endif"
                             x-data="{ open: {{ in_array(Request::segment(1), ['leave']) ? 1 : 0 }} }">
@@ -1310,156 +1191,6 @@
                                         <span
                                             class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Attendance</span>
                                     </div>
-                                </div>
-                            </a>
-                        </li>
-                        <!-- New Sidebar of Loan Officer -->
-                        <h3 class="text-xs uppercase text-slate-500 font-semibold pl-3">
-                            <span class="hidden lg:block lg:sidebar-expanded:hidden 2xl:hidden text-center w-6"
-                                aria-hidden="true">•••</span>
-                            <span class="lg:hidden lg:sidebar-expanded:block 2xl:block">New Sidebar</span>
-                        </h3>
-                    
-                        <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
-                            <a href="/"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
-                                <div class="flex items-center">
-                                <!-- <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg> -->
-                                    <span
-                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Dashboard</span>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
-                            <a href="/"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
-                                <div class="flex items-center">
-                                <!-- <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg> -->
-                                    <span
-                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Customer Loan History</span>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
-                            <a href="{{ route('csor.index') }}"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
-                                <div class="flex items-center">
-                                <!-- <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg> -->
-                                    <span
-                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">CSOR</span>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
-                            <a href="/"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
-                                <div class="flex items-center">
-                                <!-- <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg> -->
-                                    <span
-                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Automated Payment Reminders</span>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
-                            <a href="/"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
-                                <div class="flex items-center">
-                                <!-- <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg> -->
-                                    <span
-                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Cash Advance Request</span>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
-                            <a href="/"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
-                                <div class="flex items-center">
-                                <!-- <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg> -->
-                                    <span
-                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Cash Bond Loan Request</span>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
-                            <a href="/"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
-                                <div class="flex items-center">
-                                <!-- <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg> -->
-                                    <span
-                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Daily Work order</span>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
-                            <a href="/"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
-                                <div class="flex items-center">
-                                <!-- <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg> -->
-                                    <span
-                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Leave/Undertime Application</span>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
-                            <a href="/"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
-                                <div class="flex items-center">
-                                <!-- <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg> -->
-                                    <span
-                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">ID Request Form</span>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
-                            <a href="/"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
-                                <div class="flex items-center">
-                                <!-- <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg> -->
-                                    <span
-                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Clearance Form</span>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
-                            <a href="/"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
-                                <div class="flex items-center">
-                                <!-- <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg> -->
-                                    <span
-                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Payslip & Payroll</span>
-                                </div>
-                            </a>
-                        </li>  
-                        
-                        <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
-                            <a href="/"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
-                                <div class="flex items-center">
-                                <!-- <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg> -->
-                                    <span
-                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Attendance</span>
                                 </div>
                             </a>
                         </li>
