@@ -127,6 +127,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::post('expenses/update/{id}', [ExpensesController::class, 'update'])->name('expenses.update');
     Route::delete('expenses/destroy/{id}', [ExpensesController::class, 'destroy'])->name('expenses.destroy');
     Route::get('/get-account-data/{acctNo}', [ExpensesController::class, 'getAccountData']);
+    Route::post('expenses/import', [ExpensesController::class, 'importCSV'])->name('expenses.importcsv');
 
     // Compute Cash on Hand
     Route::get('compute', [ComputeCOHController::class, 'index'])->name('compute.index');
