@@ -23,9 +23,9 @@ class BarangayController extends Controller
         if (isset($request->search)) {
             $lists = Barangay::where('branch_id', $branch)
                 ->where('barangay_name', 'LIKE', '%', $request->search, '%')->orderBy("created_at", "asc")
-                ->get();
+                ->paginate(20);
         } else {
-            $lists = Barangay::where('branch_id', $branch)->get();
+            $lists = Barangay::where('branch_id', $branch)->paginate(20);
         }
 
         return view('pages.barangay.index', compact('lists'));
