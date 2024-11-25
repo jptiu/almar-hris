@@ -22,13 +22,13 @@ class CustomerController extends Controller
             if (isset($request->search)) {
                 $lists = Customer::where('branch_id', $branch)->where('first_name', 'LIKE', '%', $request->search, '%')->orderBy("created_at", "asc")->get();
             }
-            $lists = Customer::where('branch_id', $branch)->get();
+            $lists = Customer::where('branch_id', $branch)->paginate(20);
 
 
             return view('pages.customer.index', compact('lists'));
         } catch (\Throwable $th) {
             //throw $th;
-            $lists = Customer::where('branch_id', $branch)->get();
+            $lists = Customer::where('branch_id', $branch)->paginate(20);
             return view('pages.customer.index', compact('lists'));
         }
     }
@@ -37,7 +37,7 @@ class CustomerController extends Controller
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
         $branch = auth()->user()->branch_id;
-        $types = CustomerType::where('branch_id', $branch)->get();
+        $types = CustomerType::where('branch_id', $branch)->paginate(20);
         return view('pages.customer.add.index', compact('types'));
     }
 
