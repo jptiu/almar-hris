@@ -24,9 +24,9 @@ class CustomerTypeController extends Controller
             $lists = CustomerType::with('user')
                 ->where('branch_id', $branch)
                 ->where('code', 'LIKE', '%', $request->search, '%')->orderBy("created_at", "asc")
-                ->get();
+                ->paginate(20);
         }else{
-            $lists = CustomerType::with('user')->where('branch_id', $branch)->get();
+            $lists = CustomerType::with('user')->where('branch_id', $branch)->paginate(20);
         }
         
 
