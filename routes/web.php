@@ -173,6 +173,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // Pending Loan Approval
     Route::get('loanapprovals-approved', [HRController::class, 'approvedLoans'])->name('approved.index');
     Route::get('loanapprovals-rejected', [HRController::class, 'rejectedLoans'])->name('rejected.index');
+    Route::get('loanapprovals-pending', [HRController::class, 'pendingLoans'])->name('pending.index');
 
 
     // Employee
