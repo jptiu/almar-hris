@@ -24,7 +24,7 @@
         
         <!-- Cards -->
         <div class="flex justify-between relative items-center mb-4">
-            <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold lg:px-4">Request Payroll</h1>
+            <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold lg:px-4">Payroll Requests</h1>
             <!-- Dashboard actions -->
         <div class="sm:flex sm:justify-between sm:items-center">
             <div></div>
@@ -39,12 +39,12 @@
                 <x-datepicker />
 
                 <!-- Add view button -->
-                <a href="{{ route('payroll.add') }}" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
+                <a href="#" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
                     <svg class="w-4 h-4 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
                         <path
                             d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
                     </svg>
-                    <span class="xs:block ml-2">Add Payroll</span>
+                    <span class="xs:block ml-2">Add Payslip</span>
                 </a>
                 
             </div>
@@ -73,22 +73,12 @@
                                             class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             Payroll Date
                                         </th>
+
                                         <th scope="col"
                                             class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
-                                            Start Date
+                                            Attachment
                                         </th>
-                                        <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
-                                            End Date
-                                        </th>
-                                        <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
-                                            Days of Work
-                                        </th>
-                                        <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
-                                            Total Salary
-                                        </th>
+
                                         <th scope="col"
                                             class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             Action
@@ -96,39 +86,26 @@
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
-                                    @foreach ($lists as $list)
                                         <tr>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                {{$list->id}}
+                                                1
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                {{$list->full_name}}
+                                                Jhon Doe
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                {{$list->date_of_payroll}}
+                                                October 30
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                {{$list->start_date}}
-                                            </td>
-                                            <td
-                                                class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                {{$list->end_date}}
-                                            </td>
-                                            <td
-                                                class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                {{$list->days_of_work}}
-                                            </td>
-                                            <td
-                                                class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                {{$list->total_salary}}
+                                                jhondoe_attendance072224.pdf
                                             </td>
                                             <td class="px-4 py-4 text-sm whitespace-nowrap">
                                                 <div class="flex items-center gap-x-6">
-                                                    <a href="{{ route('payroll.print  ', $list->id) }}"
+                                                    <a href="#"
                                                         class="text-gray-500 transition-colors duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                                             height="16" fill="currentColor" class="bi bi-eye"
@@ -142,7 +119,6 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

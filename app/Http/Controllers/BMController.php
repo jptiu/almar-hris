@@ -142,8 +142,11 @@ class BMController extends Controller
 
     public function csor()
     {
-        abort_unless(Gate::allows('branch_access'), 404);
-        
         return view('pages.csor.index');
+    }
+
+    public function payRoll()
+    {
+        return view('pages.payroll.index');
     }
 }

@@ -262,6 +262,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('payroll-add', [PayrollController::class, 'create'])->name('payroll.add');
     Route::post('payroll/store', [PayrollController::class, 'store'])->name('payroll.store');
     Route::get('payroll/payslip', [PayrollController::class, 'payrollPrint'])->name('payroll.print');
+    Route::get('payroll/add', [BMController::class, 'payRoll'])->name('paroll.index');
     // Route::post('payroll/update/{id}', [PayrollController::class, 'resigupdate'])->name('payroll.update');
     // Route::get('payroll/show/{id}', [PayrollController::class, 'resigshow'])->name('payroll.show');
 
