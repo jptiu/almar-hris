@@ -17,9 +17,10 @@ class CollectionController extends Controller
     public function index(Request $request)
     {
         //abort_unless(Gate::allows('loan_access'), 404);
-        $lists = Collection::with('user')->get();
-        $customers = Customer::get();
-        $collectors = User::where('roles.title', 'Collector')
+        $branch = auth()->user()->branch_id;
+        $lists = Collection::with('user')->where('branch_id', $branch)->get();
+        $customers = Customer::where('branch_id', $branch)->get();
+        $collectors = User::where('branch_id', $branch)->where('roles.title', 'Collector')
         ->join('role_user', 'users.id', '=', 'role_user.user_id')
         ->join('roles', 'role_user.role_id', '=', 'roles.id')
         ->get();
@@ -48,8 +49,9 @@ class CollectionController extends Controller
     public function create()
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
-        $customers = Customer::get();
-        $collectors = User::where('roles.title', 'Collector')
+        $branch = auth()->user()->branch_id;
+        $customers = Customer::where('branch_id', $branch)->get();
+        $collectors = User::where('branch_id', $branch)->where('roles.title', 'Collector')
         ->join('role_user', 'users.id', '=', 'role_user.user_id')
         ->join('roles', 'role_user.role_id', '=', 'roles.id')
         ->get();

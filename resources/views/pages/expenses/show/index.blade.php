@@ -79,144 +79,119 @@
         </div>
 
         <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
-        <div class="flex items-center text-gray-600 mb-12">
-            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-            </svg>
-            <a href="{{ route('expenses.index') }}" class="text-base font-semibold">Back</a>
-        </div>
-        
+            <div class="flex items-center text-gray-600 mb-12">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                <a href="{{ route('expenses.index') }}" class="text-base font-semibold">Back</a>
+            </div>
+
             <div class="grid grid-cols-1 gap-4">
                 <div class="...">
-                    <form action="{{ route('customer.store') }}" method="POST">
-                        
-
-                        <!-- Transaction Reference Summary -->
-                        <div class="relative">
-                            <h2 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-2">Transaction Reference Summary</h2>
-                            <hr class="h-px my-4 mb-4 bg-gray-200 border-0 dark:bg-gray-700">
-                        </div>
-                        <div class="mb-6">
-                            <div class="grid grid-cols-3 gap-8 mt-4 mb-12 text-sm text-gray-500">
-                                <div>
-                                    <p class="text-gray-900 text-sm">Exp Ref No.</p>
-                                    <p class="font-bold text-gray-900 text-base">Business</p>
-                                </div>
-                                <div>
-                                    <p class="text-gray-900 text-sm">Acct No.</p>
-                                    <p class="font-bold text-gray-900 text-base">Business</p>
-                                </div>
-                                <div>
-                                    <p class="text-gray-900 text-sm">Acct Class</p>
-                                    <p class="font-bold text-gray-900 text-base">Business</p>
-                                </div>
-                                <div>
-                                    <p class="text-gray-900 text-sm">Acct Type</p>
-                                    <p class="font-bold text-gray-900 text-base">Business</p>
-                                </div>
-                                <div>
-                                    <p class="text-gray-900 text-sm">Acct Title</p>
-                                    <p class="font-bold text-gray-900 text-base">Business</p>
-                                </div>
-                                <div>
-                                    <p class="text-gray-900 text-sm">Amount</p>
-                                    <p class="font-bold text-gray-900 text-base">Business</p>
-                                </div>
-                                <div>
-                                    <p class="text-gray-900 text-sm">Expiry Date</p>
-                                    <p class="font-bold text-gray-900 text-base">Business</p>
-                                </div>
-                                <div>
-                                    <p class="text-gray-900 text-sm">O.R No.</p>
-                                    <p class="font-bold text-gray-900 text-base">Business</p>
-                                </div>
-                                <div>
-                                    <p class="text-gray-900 text-sm">Justification</p>
-                                    <p class="font-bold text-gray-900 text-base">Business</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Cards -->
-                        <div class="relative">
-                            <h2 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-6">Payment Details</h2>
-                        </div>
-                        <section class="container mx-auto mb-12">
-                            <div class="flex flex-col">
-                                <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                                    <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-                                        <div class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
-                                            <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                                                <thead class="bg-gray-50 dark:bg-gray-800">
-                                                    <tr>
-                                                        <th scope="col"
-                                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
-                                                            Charge To
-                                                        </th>
-
-
-                                                    </tr>
-                                                </thead>
-                                                <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
-                                                    
-                                                        <tr>
-                                                            <td
-                                                                class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
-                                                               
-                                                            </td>
-                                            
-                                                            <td
-                                                                class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                                <div class="flex items-center gap-x-2">
-                                                                    <div>
-                                                                        <h2 class="text-sm font-medium text-gray-500 dark:text-white ">
-                                                                            </h2>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td class="px-4 py-4 text-sm whitespace-nowrap">
-                                                                
-                                                            </td>
-                                                        </tr>
-                                                    
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="mb-8 mt-8">
+                    <!-- Transaction Reference Summary -->
+                    <div class="relative">
+                        <h2 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-2">
+                            Transaction Reference Summary</h2>
+                        <hr class="h-px my-4 mb-4 bg-gray-200 border-0 dark:bg-gray-700">
+                    </div>
+                    <div class="mb-6">
+                        <div class="grid grid-cols-3 gap-8 mt-4 mb-12 text-sm text-gray-500">
                             <div>
-                                <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
-                                    <div class="text-gray-600">
-                                        <p class="font-medium text-lg"></p>
-                                    </div>
+                                <p class="text-gray-900 text-sm">Exp Ref No.</p>
+                                <p class="font-bold text-gray-900 text-base">{{ $expenses->id }}</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-900 text-sm">Acct No.</p>
+                                <p class="font-bold text-gray-900 text-base">{{ $expenses->acc_no }}</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-900 text-sm">Acct Class</p>
+                                <p class="font-bold text-gray-900 text-base">{{ $expenses->account->acc_class }}</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-900 text-sm">Acct Type</p>
+                                <p class="font-bold text-gray-900 text-base">{{ $expenses->account->acc_type }}</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-900 text-sm">Acct Title</p>
+                                <p class="font-bold text-gray-900 text-base">{{ $expenses->account->acc_title }}</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-900 text-sm">Amount</p>
+                                <p class="font-bold text-gray-900 text-base">{{ $expenses->amount }}</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-900 text-sm">Expiry Date</p>
+                                <p class="font-bold text-gray-900 text-base">{{ $expenses->exp_date }}</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-900 text-sm">O.R No.</p>
+                                <p class="font-bold text-gray-900 text-base">{{ $expenses->or_no }}</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-900 text-sm">Justification</p>
+                                <p class="font-bold text-gray-900 text-base">{{ $expenses->justification }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Cards -->
+                    <div class="relative">
+                        <h2 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-6">Payment
+                            Details</h2>
+                    </div>
+                    <section class="container mx-auto mb-12">
+                        <div class="flex flex-col">
+                            <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+                                    <div
+                                        class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
+                                        <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                                            <thead class="bg-gray-50 dark:bg-gray-800">
+                                                <tr>
+                                                    <th scope="col"
+                                                        class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
+                                                        Charge To
+                                                    </th>
 
-                                    <div class="lg:col-span-2">
-                                        <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">                    
-                                            <div class="md:col-span-5 text-right">
-                                                <div class="inline-flex items-end">
-                                                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Detail</button>
-                                                </div>
-                                                <div class="inline-flex items-end">
-                                                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Save</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody
+                                                class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
+
+                                                <tr>
+                                                    <td
+                                                        class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
+
+                                                    </td>
+
+                                                    <td
+                                                        class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                        <div class="flex items-center gap-x-2">
+                                                            <div>
+                                                                <h2
+                                                                    class="text-sm font-medium text-gray-500 dark:text-white ">
+                                                                </h2>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="px-4 py-4 text-sm whitespace-nowrap">
+
+                                                    </td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
-                            </div>
-                        </section>
-                            
+                        </div>
+                    </section>
                 </div>
-
-           
-
             </div>
         </div>
+    </div>
 
     </div>
 </x-app-layout>
@@ -244,7 +219,8 @@
                     if (nameField && customerData.first_name && customerData.last_name &&
                         transactionField && loanData.id) {
                         nameField.value = `${customerData.first_name} ${customerData.last_name}`;
-                        transactionField.value = loanData.id; // No need for template literal here unless formatting is required
+                        transactionField.value = loanData
+                            .id; // No need for template literal here unless formatting is required
                     }
 
 

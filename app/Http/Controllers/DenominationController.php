@@ -12,6 +12,7 @@ class DenominationController extends Controller
      */
     public function index()
     {
+        $branch = auth()->user()->branch_id;
         $lists = Denomination::paginate(10);
         return view('pages.denomination.index', compact('lists'));
     }

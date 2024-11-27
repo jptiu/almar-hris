@@ -18,9 +18,14 @@ class CityTownController extends Controller
     public function index(Request $request)
     {
         //abort_unless(Gate::allows('loan_access'), 404);
-        $lists = CityTown::with('user')
-        ->where('city_town', 'LIKE', '%', $request->search, '%')->orderBy("created_at", "asc")
-        ->get();
+        $branch = auth()->user()->branch_id;
+        if (isset($request->search)) {
+            $lists = CityTown::where('branch_id', $branch)->with('user')
+                ->where('city_town', 'LIKE', '%', $request->search, '%')->orderBy("created_at", "asc")
+                ->get();
+        } else {
+            $lists = CityTown::where('branch_id', $branch)->with('user')->get();
+        }
 
         return view('pages.city.index', compact('lists'));
     }
@@ -28,10 +33,11 @@ class CityTownController extends Controller
     public function add()
     {
         abort_unless(Gate::allows('loan_access'), 404);
-        $collectors = User::where('roles.title', 'Collector')
-        ->join('role_user', 'users.id', '=', 'role_user.user_id')
-        ->join('roles', 'role_user.role_id', '=', 'roles.id')
-        ->get();
+        $branch = auth()->user()->branch_id;
+        $collectors = User::where('branch_id', $branch)->where('roles.title', 'Collector')
+            ->join('role_user', 'users.id', '=', 'role_user.user_id')
+            ->join('roles', 'role_user.role_id', '=', 'roles.id')
+            ->get();
 
         return view('pages.city.add.index', compact('collectors'));
     }
@@ -55,6 +61,7 @@ class CityTownController extends Controller
     public function store(CityTownCreateRequest $request)
     {
         abort_unless(Gate::allows('loan_access'), 404);
+        $branch = auth()->user()->branch_id;
         if ($request->validated()) {
             $city = new CityTown();
             $city->code = $request->code;
@@ -76,13 +83,14 @@ class CityTownController extends Controller
     public function show($id)
     {
         abort_unless(Gate::allows('loan_access'), 404);
-        $city = CityTown::where('id', $id)->first();
-        $collectors = User::where('roles.title', 'Collector')
-        ->join('role_user', 'users.id', '=', 'role_user.user_id')
-        ->join('roles', 'role_user.role_id', '=', 'roles.id')
-        ->get();
+        $branch = auth()->user()->branch_id;
+        $city = CityTown::where('branch_id', $branch)->where('id', $id)->first();
+        $collectors = User::where('branch_id', $branch)->where('roles.title', 'Collector')
+            ->join('role_user', 'users.id', '=', 'role_user.user_id')
+            ->join('roles', 'role_user.role_id', '=', 'roles.id')
+            ->get();
 
-        return view('pages.city.update.index', compact('city','collectors'));
+        return view('pages.city.update.index', compact('city', 'collectors'));
     }
 
     /**
@@ -138,6 +146,7 @@ class CityTownController extends Controller
         $request->validate([
             'file' => 'required|mimes:csv,txt|max:2048', // Validate the uploaded file
         ]);
+        $branch = auth()->user()->branch_id;
 
         $file = $request->file('file');
 
@@ -158,6 +167,7 @@ class CityTownController extends Controller
                 'city_town' => $row[1],
                 'code' => $row[0],
                 'user_id' => $row[3],
+                'branch_id' => $branch,
             ]);
         }
 

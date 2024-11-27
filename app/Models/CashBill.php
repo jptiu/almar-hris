@@ -15,5 +15,6 @@ class CashBill extends Model
         'type',
         'qty',
         'amount',
+        'branch_id',
     ];
 }

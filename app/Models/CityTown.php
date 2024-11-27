@@ -13,6 +13,7 @@ class CityTown extends Model
         'code',
         'city_town',
         'user_id',
+        'branch_id',
     ];
 
     public function user(){

@@ -304,10 +304,9 @@
 
                             <div class="md:col-span-1">
                                 <label for="interest" class="text-black font-medium">Interest %</label>
-                                <select name="interest" id="interest"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
-                                <option value="4">4</option>
-                                <option value="10">10</option>
+                                <input type="text" name="interest" id="interest"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
+                                    value="" placeholder="" />
                                 </select>
                             </div>
                         </div>
@@ -546,7 +545,7 @@
                 // Example of handling the response:
                 if (response.customer) {
                     // Display customer data (e.g., name, address) in specific elements
-                    document.getElementById("name").value = response.customer.first_name;
+                    document.getElementById("name").value = response.customer.first_name + ' ' + response.customer.last_name;
                     document.getElementById("type").value = response.customer.type;
                     document.getElementById("status").value = response.customer.status;
                     // Add more fields as needed

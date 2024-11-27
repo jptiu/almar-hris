@@ -12,7 +12,8 @@ class ChartController extends Controller
      */
     public function index()
     {
-        $lists = Chart::paginate(10);
+        $branch = auth()->user()->branch_id;
+        $lists = Chart::where('branch_id', $branch)->paginate(10);
         return view('pages.chart.index', compact('lists'));
     }
 
@@ -29,6 +30,7 @@ class ChartController extends Controller
      */
     public function store(Request $request)
     {
+        $branch = auth()->user()->branch_id;
         $chart = new Chart();
         $chart->acc_no = $request->acc_no;
         $chart->acc_class = $request->acc_class;
@@ -87,6 +89,7 @@ class ChartController extends Controller
         $request->validate([
             'file' => 'required|mimes:csv,txt|max:2048', // Validate the uploaded file
         ]);
+        $branch = auth()->user()->branch_id;
 
         $file = $request->file('file');
 
@@ -109,6 +112,7 @@ class ChartController extends Controller
                 'acc_type' => $row[2],
                 'acc_title' => $row[3],
                 'acc_description' => $row[4],
+                'branch_id' => $branch,
             ]);
         }
 

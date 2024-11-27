@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CLMCreateRequest;
 use App\Http\Requests\CLMUpdateRequest;
+use App\Models\Branch;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
@@ -12,11 +14,16 @@ class CLMController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
-
-        return view('pages.customer.month.index');
+        $branch = auth()->user()->branch_id;
+        $branches = Branch::paginate(10);
+        $customer = '';
+        if($request->customer_id){
+            $customer = Customer::where('branch_id', $branch)->where('id', 'LIKE', '%', $request->customer_id, '%')->first();
+        }
+        return view('pages.customer.month.index', compact('branches', 'customer'));
     }
 
     /**

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuditorController;
 use App\Http\Controllers\BMController;
+use App\Http\Controllers\BranchController;
 use App\Http\Controllers\BreakdownController;
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\CityTownController;
@@ -126,6 +127,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::post('expenses/update/{id}', [ExpensesController::class, 'update'])->name('expenses.update');
     Route::delete('expenses/destroy/{id}', [ExpensesController::class, 'destroy'])->name('expenses.destroy');
     Route::get('/get-account-data/{acctNo}', [ExpensesController::class, 'getAccountData']);
+    Route::post('expenses/import', [ExpensesController::class, 'importCSV'])->name('expenses.importcsv');
 
     // Compute Cash on Hand
     Route::get('compute', [ComputeCOHController::class, 'index'])->name('compute.index');
@@ -199,6 +201,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     // Branch
     Route::get('branch', [BMController::class, 'index'])->name('branch.index');
+    Route::get('csor', [BMController::class, 'csor'])->name('csor.index');
 
     // Collector
     Route::get('collector', [CollectorController::class, 'index'])->name('collector.index');
@@ -257,7 +260,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('savings/create', [SavingsController::class, 'create'])->name('savings.create');
     Route::post('savings/store', [SavingsController::class, 'store'])->name('savings.store');
     Route::delete('savings/destroy/{id}', [SavingsController::class, 'destroy'])->name('savings.destroy');
-    
+
 
     // Payroll
     Route::get('payroll', [PayrollController::class, 'index'])->name('payroll.index');
@@ -276,7 +279,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('create', [SuperAdminController::class, 'createAccounts'])->name('create.index');
     Route::get('customerprof', [SuperAdminController::class, 'customerProf'])->name('customerprof.index');
     Route::get('customerprof-add', [SuperAdminController::class, 'add'])->name('customerprof.add');
-    
+
 
     //Chart
     Route::get('chart', [ChartController::class, 'index'])->name('chart.index');
@@ -296,6 +299,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::delete('denomination/destroy/{id}', [DenominationController::class, 'destroy'])->name('denomination.destroy');
     Route::post('denomination/import', [DenominationController::class, 'importCSV'])->name('denomination.importcsv');
 
-    
+
+    Route::resource('branches', BranchController::class);
+
+    // Assign user to a branch
+    Route::post('branches/{branch}/assign-user', [BranchController::class, 'assignUser'])->name('branches.assignUser');
+
 
 });

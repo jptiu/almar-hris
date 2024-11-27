@@ -24,6 +24,7 @@ class LoanDetails extends Model
         'loan_amount_tenderd',//ltrand_amttend
         'loan_amount_change',//ltrand_amtchange
         'loan_withdraw_from_bank',//ltrand_withdrawn_frombank
+        'branch_id',
     ];
 
     public function loan()

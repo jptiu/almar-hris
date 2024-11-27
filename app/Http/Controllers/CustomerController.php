@@ -17,15 +17,27 @@ class CustomerController extends Controller
     public function index(Request $request)
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
-        $lists = Customer::where('first_name', 'LIKE', '%', $request->search, '%')->orderBy("created_at", "asc")->get();
+        try {
+            $branch = auth()->user()->branch_id;
+            if (isset($request->search)) {
+                $lists = Customer::where('branch_id', $branch)->where('first_name', 'LIKE', '%', $request->search, '%')->orderBy("created_at", "asc")->get();
+            }
+            $lists = Customer::where('branch_id', $branch)->paginate(20);
 
-        return view('pages.customer.index', compact('lists'));
+
+            return view('pages.customer.index', compact('lists'));
+        } catch (\Throwable $th) {
+            //throw $th;
+            $lists = Customer::where('branch_id', $branch)->paginate(20);
+            return view('pages.customer.index', compact('lists'));
+        }
     }
 
     public function add()
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
-        $types = CustomerType::get();
+        $branch = auth()->user()->branch_id;
+        $types = CustomerType::where('branch_id', $branch)->paginate(20);
         return view('pages.customer.add.index', compact('types'));
     }
 
@@ -43,6 +55,7 @@ class CustomerController extends Controller
     public function store(CustomerCreateRequest $request)
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
+        $branch = auth()->user()->branch_id;
         if ($request->validated()) {
             $customer = new Customer();
             $customer->type = $request->type;
@@ -59,6 +72,7 @@ class CustomerController extends Controller
             $customer->cell_number = $request->cell_number;
             $customer->civil_status = $request->civil_status;
             $customer->status = 1;
+            $customer->branch_id = $branch;
             $customer->save();
 
             return redirect(route("customer.index"))->with('success', 'Created Successfully');
@@ -72,7 +86,8 @@ class CustomerController extends Controller
     public function show(string $id)
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
-        $customer = Customer::where('id', $id)->first();
+        $branch = auth()->user()->branch_id;
+        $customer = Customer::where('branch_id', $branch)->where('id', $id)->first();
 
         return view('pages.customer.update.index', compact('customer'));
     }
@@ -136,6 +151,7 @@ class CustomerController extends Controller
         $request->validate([
             'file' => 'required|mimes:csv,txt|max:2048', // Validate the uploaded file
         ]);
+        $branch = auth()->user()->branch_id;
 
         $file = $request->file('file');
 
@@ -168,6 +184,7 @@ class CustomerController extends Controller
                 'cell_number' => $row[16],
                 'status' => $row[8],
                 'civil_status' => '',
+                'branch_id' => $branch,
             ]);
         }
 

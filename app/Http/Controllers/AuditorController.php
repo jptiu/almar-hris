@@ -13,6 +13,7 @@ class AuditorController extends Controller
     public function index()
     {
         abort_unless(Gate::allows('auditor_access'), 404);
+        $branch = auth()->user()->branch_id;
         
         return view('pages.auditor.index');
     }

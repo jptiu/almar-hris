@@ -49,24 +49,11 @@ class Customer extends Model
         'card_no',
         'acc_no',
         'pin_no',
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
+        'branch_id',
     ];
 
     public function loan()
     {
-        return $this->belongsTo(Loan::class, 'id', 'customer_id');
+        return $this->hasMany(Loan::class, 'id', 'customer_id');
     }
 }

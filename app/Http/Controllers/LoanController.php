@@ -19,8 +19,9 @@ class LoanController extends Controller
     public function index(Request $request)
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
-        $lists = Loan::paginate(10);
-        $types = CustomerType::get();
+        $branch = auth()->user()->branch_id;
+        $lists = Loan::where('branch_id', $branch)->paginate(10);
+        $types = CustomerType::where('branch_id', $branch)->get();
         $loan = [];
         $customer = [];
         if ($request->transaction_no) {
@@ -46,7 +47,8 @@ class LoanController extends Controller
     public function create(Request $request)
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
-        $types = CustomerType::get();
+        $branch = auth()->user()->branch_id;
+        $types = CustomerType::where('branch_id', $branch)->get();
         $loan = [];
         $customer = [];
         if ($request->transaction_no) {
@@ -72,6 +74,7 @@ class LoanController extends Controller
     public function store(LoanCreateRequest $request)
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
+        $branch = auth()->user()->branch_id;
         try {
             if ($request->validated()) {
                 $loan = new Loan();
@@ -81,7 +84,7 @@ class LoanController extends Controller
                 $loan->date_of_loan = $request->date_of_loan;
                 $loan->customer_id = $request->customer_id;
                 $loan->customer_type = $request->customer_type;
-                $loan->status = $request->status;
+                $loan->status = 'UNPD';
                 $loan->principal_amount = $request->principal_amount;
                 $loan->days_to_pay = $request->days_to_pay;
                 $loan->months_to_pay = $request->months_to_pay;
@@ -105,7 +108,8 @@ class LoanController extends Controller
     public function show(string $id)
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
-        $loan = Loan::where('id', $id)->first();
+        $branch = auth()->user()->branch_id;
+        $loan = Loan::where('branch_id', $branch)->where('id', $id)->first();
 
         return view('pages.loan.show.index', compact('loan'));
     }
@@ -164,6 +168,7 @@ class LoanController extends Controller
         $request->validate([
             'file' => 'required|mimes:csv,txt|max:2048', // Validate the uploaded file
         ]);
+        $branch = auth()->user()->branch_id;
 
         $file = $request->file('file');
 
@@ -196,6 +201,7 @@ class LoanController extends Controller
                 'transaction_with_collateral' => $row[13],
                 'transaction_with_cert' => $row[14],
                 'user_id' => $row[15],
+                'branch_id' => $branch,
             ]);
         }
 
@@ -207,6 +213,7 @@ class LoanController extends Controller
         $request->validate([
             'file' => 'required|mimes:csv,txt|max:20000', // Validate the uploaded file
         ]);
+        $branch = auth()->user()->branch_id;
 
         $file = $request->file('file');
 
@@ -239,6 +246,7 @@ class LoanController extends Controller
                 'loan_amount_tenderd'=> $row[13],//ltrand_amttend
                 'loan_amount_change'=> $row[14],//ltrand_amtchange
                 'loan_withdraw_from_bank'=> $row[15],//ltrand_withdrawn_frombank
+                'branch_id' => $branch,
             ]);
         }
 
