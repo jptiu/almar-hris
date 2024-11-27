@@ -19,5 +19,11 @@ class Expenses extends Model
         'or_no',
         'amount',
         'exp_date',
+        'branch_id',
     ];
+
+    public function account()
+    {
+        return $this->belongsTo(Chart::class, 'acc_no', 'acc_no');
+    }
 }

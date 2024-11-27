@@ -14,6 +14,7 @@ class Chart extends Model
         'acc_class',
         'acc_type',
         'acc_title',
-        'acc_description'
+        'acc_description',
+        'branch_id',
     ];
 }

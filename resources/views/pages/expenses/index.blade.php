@@ -46,7 +46,7 @@
                         <path
                             d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
                     </svg>
-                    <span class="hidden xs:block ml-2">Import</span>
+                    <span class="hidden xs:block ml-2">Import Expenses</span>
                 </a>
                 <div id="modal" class="relative z-10 hidden" aria-labelledby="modal-title" role="dialog"
                     aria-modal="true">
@@ -56,7 +56,7 @@
                         <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
                             <div
                                 class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-                                <form action="{{ route('barangay.importcsv') }}" method="POST"
+                                <form action="{{ route('expenses.importcsv') }}" method="POST"
                                     enctype="multipart/form-data">
                                     @csrf
                                     <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
@@ -74,7 +74,7 @@
                                             </div>
                                             <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                                                 <h3 class="text-base font-semibold leading-6 text-gray-900"
-                                                    id="modal-title">Import Barangay</h3>
+                                                    id="modal-title">Import Expenses</h3>
                                                 <div class="mt-2">
                                                     <div class="fields">
                                                         <div class="input-group mb-3">
@@ -124,12 +124,12 @@
 
                                         <th scope="col"
                                             class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
-                                            Account class
+                                            Justification
                                         </th>
 
                                         <th scope="col"
                                             class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
-                                            Account Type
+                                            Amount
                                         </th>
 
                                         <th scope="col"
@@ -148,25 +148,15 @@
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                
+                                                {{ $list->acc_no }}
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                
+                                                {{ $list->justification }}
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                
-                                            </td>
-                                            <td
-                                                class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                <div class="flex items-center gap-x-2">
-                                                    <div>
-                                                        <h2 class="text-sm font-medium text-gray-500 dark:text-white ">
-
-                                                        </h2>
-                                                    </div>
-                                                </div>
+                                                {{ $list->amount }}
                                             </td>
                                             <td class="px-4 py-4 text-sm whitespace-nowrap">
                                                 <div class="flex items-center gap-x-6">
@@ -183,7 +173,7 @@
                                                         </svg>
                                                     </a>
 
-                                                    <form action=""
+                                                    {{-- <form action=""
                                                         method="post">
                                                         @csrf
                                                         @method('DELETE')
@@ -198,7 +188,7 @@
                                                                     d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
                                                             </svg>
                                                         </button>
-                                                    </form>
+                                                    </form> --}}
                                                 </div>
                                             </td>
                                         </tr>

@@ -16,7 +16,7 @@ class ExpensesController extends Controller
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access') || Gate::allows('hr_access'), 404);
         $branch = auth()->user()->branch_id;
-        $lists = Expenses::where('branch_id', $branch)->get();
+        $lists = Expenses::where('branch_id', $branch)->paginate(10);
 
         return view('pages.expenses.index', compact('lists'));
     }
@@ -59,7 +59,8 @@ class ExpensesController extends Controller
     public function show(string $id)
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
-        $expenses = Expenses::where('id', $id)->first();
+        $branch = auth()->user()->branch_id;
+        $expenses = Expenses::with('account')->where('branch_id', $branch)->where('id', $id)->first();
 
         return view('pages.expenses.show.index', compact('expenses'));
     }
@@ -102,5 +103,42 @@ class ExpensesController extends Controller
         } else {
             return response()->json(null);
         }
+    }
+
+    public function importCSV(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|mimes:csv,txt|max:2048', // Validate the uploaded file
+        ]);
+        $branch = auth()->user()->branch_id;
+
+        $file = $request->file('file');
+
+        // Read the CSV data
+        $csvData = file_get_contents($file);
+        // dd($csvData);
+
+        // Split CSV data into rows
+        $rows = array_map('str_getcsv', explode("\n", $csvData));
+
+        // Remove the header row if it exists
+        $header = array_shift($rows);
+        // dd($header);
+
+        foreach ($rows as $row) {
+            // Create and save your model instance
+            Expenses::create([
+                'exp_ref_no' => $row[0],
+                'exp_date' => $row[1],
+                'acc_no' => $row[2],
+                'justification' => $row[3],
+                'or_no' => $row[4],
+                'amount' => $row[5],
+                'user_id' => auth()->user()->id,
+                'branch_id' => $branch,
+            ]);
+        }
+
+        return redirect(route("barangay.index"))->with('success', 'CSV Data Imported Successfully');
     }
 }

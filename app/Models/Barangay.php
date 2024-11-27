@@ -12,7 +12,8 @@ class Barangay extends Model
     protected $fillable = [
         'barangay_name',
         'city_town_id',
-        'user_id'
+        'user_id',
+        'branch_id',
     ];
 
     public function user(){

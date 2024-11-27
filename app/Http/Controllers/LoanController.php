@@ -84,7 +84,7 @@ class LoanController extends Controller
                 $loan->date_of_loan = $request->date_of_loan;
                 $loan->customer_id = $request->customer_id;
                 $loan->customer_type = $request->customer_type;
-                $loan->status = $request->status;
+                $loan->status = 'UNPD';
                 $loan->principal_amount = $request->principal_amount;
                 $loan->days_to_pay = $request->days_to_pay;
                 $loan->months_to_pay = $request->months_to_pay;

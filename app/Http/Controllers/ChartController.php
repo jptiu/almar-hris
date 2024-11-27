@@ -13,7 +13,7 @@ class ChartController extends Controller
     public function index()
     {
         $branch = auth()->user()->branch_id;
-        $lists = Chart::paginate(10);
+        $lists = Chart::where('branch_id', $branch)->paginate(10);
         return view('pages.chart.index', compact('lists'));
     }
 
@@ -112,6 +112,7 @@ class ChartController extends Controller
                 'acc_type' => $row[2],
                 'acc_title' => $row[3],
                 'acc_description' => $row[4],
+                'branch_id' => $branch,
             ]);
         }
 
