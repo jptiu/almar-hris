@@ -24,6 +24,45 @@ class Customer extends Model
         'cell_number',
         'civil_status',
         'status',
+        'birth_date',
+        'birth_place',
+        'age',
+        'gender',
+        'citizenship',
+        'facebook_name',
+        'spouse_name',
+        'occupation',
+        'c_nameadd',
+        'agency_name',
+        'add_tel',
+        'comp_name',
+        'date_hired',
+        'day_off',
+        'monthly_salary',
+        'salary_sched',
+        'monthtly_pension',
+        'pension_sched',
+        'pension_type',
+        'fathers_name',
+        'mothers_name',
+        'branch',
+        'card_no',
+        'acc_no',
+        'pin_no',
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
     ];
 
     public function loan()

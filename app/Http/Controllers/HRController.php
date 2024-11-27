@@ -123,6 +123,11 @@ class HRController extends Controller
         return view('pages.hr.loanapprovals.rejected.index');
     }
 
+    public function cloanHistory()
+    {
+        return view('pages.hr.loanhistory.index');
+    }
+
     public function announcementHr()
     {
         $lists = Announcement::get();

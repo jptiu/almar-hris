@@ -24,6 +24,10 @@ export default {
                 100: '#0B6ECA',
                 200: '#0859A5',
                 },
+                'wshade': {
+                100: '#F9FAFC',
+                200: '#F9FAFC',
+                },
             },
             boxShadow: {
                 DEFAULT: '0 1px 3px 0 rgba(0, 0, 0, 0.08), 0 1px 2px 0 rgba(0, 0, 0, 0.02)',

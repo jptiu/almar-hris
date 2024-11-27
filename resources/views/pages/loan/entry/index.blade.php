@@ -21,7 +21,7 @@
         </div>
 
         <!-- Dashboard actions -->
-        <div class="sm:flex sm:justify-between sm:items-center mb-8">
+        <div class="sm:flex sm:justify-between sm:items-center">
             <div></div>
 
             <!-- Right: Actions -->
@@ -162,6 +162,7 @@
 
     </div>
 
+    <section class="container px-4 mx-auto">
     <form action="{{ route('loan.store') }}" method="POST">
         @csrf
         <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
@@ -174,7 +175,7 @@
 
             <div>
                 <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
-                    <div class="lg:col-span-2">
+                    <div class="lg:col-span-4">
                         <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6">
                             <div class="md:col-span-1">
                                 <label for="transaction" class="text-black font-medium">Transaction No.</label>
@@ -190,17 +191,6 @@
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     value="" placeholder="" />
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <x-section-border />
-
-            <div>
-                <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
-                    <div class="lg:col-span-2">
-                        <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6">
 
                             <div class="md:col-span-1">
                                 <label for="loan_type" class="text-black font-medium">Loan Type</label>
@@ -226,12 +216,14 @@
                                 <option value="CBA">C/A Becomes B.A.</option>
                                 </select>
                             </div>
+
                         </div>
                     </div>
                 </div>
             </div>
 
             <x-section-border />
+
 
             <div>
                 <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">

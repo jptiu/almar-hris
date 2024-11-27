@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ComputeCashOnHand;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
@@ -13,6 +14,7 @@ class ComputeCOHController extends Controller
     public function index()
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
+        
 
         return view('pages.compute.index');
     }
@@ -39,12 +41,13 @@ class ComputeCOHController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show()
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
-        $computecashonhand = ComputeCashOnHand::where('id', $id)->first();
+        // $computecashonhand = ComputeCashOnHand::where('id', $id)->first();
 
-        return view('pages.compute.show.index', compact('computecashonhand'));
+        return view('pages.compute.show.index');
+
     }
 
     /**

@@ -130,7 +130,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // Compute Cash on Hand
     Route::get('compute', [ComputeCOHController::class, 'index'])->name('compute.index');
     Route::get('compute/create', [ComputeCOHController::class, 'create'])->name('compute.create');
-    Route::get('compute/show/{id}', [ComputeCOHController::class, 'show'])->name('compute.show');
+    Route::get('compute/show', [ComputeCOHController::class, 'show'])->name('compute.show');
 
     // Daily
     Route::get('daily', [CLDController::class, 'index'])->name('daily.index');
@@ -155,6 +155,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     // HR
     Route::get('hr', [HRController::class, 'index'])->name('hr.index');
+    Route::get('loanhistory', [HRController::class, 'cloanHistory'])->name('loanhistory.index');
     Route::get('renewals', [HRController::class, 'loanRenewals'])->name('renewals.index');
     Route::get('audit', [HRController::class, 'auditScheduling'])->name('audit.index');
     Route::get('loan-approvals', [HRController::class, 'pendingLoanApprovals'])->name('loan-approvals.index');
@@ -167,6 +168,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('announce/show/{id}', [HRController::class, 'showAnnouncement'])->name('announce.show');
     Route::post('announce/update/{id}', [HRController::class, 'updateAnnouncement'])->name('announce.update');
     Route::delete('announce/destroy/{id}', [HRController::class, 'destroyAnnouncement'])->name('announce.destroy');
+
+
+   
 
     // Pending Loan Approval
     Route::get('loanapprovals-approved', [HRController::class, 'approvedLoans'])->name('approved.index');

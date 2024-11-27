@@ -2,11 +2,11 @@
     <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
 
         <div class="relative">
-            <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-12">Collections Data Entry</h1>
+            <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-12">Compute Cash on Hand</h1>
         </div>
 
         <!-- Dashboard actions -->
-        <div class="sm:flex sm:justify-between sm:items-center mb-8">
+        <div class="sm:flex sm:justify-between sm:items-center mb-4">
             <div></div>
 
             <!-- Right: Actions -->
@@ -16,14 +16,64 @@
                 <!-- <x-dropdown-filter align="right" /> -->
 
                 <!-- Add view button -->
-                <!-- <a href="{{ route('customer.add') }}" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
-                    <svg class="w-4 h-4 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
-                        <path
-                            d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
-                    </svg>
-                    <span class="hidden xs:block ml-2">New</span>
-                </a> -->
+                <a href="{{ route('compute.create') }}" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#FFFFFF">
+                    <path d="M216-216h51l375-375-51-51-375 375v51Zm-72 72v-153l498-498q11-11 23.84-16 12.83-5 27-5 14.16 0 27.16 5t24 16l51 51q11 11 16 24t5 26.54q0 14.45-5.02 27.54T795-642L297-144H144Zm600-549-51-51 51 51Zm-127.95 76.95L591-642l51 51-25.95-25.05Z"/>
+                </svg>
+                    <span class="hidden xs:block ml-2">Edit</span>
+                </a>
+                
+                <div id="modal" class="relative z-10 hidden" aria-labelledby="modal-title" role="dialog"
+                    aria-modal="true">
+                    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
 
+                    <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+                        <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                            <div
+                                class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                                <form action="{{ route('barangay.importcsv') }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                                        <div class="sm:flex sm:items-start">
+                                            <div
+                                                class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 sm:mx-0 sm:h-10 sm:w-10">
+                                                <svg class="h-6 w-6 text-blue-500" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round">
+                                                    <polyline points="16 16 12 12 8 16" />
+                                                    <line x1="12" y1="12" x2="12" y2="21" />
+                                                    <path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3" />
+                                                    <polyline points="16 16 12 12 8 16" />
+                                                </svg>
+                                            </div>
+                                            <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                                                <h3 class="text-base font-semibold leading-6 text-gray-900"
+                                                    id="modal-title">Import Barangay</h3>
+                                                <div class="mt-2">
+                                                    <div class="fields">
+                                                        <div class="input-group mb-3">
+                                                            <input type="file" class="form-control" id="file"
+                                                                name="file" accept=".csv">
+                                                            <label class="input-group-text"
+                                                                for="file">Upload</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                                        <button type="submit"
+                                            class="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto">Upload</button>
+                                        <button id="hide-modal" type="button"
+                                            class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cancel</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -33,14 +83,14 @@
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
             </svg>
-            <a href="{{ route('collection.index') }}" class="text-base font-semibold">Back</a>
+            <a href="{{ route('compute.index') }}" class="text-base font-semibold">Back</a>
         </div>
         
             <div class="grid grid-cols-1 gap-4">
                 <div class="...">
                     <form action="{{ route('customer.store') }}" method="POST">
                         
-                    <div class="flex items-center space-x-4 mb-6">
+                    <!-- <div class="flex items-center space-x-4 mb-6">
                         <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center">
                         <svg width="47" height="47" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="23.5" cy="23.5" r="23.5" fill="#000D3A"/>
@@ -52,59 +102,56 @@
                                 <h1 class="text-lg font-bold">Luther Harber</h1>
                                 <p class="text-sm text-gray-500">ID: 100232124</p>
                             </div>
-                    </div>
+                    </div> -->
 
 
-                        <!-- Loan Transaction Summary -->
+                        <!-- Loan Summary -->
                         <div class="relative">
-                            <h2 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-2">Business Loan Transaction Summary</h2>
+                            <h2 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-2">Review Cash on Hand</h2>
                             <hr class="h-px my-4 mb-4 bg-gray-200 border-0 dark:bg-gray-700">
                         </div>
                         <div class="mb-6">
                             <div class="grid grid-cols-3 gap-8 mt-4 mb-12 text-sm text-gray-500">
                                 <div>
-                                    <p class="text-gray-900 text-sm">Transaction No.</p>
+                                    <p class="text-gray-900 text-sm">Ref No.</p>
                                     <p class="font-bold text-gray-900 text-base">Business</p>
                                 </div>
                                 <div>
-                                    <p class="text-gray-900 text-sm">Type</p>
+                                    <p class="text-gray-900 text-sm">Prev Transaction</p>
                                     <p class="font-bold text-gray-900 text-base">Business</p>
                                 </div>
                                 <div>
-                                    <p class="text-gray-900 text-sm">Status</p>
+                                    <p class="text-gray-900 text-sm">Today's Transaction<</p>
                                     <p class="font-bold text-gray-900 text-base">Business</p>
                                 </div>
                                 <div>
-                                    <p class="text-gray-900 text-sm">Collector</p>
+                                    <p class="text-gray-900 text-sm">Cash Beginning</p>
                                     <p class="font-bold text-gray-900 text-base">Business</p>
                                 </div>
                                 <div>
-                                    <p class="text-gray-900 text-sm">Date</p>
+                                    <p class="text-gray-900 text-sm">Collection</p>
                                     <p class="font-bold text-gray-900 text-base">Business</p>
                                 </div>
                                 <div>
-                                    <p class="text-gray-900 text-sm">Unpaid Loan to pay</p>
+                                    <p class="text-gray-900 text-sm">Add Cash</p>
                                     <p class="font-bold text-gray-900 text-base">Business</p>
                                 </div>
                                 <div>
-                                    <p class="text-gray-900 text-sm">LTD Row #</p>
+                                    <p class="text-gray-900 text-sm">Finnancial Figures</p>
                                     <p class="font-bold text-gray-900 text-base">Business</p>
                                 </div>
                                 <div>
-                                    <p class="text-gray-900 text-sm">Due Date</p>
+                                    <p class="text-gray-900 text-sm">Total</p>
                                     <p class="font-bold text-gray-900 text-base">Business</p>
                                 </div>
-                                <div>
-                                    <p class="text-gray-900 text-sm">Date Paid</p>
-                                    <p class="font-bold text-gray-900 text-base">Business</p>
-                                </div>
+                              
                             </div>
                         </div>
 
 
                         <!-- Cards -->
                         <div class="relative">
-                            <h2 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-6">Payment Details</h2>
+                            <h2 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-6">Other Financial Figures</h2>
                         </div>
                         <section class="container mx-auto mb-12">
                             <div class="flex flex-col">
@@ -116,32 +163,96 @@
                                                     <tr>
                                                         <th scope="col"
                                                             class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
-                                                            Previous Balance
+                                                            Penalty
                                                         </th>
 
                                                         <th scope="col"
                                                             class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
-                                                            Amount Withdrawn from ATM
+                                                            Passbook
                                                         </th>
 
                                                         <th scope="col"
                                                             class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
-                                                            Total Amount Due
+                                                            Withdraw
                                                         </th>
 
                                                         <th scope="col"
                                                             class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
-                                                            Actual Amount Paid
+                                                            Xerox
+                                                        </th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
+                                                    
+                                                        <tr>
+                                                            <td
+                                                                class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
+                                                               
+                                                            </td>
+                                                            <td
+                                                                class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                                
+                                                            </td>
+                                                            <td
+                                                                class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                                
+                                                            </td>
+                                                           
+                                                            <td
+                                                                class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                                <div class="flex items-center gap-x-2">
+                                                                    <div>
+                                                                        <h2 class="text-sm font-medium text-gray-500 dark:text-white ">
+                                                                            </h2>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            
+                                                        </tr>
+                                                    
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Cards -->
+                        <div class="relative">
+                            <h2 class="text-2xl mt-8 md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-6">Details of Add Cash from Savings Customers</h2>
+                        </div>
+                        <section class="container mx-auto mb-12">
+                            <div class="flex flex-col">
+                                <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                    <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+                                        <div class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
+                                            <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                                                <thead class="bg-gray-50 dark:bg-gray-800">
+                                                    <tr>
+                                                        <th scope="col"
+                                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
+                                                            Charge Swipe
                                                         </th>
 
                                                         <th scope="col"
                                                             class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
-                                                            Change
+                                                            Savings
                                                         </th>
 
                                                         <th scope="col"
                                                             class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
-                                                            Current Balance
+                                                            Death Aid
+                                                        </th>
+
+                                                        <th scope="col"
+                                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
+                                                            Photocopy
+                                                        </th>
+
+                                                        <th scope="col"
+                                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
+                                                            Withdraw
                                                         </th>
 
                                                     </tr>
@@ -174,9 +285,7 @@
                                                                     </div>
                                                                 </div>
                                                             </td>
-                                                            <td class="px-4 py-4 text-sm whitespace-nowrap">
-                                                                
-                                                            </td>
+                                                            
                                                         </tr>
                                                     
                                                 </tbody>
@@ -186,7 +295,7 @@
                                 </div>
                             </div>
 
-                            <div class="mb-8 mt-8">
+                            <!-- <div class="mb-8 mt-8">
                                 <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
                                     <div class="lg:col-span-2">
                                         <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
@@ -200,7 +309,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </section>
                 </div>
 
