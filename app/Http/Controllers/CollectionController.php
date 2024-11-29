@@ -18,7 +18,7 @@ class CollectionController extends Controller
     {
         //abort_unless(Gate::allows('loan_access'), 404);
         $branch = auth()->user()->branch_id;
-        $lists = Collection::with('user')->where('branch_id', $branch)->get();
+        $lists = Collection::with('user')->where('branch_id', $branch)->paginate(20);
         $customers = Customer::where('branch_id', $branch)->get();
         $collectors = User::where('branch_id', $branch)->where('roles.title', 'Collector')
         ->join('role_user', 'users.id', '=', 'role_user.user_id')

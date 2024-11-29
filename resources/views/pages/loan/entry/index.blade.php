@@ -177,13 +177,13 @@
                 <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
                     <div class="lg:col-span-4">
                         <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6">
-                            <div class="md:col-span-1">
+                            {{-- <div class="md:col-span-1">
                                 <label for="transaction" class="text-black font-medium">Transaction No.</label>
                                 <input onchange="getTransactionNo()" type="number" name="transaction"
                                     id="transaction"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
                                     value="" placeholder="Search" />
-                            </div>
+                            </div> --}}
 
                             <div class="md:col-span-1">
                                 <label for="date_of_loan" class="text-black font-medium">Date of Loan</label>
@@ -405,31 +405,41 @@
                                             </th>
                                         </tr>
                                     </thead>
-                                    <tbody
-                                        class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
-                                        {{-- @foreach ($lists as $list)
-                                                <tr>
-                                                    <td
-                                                        class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
-                                                        {{ $list->id }}
-                                                    </td>
-                                                    <td
-                                                        class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                        {{ $list->first_name }} {{ $list->last_name }}
-                                                    </td>
-                                                    <td
-                                                        class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                        <div class="flex items-center gap-x-2">
-                                                            <div>
-                                                                <h2
-                                                                    class="text-sm font-medium text-gray-500 dark:text-white ">
-                                                                    {{ $list->house }} {{ $list->street }}
-                                                                    {{ $list->barangay }} {{ $list->city }}</h2>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            @endforeach --}}
+                                    <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
+                                            <tr>
+                                                <td
+                                                    class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
+                                                    
+                                                </td>
+                                                <td
+                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                    
+                                                </td>
+                                                <td
+                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                    
+                                                </td>
+                                                <td
+                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                    
+                                                </td>
+                                                <td
+                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                    
+                                                </td>
+                                                <td
+                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                    
+                                                </td>
+                                                <td
+                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                    
+                                                </td>
+                                                <td
+                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                    
+                                                </td>
+                                            </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -464,6 +474,31 @@
     </div>
 </x-app-layout>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+{{-- <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const principalAmount = document.getElementById('principal_amount');
+        const interest = document.getElementById('interest');
+        const interestAmount = document.getElementById('interest_amount');
+        const payableAmount = document.getElementById('payable_amount');
+
+        function calculateAmounts() {
+            const principal = parseFloat(principalAmount.value) || 0;
+            const interestRate = parseFloat(interest.value) / 100 || 0;
+
+            // Calculate interest amount and payable amount
+            const calculatedInterest = principal * interestRate;
+            const totalPayable = principal + calculatedInterest;
+
+            // Populate the fields
+            interestAmount.value = calculatedInterest.toFixed(2);
+            payableAmount.value = totalPayable.toFixed(2);
+        }
+
+        // Add event listeners
+        principalAmount.addEventListener('input', calculateAmounts);
+        interest.addEventListener('input', calculateAmounts);
+    });
+</script> --}}
 <script>
     // Transaction ID Search
     function getTransactionNo() {

@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('house');
             $table->string('street');
-            $table->string('barangay');
-            $table->string('city');
+            $table->integer('barangay');
+            $table->integer('city');
             $table->string('job_position');
             $table->string('salary_sched');
             $table->string('tel_number')->nullable();

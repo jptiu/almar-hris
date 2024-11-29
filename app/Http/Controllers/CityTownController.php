@@ -22,9 +22,9 @@ class CityTownController extends Controller
         if (isset($request->search)) {
             $lists = CityTown::where('branch_id', $branch)->with('user')
                 ->where('city_town', 'LIKE', '%', $request->search, '%')->orderBy("created_at", "asc")
-                ->get();
+                ->paginate(10);
         } else {
-            $lists = CityTown::where('branch_id', $branch)->with('user')->get();
+            $lists = CityTown::where('branch_id', $branch)->with('user')->paginate(10);
         }
 
         return view('pages.city.index', compact('lists'));
