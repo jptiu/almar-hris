@@ -261,6 +261,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('requestform/undertime', [BMController::class, 'undertimeRequest'])->name('undertimeRequest.index');
     Route::get('requestform/id', [BMController::class, 'idRequest'])->name('idRequest.index');
     Route::get('requestform/clearance', [BMController::class, 'clearanceRequest'])->name('clearanceRequest.index');
+    Route::get('requestform/cashadvance', [BMController::class, 'cashadvanceRequest'])->name('cashadvanceRequest.index');
+
+    
 
     
 

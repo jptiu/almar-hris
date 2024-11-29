@@ -167,5 +167,10 @@ class BMController extends Controller
     {   
         return view('pages.requestform.clearance.index');
     }
+
+    public function cashadvanceRequest()
+    {   
+        return view('pages.requestform.cashadvance.index');
+    }
     
 }
