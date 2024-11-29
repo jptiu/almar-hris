@@ -19,7 +19,7 @@ class HRController extends Controller
         abort_unless(Gate::allows('hr_access'), 404);
         $lists = Employee::get();
         $announcements = Announcement::where('status', 1)->get(); // Fetch only active announcements
-        $activeCount = $announcements->count(); // Count active announcements 
+        $activeCount = $announcements->count(); // Count active announcements
         $currentDate = Carbon::now()->format('F d, Y'); // Get the current date
 
         return view('pages.hr.index', compact('lists','announcements', 'activeCount', 'currentDate'));
@@ -75,7 +75,7 @@ class HRController extends Controller
 
     /**
      * The function `loanRenewals` returns a view for the HR renewals index page in a PHP application.
-     * 
+     *
      * @return A view named 'index' located in the 'renewals' folder within the 'hr' folder in the
      * 'pages' directory is being returned.
      */
@@ -153,19 +153,19 @@ class HRController extends Controller
         return view('pages.hr.announce.add.index', compact('lists'));
     }
 
-    public function storeAnnouncement(Request $request) 
-    { 
+    public function storeAnnouncement(Request $request)
+    {
         abort_unless(Gate::allows('hr_access'), 404);
-        $request->validate([ 
+        $request->validate([
             'title' => 'required',
             'subject' => 'nullable|string',
             'content' => 'required',
-            'status' => 'required|in:0,1', 
-        ]); 
-        
-        Announcement::create($request->all()); 
-        
-        return redirect()->route('announce.index')->with('success', 'Announcement created successfully.'); 
+            'status' => 'required|in:0,1',
+        ]);
+
+        Announcement::create($request->all());
+
+        return redirect()->route('announce.index')->with('success', 'Announcement created successfully.');
     }
 
     public function showAnnouncement($id)
@@ -196,6 +196,11 @@ class HRController extends Controller
         $announcement->delete();
 
         return redirect()->back()->with('success', 'Announcement deleted.');
+    }
+
+    public function branchinfo()
+    {
+        return view('pages.hr.branchinfo.index');
     }
 
 }
