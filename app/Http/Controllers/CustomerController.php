@@ -89,7 +89,7 @@ class CustomerController extends Controller
         $branch = auth()->user()->branch_id;
         $customer = Customer::where('branch_id', $branch)->where('id', $id)->first();
 
-        return view('pages.customer.update.index', compact('customer'));
+        return view('pages.customer.show.index', compact('customer'));
     }
 
     /**

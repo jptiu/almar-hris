@@ -147,4 +147,26 @@ class BMController extends Controller
         
         return view('pages.csor.index');
     }
+
+    public function leaveRequest()
+    {   
+        return view('pages.requestform.leave.index');
+    }
+
+
+    public function undertimeRequest()
+    {   
+        return view('pages.requestform.undertime.index');
+    }
+
+    public function idRequest()
+    {   
+        return view('pages.requestform.id.index');
+    }
+
+    public function clearanceRequest()
+    {   
+        return view('pages.requestform.clearance.index');
+    }
+    
 }

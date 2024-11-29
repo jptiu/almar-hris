@@ -255,6 +255,14 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     //OverdueAccounts
     Route::get('overdueacc', [BMController::class, 'overdueAcc'])->name('overdueacc.index');
 
+    //RequestForm
+    Route::get('requestform/leave', [BMController::class, 'leaveRequest'])->name('leaveRequest.index');
+    Route::get('requestform/undertime', [BMController::class, 'undertimeRequest'])->name('undertimeRequest.index');
+    Route::get('requestform/id', [BMController::class, 'idRequest'])->name('idRequest.index');
+    Route::get('requestform/clearance', [BMController::class, 'clearanceRequest'])->name('clearanceRequest.index');
+
+    
+
     //Savings
     Route::get('savings', [SavingsController::class, 'index'])->name('savings.index');
     Route::get('savings/create', [SavingsController::class, 'create'])->name('savings.create');
