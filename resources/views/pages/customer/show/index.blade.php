@@ -14,7 +14,7 @@
         </div>
             
 
-            <!-- Second Section: Personal Information -->
+            <!-- First Section: Personal Information -->
             <div>
                 <h3 class="text-2xl font-semibold mb-4">Personal Information</h3>
                 <div class="flex flex-wrap">
@@ -72,21 +72,37 @@
             <!-- Separator Line -->
             <hr class="my-6 border-gray-300" />
 
-            <!-- Third Section: Employment Details -->
+            <!-- Second Section: Spousal Data -->
             <div>
-                <h3 class="text-2xl font-semibold mb-4">Employment Details</h3>
+                <h3 class="text-2xl font-semibold mb-4">Spousal Data</h3>
                 <div class="flex flex-wrap">
                     <div class="w-full sm:w-1/3 mb-4">
-                        <label class="block text-gray-500">Designation</label>
-                        <p class="text-gray-900">Software Engineer</p>
+                        <label class="block text-gray-500">Complete Name of Spouse</label>
+                        <p class="text-gray-900">John Doe</p>
                     </div>
                     <div class="w-full sm:w-1/3 mb-4">
-                        <label class="block text-gray-500">Branch/Department</label>
-                        <p class="text-gray-900">IT Department</p>
+                        <label class="block text-gray-500">Contact Number</label>
+                        <p class="text-gray-900">9284920580</p>
                     </div>
                     <div class="w-full sm:w-1/3 mb-4">
-                        <label class="block text-gray-500">Period of Service (Years)</label>
-                        <p class="text-gray-900">5 Years</p>
+                        <label class="block text-gray-500">Birthdate</label>
+                        <p class="text-gray-900">01/01/1990</p>
+                    </div>
+                    <div class="w-full sm:w-1/3 mb-4">
+                        <label class="block text-gray-500">Age</label>
+                        <p class="text-gray-900">26</p>
+                    </div>
+                    <div class="w-full sm:w-1/3 mb-4">
+                        <label class="block text-gray-500">Occupation</label>
+                        <p class="text-gray-900">Dev</p>
+                    </div>
+                    <div class="w-full sm:w-1/3 mb-4">
+                        <label class="block text-gray-500">Company Name/ Address</label>
+                        <p class="text-gray-900">CJK CDO</p>
+                    </div>
+                    <div class="w-full sm:w-1/3 mb-4">
+                        <label class="block text-gray-500">Facebook Name</label>
+                        <p class="text-gray-900">John Doe</p>
                     </div>
                 </div>
             </div>
@@ -94,27 +110,134 @@
             <!-- Separator Line -->
             <hr class="my-6 border-gray-300" />
 
-            <!-- Fourth Section: Resignation Details -->
+            <!-- Third Section: Company Information -->
             <div>
-                <h3 class="text-2xl font-semibold mb-4">Resignation Details</h3>
+                <h3 class="text-2xl font-semibold mb-4">Company Information</h3>
                 <div class="flex flex-wrap">
                     <div class="w-full sm:w-1/2 mb-4">
-                        <label class="block text-gray-500">Date of Resignation</label>
-                        <p class="text-gray-900">MM/DD/YYYY</p>
+                        <label class="block text-gray-500">Agency Name</label>
+                        <p class="text-gray-900">CJK</p>
                     </div>
                     <div class="w-full sm:w-1/2 mb-4">
-                        <label class="block text-gray-500">Resignation Effective Date</label>
-                        <p class="text-gray-900">MM/DD/YYYY</p>
+                        <label class="block text-gray-500">Address / Tel. no</label>
+                        <p class="text-gray-900">CDO 20294820</p>
+                    </div>
+                    <div class="w-full sm:w-1/2 mb-4">
+                        <label class="block text-gray-500">Company Name</label>
+                        <p class="text-gray-900">CJK CDO</p>
+                    </div>
+                    <div class="w-full sm:w-1/2 mb-4">
+                        <label class="block text-gray-500">Address / Tel. no</label>
+                        <p class="text-gray-900">CDO 20294820</p>
+                    </div>
+                    <div class="w-full sm:w-1/2 mb-4">
+                        <label class="block text-gray-500">Date Hired</label>
+                        <p class="text-gray-900">01/01/2025</p>
+                    </div>
+                    <div class="w-full sm:w-1/2 mb-4">
+                        <label class="block text-gray-500">Day Off</label>
+                        <p class="text-gray-900">MWF</p>
+                    </div>
+                    <div class="w-full sm:w-1/2 mb-4">
+                        <label class="block text-gray-500">Position</label>
+                        <p class="text-gray-900">Dev</p>
+                    </div>
+                    <div class="w-full sm:w-1/2 mb-4">
+                        <label class="block text-gray-500">Monthly Salary</label>
+                        <p class="text-gray-900">50,000</p>
+                    </div>
+                    <div class="w-full sm:w-1/2 mb-4">
+                        <label class="block text-gray-500">Salary Schedule</label>
+                        <p class="text-gray-900">MWF</p>
                     </div>
                 </div>
             </div>
+
+            <!-- Separator Line -->
+        <hr class="my-6 border-gray-300" />
+
+        <!-- Fourth Section: For Pensioners ONLY -->
+        <div>
+            <h3 class="text-2xl font-semibold mb-4">For Pensioners ONLY</h3>
+            <div class="flex flex-wrap">
+                <div class="w-full sm:w-1/2 mb-4">
+                    <label class="block text-gray-500">Monthly Pension</label>
+                    <p class="text-gray-900">N/A</p>
+                </div>
+                <div class="w-full sm:w-1/2 mb-4">
+                    <label class="block text-gray-500">Pension Schedule</label>
+                    <p class="text-gray-900">N/A</p>
+                </div>
+                <div class="w-full sm:w-1/2 mb-4">
+                    <label class="block text-gray-500">Pension Type</label>
+                    <p class="text-gray-900">N/A</p>
+                </div>
+            </div>
         </div>
+        <!-- Separator Line -->
+        <hr class="my-6 border-gray-300" />
+
+        <!-- Fifth Section: Background Data -->
+        <div>
+            <h3 class="text-2xl font-semibold mb-4">Background Data</h3>
+            <div class="flex flex-wrap">
+                <div class="w-full sm:w-1/2 mb-4">
+                    <label class="block text-gray-500">Father's Name</label>
+                    <p class="text-gray-900">Cj Simene</p>
+                </div>
+                <div class="w-full sm:w-1/2 mb-4">
+                    <label class="block text-gray-500">Contact No.</label>
+                    <p class="text-gray-900">04957382957</p>
+                </div>
+                <div class="w-full sm:w-1/2 mb-4">
+                    <label class="block text-gray-500">Mother's Name</label>
+                    <p class="text-gray-900">J Simene</p>
+                </div>
+                <div class="w-full sm:w-1/2 mb-4">
+                    <label class="block text-gray-500">Contact No.</label>
+                    <p class="text-gray-900">04957382957</p>
+                </div>
+            </div>
+        </div>
+        <!-- Separator Line -->
+        <hr class="my-6 border-gray-300" />
+
+        <!-- Last Section: Bank Account Informations -->
+        <div>
+            <h3 class="text-2xl font-semibold mb-4">Bank Account Informations</h3>
+            <div class="flex flex-wrap">
+                <div class="w-full sm:w-1/2 mb-4">
+                    <label class="block text-gray-500">Bank / Branch</label>
+                    <p class="text-gray-900">Cj Bank</p>
+                </div>
+                <div class="w-full sm:w-1/2 mb-4">
+                    <label class="block text-gray-500">Card No.</label>
+                    <p class="text-gray-900">049573</p>
+                </div>
+                <div class="w-full sm:w-1/2 mb-4">
+                    <label class="block text-gray-500">Account No.</label>
+                    <p class="text-gray-900">2928</p>
+                </div>
+                <div class="w-full sm:w-1/2 mb-4">
+                    <label class="block text-gray-500">Pin No.</label>
+                    <p class="text-gray-900">1234</p>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        
+
+        </div>
+        </div>
+
+        
 
 
 
         <!-- Cards -->
-        <section class="container px-4 mx-auto mt-12">
-            <h3 class="text-2xl font-semibold mb-4">Pending/Submitted Requests</h3>
+        <!-- <section class="container px-4 mx-auto mt-12">
+            <h3 class="text-2xl font-semibold mb-4">Pending/Submittedsss Requests</h3>
                 <div class="flex flex-col">
                     <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-4">
@@ -243,7 +366,7 @@
                         </div>
                     </div>
                 </div>
-        </section>    
+        </section>     -->
 
     </div>
     
