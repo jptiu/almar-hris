@@ -84,7 +84,7 @@ class LoanController extends Controller
                 $loan->date_of_loan = $request->date_of_loan;
                 $loan->customer_id = $request->customer_id;
                 $loan->customer_type = $request->customer_type;
-                $loan->status = 'UNPD';
+                $loan->status = null;
                 $loan->principal_amount = $request->principal_amount;
                 $loan->days_to_pay = $request->days_to_pay;
                 $loan->months_to_pay = $request->months_to_pay;
@@ -93,6 +93,7 @@ class LoanController extends Controller
                 $loan->svc_charge = $request->svc_charge;
                 $loan->actual_record = $request->actual_record;
                 $loan->payable_amount = $request->payable_amount;
+                $loan->branch_id = $branch;
                 $loan->save();
 
                 return redirect()->back()->with('success', 'Loan Entry Created.');

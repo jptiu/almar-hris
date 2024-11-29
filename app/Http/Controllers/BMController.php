@@ -111,7 +111,8 @@ class BMController extends Controller
     public function pendingLoandApproval(Request $request)
     {
         $branch = auth()->user()->branch_id;
-        $lists = Loan::where('branch_id', $branch)->get();
+        // $lists = Loan::where('branch_id', $branch)->get();
+        $lists = Loan::where('principal_amount', '>', '50000')->paginate(10);
 
         return view('pages.pendingloanapp.index', compact('lists'));
     }
@@ -143,30 +144,11 @@ class BMController extends Controller
 
     public function csor()
     {
-        abort_unless(Gate::allows('branch_access'), 404);
-        
         return view('pages.csor.index');
     }
 
-    public function leaveRequest()
-    {   
-        return view('pages.requestform.leave.index');
+    public function payRoll()
+    {
+        return view('pages.payroll.index');
     }
-
-
-    public function undertimeRequest()
-    {   
-        return view('pages.requestform.undertime.index');
-    }
-
-    public function idRequest()
-    {   
-        return view('pages.requestform.id.index');
-    }
-
-    public function clearanceRequest()
-    {   
-        return view('pages.requestform.clearance.index');
-    }
-    
 }
