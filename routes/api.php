@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\CustomerController;
+use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -43,6 +44,6 @@ Route::group(['middleware' => 'auth:api'], function () {
         return response()->json(['message' => auth()->user()], 200);
     });
     Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
-        Route::resource('customer', CustomerController::class);
+        Route::get('customer', 'CustomerController@index')->name('customer.index');
     });
 });

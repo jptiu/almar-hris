@@ -48,15 +48,17 @@ class AuthController extends Controller
     public function login(Request $request)
     {
 
-        $validate = $request->validate([
-            'email' => 'required|string|email|max:255',
-            'password' => 'required|string|min:6',
-            'remember_me' => 'required',
-            'device_token' => 'string',
-        ]);
+        // $validate = $request->validate([
+        //     'email' => 'required|string|email|max:255',
+        //     'password' => 'required|string|min:6',
+        //     'remember_me' => 'required',
+        //     'device_token' => 'string',
+        // ]);
 
         $user = User::where('email', $request->email)->first();
-        if ($validate) {
+
+        // dd($validate);
+        if (isset($user)) {
             if (isset($user->email_verified_at) && $user->email_verified_at) { //change it here kay walay is_active
                 $credentials = request(['email', 'password']);
 
