@@ -37,6 +37,7 @@ class ExpensesController extends Controller
      */
     public function store(Request $request)
     {
+        $branch = auth()->user()->branch_id;
         $exp = new Expenses();
         $exp->exp_ref_no = $request->exp_ref_no;
         $exp->acc_no = $request->acc_no;
@@ -47,6 +48,7 @@ class ExpensesController extends Controller
         $exp->or_no = $request->or_no;
         $exp->amount = $request->amount;
         $exp->exp_date = $request->exp_date;
+        $exp->branch_id = $branch;
         $exp->save();
 
         return redirect(route("expenses.index"))->with('success', 'Created Successfully');

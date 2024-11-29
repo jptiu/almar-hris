@@ -26,6 +26,7 @@ class SavingsCreateRequest extends FormRequest
             'employee_id' => 'string',
             'total_savings' => 'string',
             'balance' => 'string',
+            'branch_id' => 'string',
         ];
     }
 }

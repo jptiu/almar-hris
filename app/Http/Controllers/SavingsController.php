@@ -40,11 +40,13 @@ class SavingsController extends Controller
     public function store(SavingsCreateRequest $request)
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
+        $branch = auth()->user()->branch_id;
         if($request->validated()){
             $savings = new Savings();
             $savings->employee_id = $request->employee_id;
             $savings->total_savings = $request->total_savings;
             $savings->balance = $request->balance;
+            $savings->branch_id = $branch;
             $savings->save();
 
             return redirect(route("savings.index"))->with('success', 'Created Successfully');

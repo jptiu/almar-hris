@@ -69,6 +69,7 @@ class BarangayController extends Controller
             $brgy->code = $request->code;
             $brgy->city = $request->city;
             $brgy->user_id = $request->user_id;
+            $brgy->branch_id = $branch;
             $brgy->save();
 
             return redirect(route("barangay.index"))->with('success', 'Created Successfully');

@@ -112,7 +112,10 @@ class BMController extends Controller
     {
         $branch = auth()->user()->branch_id;
         // $lists = Loan::where('branch_id', $branch)->get();
-        $lists = Loan::where('principal_amount', '>', '50000')->paginate(10);
+        $lists = Loan::where('principal_amount', '>', '50000')
+            ->where('branch_id', $branch)
+            ->where('status', null)
+            ->paginate(10);
 
         return view('pages.pendingloanapp.index', compact('lists'));
     }
@@ -148,24 +151,24 @@ class BMController extends Controller
     }
 
     public function leaveRequest()
-    {   
+    {
         return view('pages.requestform.leave.index');
     }
 
 
     public function undertimeRequest()
-    {   
+    {
         return view('pages.requestform.undertime.index');
     }
 
     public function idRequest()
-    {   
+    {
         return view('pages.requestform.id.index');
     }
 
     public function clearanceRequest()
-    {   
+    {
         return view('pages.requestform.clearance.index');
     }
-    
+
 }
