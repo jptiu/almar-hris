@@ -406,7 +406,7 @@
                                     </div>
                                 </div>
                             </a>
-                        </li> -->
+                        </li>
                         <!-- Collection Data Entry -->
                         <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['collection'])) {{ 'bg-accent-100' }} @endif"
                             x-data="{ open: {{ in_array(Request::segment(1), ['collection']) ? 1 : 0 }} }">

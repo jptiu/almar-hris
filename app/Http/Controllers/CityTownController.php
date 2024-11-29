@@ -67,6 +67,7 @@ class CityTownController extends Controller
             $city->code = $request->code;
             $city->city_town = $request->city_town;
             $city->user_id = $request->user_id;
+            $city->branch_id = $branch;
             $city->save();
 
             return redirect(route("city.index"))->with('success', 'Created City/Town Successfully');

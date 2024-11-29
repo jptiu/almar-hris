@@ -13,6 +13,7 @@ class Savings extends Model
         'employee_id',
         'total_savings',
         'balance',
+        'branch_id',
     ];
 
     public function employee(){

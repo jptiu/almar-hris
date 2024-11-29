@@ -22,7 +22,7 @@ class HRController extends Controller
         $activeCount = $announcements->count(); // Count active announcements 
         $currentDate = Carbon::now()->format('F d, Y'); // Get the current date
 
-        return view('pages.hr.index', compact('lists','announcements', 'activeCount', 'currentDate'));
+        return view('pages.hr.index', compact('lists', 'announcements', 'activeCount', 'currentDate'));
     }
 
     /**
@@ -131,9 +131,11 @@ class HRController extends Controller
 
     public function pendingLoans()
     {
-
+        $branch = auth()->user()->branch_id;
         $loans = Loan::where('principal_amount', '<', '50000')
-        ->where('status', null)->paginate(10);
+            ->where('branch_id', $branch)
+            ->where('status', null)
+            ->paginate(10);
 
         return view('pages.hr.loanapprovals.pending.index', compact('loans'));
     }
@@ -153,19 +155,19 @@ class HRController extends Controller
         return view('pages.hr.announce.add.index', compact('lists'));
     }
 
-    public function storeAnnouncement(Request $request) 
-    { 
+    public function storeAnnouncement(Request $request)
+    {
         abort_unless(Gate::allows('hr_access'), 404);
-        $request->validate([ 
+        $request->validate([
             'title' => 'required',
             'subject' => 'nullable|string',
             'content' => 'required',
-            'status' => 'required|in:0,1', 
-        ]); 
-        
-        Announcement::create($request->all()); 
-        
-        return redirect()->route('announce.index')->with('success', 'Announcement created successfully.'); 
+            'status' => 'required|in:0,1',
+        ]);
+
+        Announcement::create($request->all());
+
+        return redirect()->route('announce.index')->with('success', 'Announcement created successfully.');
     }
 
     public function showAnnouncement($id)
@@ -179,14 +181,14 @@ class HRController extends Controller
     public function updateAnnouncement(Request $request, $id)
     {
         abort_unless(Gate::allows('hr_access'), 404);
-            $announcement = Announcement::find($id);
-            $announcement->title = $request->title;
-            $announcement->subject = $request->subject;
-            $announcement->content = $request->content;
-            $announcement->status = $request->status;
-            $announcement->update();
+        $announcement = Announcement::find($id);
+        $announcement->title = $request->title;
+        $announcement->subject = $request->subject;
+        $announcement->content = $request->content;
+        $announcement->status = $request->status;
+        $announcement->update();
 
-            return redirect(route("announce.index"))->with('success', 'Announcement Updated Successfully');
+        return redirect(route("announce.index"))->with('success', 'Announcement Updated Successfully');
     }
 
     public function destroyAnnouncement($id)

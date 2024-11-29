@@ -70,6 +70,7 @@ class CustomerTypeController extends Controller
             $customer->code = $request->code;
             $customer->description = $request->description;
             $customer->user_id = $request->user_id;
+            $customer->branch_id = $branch;
             $customer->save();
 
             return redirect(route("customerType.index"))->with('success', 'Customer Type Created Successfully');

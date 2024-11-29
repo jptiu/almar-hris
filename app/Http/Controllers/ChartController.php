@@ -37,6 +37,7 @@ class ChartController extends Controller
         $chart->acc_type = $request->acc_type;
         $chart->acc_title = $request->acc_title;
         $chart->acc_description = $request->acc_description;
+        $chart->branch_id = $branch;
         $chart->save();
 
         return redirect(route("chart.index"))->with('success', 'Created Successfully');
