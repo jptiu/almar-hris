@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Announcement;
 use Illuminate\Http\Request;
 use App\Models\Employee;
+use App\Models\Loan;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Gate;
 
@@ -126,6 +127,15 @@ class HRController extends Controller
     public function cloanHistory()
     {
         return view('pages.hr.loanhistory.index');
+    }
+
+    public function pendingLoans()
+    {
+
+        $loans = Loan::where('principal_amount', '<', '50000')
+        ->where('status', null)->paginate(10);
+
+        return view('pages.hr.loanapprovals.pending.index', compact('loans'));
     }
 
     public function announcementHr()

@@ -38,6 +38,7 @@ class LoanCreateRequest extends FormRequest
             'svc_charge' => 'string',
             'actual_record' => 'string',
             'payable_amount' => 'string',
+            'branch_id' => 'string',
         ];
     }
 }

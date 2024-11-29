@@ -128,8 +128,8 @@
                         </li>
 
                         <!-- Loan Status -->
-                        <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 bg-[linear-gradient(135deg,var(--tw-gradient-stops))] @if(in_array(Request::segment(1), ['loanapprovals-approved', 'loanapprovals-rejected'])){{ 'from-violet-500/[0.12] dark:from-violet-500/[0.24] to-violet-500/[0.04]' }}@endif" x-data="{ open: {{ in_array(Request::segment(1), ['loanapprovals-approved', 'loanapprovals-rejected']) ? 1 : 0 }} }">
-                            <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if(!in_array(Request::segment(1), ['loanapprovals-approved', 'loanapprovals-rejected'])){{ 'hover:text-gray-900 dark:hover:text-white' }}@endif" href="#0" @click.prevent="open = !open; sidebarExpanded = true">
+                        <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 bg-[linear-gradient(135deg,var(--tw-gradient-stops))] @if(in_array(Request::segment(1), ['loanapprovals-approved', 'loanapprovals-rejected', 'loanapprovals-pending'])){{ 'from-violet-500/[0.12] dark:from-violet-500/[0.24] to-violet-500/[0.04]' }}@endif" x-data="{ open: {{ in_array(Request::segment(1), ['loanapprovals-approved', 'loanapprovals-rejected', 'loanapprovals-pending']) ? 1 : 0 }} }">
+                            <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if(!in_array(Request::segment(1), ['loanapprovals-approved', 'loanapprovals-rejected', 'loanapprovals-pending'])){{ 'hover:text-gray-900 dark:hover:text-white' }}@endif" href="#0" @click.prevent="open = !open; sidebarExpanded = true">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><g><rect fill="none" height="24" width="24"/><path d="M17,12c-2.76,0-5,2.24-5,5s2.24,5,5,5c2.76,0,5-2.24,5-5S19.76,12,17,12z M18.65,19.35l-2.15-2.15V14h1v2.79l1.85,1.85 L18.65,19.35z M18,3h-3.18C14.4,1.84,13.3,1,12,1S9.6,1.84,9.18,3H6C4.9,3,4,3.9,4,5v15c0,1.1,0.9,2,2,2h6.11 c-0.59-0.57-1.07-1.25-1.42-2H6V5h2v3h8V5h2v5.08c0.71,0.1,1.38,0.31,2,0.6V5C20,3.9,19.1,3,18,3z M12,5c-0.55,0-1-0.45-1-1 c0-0.55,0.45-1,1-1c0.55,0,1,0.45,1,1C13,4.55,12.55,5,12,5z"/></g></svg>
@@ -144,10 +144,15 @@
                                 </div>
                             </a>
                             <div class="lg:hidden lg:sidebar-expanded:block 2xl:block">
-                                <ul class="pl-10 mt-1 @if(!in_array(Request::segment(1), ['loanapprovals-approved', 'loanapprovals-rejected'])){{ 'hidden' }}@endif" :class="open ? '!block' : 'hidden'">
+                                <ul class="pl-10 mt-1 @if(!in_array(Request::segment(1), ['loanapprovals-approved', 'loanapprovals-rejected', 'loanapprovals-pending'])){{ 'hidden' }}@endif" :class="open ? '!block' : 'hidden'">
                                     <li class="mb-1 last:mb-0">
                                         <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('approved.index')){{ '!text-violet-500' }}@endif" href="{{ route('approved.index') }}">
                                             <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Approved Loans</span>
+                                        </a>
+                                    </li>
+                                    <li class="mb-1 last:mb-0">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if(Route::is('pending.index')){{ '!text-violet-500' }}@endif" href="{{ route('pending.index') }}">
+                                            <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Pending Loans</span>
                                         </a>
                                     </li>
                                     <li class="mb-1 last:mb-0">
@@ -1196,7 +1201,7 @@
                         <!-- Payslip & Payroll -->
                         <li
                             class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
-                            <a href="/"
+                            <a href="{{ route('paroll.index') }}"
                                 class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
                                 <div class="flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 14V6c0-1.1-.9-2-2-2H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zm-9-1c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm13-6v11c0 1.1-.9 2-2 2H4v-2h17V7h2z"/></svg>
