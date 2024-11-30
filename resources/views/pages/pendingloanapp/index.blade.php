@@ -190,7 +190,7 @@
                                                 {{ $list->date_of_loan }}
                                             </td>
                                             <td class="px-4 py-4 text-sm whitespace-nowrap">
-                                            <div class="flex items-center gap-x-2">
+                                                <div class="flex items-center gap-x-2">
                                                     <a id="#" href="#" class="btn bg-accrej-200 text-white">
                                                         <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#F3F3F3">
                                                             <path d="M389-267 195-460l51-52 143 143 325-324 51 51-376 375Z"/>
