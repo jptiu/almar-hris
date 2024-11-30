@@ -198,9 +198,4 @@ class HRController extends Controller
         return redirect()->back()->with('success', 'Announcement deleted.');
     }
 
-    public function branchinfo()
-    {
-        return view('pages.hr.branchinfo.index');
-    }
-
 }
