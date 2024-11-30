@@ -28,6 +28,10 @@ export default {
                 100: '#F9FAFC',
                 200: '#F9FAFC',
                 },
+                'accrej': {
+                100: '#C6131B',
+                200: '#45a240',
+                },
             },
             boxShadow: {
                 DEFAULT: '0 1px 3px 0 rgba(0, 0, 0, 0.08), 0 1px 2px 0 rgba(0, 0, 0, 0.02)',

@@ -77,10 +77,6 @@ class BMController extends Controller
         return view('pages.cashadvreqform.index');
     }
 
-    public function cashBond(Request $request)
-    {
-        return view('pages.cashbond.index');
-    }
 
     public function badAccount(Request $request)
     {
@@ -174,6 +170,11 @@ class BMController extends Controller
     public function cashadvanceRequest()
     {   
         return view('pages.requestform.cashadvance.index');
+    }
+
+    public function cashBond(Request $request)
+    {
+        return view('pages.requestform.cashbond.index');
     }
     
 }

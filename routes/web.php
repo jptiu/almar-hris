@@ -207,6 +207,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // Collector
     Route::get('collector', [CollectorController::class, 'index'])->name('collector.index');
     Route::get('collector/leave', [CollectorController::class, 'leave'])->name('collector.leave');
+    Route::get('collector/cashadvance', [CollectorController::class, 'cashadvance'])->name('collector.cashadvance');
+    Route::get('collector/undertime', [CollectorController::class, 'undertime'])->name('collector.undertime');
+    Route::get('collector/clearance', [CollectorController::class, 'clearance'])->name('collector.clearance');
+    Route::get('collector/id', [CollectorController::class, 'id'])->name('collector.id');
     Route::get('collector/profile', [CollectorController::class, 'profile'])->name('collector.profile');
 
     // Loan Officer
@@ -216,12 +220,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     // Employee Evaluation
     Route::get('branch/employee-evaluation', [BMController::class, 'employeeEvaluation'])->name('employeeEvaluation.index');
-
-    // Cash Advance Request Form
-    Route::get('branch/cash-advance-req-form', [BMController::class, 'cashReqForm'])->name('cashReqForm.index');
-
-    // Cash Bond
-    Route::get('branch/cash-bond', [BMController::class, 'cashBond'])->name('cashBond.index');
+    
 
     // Bad Account
     Route::get('branch/bad-account', [BMController::class, 'badAccount'])->name('badAccount.index');
@@ -262,8 +261,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('requestform/id', [BMController::class, 'idRequest'])->name('idRequest.index');
     Route::get('requestform/clearance', [BMController::class, 'clearanceRequest'])->name('clearanceRequest.index');
     Route::get('requestform/cashadvance', [BMController::class, 'cashadvanceRequest'])->name('cashadvanceRequest.index');
-
-    
+    Route::get('requestform/cashbond', [BMController::class, 'cashBond'])->name('cashBond.index');
 
     
 

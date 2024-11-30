@@ -24,6 +24,36 @@ class CollectorController extends Controller
         return view('pages.collector.leave.index');
     }
 
+    public function cashadvance()
+    {
+        //abort_unless(Gate::allows('collector_access'), 404);
+        
+        return view('pages.collector.cashadvance.index');
+    }
+
+    public function undertime()
+    {
+        //abort_unless(Gate::allows('collector_access'), 404);
+        
+        return view('pages.collector.undertime.index');
+    }
+
+    public function clearance()
+    {
+        //abort_unless(Gate::allows('collector_access'), 404);
+        
+        return view('pages.collector.clearance.index');
+    }
+
+    public function id()
+    {
+        //abort_unless(Gate::allows('collector_access'), 404);
+        
+        return view('pages.collector.id.index');
+    }
+
+
+
     public function profile()
     {
         abort_unless(Gate::allows('collector_access'), 404);
