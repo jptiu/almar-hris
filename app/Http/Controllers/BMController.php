@@ -118,12 +118,20 @@ class BMController extends Controller
 
     public function approvedLoan(Request $request)
     {
-        return view('pages.pendingloanapp.approvedloans.index');
+        
+        $lists = Loan::where('principal_amount', '>', '50000')
+        ->where('status', '=', 'FULPD')->paginate(10);
+
+        return view('pages.pendingloanapp.approvedloans.index', compact('lists'));
     }
 
     public function rejectedLoan(Request $request)
     {
-        return view('pages.pendingloanapp.rejectedloans.index');
+
+        $lists = Loan::where('principal_amount', '>', '50000')
+        ->where('status', '=', 'CNCLD')->paginate(10);
+
+        return view('pages.pendingloanapp.rejectedloans.index', compact('lists'));
     }
 
     public function loanRenewal(Request $request)
