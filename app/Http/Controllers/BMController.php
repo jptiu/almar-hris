@@ -112,19 +112,28 @@ class BMController extends Controller
     {
         $branch = auth()->user()->branch_id;
         // $lists = Loan::where('branch_id', $branch)->get();
-        $lists = Loan::where('principal_amount', '>', '50000')->paginate(10);
+        $lists = Loan::where('principal_amount', '>', '50000')
+        ->where('status', '=', NULL)->paginate(10);
 
         return view('pages.pendingloanapp.index', compact('lists'));
     }
 
     public function approvedLoan(Request $request)
     {
-        return view('pages.pendingloanapp.approvedloans.index');
+        
+        $lists = Loan::where('principal_amount', '>', '50000')
+        ->where('status', '=', 'FULPD')->paginate(10);
+
+        return view('pages.pendingloanapp.approvedloans.index', compact('lists'));
     }
 
     public function rejectedLoan(Request $request)
     {
-        return view('pages.pendingloanapp.rejectedloans.index');
+
+        $lists = Loan::where('principal_amount', '>', '50000')
+        ->where('status', '=', 'CNCLD')->paginate(10);
+
+        return view('pages.pendingloanapp.rejectedloans.index', compact('lists'));
     }
 
     public function loanRenewal(Request $request)

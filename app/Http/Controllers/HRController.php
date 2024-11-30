@@ -81,7 +81,10 @@ class HRController extends Controller
      */
     public function loanRenewals()
     {
-        return view('pages.hr.renewals.index');
+        $lists = Loan::where('transaction_type', 'RENEW')->paginate(10);
+
+        return view('pages.hr.renewals.index', compact('lists'));
+
     }
 
     public function auditScheduling()
@@ -116,24 +119,32 @@ class HRController extends Controller
 
     public function approvedLoans()
     {
-        return view('pages.hr.loanapprovals.approved.index');
+        $loans = Loan::where('principal_amount', '<', '50000')
+        ->where('status', '=', 'FULPD')->paginate(10);
+
+        return view('pages.hr.loanapprovals.approved.index', compact('loans'));
     }
 
     public function rejectedLoans()
     {
-        return view('pages.hr.loanapprovals.rejected.index');
+        $loans = Loan::where('principal_amount', '<', '50000')
+        ->where('status', '=', 'CNCLD')->paginate(10);
+
+        return view('pages.hr.loanapprovals.rejected.index', compact('loans'));
     }
 
     public function cloanHistory()
     {
-        return view('pages.hr.loanhistory.index');
+        $lists = Loan::with('details')->paginate(20);
+
+        return view('pages.hr.loanhistory.index', compact('lists'));
     }
 
     public function pendingLoans()
     {
 
         $loans = Loan::where('principal_amount', '<', '50000')
-        ->where('status', null)->paginate(10);
+        ->where('status', '=', NULL)->paginate(10);
 
         return view('pages.hr.loanapprovals.pending.index', compact('loans'));
     }

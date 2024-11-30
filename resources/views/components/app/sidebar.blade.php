@@ -90,9 +90,9 @@
                         </li>
 
                         <li
-                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['renewals'])) {{ 'bg-accent-100' }} @endif">
+                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['loanhistory'])) {{ 'bg-accent-100' }} @endif">
                             <a href="{{ route('loanhistory.index') }}"
-                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['renewals'])) {{ 'hover:text-slate-200' }} @endif">
+                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['loanhistory'])) {{ 'hover:text-slate-200' }} @endif">
                                 <div class="flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><rect fill="none" height="24" width="24"/><path d="M17.66,9.53l-7.07,7.07l-4.24-4.24l1.41-1.41l2.83,2.83l5.66-5.66L17.66,9.53z M4,12c0-2.33,1.02-4.42,2.62-5.88L9,8.5v-6H3 l2.2,2.2C3.24,6.52,2,9.11,2,12c0,5.19,3.95,9.45,9,9.95v-2.02C7.06,19.44,4,16.07,4,12z M22,12c0-5.19-3.95-9.45-9-9.95v2.02 c3.94,0.49,7,3.86,7,7.93c0,2.33-1.02,4.42-2.62,5.88L15,15.5v6h6l-2.2-2.2C20.76,17.48,22,14.89,22,12z"/></svg>
                                     <span
@@ -114,6 +114,7 @@
                                 </div>
                             </a>
                         </li>
+                        
                         <li
                             class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['audit'])) {{ 'bg-accent-100' }} @endif">
                             <a href="{{ route('audit.index') }}"
@@ -959,7 +960,7 @@
                     @endcan
 
                     @can('branch_access')
-                        <!-- Loan Officer -->
+                        <!-- Branch Manager -->
                         <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['dashboard'])) {{ 'bg-accent-100' }} @endif"
                             x-data="{ open: {{ in_array(Request::segment(1), ['dashboard']) ? 1 : 0 }} }">
                             <a class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['dashboard'])) {{ 'hover:text-slate-200' }} @endif"
@@ -975,17 +976,15 @@
                         </li>
 
                         <!-- Loan Renewal -->
-                        <li class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['customer-type'])) {{ 'bg-accent-100' }} @endif"
-                            x-data="{ open: {{ in_array(Request::segment(1), ['customer-type']) ? 1 : 0 }} }">
-                            <a href="{{ route('loanRenewal.index') }}"
-                                class="block text-slate-200 transition duration-150"
-                                :class="open ? 'hover:text-slate-200' : 'hover:text-white'">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><rect fill="none" height="24" width="24"/><path d="M17.66,9.53l-7.07,7.07l-4.24-4.24l1.41-1.41l2.83,2.83l5.66-5.66L17.66,9.53z M4,12c0-2.33,1.02-4.42,2.62-5.88L9,8.5v-6H3 l2.2,2.2C3.24,6.52,2,9.11,2,12c0,5.19,3.95,9.45,9,9.95v-2.02C7.06,19.44,4,16.07,4,12z M22,12c0-5.19-3.95-9.45-9-9.95v2.02 c3.94,0.49,7,3.86,7,7.93c0,2.33-1.02,4.42-2.62,5.88L15,15.5v6h6l-2.2-2.2C20.76,17.48,22,14.89,22,12z"/></svg>
-                                        <span
-                                            class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Loan Renewal</span>
-                                    </div>
+                        <li
+                            class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), ['renewals'])) {{ 'bg-accent-100' }} @endif">
+                            <a href="{{ route('renewals.index') }}"
+                                class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['renewals'])) {{ 'hover:text-slate-200' }} @endif">
+                                <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><rect fill="none" height="24" width="24"/><path d="M17.66,9.53l-7.07,7.07l-4.24-4.24l1.41-1.41l2.83,2.83l5.66-5.66L17.66,9.53z M4,12c0-2.33,1.02-4.42,2.62-5.88L9,8.5v-6H3 l2.2,2.2C3.24,6.52,2,9.11,2,12c0,5.19,3.95,9.45,9,9.95v-2.02C7.06,19.44,4,16.07,4,12z M22,12c0-5.19-3.95-9.45-9-9.95v2.02 c3.94,0.49,7,3.86,7,7.93c0,2.33-1.02,4.42-2.62,5.88L15,15.5v6h6l-2.2-2.2C20.76,17.48,22,14.89,22,12z"/></svg>
+                                    <span
+                                        class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Loan
+                                        Renewals</span>
                                 </div>
                             </a>
                         </li>
