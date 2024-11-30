@@ -163,21 +163,23 @@
     </div>
 
     <section class="container px-4 mx-auto">
-    <form action="{{ route('loan.store') }}" method="POST">
-        @csrf
-        <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
-        <div class="flex items-center text-gray-600 mb-12">
-                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                </svg>
-            <a href="{{ route('loan.index') }}" class="text-base font-semibold">Back</a>
-            </div>
+        <form action="{{ route('loan.store') }}" method="POST">
+            @csrf
+            <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
+                <div class="flex items-center text-gray-600 mb-12">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                        </path>
+                    </svg>
+                    <a href="{{ route('loan.index') }}" class="text-base font-semibold">Back</a>
+                </div>
 
-            <div>
-                <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
-                    <div class="lg:col-span-4">
-                        <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6">
-                            {{-- <div class="md:col-span-1">
+                <div>
+                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
+                        <div class="lg:col-span-4">
+                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6">
+                                {{-- <div class="md:col-span-1">
                                 <label for="transaction" class="text-black font-medium">Transaction No.</label>
                                 <input onchange="getTransactionNo()" type="number" name="transaction"
                                     id="transaction"
@@ -185,293 +187,266 @@
                                     value="" placeholder="Search" />
                             </div> --}}
 
-                            <div class="md:col-span-1">
-                                <label for="date_of_loan" class="text-black font-medium">Date of Loan</label>
-                                <input type="date" name="date_of_loan" id="date_of_loan"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    value="" placeholder="" />
-                            </div>
+                                <div class="md:col-span-1">
+                                    <label for="date_of_loan" class="text-black font-medium">Date of Loan</label>
+                                    <input type="date" name="date_of_loan" id="date_of_loan"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        value="" placeholder="" />
+                                </div>
 
-                            <div class="md:col-span-1">
-                                <label for="loan_type" class="text-black font-medium">Loan Type</label>
-                                <select name="loan_type" id="loan_type"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
-                                <option value="daily">Daily</option>
-                                <option value="weekly">Weekly</option>
-                                <option value="semi-monthly">Semi-Monthly</option>
-                                <option value="monthly">Monthly</option>
-                                </select>
-                            </div>
+                                <div class="md:col-span-1">
+                                    <label for="loan_type" class="text-black font-medium">Loan Type</label>
+                                    <select name="loan_type" id="loan_type"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
+                                    <option value="daily">Daily</option>
+                                    <option value="weekly">Weekly</option>
+                                    <option value="semi-monthly">Semi-Monthly</option>
+                                    <option value="monthly">Monthly</option>
+                                    </select>
+                                </div>
 
-                            <div class="md:col-span-1">
-                                <label for="transaction_type" class="text-black font-medium">Transaction Type</label>
-                                <select name="transaction_type" id="transaction_type"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
-                                <option value="NEW">NEW</option>
-                                <option value="RENEW">Renew</option>
-                                <option value="RECONS">Recons</option>
-                                <option value="W/COLLAT">With Collat</option>
-                                <option value="CA">CA</option>
-                                <option value="W/CERT">With Cert</option>
-                                <option value="CBA">C/A Becomes B.A.</option>
-                                </select>
-                            </div>
+                                <div class="md:col-span-1">
+                                    <label for="transaction_type" class="text-black font-medium">Transaction
+                                        Type</label>
+                                    <select name="transaction_type" id="transaction_type"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
+                                    <option value="NEW">NEW</option>
+                                    <option value="RENEW">Renew</option>
+                                    <option value="RECONS">Recons</option>
+                                    <option value="W/COLLAT">With Collat</option>
+                                    <option value="CA">CA</option>
+                                    <option value="W/CERT">With Cert</option>
+                                    <option value="CBA">C/A Becomes B.A.</option>
+                                    </select>
+                                </div>
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <x-section-border />
-
-
-            <div>
-                <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
-                    <div class="lg:col-span-2">
-                        <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6">
-
-                            <div class="md:col-span-1">
-                                <label for="customer_id" class="text-black font-medium">Customer ID</label>
-                                <input onchange="getCustomerID()" type="text" name="customer_id" id="customer_id"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
-                                    value="" placeholder="" />
-                            </div>
-
-                            <div class="md:col-span-2">
-                                <label for="name" class="text-black font-medium">Customer Name</label>
-                                <input type="text" name="name" id="name"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
-                                    value="{{ $customer->first_name ?? '' }}" placeholder="" />
-                            </div>
-
-                            <div class="md:col-span-1">
-                                <label for="type" class="text-black font-medium">Customer Type</label>
-                                <input type="text" name="type" id="type"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
-                                    value="{{ $customer->type ?? '' }}" placeholder="" disabled/>
-                            </div>
-
-                            <div class="md:col-span-1">
-                                <label for="status" class="text-black font-medium">Status</label>
-                                <input type="text" name="status" id="status"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
-                                    value="{{ $customer->status ?? '' }}" placeholder="" />
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <x-section-border />
+                <x-section-border />
 
-            <div>
-                <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3 mb-12">
-                    <div>
-                        <h1 class="text-xl md:text-xl text-slate-600 dark:text-slate-100 font-bold mb-2">Terms of
-                            Payment</h1>
-                    </div>
 
-                    <div class="lg:col-span-2">
-                    </div>
-                </div>
-            </div>
+                <div>
+                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
+                        <div class="lg:col-span-2">
+                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6">
 
-            <div>
-                <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
-                    <div class="lg:col-span-2">
-                        <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6">
+                                <div class="md:col-span-1">
+                                    <label for="customer_id" class="text-black font-medium">Customer ID</label>
+                                    <input onchange="getCustomerID()" type="text" name="customer_id"
+                                        id="customer_id"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
+                                        value="" placeholder="" />
+                                </div>
 
-                            <div class="md:col-span-1">
-                                <label for="principal_amount" class="text-black font-medium">Principal Amount</label>
-                                <input type="text" name="principal_amount" id="principal_amount"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
-                                    value="" placeholder="₱" />
-                            </div>
+                                <div class="md:col-span-2">
+                                    <label for="name" class="text-black font-medium">Customer Name</label>
+                                    <input type="text" name="name" id="name"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
+                                        value="{{ $customer->first_name ?? '' }}" placeholder="" />
+                                </div>
 
-                            <div class="md:col-span-1">
-                                <label for="days_to_pay" class="text-black font-medium">Days to pay</label>
-                                <input type="number" name="days_to_pay" id="days_to_pay"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
-                                    value="" placeholder="" />
-                            </div>
+                                <div class="md:col-span-1">
+                                    <label for="type" class="text-black font-medium">Customer Type</label>
+                                    <input type="text" name="type" id="type"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
+                                        value="{{ $customer->type ?? '' }}" placeholder="" disabled />
+                                </div>
 
-                            <div class="md:col-span-1">
-                                <label for="months_to_pay" class="text-black font-medium">Months to pay</label>
-                                <input type="number" name="months_to_pay" id="months_to_pay"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
-                                    value="" placeholder="" />
-                            </div>
-
-                            <div class="md:col-span-1">
-                                <label for="interest" class="text-black font-medium">Interest %</label>
-                                <input type="text" name="interest" id="interest"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
-                                    value="" placeholder="" />
-                                </select>
+                                <div class="md:col-span-1">
+                                    <label for="status" class="text-black font-medium">Status</label>
+                                    <input type="text" name="status" id="status"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
+                                        value="{{ $customer->status ?? '' }}" placeholder="" />
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <x-section-border />
+                <x-section-border />
 
-            <div>
-                <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
-                    <div class="lg:col-span-2">
-                        <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6">
+                <div>
+                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3 mb-12">
+                        <div>
+                            <h1 class="text-xl md:text-xl text-slate-600 dark:text-slate-100 font-bold mb-2">Terms of
+                                Payment</h1>
+                        </div>
 
-                            <div class="md:col-span-1">
-                                <label for="interest_amount" class="text-black font-medium">Interest Amount</label>
-                                <input type="text" name="interest_amount" id="interest_amount"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
-                                    value="" placeholder="₱" />
-                            </div>
+                        <div class="lg:col-span-2">
+                        </div>
+                    </div>
+                </div>
 
-                            <div class="md:col-span-1">
-                                <label for="svc_charge" class="text-black font-medium">Service Charge</label>
-                                <input type="number" name="svc_charge" id="svc_charge"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
-                                    value="" placeholder="" />
-                            </div>
+                <div>
+                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
+                        <div class="lg:col-span-2">
+                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6">
 
-                            <div class="md:col-span-1">
-                                <label for="actual_record" class="text-black font-medium">Actual Record</label>
-                                <input type="text" name="actual_record" id="actual_record"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
-                                    value="" placeholder="" />
-                            </div>
+                                <div class="md:col-span-1">
+                                    <label for="principal_amount" class="text-black font-medium">Principal
+                                        Amount</label>
+                                    <input type="text" name="principal_amount" id="principal_amount"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
+                                        value="" placeholder="₱" />
+                                </div>
 
-                            <div class="md:col-span-1">
-                                <label for="payable_amount" class="text-black font-medium">Payable Amount</label>
-                                <input type="text" name="payable_amount" id="payable_amount"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
-                                    value="" placeholder="₱" />
+                                <div class="md:col-span-1">
+                                    <label for="days_to_pay" class="text-black font-medium">Days to pay</label>
+                                    <input type="number" name="days_to_pay" id="days_to_pay"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
+                                        value="" placeholder="" />
+                                </div>
+
+                                <div class="md:col-span-1">
+                                    <label for="months_to_pay" class="text-black font-medium">Months to pay</label>
+                                    <input type="number" name="months_to_pay" id="months_to_pay"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
+                                        value="" placeholder="" />
+                                </div>
+
+                                <div class="md:col-span-1">
+                                    <label for="interest" class="text-black font-medium">Interest %</label>
+                                    <input type="text" name="interest" id="interest"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
+                                        value="" placeholder="" />
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <x-section-border />
+                <x-section-border />
 
-            <!-- Cards -->
-            <section class="container mx-auto mb-12">
-                <div class="flex flex-col">
-                    <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                        <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-                            <div class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
-                                <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                                    <thead class="bg-blue-700 dark:bg-gray-800">
-                                        <tr>
-                                            <th scope="col"
-                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-white dark:text-white">
-                                                Day No
-                                            </th>
+                <div>
+                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
+                        <div class="lg:col-span-2">
+                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6">
 
-                                            <th scope="col"
-                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-white dark:text-white">
-                                                Due Date
-                                            </th>
+                                <div class="md:col-span-1">
+                                    <label for="interest_amount" class="text-black font-medium">Interest
+                                        Amount</label>
+                                    <input type="text" name="interest_amount" id="interest_amount"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
+                                        value="" placeholder="₱" />
+                                </div>
 
-                                            <th scope="col"
-                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-white dark:text-white">
-                                                Due Amt
-                                            </th>
+                                <div class="md:col-span-1">
+                                    <label for="svc_charge" class="text-black font-medium">Service Charge</label>
+                                    <input type="number" name="svc_charge" id="svc_charge"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
+                                        value="" placeholder="" />
+                                </div>
 
-                                            <th scope="col"
-                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-white dark:text-white">
-                                                Date Paid
-                                            </th>
+                                <div class="md:col-span-1">
+                                    <label for="actual_record" class="text-black font-medium">Actual Record</label>
+                                    <input type="text" name="actual_record" id="actual_record"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
+                                        value="" placeholder="" />
+                                </div>
 
-                                            <th scope="col"
-                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-white dark:text-white">
-                                                Run Bal
-                                            </th>
+                                <div class="md:col-span-1">
+                                    <label for="payable_amount" class="text-black font-medium">Payable Amount</label>
+                                    <input type="text" name="payable_amount" id="payable_amount"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
+                                        value="" placeholder="₱" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                                            <th scope="col"
-                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-white dark:text-white">
-                                                Bank
-                                            </th>
+                <x-section-border />
 
-                                            <th scope="col"
-                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-white dark:text-white">
-                                                Check No.
-                                            </th>
-
-                                            <th scope="col"
-                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-white dark:text-white">
-                                                Remarks
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
+                <!-- Cards -->
+                <section class="container mx-auto mb-12">
+                    <div class="flex flex-col">
+                        <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                            <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+                                <div class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
+                                    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                                        <thead class="bg-blue-700 dark:bg-gray-800">
                                             <tr>
-                                                <td
-                                                    class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
-                                                    
-                                                </td>
-                                                <td
-                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    
-                                                </td>
-                                                <td
-                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    
-                                                </td>
-                                                <td
-                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    
-                                                </td>
-                                                <td
-                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    
-                                                </td>
-                                                <td
-                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    
-                                                </td>
-                                                <td
-                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    
-                                                </td>
-                                                <td
-                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    
-                                                </td>
+                                                <th scope="col"
+                                                    class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-white dark:text-white">
+                                                    Day No
+                                                </th>
+
+                                                <th scope="col"
+                                                    class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-white dark:text-white">
+                                                    Due Date
+                                                </th>
+
+                                                <th scope="col"
+                                                    class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-white dark:text-white">
+                                                    Due Amt
+                                                </th>
+
+                                                <th scope="col"
+                                                    class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-white dark:text-white">
+                                                    Date Paid
+                                                </th>
+
+                                                <th scope="col"
+                                                    class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-white dark:text-white">
+                                                    Run Bal
+                                                </th>
+
+                                                <th scope="col"
+                                                    class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-white dark:text-white">
+                                                    Bank
+                                                </th>
+
+                                                <th scope="col"
+                                                    class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-white dark:text-white">
+                                                    Check No.
+                                                </th>
+
+                                                <th scope="col"
+                                                    class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-white dark:text-white">
+                                                    Remarks
+                                                </th>
                                             </tr>
-                                    </tbody>
-                                </table>
+                                        </thead>
+                                        <tbody
+                                            class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
+                                        </tbody>
+                                    </table>
+                                    <!-- Hidden Inputs for Rows -->
+                                    <div id="hidden-inputs"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <div>
-                <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
-                    <div class="text-gray-600">
-                        <p class="font-medium text-lg"></p>
-                    </div>
+                <div>
+                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
+                        <div class="text-gray-600">
+                            <p class="font-medium text-lg"></p>
+                        </div>
 
-                    <div class="lg:col-span-2">
-                        <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
-                            <div class="md:col-span-5 text-right">
-                                <div class="inline-flex items-end">
-                                    {{-- <button type="submit"
+                        <div class="lg:col-span-2">
+                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
+                                <div class="md:col-span-5 text-right">
+                                    <div class="inline-flex items-end">
+                                        {{-- <button type="submit"
                                             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Input
                                             Check Number</button> --}}
-                                    <button type="submit"
-                                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 ml-2 px-4 rounded">Submit</button>
+                                        <button type="submit"
+                                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 ml-2 px-4 rounded">Submit</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </form>
         </div>
-    </form>
-    </div>
 </x-app-layout>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 {{-- <script>
@@ -500,6 +475,65 @@
     });
 </script> --}}
 <script>
+    document.getElementById('months_to_pay').addEventListener('input', calculatePayments);
+    document.getElementById('principal_amount').addEventListener('input', calculatePayments);
+    document.getElementById('interest').addEventListener('input', calculatePayments);
+    document.getElementById('svc_charge').addEventListener('input', calculatePayments);
+
+    function calculatePayments() {
+        const principalAmount = parseFloat(document.getElementById('principal_amount').value) || 0;
+        const monthsToPay = parseInt(document.getElementById('months_to_pay').value) || 0;
+        const interestPercent = parseFloat(document.getElementById('interest').value) || 0;
+        const serviceCharge = parseFloat(document.getElementById('svc_charge').value) || 0;
+
+        const interestAmount = (principalAmount * interestPercent) / 100;
+        const payableAmount = principalAmount + interestAmount + serviceCharge;
+        const monthlyDue = monthsToPay > 0 ? payableAmount / monthsToPay : 0;
+
+        document.getElementById('interest_amount').value = interestAmount.toFixed(2);
+        document.getElementById('payable_amount').value = payableAmount.toFixed(2);
+
+        const tbody = document.querySelector('tbody');
+        const hiddenInputsContainer = document.getElementById('hidden-inputs');
+        tbody.innerHTML = '';
+        hiddenInputsContainer.innerHTML = '';
+
+        if (monthsToPay > 0 && payableAmount > 0) {
+            let runningBalance = payableAmount;
+            let currentDate = new Date();
+
+            for (let i = 1; i <= monthsToPay; i++) {
+                currentDate.setMonth(currentDate.getMonth() + 1);
+                const dueDate = currentDate.toISOString().split('T')[0];
+                runningBalance -= monthlyDue;
+
+                // Add row to the table
+                const row = `
+                    <tr>
+                        <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">${i}</td>
+                        <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">${dueDate}</td>
+                        <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">${monthlyDue.toFixed(2)}</td>
+                        <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap"></td>
+                        <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">${runningBalance.toFixed(2)}</td>
+                        <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap"></td>
+                        <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap"></td>
+                        <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap"></td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+
+                // Add hidden inputs for each row
+                hiddenInputsContainer.innerHTML += `
+                    <input type="hidden" name="rows[${i}][id]" value="${i}">
+                    <input type="hidden" name="rows[${i}][due_date]" value="${dueDate}">
+                    <input type="hidden" name="rows[${i}][due_amount]" value="${monthlyDue.toFixed(2)}">
+                    <input type="hidden" name="rows[${i}][remaining_balance]" value="${runningBalance.toFixed(2)}">
+                `;
+            }
+        }
+    }
+
+
     // Transaction ID Search
     function getTransactionNo() {
         const transaction = document.getElementById("transaction").value;
@@ -580,7 +614,8 @@
                 // Example of handling the response:
                 if (response.customer) {
                     // Display customer data (e.g., name, address) in specific elements
-                    document.getElementById("name").value = response.customer.first_name + ' ' + response.customer.last_name;
+                    document.getElementById("name").value = response.customer.first_name + ' ' + response
+                        .customer.last_name;
                     document.getElementById("type").value = response.customer.type;
                     document.getElementById("status").value = response.customer.status;
                     // Add more fields as needed

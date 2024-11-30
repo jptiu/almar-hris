@@ -43,7 +43,7 @@
 
         </div>
 
-        <form action="{{ route('expenses.index') }}" method="POST">
+        <form action="{{ route('expenses.store') }}" method="POST">
             @csrf
             <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
             <div class="flex items-center text-gray-600 mb-12">

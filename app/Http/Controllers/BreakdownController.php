@@ -37,7 +37,28 @@ class BreakdownController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
+        $branch = auth()->user()->branch_id;
+        $breakdown = new Breakdown();
+        $breakdown->date = $request->date;
+        $breakdown->user_id = auth()->user()->name;
+        $breakdown->total_amount = $request->amount;
+        $breakdown->branch_id = $branch;
+        $breakdown->save();
+        $breakdown->ref_no = $breakdown->id;
+        $breakdown->update();
+
+
+        $denomination = new CashBill();
+        $denomination->breakdown_id = $breakdown->id;
+        $denomination->denomination = $request->denomination;
+        $denomination->type = $request->type;
+        $denomination->qty = $request->qty;
+        $denomination->amount = $request->amount;
+        $denomination->branch_id = $branch;
+        $denomination->save();
+
+        return redirect(route("breakdown.index"))->with('success', 'Created Successfully');
     }
 
     /**
@@ -153,13 +174,14 @@ class BreakdownController extends Controller
     {
         $branch = auth()->user()->branch_id;
         $denomination = new CashBill();
+        $denomination->breakdown_id = $request->breakdown_id;
         $denomination->denomination = $request->denomination;
         $denomination->type = $request->type;
         $denomination->qty = $request->qty;
         $denomination->amount = $request->amount;
+        $denomination->branch_id = $branch;
         $denomination->save();
 
-        // Return the saved data as JSON
-        return response()->json($denomination);
+        return redirect(route("breakdown.index"))->with('success', 'Added Denomination');
     }
 }
