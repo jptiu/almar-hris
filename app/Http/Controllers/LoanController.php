@@ -20,7 +20,13 @@ class LoanController extends Controller
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
         $branch = auth()->user()->branch_id;
-        $lists = Loan::where('branch_id', $branch)->paginate(10);
+        if ($request->search) {
+            $lists = Loan::with(['customer'])->where('branch_id', $branch)
+                ->where('id', $request->search)
+                ->paginate(10);
+        } else {
+            $lists = Loan::where('branch_id', $branch)->paginate(10);
+        }
         $types = CustomerType::where('branch_id', $branch)->get();
         $loan = [];
         $customer = [];
@@ -233,20 +239,20 @@ class LoanController extends Controller
             // Create and save your model instance
             LoanDetails::create([
                 'id' => $row[1],
-                'loan_id'=> $row[0],//Lnkltranh_no
-                'loan_day_no'=> $row[2],//ltrand_dayno
-                'loan_due_date'=> $row[3],//ltrand_duedate
-                'loan_due_amount'=> $row[4],//ltrand_dueamt
-                'loan_date_paid'=> $row[5],//ltrand_datepaid
-                'loan_amount_paid'=> $row[6],//ltrand_amtpaid
-                'loan_running_balance'=> $row[7],//ltrand_runbal
-                'user_id'=> $row[9],//ltrand_clctor
-                'loan_bank'=> $row[10],//ltrand_bank
-                'loan_check_no'=> $row[11],//ltrand_chkno
-                'loan_remarks'=> $row[12],//ltrand_rem
-                'loan_amount_tenderd'=> $row[13],//ltrand_amttend
-                'loan_amount_change'=> $row[14],//ltrand_amtchange
-                'loan_withdraw_from_bank'=> $row[15],//ltrand_withdrawn_frombank
+                'loan_id' => $row[0],//Lnkltranh_no
+                'loan_day_no' => $row[2],//ltrand_dayno
+                'loan_due_date' => $row[3],//ltrand_duedate
+                'loan_due_amount' => $row[4],//ltrand_dueamt
+                'loan_date_paid' => $row[5],//ltrand_datepaid
+                'loan_amount_paid' => $row[6],//ltrand_amtpaid
+                'loan_running_balance' => $row[7],//ltrand_runbal
+                'user_id' => $row[9],//ltrand_clctor
+                'loan_bank' => $row[10],//ltrand_bank
+                'loan_check_no' => $row[11],//ltrand_chkno
+                'loan_remarks' => $row[12],//ltrand_rem
+                'loan_amount_tenderd' => $row[13],//ltrand_amttend
+                'loan_amount_change' => $row[14],//ltrand_amtchange
+                'loan_withdraw_from_bank' => $row[15],//ltrand_withdrawn_frombank
                 'branch_id' => $branch,
             ]);
         }

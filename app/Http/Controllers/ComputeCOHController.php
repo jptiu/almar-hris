@@ -14,7 +14,6 @@ class ComputeCOHController extends Controller
     public function index()
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
-        
 
         return view('pages.compute.index');
     }

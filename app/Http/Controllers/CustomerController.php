@@ -20,7 +20,7 @@ class CustomerController extends Controller
         try {
             $branch = auth()->user()->branch_id;
             if (isset($request->search)) {
-                $lists = Customer::where('branch_id', $branch)->where('first_name', 'LIKE', '%', $request->search, '%')->orderBy("created_at", "asc")->get();
+                $lists = Customer::where('branch_id', $branch)->where('first_name', 'LIKE', '%', $request->search, '%')->orderBy("created_at", "asc")->paginate(20);
             }
             $lists = Customer::where('branch_id', $branch)->paginate(20);
 
