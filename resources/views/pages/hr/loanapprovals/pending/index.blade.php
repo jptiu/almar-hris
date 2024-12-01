@@ -102,7 +102,7 @@
                                                         <span class="hidden xs:block ml-2">Accept</span>
                                                     </a>
 
-                                                    <a id="#" href="{{route('loan.approve', $loan->id)}}" class="btn bg-accrej-100 text-white hover:bg-red-400">
+                                                    <a id="#" href="{{route('loan.decline', $loan->id)}}" class="btn bg-accrej-100 text-white hover:bg-red-400">
                                                     <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#F3F3F3">
                                                         <path d="m291-240-51-51 189-189-189-189 51-51 189 189 189-189 51 51-189 189 189 189-51 51-189-189-189 189Z"/>
                                                     </svg>
