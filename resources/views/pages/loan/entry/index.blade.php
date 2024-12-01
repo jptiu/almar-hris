@@ -178,7 +178,7 @@
                 <div>
                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
                         <div class="lg:col-span-4">
-                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6">
+                            <div class="grid gap-4 gap-y-2 flex items-center text-sm grid-cols-1 md:grid-cols-6">
                                 {{-- <div class="md:col-span-1">
                                 <label for="transaction" class="text-black font-medium">Transaction No.</label>
                                 <input onchange="getTransactionNo()" type="number" name="transaction"
@@ -206,19 +206,24 @@
                                 </div>
 
                                 <div class="md:col-span-1">
-                                    <label for="transaction_type" class="text-black font-medium">Transaction
-                                        Type</label>
+                                    <label for="transaction_type" class="text-black font-medium">Transaction Type</label>
                                     <select name="transaction_type" id="transaction_type"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
-                                    <option value="NEW">NEW</option>
-                                    <option value="RENEW">Renew</option>
-                                    <option value="RECONS">Recons</option>
-                                    <option value="W/COLLAT">With Collat</option>
-                                    <option value="CA">CA</option>
-                                    <option value="W/CERT">With Cert</option>
-                                    <option value="CBA">C/A Becomes B.A.</option>
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5">
+                                        <option value="NEW">NEW</option>
+                                        <option value="RENEW">Renew</option>
+                                        <option value="RECONS">Recons</option>
+                                        <option value="W/COLLAT">With Collat</option>
+                                        <option value="CA">CA</option>
+                                        <option value="W/CERT">With Cert</option>
+                                        <option value="CBA">C/A Becomes B.A.</option>
                                     </select>
                                 </div>
+                                <div class="md:col-span-2 hidden" id="file_upload_field">
+                                    <label for="upload_file" class="text-black font-medium">Upload File</label>
+                                    <input type="file" id="upload_file" name="upload_file"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2" />
+                                </div>
+
 
                             </div>
                         </div>
@@ -666,4 +671,15 @@
     hideModalButtonDetails.addEventListener('click', () => {
         modalDetails.classList.add('hidden');
     });
+
+    // File upload
+    document.getElementById('transaction_type').addEventListener('change', function () {
+        const fileUploadField = document.getElementById('file_upload_field');
+        if (this.value === 'W/COLLAT' || this.value === 'W/CERT') {
+            fileUploadField.classList.remove('hidden');
+        } else {
+            fileUploadField.classList.add('hidden');
+        }
+    });
+
 </script>

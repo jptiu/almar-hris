@@ -67,11 +67,25 @@
                 <h2 class="text-xl font-semibold mb-6 pt-8">Personal Information</h2>
                 <form id="loanForm1">
                     <div class="grid grid-cols-4 gap-4">
+                    <div class="md:col-span-2">
+                        <label for="first_name" class="block text-sm font-medium text-gray-700">Customer Type</label>
+                            <select name="type" id="type"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                                @foreach ($types as $type)
+                                <option value="{{$type->code}}">{{$type->description}}</option>
+                                @endforeach
+                            </select>
+                        <span class="text-red-500 text-xs hidden" id="error_applicant_name">This field is required.</span>
+                    </div>
+                    <div class="md:col-span-2">
+                        
+                    </div>
                     <div class="md:col-span-1">
                         <label for="first_name" class="block text-sm font-medium text-gray-700">First Name</label>
                         <input type="text" name="first_name" id="first_name" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm">
                         <span class="text-red-500 text-xs hidden" id="error_applicant_name">This field is required.</span>
                     </div>
+                    
 
                     <div class="md:col-span-1">
                         <label for="middle_name" class="block text-sm font-medium text-gray-700">Middle Name</label>

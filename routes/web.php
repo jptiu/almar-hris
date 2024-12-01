@@ -221,6 +221,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('collector/undertime', [CollectorController::class, 'undertime'])->name('collector.undertime');
     Route::get('collector/clearance', [CollectorController::class, 'clearance'])->name('collector.clearance');
     Route::get('collector/id', [CollectorController::class, 'id'])->name('collector.id');
+    Route::get('collector/cashbond', [CollectorController::class, 'cashbond'])->name('collector.cashbond');
     Route::get('collector/profile', [CollectorController::class, 'profile'])->name('collector.profile');
 
     // Loan Officer
