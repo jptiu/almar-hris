@@ -182,7 +182,7 @@
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-
+                                                {{$list->status}}
                                             </td>
                                             <td class="px-4 py-4 text-sm whitespace-nowrap">
                                                 <div class="flex items-center gap-x-6">
@@ -233,6 +233,9 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="flex-end items-center justify-between mt-6">
+                {{$lists->links()}}
             </div>
         </section>
         

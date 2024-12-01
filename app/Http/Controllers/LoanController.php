@@ -110,6 +110,7 @@ class LoanController extends Controller
             $loan->actual_record = $request->actual_record;
             $loan->payable_amount = $request->payable_amount;
             $loan->branch_id = $branch;
+            $loan->user_id = auth()->user()->id;
             $loan->save();
 
             // Save each payment row as LoanDetails

@@ -119,7 +119,7 @@ class HRController extends Controller
 
     public function approvedLoans()
     {
-        $loans = Loan::where('principal_amount', '<', '50000')
+        $loans = Loan::where('principal_amount', '>', '50000')
             ->where('status', '=', 'FULPD')->paginate(10);
 
         return view('pages.hr.loanapprovals.approved.index', compact('loans'));
@@ -127,7 +127,7 @@ class HRController extends Controller
 
     public function rejectedLoans()
     {
-        $loans = Loan::where('principal_amount', '<', '50000')
+        $loans = Loan::where('principal_amount', '>', '50000')
             ->where('status', '=', 'CNCLD')->paginate(10);
 
         return view('pages.hr.loanapprovals.rejected.index', compact('loans'));
@@ -143,7 +143,7 @@ class HRController extends Controller
     public function pendingLoans()
     {
         $branch = auth()->user()->branch_id;
-        $loans = Loan::where('principal_amount', '<', '50000')
+        $loans = Loan::where('principal_amount', '>', '50000')
             ->where('branch_id', $branch)
             ->where('status', '=', NULL)
             ->paginate(10);

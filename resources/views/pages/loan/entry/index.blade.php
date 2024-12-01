@@ -504,6 +504,16 @@
 
             for (let i = 1; i <= monthsToPay; i++) {
                 currentDate.setMonth(currentDate.getMonth() + 1);
+
+                // Alternate between the 15th and the end of the month
+                if (i % 2 === 1) {
+                    // Set to 15th
+                    currentDate.setDate(15);
+                } else {
+                    // Set to the last day of the month
+                    currentDate.setMonth(currentDate.getMonth() + 1, 0);
+                }
+
                 const dueDate = currentDate.toISOString().split('T')[0];
                 runningBalance -= monthlyDue;
 
@@ -532,6 +542,8 @@
             }
         }
     }
+
+
 
 
     // Transaction ID Search
