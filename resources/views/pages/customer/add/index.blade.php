@@ -103,45 +103,28 @@
                         <span class="text-red-500 text-xs hidden" id="error_birth_place">This field is required.</span>
                     </div>
 
-                    <div class="md:col-span-4">
-                        <label for="permanent_address" class="block text-sm font-medium text-gray-700">Permanent Address</label>
-                        <input type="text" name="" id="permanent_address" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm">
-                        <div class="flex mt-2">
-                            <div class="flex items-center me-4">
-                                <input id="inline-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="inline-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Own</label>
-                            </div>
-                            <div class="flex items-center me-4">
-                                <input id="inline-2-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="inline-2-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Rent</label>
-                            </div>
-                            <div class="flex items-center me-4">
-                                <input checked id="inline-checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="inline-checked-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Living W/ Parents</label>
-                            </div>
-                        </div>
-                        <span class="text-red-500 text-xs hidden" id="error_permanent_address">This field is required.</span>
+                    <div class="md:col-span-1.5">
+                        <label for="house" class="block text-sm font-medium text-gray-700">House Address</label>
+                        <input type="text" name="" id="house" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm">
+                        <span class="text-red-500 text-xs hidden" id="error_house">This field is required.</span>
                     </div>
 
-                    <div class="md:col-span-4">
-                        <label for="present_address" class="block text-sm font-medium text-gray-700">Present Address</label>
-                        <input type="text" name="" id="present_address" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm">
-                        <div class="flex mt-2">
-                            <div class="flex items-center me-4">
-                                <input id="inline-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="inline-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Own</label>
-                            </div>
-                            <div class="flex items-center me-4">
-                                <input id="inline-2-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="inline-2-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Rent</label>
-                            </div>
-                            <div class="flex items-center me-4">
-                                <input checked id="inline-checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="inline-checked-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Living W/ Parents</label>
-                            </div>
-                        </div>
+                    <div class="md:col-span-1.5">
+                        <label for="street" class="block text-sm font-medium text-gray-700">Street Address</label>
+                        <input type="text" name="" id="street" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm">
+                        <span class="text-red-500 text-xs hidden" id="error_street">This field is required.</span>
+                    </div>
 
-                        <span class="text-red-500 text-xs hidden" id="error_present_address">This field is required.</span>
+                    <div class="md:col-span-1.5">
+                        <label for="barangay" class="block text-sm font-medium text-gray-700">Barangay Address</label>
+                        <input type="text" name="" id="barangay" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm">
+                        <span class="text-red-500 text-xs hidden" id="error_barangay">This field is required.</span>
+                    </div>
+
+                    <div class="md:col-span-1.5">
+                        <label for="city" class="block text-sm font-medium text-gray-700">City Address</label>
+                        <input type="text" name="" id="city" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm">
+                        <span class="text-red-500 text-xs hidden" id="error_city">This field is required.</span>
                     </div>
 
                     <div class="md:col-span-1">
@@ -429,8 +412,10 @@
                             <p><strong>Personal Contact Number:</strong></p>
                             <p><strong>Birthdate:</strong></p>
                             <p><strong>Birth Place:</strong></p>
-                            <p><strong>Permanent Address:</strong></p>
-                            <p><strong>Present Address:</strong></p>
+                            <p><strong>House Address:</strong></p>
+                            <p><strong>Street Address:</strong></p>
+                            <p><strong>Barangay Address:</strong></p>
+                            <p><strong>City Address:</strong></p>
                             <p><strong>Civil Status:</strong></p>
                             <p><strong>Age:</strong></p>
                             <p><strong>Gender:</strong></p>
@@ -442,8 +427,9 @@
                             <p><span id="review-permanent-address">09242857368</span></p>
                             <p><span id="review-permanent-address">07/07/1998</span></p>
                             <p><span id="review-permanent-address">CDO</span></p>
-                            <p><span id="review-permanent-address">CDO PH</span></p>
-                            <p><span id="review-permanent-address">CDO PH</span></p>
+                            <p><span id="review-permanent-address">CDO Street</span></p>
+                            <p><span id="review-permanent-address">Brgy CDO</span></p>
+                            <p><span id="review-permanent-address">CDO City</span></p>
                             <p><span id="review-permanent-address">Married</span></p>
                             <p><span id="review-permanent-address">27</span></p>
                             <p><span id="review-permanent-address">Male</span></p>
