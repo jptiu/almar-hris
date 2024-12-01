@@ -292,7 +292,7 @@ class LoanController extends Controller
         $loan->user_id = auth()->user()->id;
         $loan->update();
 
-        return redirect(route("loan.index"))->with('success', 'Loan Approved.');
+        return redirect()->back()->with('success', 'Loan Approved.');
     }
 
     public function decline($id){
@@ -302,6 +302,6 @@ class LoanController extends Controller
         $loan->user_id = auth()->user()->id;
         $loan->update();
 
-        return redirect(route("loan.index"))->with('success', 'Loan Approved.');
+        return redirect()->back()->with('success', 'Loan Declined.');
     }
 }
