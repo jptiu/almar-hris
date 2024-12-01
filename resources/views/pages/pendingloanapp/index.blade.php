@@ -179,7 +179,7 @@
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                {{ $list->customer->house }} {{$list->customer->street}} {{$list->customer->barangay}} {{$list->customer->city}}
+                                                {{ $list->customer->house }} {{ $list->customer->street }} {{$list->customer->bry->barangay_name}} {{$list->customer->cty->city_town}}
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
@@ -190,15 +190,15 @@
                                                 {{ $list->date_of_loan }}
                                             </td>
                                             <td class="px-4 py-4 text-sm whitespace-nowrap">
-                                            <div class="flex items-center gap-x-2">
-                                                    <a id="#" href="#" class="btn bg-accrej-200 text-white">
+                                                <div class="flex items-center gap-x-2">
+                                                    <a id="" href="{{route('loan.approve', $list->id)}}" class="btn bg-green-500 text-white hover:bg-green-700">
                                                         <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#F3F3F3">
                                                             <path d="M389-267 195-460l51-52 143 143 325-324 51 51-376 375Z"/>
                                                         </svg>
                                                         <span class="hidden xs:block ml-2">Accept</span>
                                                     </a>
 
-                                                    <a id="#" href="#" class="btn bg-accrej-100 text-white">
+                                                    <a id="#" href="{{route('loan.decline', $list->id)}}" class="btn bg-accrej-100 text-white hover:bg-red-400">
                                                     <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#F3F3F3">
                                                         <path d="m291-240-51-51 189-189-189-189 51-51 189 189 189-189 51 51-189 189 189 189-51 51-189-189-189 189Z"/>
                                                     </svg>

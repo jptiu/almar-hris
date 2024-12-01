@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('compute_cash_on_hand', function (Blueprint $table) {
+        Schema::create('compute_cash_on_hands', function (Blueprint $table) {
             $table->id(); // Primary Key
             $table->string('ref_no')->nullable(); // Reference Number
             $table->date('prev_transaction_date')->nullable(); // Previous Transaction Date
@@ -32,7 +32,13 @@ return new class extends Migration
             $table->decimal('withdraw', 10, 2)->default(0.00); // Withdraw
             $table->decimal('xerox', 10, 2)->default(0.00); // Xerox
 
-            $table->string('cashier')->nullable(); // Cashier's Name
+            // Details of add cash from savings customers
+            $table->decimal('penalty', 10, 2)->default(0.00);
+            $table->decimal('passbook', 10, 2)->default(0.00);
+            $table->decimal('details_withdraw', 10, 2)->default(0.00);
+            $table->decimal('details_xerox', 10, 2)->default(0.00);
+
+            $table->string('user_id')->nullable(); // Cashier's Name
 
             $table->timestamps(); // Created and Updated timestamps
         });
@@ -43,6 +49,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('compute_cash_on_hand');
+        Schema::dropIfExists('compute_cash_on_hands');
     }
 };

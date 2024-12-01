@@ -174,7 +174,7 @@
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                {{ $list->customer->house }} {{$list->customer->street}} {{$list->customer->barangay}} {{$list->customer->city}}
+                                                {{ $list->customer->house }} {{ $list->customer->street }} {{$list->customer->bry->barangay_name}} {{$list->customer->cty->city_town}}
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">

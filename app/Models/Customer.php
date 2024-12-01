@@ -56,4 +56,14 @@ class Customer extends Model
     {
         return $this->hasOne(Loan::class, 'customer_id')->latestOfMany();
     }
+
+    public function bry()
+    {
+        return $this->belongsTo(Barangay::class, 'barangay', 'id');
+    }
+
+    public function cty()
+    {
+        return $this->belongsTo(CityTown::class, 'city', 'id');
+    }
 }

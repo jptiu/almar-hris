@@ -1,5 +1,21 @@
 <x-app-layout>
     <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
+        @if (session()->has('success'))
+            <div class="alert alert-success">
+                <div class="flex items-center p-4 mb-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800"
+                    role="alert">
+                    <svg class="flex-shrink-0 inline w-4 h-4 mr-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                    </svg>
+                    <span class="sr-only">Info</span>
+                    <div>
+                        <span class="font-medium">{{ session()->get('success') }}</span>
+                    </div>
+                </div>
+            </div>
+        @endif
         <div class="relative">
             <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-12">Compute Cash on Hand</h1>
         </div>
@@ -13,19 +29,19 @@
                 <a href="{{ route('compute.index') }}" class="text-base font-semibold">Back</a>
             </div>
 
-            <form action="{{ route('expenses.store') }}" method="POST">
+            <form action="{{ route('compute.store') }}" method="POST">
                 @csrf
 
                 <!-- Section 1 -->
                 <div class="mb-4">
                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
                         <div class="grid gap-4 text-sm grid-cols-1 md:grid-cols-3">
-                            <div>
+                            {{-- <div>
                                 <label for="ref_no" class="text-black font-medium">Ref. No.</label>
                                 <input type="text" name="ref_no" id="ref_no"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                     placeholder="Enter Ref. No." />
-                            </div>
+                            </div> --}}
                             <div>
                                 <label for="prev_transaction" class="text-black font-medium">Prev Tran Date</label>
                                 <input type="date" name="prev_transaction" id="prev_transaction"
@@ -89,8 +105,8 @@
                                     placeholder="0.00" />
                             </div>
                             <div>
-                                <label for="cash_on_hand" class="text-black font-medium">New Cash on Hand</label>
-                                <input type="number" name="cash_on_hand" id="cash_on_hand"
+                                <label for="new_cash_on_hand" class="text-black font-medium">New Cash on Hand</label>
+                                <input type="number" name="new_cash_on_hand" id="new_cash_on_hand"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                     placeholder="0.00" />
                             </div>
@@ -102,6 +118,38 @@
 
                 <!-- Section 4 -->
                 <h1 class="text-xl text-slate-600 font-bold mb-4">Other Financial Figures</h1>
+                <div class="mb-4">
+                    <div class="grid gap-4 text-sm grid-cols-1 md:grid-cols-6">
+                        <div>
+                            <label for="penalty" class="text-black font-medium">Penalty</label>
+                            <input type="number" name="penalty" id="penalty"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                placeholder="0.00" />
+                        </div>
+                        <div>
+                            <label for="passbook" class="text-black font-medium">Passbook</label>
+                            <input type="number" name="passbook" id="passbook"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                placeholder="0.00" />
+                        </div>
+                        <div>
+                            <label for="withdraw" class="text-black font-medium">Withdraw</label>
+                            <input type="number" name="withdraw" id="withdraw"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                placeholder="0.00" />
+                        </div>
+                        <div>
+                            <label for="xerox" class="text-black font-medium">Xerox</label>
+                            <input type="number" name="xerox" id="xerox"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                placeholder="0.00" />
+                        </div>
+                    </div>
+                </div>
+
+                <x-section-border />
+
+                <h1 class="text-xl text-slate-600 font-bold mb-4">Details of Add Cash from Savings Customers</h1>
                 <div class="mb-4">
                     <div class="grid gap-4 text-sm grid-cols-1 md:grid-cols-6">
                         <div>
@@ -129,62 +177,16 @@
                                 placeholder="0.00" />
                         </div>
                         <div>
-                            <label for="withdraw" class="text-black font-medium">Withdraw</label>
-                            <input type="number" name="withdraw" id="withdraw"
+                            <label for="details_withdraw" class="text-black font-medium">Withdraw</label>
+                            <input type="number" name="details_withdraw" id="details_withdraw"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                 placeholder="0.00" />
                         </div>
                         <div>
-                            <label for="xerox" class="text-black font-medium">Xerox</label>
-                            <input type="number" name="xerox" id="xerox"
+                            <label for="details_xerox" class="text-black font-medium">Xerox</label>
+                            <input type="number" name="details_xerox" id="details_xerox"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                 placeholder="0.00" />
-                        </div>
-                    </div>
-                </div>
-
-                <x-section-border />
-
-                <div>
-                    <h1 class="text-xl md:text-xl text-slate-600 dark:text-slate-100 font-bold mb-4">Details of Add
-                        Cash from Savings Customers</h1>
-                </div>
-
-                <div class="mb-4">
-                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
-                        <div class="lg:col-span-2">
-                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
-                                <div class="md:col-span-1">
-                                    <label for="house" class="text-black font-medium">Charge Swipe</label>
-                                    <input type="number" name="house" id="house"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
-                                        value="" placeholder="" />
-                                </div>
-                                <div class="md:col-span-1">
-                                    <label for="house" class="text-black font-medium">Savings</label>
-                                    <input type="number" name="house" id="house"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
-                                        value="" placeholder="" />
-                                </div>
-                                <div class="md:col-span-1">
-                                    <label for="house" class="text-black font-medium">Death Aid</label>
-                                    <input type="number" name="house" id="house"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
-                                        value="" placeholder="" />
-                                </div>
-                                <div class="md:col-span-1">
-                                    <label for="house" class="text-black font-medium">Photocopy</label>
-                                    <input type="number" name="house" id="house"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
-                                        value="" placeholder="" />
-                                </div>
-                                <div class="md:col-span-1">
-                                    <label for="house" class="text-black font-medium">Withdraw</label>
-                                    <input type="number" name="house" id="house"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
-                                        value="" placeholder="" />
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
