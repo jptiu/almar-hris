@@ -206,7 +206,8 @@
                                 </div>
 
                                 <div class="md:col-span-1">
-                                    <label for="transaction_type" class="text-black font-medium">Transaction Type</label>
+                                    <label for="transaction_type" class="text-black font-medium">Transaction
+                                        Type</label>
                                     <select name="transaction_type" id="transaction_type"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5">
                                         <option value="NEW">NEW</option>
@@ -508,14 +509,11 @@
             let currentDate = new Date();
 
             for (let i = 1; i <= monthsToPay; i++) {
-                currentDate.setMonth(currentDate.getMonth() + 1);
-
-                // Alternate between the 15th and the end of the month
                 if (i % 2 === 1) {
-                    // Set to 15th
+                    // Set the date to the 15th
                     currentDate.setDate(15);
                 } else {
-                    // Set to the last day of the month
+                    // Set the date to the last day of the current month
                     currentDate.setMonth(currentDate.getMonth() + 1, 0);
                 }
 
@@ -524,26 +522,31 @@
 
                 // Add row to the table
                 const row = `
-                    <tr>
-                        <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">${i}</td>
-                        <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">${dueDate}</td>
-                        <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">${monthlyDue.toFixed(2)}</td>
-                        <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap"></td>
-                        <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">${runningBalance.toFixed(2)}</td>
-                        <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap"></td>
-                        <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap"></td>
-                        <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap"></td>
-                    </tr>
-                `;
+                <tr>
+                    <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">${i}</td>
+                    <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">${dueDate}</td>
+                    <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">${monthlyDue.toFixed(2)}</td>
+                    <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap"></td>
+                    <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">${runningBalance.toFixed(2)}</td>
+                    <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap"></td>
+                    <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap"></td>
+                    <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap"></td>
+                </tr>
+            `;
                 tbody.innerHTML += row;
 
                 // Add hidden inputs for each row
                 hiddenInputsContainer.innerHTML += `
-                    <input type="hidden" name="rows[${i}][id]" value="${i}">
-                    <input type="hidden" name="rows[${i}][due_date]" value="${dueDate}">
-                    <input type="hidden" name="rows[${i}][due_amount]" value="${monthlyDue.toFixed(2)}">
-                    <input type="hidden" name="rows[${i}][remaining_balance]" value="${runningBalance.toFixed(2)}">
-                `;
+                <input type="hidden" name="rows[${i}][id]" value="${i}">
+                <input type="hidden" name="rows[${i}][due_date]" value="${dueDate}">
+                <input type="hidden" name="rows[${i}][due_amount]" value="${monthlyDue.toFixed(2)}">
+                <input type="hidden" name="rows[${i}][remaining_balance]" value="${runningBalance.toFixed(2)}">
+            `;
+
+                // Increment the month after processing the last day of the month
+                if (i % 2 === 0) {
+                    currentDate.setMonth(currentDate.getMonth() + 1, 1); // Move to the 1st of the next month
+                }
             }
         }
     }
@@ -673,7 +676,7 @@
     });
 
     // File upload
-    document.getElementById('transaction_type').addEventListener('change', function () {
+    document.getElementById('transaction_type').addEventListener('change', function() {
         const fileUploadField = document.getElementById('file_upload_field');
         if (this.value === 'W/COLLAT' || this.value === 'W/CERT') {
             fileUploadField.classList.remove('hidden');
@@ -681,5 +684,4 @@
             fileUploadField.classList.add('hidden');
         }
     });
-
 </script>
