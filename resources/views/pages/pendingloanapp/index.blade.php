@@ -191,19 +191,21 @@
                                             </td>
                                             <td class="px-4 py-4 text-sm whitespace-nowrap">
                                                 <div class="flex items-center gap-x-2">
-                                                    <a id="#" href="#" class="btn bg-accrej-200 text-white">
+                                                    <!-- Approve Button -->
+                                                    <button id="show-approve-modal" class="bg-green-500 text-white hover:bg-green-700 flex items-center gap-x-2 px-4 py-2 font-semibold rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#F3F3F3">
                                                             <path d="M389-267 195-460l51-52 143 143 325-324 51 51-376 375Z"/>
                                                         </svg>
                                                         <span class="hidden xs:block ml-2">Accept</span>
-                                                    </a>
+                                                    </button>
 
-                                                    <a id="#" href="#" class="btn bg-accrej-100 text-white">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#F3F3F3">
-                                                        <path d="m291-240-51-51 189-189-189-189 51-51 189 189 189-189 51 51-189 189 189 189-51 51-189-189-189 189Z"/>
-                                                    </svg>
+                                                    <!-- Decline Button -->
+                                                    <button id="show-decline-modal" class="bg-red-400 text-white hover:bg-red-600 flex items-center gap-x-2 px-4 py-2 font-semibold rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#F3F3F3">
+                                                            <path d="m291-240-51-51 189-189-189-189 51-51 189 189 189-189 51 51-189 189 189 189-51 51-189-189-189 189Z"/>
+                                                        </svg>
                                                         <span class="hidden xs:block ml-2">Decline</span>
-                                                    </a>
+                                                    </button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -216,8 +218,37 @@
             </div>
         </section>
 
-
-
+        <!-- Approve Modal --> 
+        <div  id="approve-modal" class="fixed z-10 inset-0 overflow-y-auto hidden opacity-0 transition-opacity duration-300"> 
+            <div class="flex items-center justify-center min-h-screen"> 
+                <div class="bg-white p-6 rounded shadow-md max-w-lg w-full"> 
+                    <h2 class="text-lg font-bold">Are you sure you want to approve this loan?</h2> 
+                    <label for="approve-notes" class="block text-sm font-medium text-gray-700 mt-4">
+                        Additional Notes
+                    </label> 
+                        <textarea id="approve-notes" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"></textarea> 
+                            <div class="mt-4 flex justify-end"> 
+                                <button id="hide-approve-modal" class="px-4 py-2 bg-gray-300 rounded-md">Cancel</button> 
+                                <button class="px-4 py-2 bg-blue-500 text-white rounded-md ml-2">Confirm</button> 
+                            </div> 
+                        </div> 
+                    </div> 
+                </div> 
+                
+        <!-- Decline Modal --> 
+        <div id="decline-modal" class="fixed z-10 inset-0 overflow-y-auto hidden opacity-0 transition-opacity duration-300"> 
+            <div class="flex items-center justify-center min-h-screen"> 
+                <div class="bg-white p-6 rounded shadow-md max-w-lg w-full"> 
+                    <h2 class="text-lg font-bold">Are you sure you want to decline this loan?</h2> 
+                    <label for="decline-reason" class="block text-sm font-medium text-gray-700 mt-4">Reason for Disapproval</label> 
+                        <textarea id="decline-reason" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"></textarea> 
+                            <div class="mt-4 flex justify-end"> 
+                                <button id="hide-decline-modal" class="px-4 py-2 bg-gray-300 rounded-md">Cancel</button> 
+                                <button class="px-4 py-2 bg-blue-500 text-white rounded-md ml-2">Confirm</button> 
+                            </div> 
+                </div> 
+            </div> 
+        </div>
 
     </div>
 </x-app-layout>
@@ -232,5 +263,37 @@
 
     hideModalButton.addEventListener('click', () => {
         modal.classList.add('hidden');
+    });
+</script>
+
+<script>
+    // Approve Modal
+    const showApproveModalButton = document.getElementById('show-approve-modal');
+    const hideApproveModalButton = document.getElementById('hide-approve-modal');
+    const approveModal = document.getElementById('approve-modal');
+
+    showApproveModalButton.addEventListener('click', () => {
+        approveModal.classList.remove('hidden');
+        setTimeout(() => approveModal.classList.remove('opacity-0'), 10);
+    });
+
+    hideApproveModalButton.addEventListener('click', () => {
+        approveModal.classList.add('opacity-0');
+        setTimeout(() => approveModal.classList.add('hidden'), 300);
+    });
+
+    // Decline Modal
+    const showDeclineModalButton = document.getElementById('show-decline-modal');
+    const hideDeclineModalButton = document.getElementById('hide-decline-modal');
+    const declineModal = document.getElementById('decline-modal');
+
+    showDeclineModalButton.addEventListener('click', () => {
+        declineModal.classList.remove('hidden');
+        setTimeout(() => declineModal.classList.remove('opacity-0'), 10);
+    });
+
+    hideDeclineModalButton.addEventListener('click', () => {
+        declineModal.classList.add('opacity-0');
+        setTimeout(() => declineModal.classList.add('hidden'), 300);
     });
 </script>
