@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
@@ -13,8 +14,9 @@ class LOController extends Controller
     public function index()
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
-        
-        return view('pages.loanofficer.index');
+        $lists = Customer::orderByDesc('id')->paginate(10);
+        $totalCustomer = Customer::count();
+        return view('pages.loanofficer.index', compact('lists', 'totalCustomer'));
     }
 
     /**
