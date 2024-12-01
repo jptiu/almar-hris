@@ -284,4 +284,24 @@ class LoanController extends Controller
 
         return redirect(route("loan.index"))->with('success', 'Loan Details Imported Successfully');
     }
+
+    public function approve($id){
+        $loan = Loan::findOrFail($id);
+        $loan->trans_no = $loan->id;
+        $loan->status = 'UNPD';
+        $loan->user_id = auth()->user()->id;
+        $loan->update();
+
+        return redirect(route("loan.index"))->with('success', 'Loan Approved.');
+    }
+
+    public function decline($id){
+        $loan = Loan::findOrFail($id);
+        $loan->trans_no = $loan->id;
+        $loan->status = 'CLOSE';
+        $loan->user_id = auth()->user()->id;
+        $loan->update();
+
+        return redirect(route("loan.index"))->with('success', 'Loan Approved.');
+    }
 }

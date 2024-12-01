@@ -101,6 +101,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::delete('loan/destroy/{id}', [LoanController::class, 'destroy'])->name('loan.destroy');
     Route::post('loan/import', [LoanController::class, 'importCSV'])->name('loan.importcsv');
     Route::post('loan/import-details', [LoanController::class, 'importCSVDetails'])->name('loan.importcsvdetails');
+    Route::get('loan/approve/{id}', [LoanController::class, 'approve'])->name('loan.approve');
+    Route::get('loan/decline/{id}', [LoanController::class, 'approve'])->name('loan.decline');
 
     // Collection
     Route::get('collection', [CollectionController::class, 'index'])->name('collection.index');
@@ -132,8 +134,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     // Compute Cash on Hand
     Route::get('compute', [ComputeCOHController::class, 'index'])->name('compute.index');
+    Route::post('compute/store', [ComputeCOHController::class, 'store'])->name('compute.store');
     Route::get('compute/create', [ComputeCOHController::class, 'create'])->name('compute.create');
     Route::get('compute/show', [ComputeCOHController::class, 'show'])->name('compute.show');
+    Route::get('compute/destroy/{id}', [ComputeCOHController::class, 'destroy'])->name('compute.destroy');
 
     // Daily
     Route::get('daily', [CLDController::class, 'index'])->name('daily.index');
