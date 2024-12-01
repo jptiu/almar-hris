@@ -31,6 +31,7 @@ use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\BarangayController;
+use App\Http\Controllers\BranchInfoController;
 use App\Http\Controllers\PayrollController;
 use App\Http\Controllers\SavingsController;
 
@@ -171,8 +172,13 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::post('announce/update/{id}', [HRController::class, 'updateAnnouncement'])->name('announce.update');
     Route::delete('announce/destroy/{id}', [HRController::class, 'destroyAnnouncement'])->name('announce.destroy');
 
-
-   
+    // BranchInfo
+    Route::get('branchinfo', [BranchInfoController::class, 'branchinfo'])->name('branchinfo.index');
+    Route::get('branchinfo/add', [BranchInfoController::class, 'branchinfoAdd'])->name('branchinfo.add');
+    Route::post('branchinfo/store', [BranchInfoController::class, 'branchinfoStore'])->name('branchinfo.store');
+    Route::get('announce/show/{id}', [BranchInfoController::class, 'showAnnouncement'])->name('announce.show');
+    Route::post('announce/update/{id}', [BranchInfoController::class, 'updateAnnouncement'])->name('announce.update');
+    Route::delete('announce/destroy/{id}', [BranchInfoController::class, 'destroyAnnouncement'])->name('announce.destroy');
 
     // Pending Loan Approval
     Route::get('loanapprovals-approved', [HRController::class, 'approvedLoans'])->name('approved.index');

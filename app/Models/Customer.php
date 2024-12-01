@@ -54,6 +54,6 @@ class Customer extends Model
 
     public function loan()
     {
-        return $this->hasMany(Loan::class, 'id', 'customer_id');
+        return $this->hasOne(Loan::class, 'customer_id')->latestOfMany();
     }
 }

@@ -32,18 +32,35 @@
                 <x-dropdown-filter align="right" />
 
                 <!-- Add view button -->
-                <a id="show-modal-import" href="#" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
+                <a id="show-modal-new" href="#" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
                     <svg class="w-4 h-4 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
                         <path
                             d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
+                    </svg>
+                    <span class="hidden xs:block ml-2">New</span>
+                </a>
+                <a id="show-modal-import" href="#" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
+                    <svg class="h-6 w-6 text-gray-300" width="24" height="24" viewBox="0 0 24 24"
+                        stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" />
+                        <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+                        <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
+                        <line x1="12" y1="11" x2="12" y2="17" />
+                        <polyline points="9 14 12 17 15 14" />
                     </svg>
                     <span class="hidden xs:block ml-2">Import Cash Bills</span>
                 </a>
                 <a id="show-modal-import-breakdown" href="#"
                     class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
-                    <svg class="w-4 h-4 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
-                        <path
-                            d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
+                    <svg class="h-6 w-6 text-gray-300" width="24" height="24" viewBox="0 0 24 24"
+                        stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" />
+                        <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+                        <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
+                        <line x1="12" y1="11" x2="12" y2="17" />
+                        <polyline points="9 14 12 17 15 14" />
                     </svg>
                     <span class="hidden xs:block ml-2">Import Breakdowns</span>
                 </a>
@@ -150,7 +167,105 @@
                         </div>
                     </div>
                 </div>
+                <div id="modal-import-new" class="relative z-10 hidden" aria-labelledby="modal-title" role="dialog"
+                    aria-modal="true">
+                    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
 
+                    <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+                        <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                            <div
+                                class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                                <form action="{{ route('breakdown.store') }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <section class="container mx-auto">
+                                        <div class="flex flex-col">
+                                            <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                                <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+                                                    <div
+                                                        class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
+                                                        <table
+                                                            class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                                                            <thead class="bg-primary-100">
+                                                                <tr>
+                                                                    <th scope="col" id="modal-title"
+                                                                        class="px-4 py-3.5 text-base text-center rtl:text-right text-white dark:text-white">
+                                                                        Input Denomination
+                                                                    </th>
+                                                                </tr>
+                                                            </thead>
+
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                                        <div class="">
+                                            <div class="mt-3 text-center sm:mt-0 sm:text-left">
+                                                <div class="mt-2">
+                                                    <div class="fields grid grid-cols-2 gap-4">
+                                                        <div>
+                                                            <label for="date"
+                                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Date</label>
+                                                            <input type="date" name="date" id="date"
+                                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
+                                                                value="" />
+                                                        </div>
+                                                        <div>
+                                                            <label for="denomination"
+                                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Denomination</label>
+                                                            <select id="denomination" name="denomination"
+                                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                                @foreach ($denoms as $denom)
+                                                                    <option value="{{ $denom->denom_amt }}">
+                                                                        {{ $denom->denom_amt }}
+                                                                    </option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                        <div>
+                                                            <label for="type"
+                                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Type</label>
+                                                            <select id="type" name="type"
+                                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                                <option selected>Select Type</option>
+                                                                <option value="US">Coin</option>
+                                                                <option value="CA">Pbil</option>
+                                                            </select>
+                                                        </div>
+                                                        <div>
+                                                            <label for="qty"
+                                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Qty</label>
+                                                            <input type="text" id="qty" name="qty"
+                                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                                placeholder="0" required />
+                                                        </div>
+                                                        <div>
+                                                            <label for="amount"
+                                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Amount</label>
+                                                            <input type="text" id="amount" name="amount"
+                                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                                placeholder="0.00" required />
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                                        <button type="submit"
+                                            class="inline-flex w-full justify-center rounded-md bg-accent-100 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-accent-200 sm:ml-3 sm:w-auto">Submit</button>
+                                        <button id="hide-modal-new" type="button"
+                                            class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cancel</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -321,46 +436,47 @@
                                                         <div class="mt-3 text-center sm:mt-0 sm:text-left">
                                                             <div class="mt-2">
                                                                 <div class="fields grid grid-cols-2 gap-4">
-                                                                    <form class="space-y-4" action="#">
-                                                                        <div>
-                                                                            <label for="denomination"
-                                                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Denomination</label>
-                                                                            <select id="denomination"
-                                                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                                                                @foreach ($denoms as $denom)
-                                                                                    <option
-                                                                                        value="{{ $denom->denom_amt }}">
-                                                                                        {{ $denom->denom_amt }}
-                                                                                    </option>
-                                                                                @endforeach
-                                                                            </select>
-                                                                        </div>
-                                                                        <div>
-                                                                            <label for="type"
-                                                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Type</label>
-                                                                            <select id="type"
-                                                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                                                                <option selected>Select Type</option>
-                                                                                <option value="US">Coin</option>
-                                                                                <option value="CA">Pbil</option>
-                                                                            </select>
-                                                                        </div>
-                                                                        <div>
-                                                                            <label for="qty"
-                                                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Qty</label>
-                                                                            <input type="text" id="qty"
-                                                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                                                placeholder="0.00" required />
-                                                                        </div>
-                                                                        <div>
-                                                                            <label for="amount"
-                                                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Amount</label>
-                                                                            <input type="text" id="amount"
-                                                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                                                placeholder="0.00" required />
-                                                                        </div>
-                                                                    </form>
-
+                                                                    <div>
+                                                                        <input type="hidden" name="breakdown_id"
+                                                                            id="breakdown_id"
+                                                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
+                                                                            value=""/>
+                                                                        <label for="denomination"
+                                                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Denomination</label>
+                                                                        <select id="denomination" name="denomination"
+                                                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                                            @foreach ($denoms as $denom)
+                                                                                <option
+                                                                                    value="{{ $denom->denom_amt }}">
+                                                                                    {{ $denom->denom_amt }}
+                                                                                </option>
+                                                                            @endforeach
+                                                                        </select>
+                                                                    </div>
+                                                                    <div>
+                                                                        <label for="type"
+                                                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Type</label>
+                                                                        <select id="type" name="type"
+                                                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                                            <option selected>Select Type</option>
+                                                                            <option value="Coin">Coin</option>
+                                                                            <option value="Pbil">Pbil</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div>
+                                                                        <label for="qty"
+                                                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Qty</label>
+                                                                        <input type="text" id="qty" name="qty"
+                                                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                                            placeholder="0.00" required />
+                                                                    </div>
+                                                                    <div>
+                                                                        <label for="amount"
+                                                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Amount</label>
+                                                                        <input type="text" id="amount" name="amount"
+                                                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                                            placeholder="0.00" required />
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -390,8 +506,11 @@
     const showModalButton = document.getElementById('show-modal');
     const hideModalButton = document.getElementById('hide-modal');
     const modal = document.getElementById('modal');
+    const breakdownID = document.getElementById('ref');
+    const breakdownHiddenID = document.getElementById('breakdown_id');
 
     showModalButton.addEventListener('click', () => {
+        breakdownHiddenID.value = breakdownID.value;
         modal.classList.remove('hidden');
     });
 
@@ -421,6 +540,18 @@
 
     hideModalButtonImportBreakdown.addEventListener('click', () => {
         modalImportBreakdown.classList.add('hidden');
+    });
+
+    const showModalButtonImportnew = document.getElementById('show-modal-new');
+    const hideModalButtonImportnew = document.getElementById('hide-modal-new');
+    const modalImportnew = document.getElementById('modal-import-new');
+
+    showModalButtonImportnew.addEventListener('click', () => {
+        modalImportnew.classList.remove('hidden');
+    });
+
+    hideModalButtonImportnew.addEventListener('click', () => {
+        modalImportnew.classList.add('hidden');
     });
 </script>
 <script>
@@ -456,7 +587,11 @@
                     });
 
                     // Update the total amount display
-                    document.getElementById('total-amount').textContent = totalAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                    document.getElementById('total-amount').textContent = totalAmount.toLocaleString(
+                        'en-US', {
+                            minimumFractionDigits: 2,
+                            maximumFractionDigits: 2
+                        });
                 })
                 .catch(error => console.error('Error:', error));
         }

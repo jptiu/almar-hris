@@ -80,33 +80,58 @@ class LoanController extends Controller
     public function store(LoanCreateRequest $request)
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
-        $branch = auth()->user()->branch_id;
         try {
-            if ($request->validated()) {
-                $loan = new Loan();
-                $loan->loan_type = $request->loan_type;
-                $loan->transaction_type = $request->transaction_type;
-                // $loan->trans_no = $request->trans_no;
-                $loan->date_of_loan = $request->date_of_loan;
-                $loan->customer_id = $request->customer_id;
-                $loan->customer_type = $request->customer_type;
-                $loan->status = null;
-                $loan->principal_amount = $request->principal_amount;
-                $loan->days_to_pay = $request->days_to_pay;
-                $loan->months_to_pay = $request->months_to_pay;
-                $loan->interest = $request->interest;
-                $loan->interest_amount = $request->interest_amount;
-                $loan->svc_charge = $request->svc_charge;
-                $loan->actual_record = $request->actual_record;
-                $loan->payable_amount = $request->payable_amount;
-                $loan->branch_id = $branch;
-                $loan->save();
+            // Retrieve authenticated user's branch ID
+            $branch = auth()->user()->branch_id;
 
-                return redirect()->back()->with('success', 'Loan Entry Created.');
+            // Validate the input data
+            $validatedData = $request->validate([
+                'rows.*.id' => 'required|numeric',
+                'rows.*.due_date' => 'required|date',
+                'rows.*.due_amount' => 'required|numeric',
+                'rows.*.remaining_balance' => 'required|numeric',
+            ]);
+
+            // Create the loan entry
+            $loan = new Loan();
+            $loan->loan_type = $request->loan_type;
+            $loan->transaction_type = $request->transaction_type;
+            // $loan->trans_no = $request->trans_no; // If needed, uncomment
+            $loan->date_of_loan = $request->date_of_loan;
+            $loan->customer_id = $request->customer_id;
+            $loan->customer_type = $request->customer_type;
+            $loan->status = null; // Default status (adjust based on your logic)
+            $loan->principal_amount = $request->principal_amount;
+            $loan->days_to_pay = $request->days_to_pay;
+            $loan->months_to_pay = $request->months_to_pay;
+            $loan->interest = $request->interest;
+            $loan->interest_amount = $request->interest_amount;
+            $loan->svc_charge = $request->svc_charge;
+            $loan->actual_record = $request->actual_record;
+            $loan->payable_amount = $request->payable_amount;
+            $loan->branch_id = $branch;
+            $loan->save();
+
+            // Save each payment row as LoanDetails
+            foreach ($validatedData['rows'] as $row) {
+                LoanDetails::create([
+                    'loan_id' => $loan->id,
+                    'loan_due_date' => $row['due_date'],
+                    'loan_due_amount' => $row['due_amount'],
+                    'loan_running_balance' => $row['remaining_balance'],
+                    'user_id' => auth()->user()->id,
+                    'branch_id' => $branch,
+                    'loan_day_no' => $row['id'],
+                ]);
             }
+
+            // Redirect back with success message
+            return redirect()->back()->with('success', 'Loan created successfully and is pending approval.');
         } catch (\Throwable $th) {
-            return redirect()->back()->with('success', $th->getMessage());
+            // Redirect back with the error message
+            return redirect()->back()->with('error', 'Error: ' . $th->getMessage());
         }
+
     }
 
     /**

@@ -49,6 +49,7 @@ class ExpensesController extends Controller
         $exp->amount = $request->amount;
         $exp->exp_date = $request->exp_date;
         $exp->branch_id = $branch;
+        $exp->user_id = auth()->user()->id;
         $exp->save();
 
         return redirect(route("expenses.index"))->with('success', 'Created Successfully');

@@ -31,10 +31,11 @@
 
         <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
             <div class="flex items-center text-gray-600 mb-12">
-                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                 </svg>
-            <a href="{{ route('customer.index') }}" class="text-base font-semibold">Back</a>
+                <a href="{{ route('customer.index') }}" class="text-base font-semibold">Back</a>
             </div>
             <div class="grid grid-cols-2 gap-4">
                 <div class="...">
@@ -93,22 +94,16 @@
 
                                         <div class="md:col-span-1">
                                             <label for="type" class="text-black font-medium">Type</label>
-                                            <select name="type" id="type"
-                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5 />
-                                                <option value="business
-                                                loan">Personal</option>
-                                                <option value="personal loan">Business</option>
-                                            </select>
+                                            <input type="text" name="type" id="type"
+                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
+                                                value="" placeholder="" />
                                         </div>
 
                                         <div class="md:col-span-1">
                                             <label for="status" class="text-black font-medium">Status</label>
-                                            <select name="status" id="status"
-                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5 />
-                                                <option value="business
-                                                loan">Pendng</option>
-                                                <option value="personal loan">Approve</option>
-                                            </select>
+                                            <input type="text" name="status" id="status"
+                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
+                                                value="" placeholder="" />
                                         </div>
                                     </div>
                                 </div>
@@ -227,37 +222,39 @@
                             </div>
                         </div>
                     </form>
-                        <div class="mb-8">
-                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
-                                <div class="lg:col-span-2">
-                                    <div class="flex justify-between grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
+                    <div class="mb-8">
+                        <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
+                            <div class="lg:col-span-2">
+                                <div
+                                    class="flex justify-between grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
 
-                                        <div class="md:col-span-1">
-                                            <input type="checkbox" name="house" id="house"
-                                                class="border px-2 py-2 bg-gray-50" value="" placeholder="" />
-                                            <label for="house" class="mt-2 ml-1">Allow Grace period</label>
-                                        </div>
+                                    <div class="md:col-span-1">
+                                        <input type="checkbox" name="house" id="house"
+                                            class="border px-2 py-2 bg-gray-50" value="" placeholder="" />
+                                        <label for="house" class="mt-2 ml-1">Allow Grace period</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="mb-8 flex flex-row-reverse">
-                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
-                                <div class="lg:col-span-2">
-                                    <div class="flex justify-between grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
+                    <div class="mb-8 flex flex-row-reverse">
+                        <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
+                            <div class="lg:col-span-2">
+                                <div
+                                    class="flex justify-between grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
 
-                                        <div class="md:col-span-1">
+                                    <div class="md:col-span-1">
                                         {{-- <button type="submit"
                                             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Input
                                             Check Number</button> --}}
-                                            <button type="submit"
+                                        <button type="submit"
                                             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
                 </div>
 
@@ -418,18 +415,14 @@
                     const nameField = document.getElementById("name");
                     const transactionField = document.getElementById("trans_no");
 
-                    if (nameField && customerData.first_name && customerData.last_name &&
-                        transactionField && loanData.id) {
+                    if (nameField && customerData.first_name && customerData.last_name) {
                         nameField.value = `${customerData.first_name} ${customerData.last_name}`;
-                        transactionField.value = loanData.id; // No need for template literal here unless formatting is required
                     }
 
-
-                    // Handle the special case for "trans_no" input field
-                    // if (transactionField && loanData.id) {
-                    //     // console.log(loanData.id);
-                    //     transactionField.value = loanData.id;
-                    // }
+                    if (transactionField && loanData.id) {
+                        console.log(loanData.id)
+                        transactionField.value = `${loanData.id}`;
+                    }
 
                     // Loop through each key in customerData to update respective fields
                     Object.keys(customerData).forEach(key => {
@@ -449,7 +442,7 @@
 
                     // Loop through each key in loanData to update respective fields
                     Object.keys(loanData).forEach(key => {
-                        if (key !== "id") {
+                        if (key !== "id" && key!=="trans_no" && key!=="status") {
                             const element = document.getElementById(key);
                             if (element) {
                                 if (element.tagName === "SELECT") {

@@ -19,7 +19,7 @@ class HRController extends Controller
         abort_unless(Gate::allows('hr_access'), 404);
         $lists = Employee::get();
         $announcements = Announcement::where('status', 1)->get(); // Fetch only active announcements
-        $activeCount = $announcements->count(); // Count active announcements 
+        $activeCount = $announcements->count(); // Count active announcements
         $currentDate = Carbon::now()->format('F d, Y'); // Get the current date
 
         return view('pages.hr.index', compact('lists', 'announcements', 'activeCount', 'currentDate'));
@@ -75,13 +75,16 @@ class HRController extends Controller
 
     /**
      * The function `loanRenewals` returns a view for the HR renewals index page in a PHP application.
-     * 
+     *
      * @return A view named 'index' located in the 'renewals' folder within the 'hr' folder in the
      * 'pages' directory is being returned.
      */
     public function loanRenewals()
     {
-        return view('pages.hr.renewals.index');
+        $lists = Loan::where('transaction_type', 'RENEW')->paginate(10);
+
+        return view('pages.hr.renewals.index', compact('lists'));
+
     }
 
     public function auditScheduling()
@@ -116,17 +119,25 @@ class HRController extends Controller
 
     public function approvedLoans()
     {
-        return view('pages.hr.loanapprovals.approved.index');
+        $loans = Loan::where('principal_amount', '<', '50000')
+            ->where('status', '=', 'FULPD')->paginate(10);
+
+        return view('pages.hr.loanapprovals.approved.index', compact('loans'));
     }
 
     public function rejectedLoans()
     {
-        return view('pages.hr.loanapprovals.rejected.index');
+        $loans = Loan::where('principal_amount', '<', '50000')
+            ->where('status', '=', 'CNCLD')->paginate(10);
+
+        return view('pages.hr.loanapprovals.rejected.index', compact('loans'));
     }
 
     public function cloanHistory()
     {
-        return view('pages.hr.loanhistory.index');
+        $lists = Loan::with('details')->paginate(20);
+
+        return view('pages.hr.loanhistory.index', compact('lists'));
     }
 
     public function pendingLoans()
@@ -134,7 +145,7 @@ class HRController extends Controller
         $branch = auth()->user()->branch_id;
         $loans = Loan::where('principal_amount', '<', '50000')
             ->where('branch_id', $branch)
-            ->where('status', null)
+            ->where('status', '=', NULL)
             ->paginate(10);
 
         return view('pages.hr.loanapprovals.pending.index', compact('loans'));
