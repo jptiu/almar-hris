@@ -52,6 +52,13 @@ class CollectorController extends Controller
         return view('pages.collector.id.index');
     }
 
+    public function cashbond()
+    {
+        //abort_unless(Gate::allows('collector_access'), 404);
+        
+        return view('pages.collector.cashbond.index');
+    }
+
 
 
     public function profile()
