@@ -32,6 +32,10 @@ export default {
                 100: '#C6131B',
                 200: '#45a240',
                 },
+                'orange': {
+                100: '#f97316',
+                200: '#ea580c',
+                },
             },
             boxShadow: {
                 DEFAULT: '0 1px 3px 0 rgba(0, 0, 0, 0.08), 0 1px 2px 0 rgba(0, 0, 0, 0.02)',

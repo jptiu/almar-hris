@@ -282,6 +282,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::post('savings/store', [SavingsController::class, 'store'])->name('savings.store');
     Route::delete('savings/destroy/{id}', [SavingsController::class, 'destroy'])->name('savings.destroy');
 
+    Route::get('savingscustomer', [SavingsController::class, 'savingsCustomer'])->name('savingscustomer.index');
+
 
     // Payroll
     Route::get('payroll', [PayrollController::class, 'index'])->name('payroll.index');
