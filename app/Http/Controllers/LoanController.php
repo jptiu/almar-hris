@@ -83,7 +83,7 @@ class LoanController extends Controller
         try {
             // Retrieve authenticated user's branch ID
             $branch = auth()->user()->branch_id;
-
+            $image = $request->file('upload_file');
             // Validate the input data
             $validatedData = $request->validate([
                 'rows.*.id' => 'required|numeric',
@@ -111,7 +111,18 @@ class LoanController extends Controller
             $loan->payable_amount = $request->payable_amount;
             $loan->branch_id = $branch;
             $loan->user_id = auth()->user()->id;
+            if (isset($image) == true) {
+                $imageBase64 = base64_encode(file_get_contents($image));
+                $loan->file = $imageBase64;
+            }
             $loan->save();
+
+            // if ($image) {
+            //     // Convert the image to base64
+            //     $imageBase64 = base64_encode(file_get_contents($image));
+            //     $loan->file = $imageBase64;
+            //     $loan->update();
+            // }
 
             // Save each payment row as LoanDetails
             foreach ($validatedData['rows'] as $row) {
@@ -286,7 +297,8 @@ class LoanController extends Controller
         return redirect(route("loan.index"))->with('success', 'Loan Details Imported Successfully');
     }
 
-    public function approve($id){
+    public function approve($id)
+    {
         $loan = Loan::findOrFail($id);
         $loan->trans_no = $loan->id;
         $loan->status = 'UNPD';
@@ -296,13 +308,22 @@ class LoanController extends Controller
         return redirect()->back()->with('success', 'Loan Approved.');
     }
 
-    public function decline($id){
+    public function decline(Request $request, $id)
+    {
+        // Find the loan by ID
         $loan = Loan::findOrFail($id);
-        $loan->trans_no = $loan->id;
-        $loan->status = 'CLOSE';
-        $loan->user_id = auth()->user()->id;
-        $loan->update();
 
-        return redirect()->back()->with('success', 'Loan Declined.');
+        // Set the fields
+        $loan->trans_no = $loan->id;  // Ensure this is the correct logic for trans_no
+        $loan->status = 'CNCLD';       // Assuming 'CLOSE' is a valid status
+        $loan->user_id = auth()->user()->id;  // Ensure the user is authenticated
+        $loan->note = $request->input('reason'); // Get the reason for decline
+
+        // Save the changes
+        $loan->save();
+
+        // Redirect with a success message
+        return redirect()->back()->with('success', 'Loan has been declined with the provided reason.');
     }
+
 }

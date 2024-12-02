@@ -163,7 +163,7 @@
     </div>
 
     <section class="container px-4 mx-auto">
-        <form action="{{ route('loan.store') }}" method="POST">
+        <form action="{{ route('loan.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
                 <div class="flex items-center text-gray-600 mb-12">
@@ -198,9 +198,10 @@
                                     <label for="loan_type" class="text-black font-medium">Loan Type</label>
                                     <select name="loan_type" id="loan_type"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
+                                    <option>Select</option>
                                     <option value="daily">Daily</option>
-                                    <option value="weekly">Weekly</option>
-                                    <option value="semi-monthly">Semi-Monthly</option>
+                                    {{-- <option value="weekly">Weekly</option>
+                                    <option value="semi-monthly">Semi-Monthly</option> --}}
                                     <option value="monthly">Monthly</option>
                                     </select>
                                 </div>
@@ -224,8 +225,6 @@
                                     <input type="file" id="upload_file" name="upload_file"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2" />
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
@@ -452,7 +451,7 @@
                 </div>
             </div>
         </form>
-        </div>
+    </section>
 </x-app-layout>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 {{-- <script>
@@ -481,10 +480,32 @@
     });
 </script> --}}
 <script>
-    document.getElementById('months_to_pay').addEventListener('input', calculatePayments);
-    document.getElementById('principal_amount').addEventListener('input', calculatePayments);
-    document.getElementById('interest').addEventListener('input', calculatePayments);
-    document.getElementById('svc_charge').addEventListener('input', calculatePayments);
+    document.getElementById('loan_type').addEventListener('change', () => {
+        const loanType = document.getElementById('loan_type').value;
+
+        // Unbind existing event listeners (optional for clarity)
+        const inputs = ['principal_amount', 'months_to_pay', 'days_to_pay', 'interest', 'svc_charge'];
+        inputs.forEach((id) => {
+            const element = document.getElementById(id);
+            const newElement = element.cloneNode(true);
+            element.parentNode.replaceChild(newElement, element);
+        });
+
+        // Attach the appropriate listeners based on loan type
+        if (loanType === 'monthly') {
+            document.getElementById('months_to_pay').addEventListener('input', calculatePayments);
+            document.getElementById('principal_amount').addEventListener('input', calculatePayments);
+            document.getElementById('interest').addEventListener('input', calculatePayments);
+            document.getElementById('svc_charge').addEventListener('input', calculatePayments);
+            calculatePayments();
+        } else if (loanType === 'daily') {
+            document.getElementById('days_to_pay').addEventListener('input', calculatePaymentsDaily);
+            document.getElementById('principal_amount').addEventListener('input', calculatePaymentsDaily);
+            document.getElementById('interest').addEventListener('input', calculatePaymentsDaily);
+            document.getElementById('svc_charge').addEventListener('input', calculatePaymentsDaily);
+            calculatePaymentsDaily();
+        }
+    });
 
     function calculatePayments() {
         const principalAmount = parseFloat(document.getElementById('principal_amount').value) || 0;
@@ -496,6 +517,23 @@
         const payableAmount = principalAmount + interestAmount + serviceCharge;
         const monthlyDue = monthsToPay > 0 ? payableAmount / monthsToPay : 0;
 
+        updatePaymentDisplay(interestAmount, payableAmount, monthlyDue, monthsToPay, 'monthly');
+    }
+
+    function calculatePaymentsDaily() {
+        const principalAmount = parseFloat(document.getElementById('principal_amount').value) || 0;
+        const daysToPay = parseInt(document.getElementById('days_to_pay').value) || 0;
+        const interestPercent = parseFloat(document.getElementById('interest').value) || 0;
+        const serviceCharge = parseFloat(document.getElementById('svc_charge').value) || 0;
+
+        const interestAmount = (principalAmount * interestPercent) / 100;
+        const payableAmount = principalAmount + interestAmount + serviceCharge;
+        const dailyDue = daysToPay > 0 ? payableAmount / daysToPay : 0;
+
+        updatePaymentDisplay(interestAmount, payableAmount, dailyDue, daysToPay, 'daily');
+    }
+
+    function updatePaymentDisplay(interestAmount, payableAmount, dueAmount, duration, type) {
         document.getElementById('interest_amount').value = interestAmount.toFixed(2);
         document.getElementById('payable_amount').value = payableAmount.toFixed(2);
 
@@ -504,52 +542,50 @@
         tbody.innerHTML = '';
         hiddenInputsContainer.innerHTML = '';
 
-        if (monthsToPay > 0 && payableAmount > 0) {
-            let runningBalance = payableAmount;
-            let currentDate = new Date();
+        let runningBalance = payableAmount;
+        let currentDate = new Date();
 
-            for (let i = 1; i <= monthsToPay; i++) {
+        for (let i = 1; i <= duration; i++) {
+            let dueDate;
+
+            if (type === 'daily') {
+                dueDate = currentDate.toISOString().split('T')[0];
+                currentDate.setDate(currentDate.getDate() + 1); // Increment by 1 day
+            } else if (type === 'monthly') {
+                // Generate alternating due dates (15th and end of the month)
                 if (i % 2 === 1) {
-                    // Set the date to the 15th
-                    currentDate.setDate(15);
+                    currentDate.setDate(15); // 15th of the month
                 } else {
-                    // Set the date to the last day of the current month
-                    currentDate.setMonth(currentDate.getMonth() + 1, 0);
+                    currentDate.setMonth(currentDate.getMonth() + 1, 0); // End of the month
                 }
-
-                const dueDate = currentDate.toISOString().split('T')[0];
-                runningBalance -= monthlyDue;
-
-                // Add row to the table
-                const row = `
-                <tr>
-                    <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">${i}</td>
-                    <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">${dueDate}</td>
-                    <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">${monthlyDue.toFixed(2)}</td>
-                    <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap"></td>
-                    <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">${runningBalance.toFixed(2)}</td>
-                    <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap"></td>
-                    <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap"></td>
-                    <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap"></td>
-                </tr>
-            `;
-                tbody.innerHTML += row;
-
-                // Add hidden inputs for each row
-                hiddenInputsContainer.innerHTML += `
-                <input type="hidden" name="rows[${i}][id]" value="${i}">
-                <input type="hidden" name="rows[${i}][due_date]" value="${dueDate}">
-                <input type="hidden" name="rows[${i}][due_amount]" value="${monthlyDue.toFixed(2)}">
-                <input type="hidden" name="rows[${i}][remaining_balance]" value="${runningBalance.toFixed(2)}">
-            `;
-
-                // Increment the month after processing the last day of the month
+                dueDate = currentDate.toISOString().split('T')[0];
                 if (i % 2 === 0) {
-                    currentDate.setMonth(currentDate.getMonth() + 1, 1); // Move to the 1st of the next month
+                    currentDate.setMonth(currentDate.getMonth() + 1, 1); // Start of the next month
                 }
             }
+
+            runningBalance -= dueAmount;
+
+            const row = `
+        <tr>
+            <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">${i}</td>
+            <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">${dueDate}</td>
+            <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">${dueAmount.toFixed(2)}</td>
+            <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap"></td>
+            <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">${runningBalance.toFixed(2)}</td>
+        </tr>
+        `;
+            tbody.innerHTML += row;
+
+            hiddenInputsContainer.innerHTML += `
+        <input type="hidden" name="rows[${i}][id]" value="${i}">
+        <input type="hidden" name="rows[${i}][due_date]" value="${dueDate}">
+        <input type="hidden" name="rows[${i}][due_amount]" value="${dueAmount.toFixed(2)}">
+        <input type="hidden" name="rows[${i}][remaining_balance]" value="${runningBalance.toFixed(2)}">
+        `;
         }
     }
+
 
 
 
@@ -634,7 +670,8 @@
                 // Example of handling the response:
                 if (response.customer) {
                     // Display customer data (e.g., name, address) in specific elements
-                    document.getElementById("name").value = response.customer.first_name + ' ' + response
+                    document.getElementById("name").value = response.customer.first_name + ' ' +
+                        response
                         .customer.last_name;
                     document.getElementById("type").value = response.customer.type;
                     document.getElementById("status").value = response.customer.status;

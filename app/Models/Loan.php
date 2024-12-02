@@ -31,6 +31,8 @@ class Loan extends Model
         'payable_amount',//ltranh_actrcvd
         'user_id',//ltranh_uid
         'branch_id',
+        'file',
+        'note',
     ];
 
     public function customer()

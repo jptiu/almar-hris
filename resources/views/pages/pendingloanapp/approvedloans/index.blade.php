@@ -238,10 +238,6 @@
                 {{$lists->links()}}
             </div>
         </section>
-        
-            
-
-
     </div>
 </x-app-layout>
 <script>
