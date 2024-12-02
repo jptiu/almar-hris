@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Collection;
 use App\Models\Customer;
 use App\Models\Loan;
+use App\Models\LoanDetails;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -21,9 +22,9 @@ class CollectionController extends Controller
         $lists = Collection::with('user')->where('branch_id', $branch)->paginate(20);
         $customers = Customer::where('branch_id', $branch)->get();
         $collectors = User::where('branch_id', $branch)->where('roles.title', 'Collector')
-        ->join('role_user', 'users.id', '=', 'role_user.user_id')
-        ->join('roles', 'role_user.role_id', '=', 'roles.id')
-        ->get();
+            ->join('role_user', 'users.id', '=', 'role_user.user_id')
+            ->join('roles', 'role_user.role_id', '=', 'roles.id')
+            ->get();
         $loan = [];
         $customer = [];
         if ($request->transaction_no) {
@@ -52,10 +53,10 @@ class CollectionController extends Controller
         $branch = auth()->user()->branch_id;
         $customers = Customer::where('branch_id', $branch)->get();
         $collectors = User::where('branch_id', $branch)->where('roles.title', 'Collector')
-        ->join('role_user', 'users.id', '=', 'role_user.user_id')
-        ->join('roles', 'role_user.role_id', '=', 'roles.id')
-        ->get();
-        
+            ->join('role_user', 'users.id', '=', 'role_user.user_id')
+            ->join('roles', 'role_user.role_id', '=', 'roles.id')
+            ->get();
+
         return view('pages.collections.entry.index', compact('customers', 'collectors'));
     }
 
@@ -64,7 +65,28 @@ class CollectionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $loan = Loan::findOrFail($request->trans_no);
+        $loanDetails = LoanDetails::where('loan_id', $loan->id)
+            ->where('loan_date_paid', '!=', '')
+            ->orWhere('loan_date_paid', '!=', null)
+            ->get();
+        if($loanDetails->loan_due_date == now()->toDateString()){
+            $loanDetails->loan_date_paid = now()->toDateString();
+            $loanDetails->loan_amount_paid = $request->amount_paid;
+            $loanDetails->update();
+        }
+
+        if ($loan) {
+            $col = new Collection();
+            $col->user_id = auth()->user()->id;
+            $col->name = $request->name;
+            $col->type = $request->type;
+            $col->status = $request->status;
+            $col->trans_no = $request->trans_no;
+            $col->collector_id = auth()->user()->id;
+            $col->date = $request->date_of_loan;
+            $col->save();
+        }
     }
 
     /**

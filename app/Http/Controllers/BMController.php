@@ -108,7 +108,7 @@ class BMController extends Controller
     {
         $branch = auth()->user()->branch_id;
         // $lists = Loan::where('branch_id', $branch)->get();
-        $lists = Loan::where('principal_amount', '>', '50000')
+        $lists = Loan::where('principal_amount', '<', '50000')
             ->where('branch_id', $branch)
             ->where('status', null)
             ->paginate(10);
@@ -118,9 +118,10 @@ class BMController extends Controller
 
     public function approvedLoan(Request $request)
     {
-        
-        $lists = Loan::where('principal_amount', '>', '50000')
-        ->where('status', '=', 'FULPD')->paginate(10);
+        $branch = auth()->user()->branch_id;
+        $lists = Loan::where('principal_amount', '<', '50000')
+            ->where('branch_id', $branch)
+            ->where('status', '!=', null)->paginate(10);
 
         return view('pages.pendingloanapp.approvedloans.index', compact('lists'));
     }
@@ -128,8 +129,8 @@ class BMController extends Controller
     public function rejectedLoan(Request $request)
     {
 
-        $lists = Loan::where('principal_amount', '>', '50000')
-        ->where('status', '=', 'CNCLD')->paginate(10);
+        $lists = Loan::where('principal_amount', '<', '50000')
+            ->where('status', '=', 'CNCLD')->paginate(10);
 
         return view('pages.pendingloanapp.rejectedloans.index', compact('lists'));
     }
@@ -176,7 +177,7 @@ class BMController extends Controller
     }
 
     public function cashadvanceRequest()
-    {   
+    {
         return view('pages.requestform.cashadvance.index');
     }
 
@@ -184,5 +185,5 @@ class BMController extends Controller
     {
         return view('pages.requestform.cashbond.index');
     }
-    
+
 }
