@@ -166,8 +166,8 @@
                                                 <div class="flex items-center gap-x-2">
                                                     <div>
                                                         <h2 class="text-sm font-medium text-gray-500 dark:text-white ">
-                                                            {{ $list->house }} {{ $list->street }}
-                                                            {{ $list->barangay }} {{ $list->city }}</h2>
+                                                            {{ $list->house }} {{ $list->street }} {{$list->bry->barangay_name}} {{$list->cty->city_town}}    
+                                                        </h2>
                                                     </div>
                                                 </div>
                                             </td>
