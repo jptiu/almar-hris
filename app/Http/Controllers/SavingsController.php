@@ -88,4 +88,11 @@ class SavingsController extends Controller
 
         return redirect()->back()->with('success', 'Savings deleted.');
     }
+
+    public function savingsCustomer()
+    {
+        //abort_unless(Gate::allows('collector_access'), 404);
+        
+        return view('pages.savingscustomer.index');
+    }
 }
