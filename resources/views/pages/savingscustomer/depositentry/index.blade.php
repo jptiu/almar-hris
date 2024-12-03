@@ -17,7 +17,8 @@
             </div>
         @endif
         <div class="relative">
-            <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-12 lg:px-4">Savings Deposit Entry
+            <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-12 lg:px-4">Savings Deposit
+                Entry
             </h1>
         </div>
 
@@ -34,20 +35,21 @@
                 <x-dropdown-filter align="right" />
 
                 <!-- Add view button -->
-                <a href="{{ route('depositentry.createDeposit') }}" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
+                <a href="{{ route('depositentry.createDeposit') }}"
+                    class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
                     <svg class="w-4 h-4 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
                         <path
                             d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
                     </svg>
                     <span class="hidden xs:block ml-2">New</span>
                 </a>
-                <a id="show-modal" href="#" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
+                {{-- <a id="show-modal" href="#" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
                     <svg class="w-4 h-4 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
                         <path
                             d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
                     </svg>
                     <span class="hidden xs:block ml-2">Import Deposit</span>
-                </a>
+                </a> --}}
                 <div id="modal" class="relative z-10 hidden" aria-labelledby="modal-title" role="dialog"
                     aria-modal="true">
                     <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
@@ -140,27 +142,27 @@
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
-                                    
+                                    @foreach ($lists as $list)
                                         <tr>
                                             <td
                                                 class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
-                                               
+                                                {{ $list->id }}
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                
+                                                {{ $list->customer_id }}
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                
+                                                {{ $list->tran_date }}
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                               
+                                                {{ $list->amount }}
                                             </td>
                                             <td class="px-4 py-4 text-sm whitespace-nowrap">
                                                 <div class="flex items-center gap-x-6">
-                                            
+
                                                     <a href="#"
                                                         class="text-gray-500 transition-colors duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16"
@@ -190,7 +192,7 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                        
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -199,7 +201,7 @@
             </div>
 
             <div class="flex-end items-center justify-between mt-6">
-                
+                {{$lists->links()}}
             </div>
         </section>
 

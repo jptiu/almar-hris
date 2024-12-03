@@ -35,12 +35,12 @@
                     xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                 </svg>
-                <a href="{{ route('customer.index') }}" class="text-base font-semibold">Back</a>
+                <a href="{{ route('collection.index') }}" class="text-base font-semibold">Back</a>
             </div>
-            <div class="grid grid-cols-2 gap-4">
-                <div class="...">
-                    <form action="{{ route('customer.store') }}" method="POST">
-                        @csrf
+            <form action="{{ route('collection.store') }}" method="POST">
+                @csrf
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="...">
                         <div class="mb-8">
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
                                 <div class="lg:col-span-2">
@@ -159,15 +159,11 @@
                                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
 
                                         <div class="md:col-span-1">
-                                            <label for="house" class="text-black font-medium">Select which unpaid
+                                            <label for="loans" class="text-black font-medium">Select which unpaid
                                                 Loan to pay</label>
-                                            <select name="type" id="type"
+                                            <select name="loans" id="loans"
                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
-                                            <option
-                                                value="business
-                                                loan">
-                                                Loan 1</option>
-                                            <option value="personal loan">Loan 2</option>
+                                            <option>Select</option>
                                             </select>
                                         </div>
 
@@ -182,15 +178,15 @@
                                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
 
                                         <div class="md:col-span-1">
-                                            <label for="house" class="text-black font-medium">LTD Row #</label>
-                                            <input type="text" name="house" id="house"
+                                            <label for="loan_no" class="text-black font-medium">LTD Row #</label>
+                                            <input type="text" name="loan_no" id="loan_no"
                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
                                                 value="" placeholder="" />
                                         </div>
 
                                         <div class="md:col-span-1">
-                                            <label for="house" class="text-black font-medium">Due Date</label>
-                                            <input type="date" name="house" id="house"
+                                            <label for="loan_due_date" class="text-black font-medium">Due Date</label>
+                                            <input type="date" name="loan_due_date" id="loan_due_date"
                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
                                                 value="" placeholder="" />
                                         </div>
@@ -205,15 +201,16 @@
                                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
 
                                         <div class="md:col-span-1">
-                                            <label for="house" class="text-black font-medium">Amount Due</label>
-                                            <input type="number" name="house" id="house"
+                                            <label for="loan_due_amount" class="text-black font-medium">Amount
+                                                Due</label>
+                                            <input type="text" name="loan_due_amount" id="loan_due_amount"
                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
-                                                value="" placeholder="" />
+                                                disabled />
                                         </div>
 
                                         <div class="md:col-span-1">
-                                            <label for="house" class="text-black font-medium">Date Paid</label>
-                                            <input type="date" name="house" id="house"
+                                            <label for="date_paid" class="text-black font-medium">Date Paid</label>
+                                            <input type="date" name="date_paid" id="date_paid"
                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
                                                 value="" placeholder="" />
                                         </div>
@@ -221,51 +218,49 @@
                                 </div>
                             </div>
                         </div>
-                    </form>
-                    <div class="mb-8">
-                        <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
-                            <div class="lg:col-span-2">
-                                <div
-                                    class="flex justify-between grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
+                        <div class="mb-8">
+                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
+                                <div class="lg:col-span-2">
+                                    <div
+                                        class="flex justify-between grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
 
-                                    <div class="md:col-span-1">
-                                        <input type="checkbox" name="house" id="house"
-                                            class="border px-2 py-2 bg-gray-50" value="" placeholder="" />
-                                        <label for="house" class="mt-2 ml-1">Allow Grace period</label>
+                                        <div class="md:col-span-1">
+                                            <input type="checkbox" name="house" id="house"
+                                                class="border px-2 py-2 bg-gray-50" value="" placeholder="" />
+                                            <label for="house" class="mt-2 ml-1">Allow Grace period</label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="mb-8 flex flex-row-reverse">
-                        <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
-                            <div class="lg:col-span-2">
-                                <div
-                                    class="flex justify-between grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
+                        <div class="mb-8 flex flex-row-reverse">
+                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
+                                <div class="lg:col-span-2">
+                                    <div
+                                        class="flex justify-between grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
 
-                                    <div class="md:col-span-1">
-                                        {{-- <button type="submit"
+                                        <div class="md:col-span-1">
+                                            {{-- <button type="submit"
                                             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Input
                                             Check Number</button> --}}
-                                        <button type="submit"
-                                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+                                            <button type="submit"
+                                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
 
-                </div>
-
-                <div class="...">
-                    <section class="p-8">
-                        <div>
-                            <div class="border-2">
-                                <div class="text-center bg-blue-800 text-white py-3">
-                                    <h1 class="text-lg font-bold">Payment Details</h1>
-                                </div>
-                                <form>
+                    <div class="...">
+                        <section class="p-8">
+                            <div>
+                                <div class="border-2">
+                                    <div class="text-center bg-blue-800 text-white py-3">
+                                        <h1 class="text-lg font-bold">Payment Details</h1>
+                                    </div>
                                     <div class="p-4">
                                         <div class="mb-4">
                                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
@@ -277,9 +272,10 @@
                                                         </div>
 
                                                         <div class="md:col-span-1">
-                                                            <input type="number" name="house" id="house"
+                                                            <input type="text" name="prev_balance"
+                                                                id="prev_balance"
                                                                 class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                                                                value="" placeholder="" />
+                                                                value="" placeholder="" disabled />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -297,7 +293,8 @@
                                                         </div>
 
                                                         <div class="md:col-span-1">
-                                                            <input type="number" name="house" id="house"
+                                                            <input type="number" name="loan_withdraw_from_bank"
+                                                                id="loan_withdraw_from_bank"
                                                                 class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                                                                 value="" placeholder="" />
                                                         </div>
@@ -316,9 +313,10 @@
                                                         </div>
 
                                                         <div class="md:col-span-1">
-                                                            <input type="number" name="house" id="house"
+                                                            <input type="text" name="total_due_amount"
+                                                                id="total_due_amount"
                                                                 class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                                                                value="" placeholder="" />
+                                                                disabled />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -336,7 +334,8 @@
                                                         </div>
 
                                                         <div class="md:col-span-1">
-                                                            <input type="number" name="house" id="house"
+                                                            <input type="number" name="loan_amount_paid"
+                                                                id="loan_amount_paid"
                                                                 class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                                                                 value="" placeholder="" />
                                                         </div>
@@ -355,7 +354,8 @@
                                                         </div>
 
                                                         <div class="md:col-span-1">
-                                                            <input type="number" name="house" id="house"
+                                                            <input type="number" name="loan_amount_change"
+                                                                id="loan_amount_change"
                                                                 class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                                                                 value="" placeholder="" />
                                                         </div>
@@ -374,22 +374,22 @@
                                                         </div>
 
                                                         <div class="md:col-span-1">
-                                                            <input type="number" name="house" id="house"
+                                                            <input type="text" name="loan_running_balance"
+                                                                id="loan_running_balance"
                                                                 class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                                                                value="" placeholder="" />
+                                                                disabled />
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </form>
+                                </div>
                             </div>
-                        </div>
-                    </section>
+                        </section>
+                    </div>
                 </div>
-
-            </div>
+            </form>
         </div>
 
     </div>
@@ -407,53 +407,98 @@
                 customer_id: customerID,
             },
             success: function(response) {
+                // Handle the special case for "name" input field
+                const nameField = document.getElementById("name");
+                const transactionField = document.getElementById("trans_no");
+                const loanNo = document.getElementById("loan_no");
+                const loanDue = document.getElementById("loan_due_amount");
+                const totalDue = document.getElementById("total_due_amount");
+                const loanDueDate = document.getElementById("loan_due_date");
+                const loanRunBal = document.getElementById("loan_running_balance");
+                const loans = document.getElementById("loans");
+                const customerType = document.getElementById("type");
+                const prevBal = document.getElementById("prev_balance");
+                let bal = 0.00;
+                loans.innerHTML = '';
                 if (response.customer) {
                     const customerData = response.customer;
                     const loanData = response.customer.loan;
+                    if (loanData.status == 'CLOSE') {
+                        alert('No Transactions');
+                    } else {
+                        if (nameField && customerData.first_name && customerData.last_name) {
+                            nameField.value = `${customerData.first_name} ${customerData.last_name}`;
+                        }
 
-                    // Handle the special case for "name" input field
-                    const nameField = document.getElementById("name");
-                    const transactionField = document.getElementById("trans_no");
+                        if (transactionField && loanData.id) {
+                            console.log(loanData.id)
+                            transactionField.value = `${loanData.id}`;
+                        }
 
-                    if (nameField && customerData.first_name && customerData.last_name) {
-                        nameField.value = `${customerData.first_name} ${customerData.last_name}`;
-                    }
+                        if (customerType && customerData.customer_type) {
+                            customerType.value = `${customerData.customer_type.description}`;
+                        }
 
-                    if (transactionField && loanData.id) {
-                        console.log(loanData.id)
-                        transactionField.value = `${loanData.id}`;
-                    }
+                        if (loanData.details[0]) {
+                            loanNo.value = loanData.details[0].loan_day_no;
+                            loanDue.value = new Intl.NumberFormat('en-US', {
+                                minimumFractionDigits: 2,
+                                maximumFractionDigits: 2
+                            }).format(loanData.details[0].loan_due_amount);
+                            totalDue.value = new Intl.NumberFormat('en-US', {
+                                minimumFractionDigits: 2,
+                                maximumFractionDigits: 2
+                            }).format(loanData.details[0].loan_due_amount);
+                            loanDueDate.value = loanData.details[0].loan_due_date;
+                            loanRunBal.value = new Intl.NumberFormat('en-US', {
+                                minimumFractionDigits: 2,
+                                maximumFractionDigits: 2
+                            }).format(loanData.details[0].loan_running_balance);
+                        }
 
-                    // Loop through each key in customerData to update respective fields
-                    Object.keys(customerData).forEach(key => {
-                        if (key !== "first_name" && key !==
-                            "last_name") { // Skip first and last name as we already handled it
-                            const element = document.getElementById(key);
-                            if (element) {
-                                if (element.tagName === "SELECT") {
-                                    element.value = customerData[key];
-                                    element.dispatchEvent(new Event('change'));
-                                } else {
-                                    element.value = customerData[key];
+                        // Assuming loanData.details is an array
+                        for (let i = 0; i < loanData.details.length; i++) {
+                            const row =
+                                `<option value="${loanData.details[i].loan_day_no}">${loanData.details[i].loan_day_no}</option>`;
+                            loans.innerHTML += row;
+                            bal += parseFloat(loanData.details[i].loan_due_amount) || 0;
+                        }
+                        prevBal.value = new Intl.NumberFormat('en-US', {
+                            minimumFractionDigits: 2,
+                            maximumFractionDigits: 2
+                        }).format(bal);
+
+                        // Loop through each key in customerData to update respective fields
+                        Object.keys(customerData).forEach(key => {
+                            if (key !== "first_name" && key !== "last_name" && key !==
+                                "type") { // Skip first and last name as we already handled it
+                                const element = document.getElementById(key);
+                                if (element) {
+                                    if (element.tagName === "SELECT") {
+                                        element.value = customerData[key];
+                                        element.dispatchEvent(new Event('change'));
+                                    } else {
+                                        element.value = customerData[key];
+                                    }
                                 }
                             }
-                        }
-                    });
+                        });
 
-                    // Loop through each key in loanData to update respective fields
-                    Object.keys(loanData).forEach(key => {
-                        if (key !== "id" && key!=="trans_no" && key!=="status") {
-                            const element = document.getElementById(key);
-                            if (element) {
-                                if (element.tagName === "SELECT") {
-                                    element.value = loanData[key];
-                                    element.dispatchEvent(new Event('change'));
-                                } else {
-                                    element.value = loanData[key];
+                        // Loop through each key in loanData to update respective fields
+                        Object.keys(loanData).forEach(key => {
+                            if (key !== "id" && key !== "trans_no" && key !== "status") {
+                                const element = document.getElementById(key);
+                                if (element) {
+                                    if (element.tagName === "SELECT") {
+                                        element.value = loanData[key];
+                                        element.dispatchEvent(new Event('change'));
+                                    } else {
+                                        element.value = loanData[key];
+                                    }
                                 }
                             }
-                        }
-                    });
+                        });
+                    }
                 } else {
                     console.log('Collection not found.');
                     alert('Collection not found.');

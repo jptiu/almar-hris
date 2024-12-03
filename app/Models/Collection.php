@@ -15,8 +15,8 @@ class Collection extends Model
         'type',
         'status',
         'trans_no',
-        'collector_id',
         'date',
+        'branch_id',
     ];
 
     public function user(){

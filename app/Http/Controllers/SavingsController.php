@@ -16,8 +16,8 @@ class SavingsController extends Controller
     // Savings Deposit Methods
     public function indexDeposit()
     {
-        // $deposits = SavingsDeposit::all();
-        return view('pages.savingscustomer.depositentry.index');
+        $lists = SavingsDeposit::paginate(20);
+        return view('pages.savingscustomer.depositentry.index', compact('lists'));
     }
 
     public function createDeposit()
@@ -40,8 +40,8 @@ class SavingsController extends Controller
     // Savings Withdrawal Methods
     public function indexWithdrawal()
     {
-        // $withdrawals = SavingsWithdrawal::all();
-        return view('pages.savingscustomer.withdrawalentry.index');
+        $lists = SavingsWithdrawal::paginate(20);
+        return view('pages.savingscustomer.withdrawalentry.index', compact('lists'));
     }
 
     public function createWithdrawal()

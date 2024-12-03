@@ -153,25 +153,19 @@
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                
+                                                {{ $list->name }}
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                
+                                                {{ $list->trans_no }}
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                
+                                                {{ $list->type }}
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                <div class="flex items-center gap-x-2">
-                                                    <div>
-                                                        <h2 class="text-sm font-medium text-gray-500 dark:text-white ">
-
-                                                        </h2>
-                                                    </div>
-                                                </div>
+                                                {{ $list->user->name }}
                                             </td>
                                             <td class="px-4 py-4 text-sm whitespace-nowrap">
                                                 <div class="flex items-center gap-x-6">
