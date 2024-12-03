@@ -277,12 +277,18 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     
 
     //Savings
-    Route::get('savings', [SavingsController::class, 'index'])->name('savings.index');
-    Route::get('savings/create', [SavingsController::class, 'create'])->name('savings.create');
-    Route::post('savings/store', [SavingsController::class, 'store'])->name('savings.store');
-    Route::delete('savings/destroy/{id}', [SavingsController::class, 'destroy'])->name('savings.destroy');
+    // Route::get('savings', [SavingsController::class, 'index'])->name('savings.index');
+    // Route::get('savings/create', [SavingsController::class, 'create'])->name('savings.create');
+    // Route::post('savings/store', [SavingsController::class, 'store'])->name('savings.store');
+    // Route::delete('savings/destroy/{id}', [SavingsController::class, 'destroy'])->name('savings.destroy');
 
-    Route::get('savingscustomer', [SavingsController::class, 'savingsCustomer'])->name('savingscustomer.index');
+    // Deposit
+    Route::get('savingscustomer/depositentry', [SavingsController::class, 'indexDeposit'])->name('depositentry.index');
+    Route::get('savingscustomer/createDeposit', [SavingsController::class, 'createDeposit'])->name('depositentry.createDeposit');
+
+    //Savings
+    Route::get('savingscustomer/withdrawalentry', [SavingsController::class, 'indexWithdrawal'])->name('savingscustomer.index');
+    Route::get('savingscustomer/createWithdrawal', [SavingsController::class, 'createWithdrawal'])->name('withdrawalentry.createWithdrawal');
 
 
     // Payroll
