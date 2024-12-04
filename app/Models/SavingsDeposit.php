@@ -15,5 +15,6 @@ class SavingsDeposit extends Model
         'customer_name',
         'tran_date',
         'amount',
+        'status',
     ];
 }

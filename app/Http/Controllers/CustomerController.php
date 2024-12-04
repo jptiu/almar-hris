@@ -19,10 +19,14 @@ class CustomerController extends Controller
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
         try {
             $branch = auth()->user()->branch_id;
-            if (isset($request->search)) {
-                $lists = Customer::where('branch_id', $branch)->where('first_name', 'LIKE', '%', $request->search, '%')->orderBy("created_at", "asc")->paginate(20);
+            if ($request->search) {
+                $lists = Customer::where('branch_id', $branch)
+                    ->where('first_name', 'LIKE', '%' . $request->search . '%')
+                    ->orderBy("created_at", "asc")
+                    ->paginate(20);
+            } else {
+                $lists = Customer::where('branch_id', $branch)->paginate(20);
             }
-            $lists = Customer::where('branch_id', $branch)->paginate(20);
 
 
             return view('pages.customer.index', compact('lists'));

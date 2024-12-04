@@ -66,4 +66,9 @@ class Customer extends Model
     {
         return $this->belongsTo(CityTown::class, 'city', 'id');
     }
+
+    public function customerType()
+    {
+        return $this->belongsTo(CustomerType::class, 'type', 'code');
+    }
 }

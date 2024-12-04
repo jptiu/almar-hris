@@ -60,18 +60,18 @@
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-8">
 
                                 <div class="md:col-span-2">
-                                    <label for="exp_ref_no" class="text-black font-medium">Ref No.</label>
+                                    <label for="ref_id" class="text-black font-medium">Ref No.</label>
                                     <input type="text" name="exp_ref_no" id="exp_ref_no" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                 </div>
 
                                 <div class="md:col-span-2">
-                                    <label for="acc_no" class="text-black font-medium">Customer ID</label>
-                                    <input type="text" name="acc_no" id="acc_no" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
+                                    <label for="customer_id" class="text-black font-medium">Customer ID</label>
+                                    <input type="text" name="customer_id" id="customer_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                 </div>
 
                                 <div class="md:col-span-4">
-                                    <label for="acc_class" class="text-black font-medium">Customer Name</label>
-                                    <input type="text" name="acc_class" id="acc_class" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
+                                    <label for="customer_name" class="text-black font-medium">Customer Name</label>
+                                    <input type="text" name="customer_name" id="customer_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                 </div>
 
                             </div>  
@@ -87,13 +87,13 @@
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-8">
 
                                 <div class="md:col-span-2">
-                                    <label for="house" class="text-black font-medium">Transaction Date</label>
-                                    <input type="date" name="house" id="house" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
+                                    <label for="tran_date" class="text-black font-medium">Transaction Date</label>
+                                    <input type="date" name="tran_date" id="tran_date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                 </div>
 
                                 <div class="md:col-span-2">
-                                    <label for="justification" class="text-black font-medium">Amount</label>
-                                    <input type="text" name="justification" id="justification" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
+                                    <label for="amount" class="text-black font-medium">Amount</label>
+                                    <input type="text" name="amount" id="amount" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                 </div>
                             </div>  
                         </div>

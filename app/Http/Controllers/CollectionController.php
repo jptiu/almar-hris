@@ -7,6 +7,7 @@ use App\Models\Customer;
 use App\Models\Loan;
 use App\Models\LoanDetails;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
@@ -31,7 +32,9 @@ class CollectionController extends Controller
             $loan = Loan::with('customer')->find($request->transaction_no);
         }
         if ($request->customer_id) {
-            $customer = Customer::with('loan')->find($request->customer_id);
+            $customer = Customer::with(['loan','customerType','loan.details' => function ($query) {
+                $query->whereNull('loan_date_paid'); // Filter due today
+            }])->find($request->customer_id);
         }
         // Check if the request is an AJAX call
         if ($request->ajax()) {
@@ -65,14 +68,16 @@ class CollectionController extends Controller
      */
     public function store(Request $request)
     {
+        $branch = auth()->user()->branch_id;
         $loan = Loan::findOrFail($request->trans_no);
         $loanDetails = LoanDetails::where('loan_id', $loan->id)
-            ->where('loan_date_paid', '!=', '')
-            ->orWhere('loan_date_paid', '!=', null)
-            ->get();
-        if($loanDetails->loan_due_date == now()->toDateString()){
-            $loanDetails->loan_date_paid = now()->toDateString();
-            $loanDetails->loan_amount_paid = $request->amount_paid;
+            ->where('loan_day_no', $request->loan_no)
+            ->first();
+        if($loanDetails){
+            $loanDetails->loan_date_paid = $request->date_paid;
+            $loanDetails->loan_amount_paid = $request->loan_amount_paid;
+            $loanDetails->loan_amount_change = $request->loan_amount_change ?? 0;
+            $loanDetails->loan_withdraw_from_bank = $request->loan_withdraw_from_bank ?? 0;
             $loanDetails->update();
         }
 
@@ -83,10 +88,12 @@ class CollectionController extends Controller
             $col->type = $request->type;
             $col->status = $request->status;
             $col->trans_no = $request->trans_no;
-            $col->collector_id = auth()->user()->id;
-            $col->date = $request->date_of_loan;
+            $col->date = $request->date_paid;
+            $col->branch_id = $branch;
             $col->save();
         }
+
+        return redirect(route("collection.index"))->with('success', 'Submitted successfully!');
     }
 
     /**
