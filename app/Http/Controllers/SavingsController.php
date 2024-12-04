@@ -7,92 +7,58 @@ use App\Http\Requests\SavingsCreateRequest;
 use Illuminate\Http\Request;
 // use App\Http\Controllers\SavingsController;
 use Illuminate\Support\Facades\Gate;
-use App\Models\Savings;
+use App\Models\SavingsDeposit;
+use App\Models\SavingsWithdrawal;
 
 class SavingsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
-        $branch = auth()->user()->branch_id;
-        $lists = Savings::where('branch_id', $branch)->get();
 
-        return view('pages.savings.index', compact('lists'));
+    // Savings Deposit Methods
+    public function indexDeposit()
+    {
+        $lists = SavingsDeposit::paginate(20);
+        return view('pages.savingscustomer.depositentry.index', compact('lists'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function createDeposit()
     {
-        abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
-        $branch = auth()->user()->branch_id;
-        $lists = Savings::where('branch_id', $branch)->get();
-        return view('pages.savings.add.index', compact('lists'));
+        return view('pages.savingscustomer.depositentry.entry.index');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(SavingsCreateRequest $request)
+    public function storeDeposit(Request $request)
     {
-        abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
-        $branch = auth()->user()->branch_id;
-        if($request->validated()){
-            $savings = new Savings();
-            $savings->employee_id = $request->employee_id;
-            $savings->total_savings = $request->total_savings;
-            $savings->balance = $request->balance;
-            $savings->branch_id = $branch;
-            $savings->save();
+        $request->validate([
+            'customer_id' => 'required',
+            'amount' => 'required|numeric',
+            'date' => 'required|date',
+        ]);
 
-            return redirect(route("savings.index"))->with('success', 'Created Successfully');
-        }
+        SavingsDeposit::create($request->all());
+        return redirect()->route('savings.deposit.index')->with('success', 'Deposit entry created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    // Savings Withdrawal Methods
+    public function indexWithdrawal()
     {
-        abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
+        $lists = SavingsWithdrawal::paginate(20);
+        return view('pages.savingscustomer.withdrawalentry.index', compact('lists'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function createWithdrawal()
     {
-        //
+        return view('pages.savingscustomer.withdrawalentry.entry.index');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function storeWithdrawal(Request $request)
     {
-        //
-    }
+        $request->validate([
+            'customer_id' => 'required',
+            'amount' => 'required|numeric',
+            'date' => 'required|date',
+        ]);
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
-        $savings = Savings::find($id);
-        $savings->delete();
-
-        return redirect()->back()->with('success', 'Savings deleted.');
+        SavingsWithdrawal::create($request->all());
+        return redirect()->route('savings.withdrawal.index')->with('success', 'Withdrawal entry created successfully.');
     }
-
-    public function savingsCustomer()
-    {
-        //abort_unless(Gate::allows('collector_access'), 404);
-        
-        return view('pages.savingscustomer.index');
-    }
+   
 }
