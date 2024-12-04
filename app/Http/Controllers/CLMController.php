@@ -71,6 +71,19 @@ class CLMController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        return view('pages.hr.payroll.print.index');
     }
+
+    public function printLoan(Request $request)
+    {
+        $lists = Customer::all();
+        return view('pages.customer.month.printLoan.index', compact('lists'));
+    }
+
+    public function printStatement(Request $request)
+    {
+        $lists = Customer::all();
+        return view('pages.customer.month.printStatement.index', compact('lists'));
+    }
+
 }
