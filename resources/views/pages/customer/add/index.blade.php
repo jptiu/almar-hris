@@ -408,203 +408,329 @@
                 </form>
             </div>
 
-            <!-- Step Review-->
+
             <div id="review-step" class="form-step hidden">
-                <h2 class="text-2xl font-semibold mb-6">Review Your Information</h2>
-                <div class="review-section mb-4">
+                <!-- Step Review-->
+
+                <!-- First Section: Personal Information -->
+                <div>
+                    
                     <div class="flex justify-between ">
-                        <h3 class="text-xl font-semibold mb-4">Personal Information</h3>
+                        <h3 class="text-2xl font-semibold mb-4">Personal Information</h3>
                         <a href="step1" class="cursor-pointer">
                             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#434343">
                                 <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h357l-80 80H200v560h560v-278l80-80v358q0 33-23.5 56.5T760-120H200Zm280-360ZM360-360v-170l367-367q12-12 27-18t30-6q16 0 30.5 6t26.5 18l56 57q11 12 17 26.5t6 29.5q0 15-5.5 29.5T897-728L530-360H360Zm481-424-56-56 56 56ZM440-440h56l232-232-28-28-29-28-231 231v57Zm260-260-29-28 29 28 28 28-28-28Z"/>
                             </svg>
                         </a>
                     </div>
-                    <div class="grid grid-cols-4 gap-2">
-                        <div>
-                            <p><strong>Applicant Name:</strong></p>
-                            <p><strong>Personal Contact Number:</strong></p>
-                            <p><strong>Birthdate:</strong></p>
-                            <p><strong>Birth Place:</strong></p>
-                            <p><strong>House Address:</strong></p>
-                            <p><strong>Street Address:</strong></p>
-                            <p><strong>Barangay Address:</strong></p>
-                            <p><strong>City Address:</strong></p>
-                            <p><strong>Civil Status:</strong></p>
-                            <p><strong>Age:</strong></p>
-                            <p><strong>Gender:</strong></p>
-                            <p><strong>Citizenship:</strong></p>
-                            <p><strong>Facebook Name:</strong></p>
-                        </div>
-                        <div>
-                            <p><span id="review-permanent-address">James Simene</span></p>
-                            <p><span id="review-permanent-address">09242857368</span></p>
-                            <p><span id="review-permanent-address">07/07/1998</span></p>
-                            <p><span id="review-permanent-address">CDO</span></p>
-                            <p><span id="review-permanent-address">CDO Street</span></p>
-                            <p><span id="review-permanent-address">Brgy CDO</span></p>
-                            <p><span id="review-permanent-address">CDO City</span></p>
-                            <p><span id="review-permanent-address">Married</span></p>
-                            <p><span id="review-permanent-address">27</span></p>
-                            <p><span id="review-permanent-address">Male</span></p>
-                            <p><span id="review-permanent-address">Fil American</span></p>
-                            <p><span id="review-permanent-address">Cj Simene</span></p>
-                        </div>
+                    
+                    <div>
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Customer Type:</div>
+                            <div class="text-gray-900">Type 1</div>
+                        </li>  
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Full Name:</div>
+                            <div class="text-gray-900">John D. Doe</div>
+                        </li>  
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Personal Contact Number:</div>
+                            <div class="text-gray-900">09262349809</div>
+                        </li>  
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Birthdate:</div>
+                            <div class="text-gray-900">01/01/2025</div>
+                        </li>  
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Birth Place:</div>
+                            <div class="text-gray-900">CDO</div>
+                        </li>  
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Birthdate:</div>
+                            <div class="text-gray-900">01/01/2025</div>
+                        </li> 
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Address:</div>
+                            <div class="text-gray-900">CDO Lapasan</div>
+                        </li> 
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Civil Status:</div>
+                            <div class="text-gray-900">Single</div>
+                        </li> 
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Age:</div>
+                            <div class="text-gray-900">25</div>
+                        </li> 
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Gender:</div>
+                            <div class="text-gray-900">Single</div>
+                        </li> 
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Citizenship:</div>
+                            <div class="text-gray-900">Filipino</div>
+                        </li> 
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Facebook:</div>
+                            <div class="text-gray-900">Cj Simene</div>
+                        </li> 
                     </div>
+                    
                 </div>
 
-                <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+                <!-- Separator Line -->
+                <hr class="my-6 border-gray-300" />
 
-                <div class="review-section mb-4">
+                <!-- Second Section: Spousal Data -->
+
+                <div>
+                    
                     <div class="flex justify-between ">
-                        <h3 class="text-xl font-semibold mb-4">Spousal Data</h3>
+                        <h3 class="text-2xl font-semibold mb-4">Spousal Data</h3>
                         <a href="step1" class="cursor-pointer">
                             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#434343">
                                 <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h357l-80 80H200v560h560v-278l80-80v358q0 33-23.5 56.5T760-120H200Zm280-360ZM360-360v-170l367-367q12-12 27-18t30-6q16 0 30.5 6t26.5 18l56 57q11 12 17 26.5t6 29.5q0 15-5.5 29.5T897-728L530-360H360Zm481-424-56-56 56 56ZM440-440h56l232-232-28-28-29-28-231 231v57Zm260-260-29-28 29 28 28 28-28-28Z"/>
                             </svg>
                         </a>
                     </div>
-                    <div class="grid grid-cols-4 gap-2">
-                        <div>
-                            <p><strong>Complete Name of Spouse/ Live in Partner:</strong></p>
-                            <p><strong>Contact Number:</strong></p>
-                            <p><strong>Birthdate:</strong></p>
-                            <p><strong>Age:</strong></p>
-                            <p><strong>Occupation:</strong></p>
-                            <p><strong>Company Name/ Address:</strong></p>
-                            <p><strong>Facebook Name:</strong></p>
-                        </div>
-                        <div>
-                            <p><span id="review-permanent-address">Alice Gou</span></p>
-                            <p><span id="review-permanent-address">09242857368</span></p>
-                            <p><span id="review-permanent-address">07/07/1998</span></p>
-                            <p><span id="review-permanent-address">25</span></p>
-                            <p><span id="review-permanent-address">Dev</span></p>
-                            <p><span id="review-permanent-address">CDO PH</span></p>
-                            <p><span id="review-permanent-address">CDO PH</span></p>
-                            <p><span id="review-permanent-address">Alice</span></p>
-                        </div>
+
+                    <div>
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Complete Name of Spouse:</div>
+                            <div class="text-gray-900">John Doe</div>
+                        </li>   
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Personal Contact Number:</div>
+                            <div class="text-gray-900">09262349809</div>
+                        </li>  
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Birthdate:</div>
+                            <div class="text-gray-900">01/01/2025</div>
+                        </li>  
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Birthdate:</div>
+                            <div class="text-gray-900">01/01/2025</div>
+                        </li> 
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Age:</div>
+                            <div class="text-gray-900">25</div>
+                        </li> 
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Occupation:</div>
+                            <div class="text-gray-900">Dev</div>
+                        </li> 
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Company Name/ Address:</div>
+                            <div class="text-gray-900">Filipino</div>
+                        </li> 
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Facebook:</div>
+                            <div class="text-gray-900">Cj Simene</div>
+                        </li> 
                     </div>
+                    
                 </div>
 
-                <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+                <!-- Separator Line -->
+                <hr class="my-6 border-gray-300" />
 
-                <div class="review-section mb-4">
+                <!-- Third Section: Company Information -->
+                <div>
+                    
                     <div class="flex justify-between ">
-                        <h3 class="text-xl font-semibold mb-4">Company Information</h3>
+                        <h3 class="text-2xl font-semibold mb-4">Company Information</h3>
                         <a href="step1" class="cursor-pointer">
                             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#434343">
                                 <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h357l-80 80H200v560h560v-278l80-80v358q0 33-23.5 56.5T760-120H200Zm280-360ZM360-360v-170l367-367q12-12 27-18t30-6q16 0 30.5 6t26.5 18l56 57q11 12 17 26.5t6 29.5q0 15-5.5 29.5T897-728L530-360H360Zm481-424-56-56 56 56ZM440-440h56l232-232-28-28-29-28-231 231v57Zm260-260-29-28 29 28 28 28-28-28Z"/>
                             </svg>
                         </a>
                     </div>
-                    <div class="grid grid-cols-4 gap-2">
-                        <div>
-                            <p><strong>Agency Name:</strong></p>
-                            <p><strong>Address / Tel. no.:</strong></p>
-                            <p><strong>Company Name:</strong></p>
-                            <p><strong>Address / Tel. no.:</strong></p>
-                            <p><strong>Date Hired:</strong></p>
-                            <p><strong>Day Off:</strong></p>
-                            <p><strong>Position:</strong></p>
-                            <p><strong>Monthly Salary:</strong></p>
-                            <p><strong>Salary Schedule:</strong></p>
-                        </div>
-                        <div>
-                            <p><span id="review-permanent-address">CJK</span></p>
-                            <p><span id="review-permanent-address">09242857368</span></p>
-                            <p><span id="review-permanent-address">CJK</span></p>
-                            <p><span id="review-permanent-address">09242857368</span></p>
-                            <p><span id="review-permanent-address">07/07/1998</span></p>
-                            <p><span id="review-permanent-address">15</span></p>
-                            <p><span id="review-permanent-address">CEO</span></p>
-                            <p><span id="review-permanent-address">1,000,000</span></p>
-                            <p><span id="review-permanent-address">15/30</span></p>
-                        </div>
+
+                    <div>
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Agency Name:</div>
+                            <div class="text-gray-900">CJK</div>
+                        </li>   
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Address / Tel. no:</div>
+                            <div class="text-gray-900">CDO 0241413</div>
+                        </li>  
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Company Name:</div>
+                            <div class="text-gray-900">CJK Almar</div>
+                        </li>  
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Address / Tel. no:</div>
+                            <div class="text-gray-900">CDO 0241413</div>
+                        </li>  
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Date Hired:</div>
+                            <div class="text-gray-900">01/01/2025</div>
+                        </li> 
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Day Off:</div>
+                            <div class="text-gray-900">MWF</div>
+                        </li> 
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Position:</div>
+                            <div class="text-gray-900">Dev</div>
+                        </li> 
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Monthly Salary:</div>
+                            <div class="text-gray-900">50,000</div>
+                        </li> 
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Salary Schedule:</div>
+                            <div class="text-gray-900">MWF</div>
+                        </li> 
                     </div>
+                    
                 </div>
+                        
+                <!-- Separator Line -->
+                <hr class="my-6 border-gray-300" />
 
-                <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+                <!-- Fourth Section: For Pensioners ONLY -->
+                <div>
 
-                <div class="review-section mb-4">
                     <div class="flex justify-between ">
-                        <h3 class="text-xl font-semibold mb-4">Pensioners Only</h3>
+                        <h3 class="text-2xl font-semibold mb-4">For Pensioners ONLY</h3>
                         <a href="step1" class="cursor-pointer">
                             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#434343">
                                 <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h357l-80 80H200v560h560v-278l80-80v358q0 33-23.5 56.5T760-120H200Zm280-360ZM360-360v-170l367-367q12-12 27-18t30-6q16 0 30.5 6t26.5 18l56 57q11 12 17 26.5t6 29.5q0 15-5.5 29.5T897-728L530-360H360Zm481-424-56-56 56 56ZM440-440h56l232-232-28-28-29-28-231 231v57Zm260-260-29-28 29 28 28 28-28-28Z"/>
                             </svg>
                         </a>
                     </div>
-                    <div class="grid grid-cols-4 gap-2">
-                        <div>
-                            <p><strong>Monthly Pension:</strong></p>
-                            <p><strong>Pension Schedule:</strong></p>
-                            <p><strong>Pension Type:</strong></p>
-                        </div>
-                        <div>
-                            <p><span id="review-permanent-address"></span></p>
-                            <p><span id="review-permanent-address"></span></p>
-                            <p><span id="review-permanent-address"></span></p>
-                        </div>
+
+                    <div>
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Monthly Pension:</div>
+                            <div class="text-gray-900">N/A</div>
+                        </li>   
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Pension Schedule:</div>
+                            <div class="text-gray-900">N/A</div>
+                        </li>  
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Pension Type:</div>
+                            <div class="text-gray-900">N/A</div>
+                        </li>  
+
                     </div>
+                    
                 </div>
+            
+                <!-- Separator Line -->
+                <hr class="my-6 border-gray-300" />
 
-                <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+                <!-- Fifth Section: Background Data -->
+                <div>
 
-                <div class="review-section mb-4">
                     <div class="flex justify-between ">
-                        <h3 class="text-xl font-semibold mb-4">Background Data</h3>
+                        <h3 class="text-2xl font-semibold mb-4">Background Data</h3>
                         <a href="step1" class="cursor-pointer">
                             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#434343">
                                 <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h357l-80 80H200v560h560v-278l80-80v358q0 33-23.5 56.5T760-120H200Zm280-360ZM360-360v-170l367-367q12-12 27-18t30-6q16 0 30.5 6t26.5 18l56 57q11 12 17 26.5t6 29.5q0 15-5.5 29.5T897-728L530-360H360Zm481-424-56-56 56 56ZM440-440h56l232-232-28-28-29-28-231 231v57Zm260-260-29-28 29 28 28 28-28-28Z"/>
                             </svg>
                         </a>
                     </div>
-                    <div class="grid grid-cols-4 gap-2">
-                        <div>
-                            <p><strong>Father's Name:</strong></p>
-                            <p><strong>Contact No:</strong></p>
-                            <p><strong>Mother's Name:</strong></p>
-                            <p><strong>Contact No:</strong></p>
-                        </div>
-                        <div>
-                            <p><span id="review-permanent-address">Simene</span></p>
-                            <p><span id="review-permanent-address">09242857368</span></p>
-                            <p><span id="review-permanent-address">Simene</span></p>
-                            <p><span id="review-permanent-address">09242857368</span></p>
-                        </div>
+
+                    <div>
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Father's Name:</div>
+                            <div class="text-gray-900">Cj Simene</div>
+                        </li>   
+                        
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Contact No.:</div>
+                            <div class="text-gray-900">04957382957</div>
+                        </li>   
+                        
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Mother's Name:</div>
+                            <div class="text-gray-900">C Simene</div>
+                        </li>    
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Contact No.:</div>
+                            <div class="text-gray-900">04957382957</div>
+                        </li>   
+
                     </div>
+                    
                 </div>
 
-                <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+                <!-- Separator Line -->
+                <hr class="my-6 border-gray-300" />
 
-                <div class="review-section mb-4">
+                <!-- Last Section: Bank Account Informations -->
+                <div>
+
                     <div class="flex justify-between ">
-                        <h3 class="text-xl font-semibold mb-4">Bank Account Informations</h3>
+                        <h3 class="text-2xl font-semibold mb-4">Bank Account Informationsn</h3>
                         <a href="step1" class="cursor-pointer">
                             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#434343">
                                 <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h357l-80 80H200v560h560v-278l80-80v358q0 33-23.5 56.5T760-120H200Zm280-360ZM360-360v-170l367-367q12-12 27-18t30-6q16 0 30.5 6t26.5 18l56 57q11 12 17 26.5t6 29.5q0 15-5.5 29.5T897-728L530-360H360Zm481-424-56-56 56 56ZM440-440h56l232-232-28-28-29-28-231 231v57Zm260-260-29-28 29 28 28 28-28-28Z"/>
                             </svg>
                         </a>
                     </div>
-                    <div class="grid grid-cols-4 gap-2">
-                        <div>
-                            <p><strong>Bank / Branch:</strong></p>
-                            <p><strong>Card No.:</strong></p>
-                            <p><strong>Account No.:</strong></p>
-                            <p><strong>Pin No.:</strong></p>
-                        </div>
-                        <div>
-                            <p><span id="review-permanent-address">CJK</span></p>
-                            <p><span id="review-permanent-address">100023232</span></p>
-                            <p><span id="review-permanent-address">100023232</span></p>
-                            <p><span id="review-permanent-address">1234</span></p>
-                        </div>
+
+                    <div>
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Bank / Branch:</div>
+                            <div class="text-gray-900">CJK Cdo</div>
+                        </li>   
+                        
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Contact No.:</div>
+                            <div class="text-gray-900">04957382957</div>
+                        </li>   
+                        
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Card No.:</div>
+                            <div class="text-gray-900">049573</div>
+                        </li>    
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Account No.:</div>
+                            <div class="text-gray-900">1234</div>
+                        </li>   
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Pin No.:</div>
+                            <div class="text-gray-900">1234</div>
+                        </li>   
+
                     </div>
+                    
                 </div>
-
-                <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
-
                 
             </div>
 

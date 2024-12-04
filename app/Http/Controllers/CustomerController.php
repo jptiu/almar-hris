@@ -90,6 +90,7 @@ class CustomerController extends Controller
         $customer = Customer::where('branch_id', $branch)->where('id', $id)->first();
 
         return view('pages.customer.show.index', compact('customer'));
+        
     }
 
     /**
