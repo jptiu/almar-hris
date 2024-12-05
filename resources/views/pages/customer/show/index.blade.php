@@ -74,30 +74,32 @@
                     </thead>
                     <tbody class="text-sm text-gray-700">
                         <!-- Example Row -->
+                        @foreach($customer->loans as $loan)
                         <tr class="hover:bg-gray-50">
-                        <td class="border border-gray-200 px-4 py-2">Personal Loan</td>
-                        <td class="border border-gray-200 px-4 py-2">Disbursal</td>
-                        <td class="border border-gray-200 px-4 py-2">123456</td>
-                        <td class="border border-gray-200 px-4 py-2">2024-01-01</td>
-                        <td class="border border-gray-200 px-4 py-2">CUST-001</td>
-                        <td class="border border-gray-200 px-4 py-2">Individual</td>
-                        <td class="border border-gray-200 px-4 py-2 text-green-600 font-medium">Approved</td>
-                        <td class="border border-gray-200 px-4 py-2 text-center">Yes</td>
-                        <td class="border border-gray-200 px-4 py-2 text-center">No</td>
-                        <td class="border border-gray-200 px-4 py-2">₱50,000</td>
-                        <td class="border border-gray-200 px-4 py-2">30</td>
-                        <td class="border border-gray-200 px-4 py-2">1</td>
-                        <td class="border border-gray-200 px-4 py-2">5%</td>
-                        <td class="border border-gray-200 px-4 py-2">₱2,500</td>
-                        <td class="border border-gray-200 px-4 py-2">₱500</td>
-                        <td class="border border-gray-200 px-4 py-2">₱52,500</td>
-                        <td class="border border-gray-200 px-4 py-2">Branch-01</td>
+                        <td class="border border-gray-200 px-4 py-2">{{$loan->loan_type}}</td>
+                        <td class="border border-gray-200 px-4 py-2">{{$loan->transaction_type}}</td>
+                        <td class="border border-gray-200 px-4 py-2">{{$loan->id}}</td>
+                        <td class="border border-gray-200 px-4 py-2">{{$loan->date_of_loan}}</td>
+                        <td class="border border-gray-200 px-4 py-2">{{$customer->id}}</td>
+                        <td class="border border-gray-200 px-4 py-2">{{$loan->customer_type}}</td>
+                        <td class="border border-gray-200 px-4 py-2 text-green-600 font-medium">{{$loan->status}}</td>
+                        <td class="border border-gray-200 px-4 py-2 text-center">{{$loan->transaction_with_collateral}}</td>
+                        <td class="border border-gray-200 px-4 py-2 text-center">{{$loan->transaction_with_cert}}</td>
+                        <td class="border border-gray-200 px-4 py-2">{{$loan->principal_amount}}</td>
+                        <td class="border border-gray-200 px-4 py-2">{{$loan->days_to_pay}}</td>
+                        <td class="border border-gray-200 px-4 py-2">{{$loan->months_to_pay}}</td>
+                        <td class="border border-gray-200 px-4 py-2">{{$loan->interest}}</td>
+                        <td class="border border-gray-200 px-4 py-2">{{$loan->interest_amount}}</td>
+                        <td class="border border-gray-200 px-4 py-2">{{$loan->svc_charge}}</td>
+                        <td class="border border-gray-200 px-4 py-2">{{$loan->payable_amount}}</td>
+                        <td class="border border-gray-200 px-4 py-2">{{$loan->branch_id}}</td>
                         <td class="border border-gray-200 px-4 py-2">
                             <a href="#" class="text-blue-500 underline">Download</a>
                         </td>
-                        <td class="border border-gray-200 px-4 py-2">First Loan Application</td>
+                        <td class="border border-gray-200 px-4 py-2">{{$loan->note}}</td>
                         </tr>
                         <!-- Repeat rows for more data -->
+                        @endforeach
                     </tbody>
                     </table>
                 </div>

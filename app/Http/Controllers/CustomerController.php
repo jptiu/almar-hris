@@ -112,10 +112,10 @@ class CustomerController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(CustomerUpdateRequest $request, string $id)
+    public function update(Request $request, string $id)
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
-        if ($request->validated()) {
+        // if ($request->validated()) {
             $customer = Customer::find($id);
             $customer->type = $request->type;
             $customer->first_name = $request->first_name;
@@ -134,7 +134,7 @@ class CustomerController extends Controller
 
             return redirect(route("customer.index"))->with('success', 'Updated Successfully');
 
-        }
+        // }
     }
 
     /**

@@ -57,6 +57,11 @@ class Customer extends Model
         return $this->hasOne(Loan::class, 'customer_id')->latestOfMany();
     }
 
+    public function loans()
+    {
+        return $this->hasMany(Loan::class, 'customer_id');
+    }
+
     public function bry()
     {
         return $this->belongsTo(Barangay::class, 'barangay', 'id');
