@@ -114,12 +114,13 @@ class BreakdownController extends Controller
         // dd($header);
 
         foreach ($rows as $row) {
+            $formattedTotal = (float) str_replace(',', '', $row[3]);
             // Create and save your model instance
             Breakdown::create([
                 'ref_no' => $row[0],
                 'date' => $row[1],
                 'user_id' => $row[2],
-                'total_amount' => $row[3],
+                'total_amount' => number_format($formattedTotal, 2, '.', ''),
                 'branch_id' => $branch,
             ]);
         }
@@ -148,13 +149,16 @@ class BreakdownController extends Controller
         // dd($header);
 
         foreach ($rows as $row) {
+            $formattedDenom = (float) str_replace(',', '', $row[2]);
+            $formattedQty = (float) str_replace(',', '', $row[4]);
+            $formattedAmount = (float) str_replace(',', '', $row[5]);
             // Create and save your model instance
             CashBill::create([
                 'breakdown_id' => $row[0],
-                'denomination' => $row[2],
+                'denomination' => number_format($formattedDenom, 2, '.', ''),
                 'type' => $row[3],
-                'qty' => $row[4],
-                'amount' => $row[5],
+                'qty' => number_format($formattedQty, 2, '.', ''),
+                'amount' => number_format($formattedAmount, 2, '.', ''),
                 'branch_id' => $branch,
             ]);
         }

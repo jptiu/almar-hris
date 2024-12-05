@@ -226,14 +226,14 @@ class LoanController extends Controller
         // Remove the header row if it exists
         $header = array_shift($rows);
         // dd($header);
-
         foreach ($rows as $row) {
+            $formattedAmount = (float) str_replace(',', '', $row[3]); // Remove commas and convert to float
             // Create and save your model instance
             Loan::create([
                 'id' => $row[0],
                 'date_of_loan' => $row[1],
                 'customer_id' => $row[2],
-                'principal_amount' => $row[3],
+                'principal_amount' => number_format($formattedAmount, 2, '.', ''),
                 'payable_amount' => $row[4],
                 'days_to_pay' => $row[5],
                 'months_to_pay' => $row[6],
@@ -263,7 +263,6 @@ class LoanController extends Controller
 
         // Read the CSV data
         $csvData = file_get_contents($file);
-        // dd($csvData);
 
         // Split CSV data into rows
         $rows = array_map('str_getcsv', explode("\n", $csvData));
@@ -273,22 +272,27 @@ class LoanController extends Controller
         // dd($header);
 
         foreach ($rows as $row) {
+            $formattedAmount = (float) str_replace(',', '', $row[4]);
+            $formattedPaid = (float) str_replace(',', '', $row[6]);
+            $formattedBal = (float) str_replace(',', '', $row[7]);
+            $formattedTend = (float) str_replace(',', '', $row[13]);
+            $formattedChange = (float) str_replace(',', '', $row[14]);
             // Create and save your model instance
             LoanDetails::create([
                 'id' => $row[1],
                 'loan_id' => $row[0],//Lnkltranh_no
                 'loan_day_no' => $row[2],//ltrand_dayno
                 'loan_due_date' => $row[3],//ltrand_duedate
-                'loan_due_amount' => $row[4],//ltrand_dueamt
+                'loan_due_amount' => number_format($formattedAmount, 2, '.', ''),//ltrand_dueamt
                 'loan_date_paid' => $row[5],//ltrand_datepaid
-                'loan_amount_paid' => $row[6],//ltrand_amtpaid
-                'loan_running_balance' => $row[7],//ltrand_runbal
+                'loan_amount_paid' => number_format($formattedPaid, 2, '.', ''),//ltrand_amtpaid
+                'loan_running_balance' => number_format($formattedBal, 2, '.', ''),//ltrand_runbal
                 'user_id' => $row[9],//ltrand_clctor
                 'loan_bank' => $row[10],//ltrand_bank
                 'loan_check_no' => $row[11],//ltrand_chkno
                 'loan_remarks' => $row[12],//ltrand_rem
-                'loan_amount_tenderd' => $row[13],//ltrand_amttend
-                'loan_amount_change' => $row[14],//ltrand_amtchange
+                'loan_amount_tenderd' => number_format($formattedTend, 2, '.', ''),//ltrand_amttend
+                'loan_amount_change' => number_format($formattedChange, 2, '.', ''),//ltrand_amtchange
                 'loan_withdraw_from_bank' => $row[15],//ltrand_withdrawn_frombank
                 'branch_id' => $branch,
             ]);

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('ref_no');
             $table->string('date');
             $table->string('user_id');
-            $table->string('total_amount')->nullable();
+            $table->decimal('total_amount', 10, 2)->nullable();
             $table->timestamps();
         });
     }

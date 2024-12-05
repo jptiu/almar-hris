@@ -13,10 +13,10 @@ return new class extends Migration {
         Schema::create('cash_bills', function (Blueprint $table) {
             $table->id();
             $table->string('breakdown_id');
-            $table->string('denomination');
+            $table->decimal('denomination', 10, 2);
             $table->string('type');
-            $table->string('qty');
-            $table->string('amount');
+            $table->decimal('qty', 10, 2);
+            $table->decimal('amount', 10, 2);
             $table->timestamps();
         });
     }
