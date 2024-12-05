@@ -40,7 +40,7 @@ class Customer extends Model
         'day_off',
         'monthly_salary',
         'salary_sched',
-        'monthtly_pension',
+        'monthly_pension',
         'pension_sched',
         'pension_type',
         'fathers_name',

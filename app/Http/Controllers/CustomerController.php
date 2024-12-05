@@ -94,14 +94,18 @@ class CustomerController extends Controller
         $customer = Customer::where('branch_id', $branch)->where('id', $id)->first();
 
         return view('pages.customer.show.index', compact('customer'));
+        
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
+        $customer = Customer::where('branch_id', $branch)->where('id', $id)->first();
+
+        return view('pages.customer.update.index', compact('customer'));
     }
 
     /**
