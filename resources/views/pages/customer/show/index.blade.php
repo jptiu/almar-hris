@@ -111,62 +111,59 @@
                     <div>
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Customer Type:</div>
-                            <div class="text-gray-900">Type 1</div>
+                            <div class="text-gray-900">{{$customer->type}}</div>
                         </li>  
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Full Name:</div>
-                            <div class="text-gray-900">John D. Doe</div>
+                            <div class="text-gray-900">{{$customer->first_name}}</div>
                         </li>  
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Personal Contact Number:</div>
-                            <div class="text-gray-900">09262349809</div>
+                            <div class="text-gray-900">{{$customer->cell_number}}</div>
                         </li>  
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Birthdate:</div>
-                            <div class="text-gray-900">01/01/2025</div>
+                            <div class="text-gray-900">{{$customer->birth_date}}</div>
                         </li>  
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Birth Place:</div>
-                            <div class="text-gray-900">CDO</div>
+                            <div class="text-gray-900">{{$customer->birth_place}} </div>
                         </li>  
 
                         <li class="flex flex-wrap mb-2">
-                            <div class="text-gray-500 w-72">Birthdate:</div>
-                            <div class="text-gray-900">01/01/2025</div>
-                        </li> 
-
-                        <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Address:</div>
-                            <div class="text-gray-900">CDO Lapasan</div>
+                            <div class="text-gray-900">{{$customer->house}}, {{$customer->street}},
+                            {{$customer->barangay}}, {{$customer->city}}
+                            </div>
                         </li> 
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Civil Status:</div>
-                            <div class="text-gray-900">Single</div>
+                            <div class="text-gray-900">{{$customer->civil_status}}</div>
                         </li> 
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Age:</div>
-                            <div class="text-gray-900">25</div>
+                            <div class="text-gray-900">{{$customer->age}}</div>
                         </li> 
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Gender:</div>
-                            <div class="text-gray-900">Single</div>
+                            <div class="text-gray-900">{{$customer->gender}}</div>
                         </li> 
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Citizenship:</div>
-                            <div class="text-gray-900">Filipino</div>
+                            <div class="text-gray-900">{{$customer->citizenship}}</div>
                         </li> 
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Facebook:</div>
-                            <div class="text-gray-900">Cj Simene</div>
+                            <div class="text-gray-900">{{$customer->facebook_name}}</div>
                         </li> 
                     </div>
                     
@@ -182,42 +179,37 @@
                     <div>
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Complete Name of Spouse:</div>
-                            <div class="text-gray-900">John Doe</div>
+                            <div class="text-gray-900">{{$customer->spouse_name}}</div>
                         </li>   
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Personal Contact Number:</div>
-                            <div class="text-gray-900">09262349809</div>
+                            <div class="text-gray-900">{{$customer->cell_number}}</div>
                         </li>  
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Birthdate:</div>
-                            <div class="text-gray-900">01/01/2025</div>
+                            <div class="text-gray-900">{{$customer->birth_date}}</div>
                         </li>  
-
-                        <li class="flex flex-wrap mb-2">
-                            <div class="text-gray-500 w-72">Birthdate:</div>
-                            <div class="text-gray-900">01/01/2025</div>
-                        </li> 
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Age:</div>
-                            <div class="text-gray-900">25</div>
+                            <div class="text-gray-900">{{$customer->age}}</div>
                         </li> 
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Occupation:</div>
-                            <div class="text-gray-900">Dev</div>
+                            <div class="text-gray-900">{{$customer->occupation}}</div>
                         </li> 
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Company Name/ Address:</div>
-                            <div class="text-gray-900">Filipino</div>
+                            <div class="text-gray-900">{{$customer->c_nameadd}}</div>
                         </li> 
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Facebook:</div>
-                            <div class="text-gray-900">Cj Simene</div>
+                            <div class="text-gray-900">{{$customer->facebook_name}}</div>
                         </li> 
                     </div>
                     
@@ -232,47 +224,47 @@
                     <div>
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Agency Name:</div>
-                            <div class="text-gray-900">CJK</div>
+                            <div class="text-gray-900">{{$customer->agency_name}}</div>
                         </li>   
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Address / Tel. no:</div>
-                            <div class="text-gray-900">CDO 0241413</div>
+                            <div class="text-gray-900">{{$customer->add_tel}}</div>
                         </li>  
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Company Name:</div>
-                            <div class="text-gray-900">CJK Almar</div>
+                            <div class="text-gray-900">{{$customer->comp_name}}</div>
                         </li>  
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Address / Tel. no:</div>
-                            <div class="text-gray-900">CDO 0241413</div>
+                            <div class="text-gray-900">{{$customer->add_tel}}</div>
                         </li>  
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Date Hired:</div>
-                            <div class="text-gray-900">01/01/2025</div>
+                            <div class="text-gray-900">{{$customer->date_hired}}</div>
                         </li> 
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Day Off:</div>
-                            <div class="text-gray-900">MWF</div>
+                            <div class="text-gray-900">{{$customer->day_off}}</div>
                         </li> 
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Position:</div>
-                            <div class="text-gray-900">Dev</div>
+                            <div class="text-gray-900">{{$customer->job_position}}</div>
                         </li> 
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Monthly Salary:</div>
-                            <div class="text-gray-900">50,000</div>
+                            <div class="text-gray-900">{{$customer->monthly_salary}}</div>
                         </li> 
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Salary Schedule:</div>
-                            <div class="text-gray-900">MWF</div>
+                            <div class="text-gray-900">{{$customer->salary_sched}}</div>
                         </li> 
                     </div>
                     
@@ -290,17 +282,17 @@
                     <div>
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Monthly Pension:</div>
-                            <div class="text-gray-900">N/A</div>
+                            <div class="text-gray-900">{{$customer->monthly_pension}}</div>
                         </li>   
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Pension Schedule:</div>
-                            <div class="text-gray-900">N/A</div>
+                            <div class="text-gray-900">{{$customer->pension_sched}}</div>
                         </li>  
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Pension Type:</div>
-                            <div class="text-gray-900">N/A</div>
+                            <div class="text-gray-900">{{$customer->pension_type}}</div>
                         </li>  
 
                     </div>
@@ -316,24 +308,23 @@
                     <div>
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Father's Name:</div>
-                            <div class="text-gray-900">Cj Simene</div>
+                            <div class="text-gray-900">{{$customer->fathers_name}}</div>
                         </li>   
                         
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Contact No.:</div>
-                            <div class="text-gray-900">04957382957</div>
+                            <div class="text-gray-900">{{$customer->cell_number}}</div>
                         </li>   
                         
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Mother's Name:</div>
-                            <div class="text-gray-900">C Simene</div>
+                            <div class="text-gray-900">{{$customer->mothers_name}}C Simene</div>
                         </li>    
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Contact No.:</div>
-                            <div class="text-gray-900">04957382957</div>
+                            <div class="text-gray-900">{{$customer->cell_number}}</div>
                         </li>   
-
                     </div>
                     
                 </div>
@@ -347,29 +338,23 @@
                     <div>
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Bank / Branch:</div>
-                            <div class="text-gray-900">CJK Cdo</div>
-                        </li>   
-                        
-                        <li class="flex flex-wrap mb-2">
-                            <div class="text-gray-500 w-72">Contact No.:</div>
-                            <div class="text-gray-900">04957382957</div>
+                            <div class="text-gray-900">{{$customer->branch}}</div>
                         </li>   
                         
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Card No.:</div>
-                            <div class="text-gray-900">049573</div>
+                            <div class="text-gray-900">{{$customer->card_no}}</div>
                         </li>    
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Account No.:</div>
-                            <div class="text-gray-900">1234</div>
+                            <div class="text-gray-900">{{$customer->acc_no}}</div>
                         </li>   
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Pin No.:</div>
-                            <div class="text-gray-900">1234</div>
+                            <div class="text-gray-900">{{$customer->pin_no}}</div>
                         </li>   
-
                     </div>
                     
                 </div>  
