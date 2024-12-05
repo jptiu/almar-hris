@@ -103,9 +103,10 @@ class CustomerController extends Controller
     public function edit($id)
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
+        $branch = auth()->user()->branch_id;
         $customer = Customer::where('branch_id', $branch)->where('id', $id)->first();
-
-        return view('pages.customer.update.index', compact('customer'));
+        $types = CustomerType::where('branch_id', $branch)->paginate(20);
+        return view('pages.customer.update.index', compact('customer', 'types'));
     }
 
     /**
