@@ -94,6 +94,8 @@ class CollectionController extends Controller
             $col->date = $request->date_paid;
             $col->paid_amount = $request->loan_amount_paid;
             $col->branch_id = $branch;
+            $col->lat = $request->lat ?? 0;
+            $col->long = $request->long ?? 0;
             $col->save();
         }
 

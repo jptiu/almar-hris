@@ -20,10 +20,14 @@ class CustomerController extends Controller
         try {
             $branch = auth()->user()->branch_id;
             if (isset($request->search)) {
-                $lists = Customer::where('branch_id', $branch)->where('first_name', 'LIKE', '%', $request->search, '%')->orderBy("created_at", "asc")->get();
+                $lists = Customer::with('loan.details')
+                ->where('branch_id', $branch)
+                    ->where('first_name', 'LIKE', '%' . $request->search . '%')
+                    ->orderBy("created_at", "asc")
+                    ->paginate(20);
+            }else{
+                $lists = Customer::with('loan.details')->where('branch_id', $branch)->get();
             }
-            $lists = Customer::where('branch_id', $branch)->get();
-
 
             return response()->json($lists, 200);
         } catch (\Throwable $th) {
@@ -85,11 +89,15 @@ class CustomerController extends Controller
      */
     public function show(string $id)
     {
-        abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
+        // abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
         $branch = auth()->user()->branch_id;
-        $customer = Customer::where('branch_id', $branch)->where('id', $id)->first();
-
-        return view('pages.customer.update.index', compact('customer'));
+        $customer = Customer::with(['loan' => function ($query) {
+            $query->where('status', '!=', null);
+        } ,'customerType','loan.details' => function ($query) {
+            $query->whereNull('loan_date_paid'); // Filter due today
+        }])->find($id);
+        
+        return response()->json($customer, 200);
     }
 
     /**

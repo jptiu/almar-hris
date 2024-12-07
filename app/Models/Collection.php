@@ -19,6 +19,8 @@ class Collection extends Model
         'branch_id',
         'customer_id',
         'paid_amount',
+        'lat',
+        'long',
     ];
 
     public function user(){

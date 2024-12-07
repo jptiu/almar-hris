@@ -31,7 +31,41 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd(true);
+        $branch = auth()->user()->branch_id;
+        // dd($branch);
+        $loan = Loan::findOrFail($request->trans_no);
+        $loanDetails = LoanDetails::where('loan_id', $loan->id)
+            ->where('loan_day_no', $request->loan_no)
+            ->first();
+        if($loanDetails){
+            $loanDetails->loan_date_paid = $request->date_paid;
+            $loanDetails->loan_amount_paid = $request->loan_amount_paid;
+            $loanDetails->loan_amount_change = $request->loan_amount_change ?? 0;
+            $loanDetails->loan_withdraw_from_bank = $request->loan_withdraw_from_bank ?? 0;
+            $loanDetails->update();
+        }
+
+        if ($loan) {
+            $col = new Collection();
+            $col->customer_id = $loan->customer_id;
+            $col->user_id = auth()->user()->id;
+            $col->name = $request->name;
+            $col->type = $request->type;
+            $col->status = $request->status;
+            $col->trans_no = $request->trans_no;
+            $col->date = $request->date_paid;
+            $col->paid_amount = $request->loan_amount_paid;
+            $col->branch_id = $branch;
+            $col->lat = $request->lat ?? 0;
+            $col->long = $request->long ?? 0;
+            $col->save();
+        }
+
+        return response()->json([
+            'message' => 'Payment has been made.',
+            'data' => $col,
+        ], 200);
     }
 
     /**
