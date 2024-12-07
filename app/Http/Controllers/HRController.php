@@ -214,4 +214,10 @@ class HRController extends Controller
         return redirect()->back()->with('success', 'Announcement deleted.');
     }
 
+    public function printStatement(Request $request)
+    {
+
+        return view('pages.hr.loanapprovals.printStatement.index');
+    }
+
 }

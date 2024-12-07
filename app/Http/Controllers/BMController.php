@@ -218,4 +218,10 @@ class BMController extends Controller
         return view('pages.requestform.cashbond.index');
     }
 
+    public function printStatement(Request $request)
+    {
+
+        return view('pages.pendingloanapp.printStatement.index');
+    }
+
 }
