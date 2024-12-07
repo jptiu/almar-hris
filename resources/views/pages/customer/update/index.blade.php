@@ -252,27 +252,27 @@
                                 </div>
 
                                 <div class="md:col-span-2">
-                                    <label for="cell_number">Contact Number</label>
+                                    <label for="spouse_number">Contact Number</label>
                                     <div>
-                                        <input value="{{ $customer->cell_number }}" type="number"
-                                            name="cell_number" id="cell_number"
+                                        <input value="{{ $customer->spouse_number }}" type="number"
+                                            name="spouse_number" id="spouse_number"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
                                     </div>
                                 </div>
 
                                 <div class="md:col-span-2">
-                                    <label for="birth_date">Birthdate</label>
-                                    <input value="{{ $customer->birth_date }}" type="date" name="birth_date"
-                                        id="birth_date"
+                                    <label for="spouse_bdate">Birthdate</label>
+                                    <input value="{{ $customer->spouse_bdate }}" type="date" name="spouse_bdate"
+                                        id="spouse_bdate"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                         placeholder="" />
                                 </div>
 
                                 <div class="md:col-span-2">
-                                    <label for="age">Age</label>
+                                    <label for="spouse_age">spouse_age</label>
                                     <div>
-                                        <input value="{{ $customer->age }}" type="number" name="age"
-                                            id="age"
+                                        <input value="{{ $customer->spouse_age }}" type="number" name="spouse_age"
+                                            id="spouse_age"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
                                     </div>
                                 </div>
@@ -294,10 +294,10 @@
                                 </div>
 
                                 <div class="md:col-span-2">
-                                    <label for="facebook_name">Facebook Name</label>
+                                    <label for="spouse_fb">Facebook Name</label>
                                     <div>
-                                        <input value="{{ $customer->facebook_name }}" name="facebook_name"
-                                            id="facebook_name"
+                                        <input value="{{ $customer->spouse_fb }}" name="spouse_fb"
+                                            id="spouse_fb"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
                                     </div>
                                 </div>
@@ -617,17 +617,17 @@
 
                                 <li class="flex flex-wrap mb-2">
                                     <div class="text-gray-500 w-72">Personal Contact Number:</div>
-                                    <div class="text-gray-900">{{ $customer->cell_number }}</div>
+                                    <div class="text-gray-900">{{ $customer->spouse_number }}</div>
                                 </li>
 
                                 <li class="flex flex-wrap mb-2">
                                     <div class="text-gray-500 w-72">Birthdate:</div>
-                                    <div class="text-gray-900">{{ $customer->birth_date }}</div>
+                                    <div class="text-gray-900">{{ $customer->spouse_bdate }}</div>
                                 </li>
 
                                 <li class="flex flex-wrap mb-2">
                                     <div class="text-gray-500 w-72">Age:</div>
-                                    <div class="text-gray-900">{{ $customer->age }}</div>
+                                    <div class="text-gray-900">{{ $customer->spouse_age }}</div>
                                 </li>
 
                                 <li class="flex flex-wrap mb-2">
@@ -642,7 +642,7 @@
 
                                 <li class="flex flex-wrap mb-2">
                                     <div class="text-gray-500 w-72">Facebook:</div>
-                                    <div class="text-gray-900">{{ $customer->facebook_name }}</div>
+                                    <div class="text-gray-900">{{ $customer->spouse_fb }}</div>
                                 </li>
                             </div>
 
@@ -683,7 +683,7 @@
 
                                 <li class="flex flex-wrap mb-2">
                                     <div class="text-gray-500 w-72">Address / Tel. no:</div>
-                                    <div class="text-gray-900">{{ $customer->add_tel }}</div>
+                                    <div class="text-gray-900">{{ $customer->add_telc }}</div>
                                 </li>
 
                                 <li class="flex flex-wrap mb-2">
@@ -776,7 +776,7 @@
 
                                 <li class="flex flex-wrap mb-2">
                                     <div class="text-gray-500 w-72">Contact No.:</div>
-                                    <div class="text-gray-900">{{ $customer->cell_number }}</div>
+                                    <div class="text-gray-900">{{ $customer->fathers_num }}</div>
                                 </li>
 
                                 <li class="flex flex-wrap mb-2">
@@ -786,7 +786,7 @@
 
                                 <li class="flex flex-wrap mb-2">
                                     <div class="text-gray-500 w-72">Contact No.:</div>
-                                    <div class="text-gray-900">{{ $customer->cell_number }}</div>
+                                    <div class="text-gray-900">{{ $customer->mothers_num }}</div>
                                 </li>
                             </div>
 
