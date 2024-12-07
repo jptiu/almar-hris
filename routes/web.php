@@ -212,6 +212,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     // Auditor
     Route::get('auditor', [AuditorController::class, 'index'])->name('auditor.index');
+    Route::get('loanLists', [AuditorController::class, 'loanLists'])->name('loans.index');
+    Route::get('customerLists', [AuditorController::class, 'customerLists'])->name('customers.index');
 
     // Branch
     Route::get('branch', [BMController::class, 'index'])->name('branch.index');
