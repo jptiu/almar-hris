@@ -73,7 +73,11 @@ class ExpensesController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
+        $branch = auth()->user()->branch_id;
+        $expenses = Expenses::with('account')->where('branch_id', $branch)->where('id', $id)->first();
+        
+        return view('pages.expenses.update.index', compact('expenses'));
     }
 
     /**

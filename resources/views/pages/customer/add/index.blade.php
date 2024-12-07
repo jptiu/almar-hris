@@ -188,23 +188,23 @@
                     </div>
 
                     <div class="md:col-span-2">
-                        <label for="cell_number">Contact Number</label>
+                        <label for="spouse_number">Contact Number</label>
                          <div>
-                            <input type="number" name="cell_number" id="cell_number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
+                            <input type="number" name="spouse_number" id="spouse_number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                          </div>
                     </div>
 
                     <div class="md:col-span-2">
-                        <label for="birth_date">Birthdate</label>
-                        <input type="date" name="birth_date" id="birth_date"
+                        <label for="spouse_bdate">Birthdate</label>
+                        <input type="date" name="spouse_bdate" id="spouse_bdate"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             value="" placeholder="" />
                     </div>
 
                     <div class="md:col-span-2">
-                        <label for="age">Age</label>
+                        <label for="spouse_age">spouse_age</label>
                          <div>
-                            <input type="number" name="age" id="age" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
+                            <input type="number" name="spouse_age" id="spouse_age" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                          </div>
                     </div>
 
@@ -223,9 +223,9 @@
                     </div>
 
                     <div class="md:col-span-2">
-                        <label for="facebook_name">Facebook Name</label>
+                        <label for="spouse_fb">Facebook Name</label>
                          <div>
-                            <input name="facebook_name" id="facebook_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
+                            <input name="spouse_fb" id="spouse_fb" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                          </div>
                     </div>
                     </div>
@@ -259,9 +259,9 @@
                     </div>
 
                     <div class="md:col-span-2">
-                        <label for="add_tel">Address / Tel. no.</label>
+                        <label for="add_telc">Address / Tel. no.</label>
                          <div>
-                            <input name="add_tel" id="add_tel" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
+                            <input name="add_telc" id="add_telc" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                          </div>
                     </div>
 
@@ -310,9 +310,9 @@
                 <form id="loanForm2">
                     <div class="grid grid-cols-4 gap-4">
                     <div class="md:col-span-2">
-                        <label for="monthtly_pension">Monthly Pension</label>
+                        <label for="monthly_pension">Monthly Pension</label>
                          <div>
-                            <input name="monthtly_pension" id="monthtly_pension" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
+                            <input name="monthly_pension" id="monthly_pension" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                          </div>
                     </div>
 
@@ -347,9 +347,9 @@
                     </div>
 
                     <div class="md:col-span-2">
-                        <label for="cell_number">Contact No.</label>
+                        <label for="fathers_num">Contact No.</label>
                          <div>
-                            <input type="number" name="cell_number" id="cell_number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
+                            <input type="number" name="fathers_num" id="fathers_num" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                          </div>
                     </div>
 
@@ -361,9 +361,9 @@
                     </div>
 
                     <div class="md:col-span-2">
-                        <label for="cell_number">Contact No.</label>
+                        <label for="mothers_num">Contact No.</label>
                          <div>
-                            <input type="number" name="cell_number" id="cell_number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
+                            <input type="number" name="mothers_num" id="mothers_num" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" />
                          </div>
                     </div>
 
@@ -427,62 +427,62 @@
                     <div>
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Customer Type:</div>
-                            <div class="text-gray-900">Type 1</div>
+                            <div class="text-gray-900" id="cusType">Type 1</div>
                         </li>  
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Full Name:</div>
-                            <div class="text-gray-900">John D. Doe</div>
+                            <div class="text-gray-900" id="prevName"></div>
                         </li>  
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Personal Contact Number:</div>
-                            <div class="text-gray-900">09262349809</div>
+                            <div class="text-gray-900" id="contactNum"></div>
+                        </li>  
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Address:</div>
+                            <div class="text-gray-900" id="cusAddress"></div>
                         </li>  
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Birthdate:</div>
-                            <div class="text-gray-900">01/01/2025</div>
+                            <div class="text-gray-900" id="bDate"></div>
                         </li>  
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Birth Place:</div>
-                            <div class="text-gray-900">CDO</div>
+                            <div class="text-gray-900" id="bPlace"></div>
                         </li>  
 
                         <li class="flex flex-wrap mb-2">
-                            <div class="text-gray-500 w-72">Birthdate:</div>
-                            <div class="text-gray-900">01/01/2025</div>
-                        </li> 
-
-                        <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Address:</div>
-                            <div class="text-gray-900">CDO Lapasan</div>
+                            <div class="text-gray-900" id="address"></div>
                         </li> 
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Civil Status:</div>
-                            <div class="text-gray-900">Single</div>
+                            <div class="text-gray-900" id="civilStatus"></div>
                         </li> 
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Age:</div>
-                            <div class="text-gray-900">25</div>
+                            <div class="text-gray-900" id="ageNum"></div>
                         </li> 
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Gender:</div>
-                            <div class="text-gray-900">Single</div>
+                            <div class="text-gray-900" id="genderType"></div>
                         </li> 
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Citizenship:</div>
-                            <div class="text-gray-900">Filipino</div>
+                            <div class="text-gray-900" id="citizenshipType"></div>
                         </li> 
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Facebook:</div>
-                            <div class="text-gray-900">Cj Simene</div>
+                            <div class="text-gray-900" id="fbName"></div>
                         </li> 
                     </div>
                     
@@ -507,42 +507,37 @@
                     <div>
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Complete Name of Spouse:</div>
-                            <div class="text-gray-900">John Doe</div>
+                            <div class="text-gray-900" id="sName"></div>
                         </li>   
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Personal Contact Number:</div>
-                            <div class="text-gray-900">09262349809</div>
+                            <div class="text-gray-900" id="contactNums"></div>
                         </li>  
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Birthdate:</div>
-                            <div class="text-gray-900">01/01/2025</div>
+                            <div class="text-gray-900" id="sDate"></div>
                         </li>  
-
-                        <li class="flex flex-wrap mb-2">
-                            <div class="text-gray-500 w-72">Birthdate:</div>
-                            <div class="text-gray-900">01/01/2025</div>
-                        </li> 
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Age:</div>
-                            <div class="text-gray-900">25</div>
+                            <div class="text-gray-900" id="sAge"></div>
                         </li> 
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Occupation:</div>
-                            <div class="text-gray-900">Dev</div>
+                            <div class="text-gray-900" id="occupationSpouse">Dev</div>
                         </li> 
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Company Name/ Address:</div>
-                            <div class="text-gray-900">Filipino</div>
+                            <div class="text-gray-900" id="compAdd"></div>
                         </li> 
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Facebook:</div>
-                            <div class="text-gray-900">Cj Simene</div>
+                            <div class="text-gray-900" id="fbNames">Cj Simene</div>
                         </li> 
                     </div>
                     
@@ -566,47 +561,47 @@
                     <div>
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Agency Name:</div>
-                            <div class="text-gray-900">CJK</div>
+                            <div class="text-gray-900" id="agencyName"></div>
                         </li>   
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Address / Tel. no:</div>
-                            <div class="text-gray-900">CDO 0241413</div>
+                            <div class="text-gray-900" id="addTel"></div>
                         </li>  
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Company Name:</div>
-                            <div class="text-gray-900">CJK Almar</div>
+                            <div class="text-gray-900" id="comName"></div>
                         </li>  
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Address / Tel. no:</div>
-                            <div class="text-gray-900">CDO 0241413</div>
+                            <div class="text-gray-900" id="addTel2"></div>
                         </li>  
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Date Hired:</div>
-                            <div class="text-gray-900">01/01/2025</div>
+                            <div class="text-gray-900" id="dHired"></div>
                         </li> 
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Day Off:</div>
-                            <div class="text-gray-900">MWF</div>
+                            <div class="text-gray-900" id="dayOff"></div>
                         </li> 
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Position:</div>
-                            <div class="text-gray-900">Dev</div>
+                            <div class="text-gray-900" id="posiType"></div>
                         </li> 
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Monthly Salary:</div>
-                            <div class="text-gray-900">50,000</div>
+                            <div class="text-gray-900" id="monthSal"></div>
                         </li> 
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Salary Schedule:</div>
-                            <div class="text-gray-900">MWF</div>
+                            <div class="text-gray-900" id="salaSched"></div>
                         </li> 
                     </div>
                     
@@ -630,17 +625,17 @@
                     <div>
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Monthly Pension:</div>
-                            <div class="text-gray-900">N/A</div>
+                            <div class="text-gray-900" id="moPension"></div>
                         </li>   
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Pension Schedule:</div>
-                            <div class="text-gray-900">N/A</div>
+                            <div class="text-gray-900" id="penSched"></div>
                         </li>  
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Pension Type:</div>
-                            <div class="text-gray-900">N/A</div>
+                            <div class="text-gray-900" id="pType"></div>
                         </li>  
 
                     </div>
@@ -665,22 +660,22 @@
                     <div>
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Father's Name:</div>
-                            <div class="text-gray-900">Cj Simene</div>
+                            <div class="text-gray-900" id="fatherName"></div>
                         </li>   
                         
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Contact No.:</div>
-                            <div class="text-gray-900">04957382957</div>
+                            <div class="text-gray-900" id="fNum"></div>
                         </li>   
                         
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Mother's Name:</div>
-                            <div class="text-gray-900">C Simene</div>
+                            <div class="text-gray-900" id="motherName"></div>
                         </li>    
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Contact No.:</div>
-                            <div class="text-gray-900">04957382957</div>
+                            <div class="text-gray-900" id="mNum"></div>
                         </li>   
 
                     </div>
@@ -694,7 +689,7 @@
                 <div>
 
                     <div class="flex justify-between ">
-                        <h3 class="text-2xl font-semibold mb-4">Bank Account Informationsn</h3>
+                        <h3 class="text-2xl font-semibold mb-4">Bank Account Information</h3>
                         <a href="step1" class="cursor-pointer">
                             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#434343">
                                 <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h357l-80 80H200v560h560v-278l80-80v358q0 33-23.5 56.5T760-120H200Zm280-360ZM360-360v-170l367-367q12-12 27-18t30-6q16 0 30.5 6t26.5 18l56 57q11 12 17 26.5t6 29.5q0 15-5.5 29.5T897-728L530-360H360Zm481-424-56-56 56 56ZM440-440h56l232-232-28-28-29-28-231 231v57Zm260-260-29-28 29 28 28 28-28-28Z"/>
@@ -705,27 +700,22 @@
                     <div>
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Bank / Branch:</div>
-                            <div class="text-gray-900">CJK Cdo</div>
-                        </li>   
-                        
-                        <li class="flex flex-wrap mb-2">
-                            <div class="text-gray-500 w-72">Contact No.:</div>
-                            <div class="text-gray-900">04957382957</div>
+                            <div class="text-gray-900" id="bBank"></div>
                         </li>   
                         
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Card No.:</div>
-                            <div class="text-gray-900">049573</div>
+                            <div class="text-gray-900" id="cardNo"></div>
                         </li>    
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Account No.:</div>
-                            <div class="text-gray-900">1234</div>
+                            <div class="text-gray-900" id="accNo"></div>
                         </li>   
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Pin No.:</div>
-                            <div class="text-gray-900">1234</div>
+                            <div class="text-gray-900" id="pinNo"></div>
                         </li>   
 
                     </div>
@@ -894,7 +884,177 @@
             overviewPage.classList.remove("hidden");
             populateOverview();
         }
+        
+        // Show Review Data
+
+        //Personal Info
+        const ctype = document.getElementById("type");
+        const cusType = document.getElementById("cusType");
+        cusType.textContent = ctype.value;
+
+        const fname = document.getElementById("first_name");
+        const mname = document.getElementById("middle_name");
+        const lname = document.getElementById("last_name");
+        const prevName = document.getElementById("prevName");
+        prevName.textContent = fname.value+ " " +mname.value+ " " +lname.value;
+
+        const house1 = document.getElementById("house");
+        const street1 = document.getElementById("street");
+        const barangay1 = document.getElementById("barangay");
+        const city1 = document.getElementById("city");
+        const cusAddress = document.getElementById("cusAddress");
+        cusAddress.textContent = house1.value+" "+street1.value+" "+barangay1.value+" "+city1.value;
+
+        const cell = document.getElementById("cell_number");
+        const contactNum = document.getElementById("contactNum");
+        contactNum.textContent = cell.value;
+
+        const bdate = document.getElementById("birth_date");
+        const bDate = document.getElementById("bDate");
+        bDate.textContent = bdate.value;
+
+        const place = document.getElementById("birth_place");
+        const bPlace = document.getElementById("bPlace");
+        bPlace.textContent = place.value;
+
+        const cstatus = document.getElementById("civil_status");
+        const civilStatus = document.getElementById("civilStatus");
+        civilStatus.textContent = cstatus.value;
+
+        const age = document.getElementById("age");
+        const ageNum = document.getElementById("ageNum");
+        ageNum.textContent = age.value;
+
+        const gend = document.getElementById("gender");
+        const genderType = document.getElementById("genderType");
+        genderType.textContent = gend.value;
+
+        const citizen = document.getElementById("citizenship");
+        const citizenshipType = document.getElementById("citizenshipType");
+        citizenshipType.textContent = citizen.value;
+
+        const fb = document.getElementById("facebook_name");
+        const fbName = document.getElementById("fbName");
+        fbName.textContent = fb.value;
+
+        //Spouse Data
+        const sname = document.getElementById("spouse_name");
+        const sName = document.getElementById("sName");
+        sName.textContent = sname.value;
+
+        const cell2 = document.getElementById("spouse_number");
+        const contactNums = document.getElementById("contactNums");
+        contactNums.textContent = cell2.value;
+
+        const sdate = document.getElementById("spouse_bdate");
+        const sDate = document.getElementById("sDate");
+        sDate.textContent = sdate.value;
+
+        const sage = document.getElementById("spouse_age");
+        const sAge = document.getElementById("sAge");
+        sAge.textContent = sage.value;
+
+        const occu = document.getElementById("occupation");
+        const occupationSpouse = document.getElementById("occupationSpouse");
+        occupationSpouse.textContent = occu.value;
+
+        const comp = document.getElementById("c_nameadd");
+        const compAdd = document.getElementById("compAdd");
+        compAdd.textContent = comp.value;
+
+        const fb2 = document.getElementById("spouse_fb");
+        const fbNames = document.getElementById("fbNames");
+        fbNames.textContent = fb2.value;
+
+        //Company Information
+        const agency = document.getElementById("agency_name");
+        const agencyName = document.getElementById("agencyName");
+        agencyName.textContent = agency.value;
+        console.log(agency.value)
+
+        const add = document.getElementById("add_tel");
+        const addTel = document.getElementById("addTel");
+        addTel.textContent = add.value;
+
+        const company = document.getElementById("comp_name");
+        const comName = document.getElementById("comName");
+        comName.textContent = company.value;
+
+        const add2 = document.getElementById("add_telc");
+        const addTel2 = document.getElementById("addTel2");
+        addTel2.textContent = add2.value;
+
+        const hired = document.getElementById("date_hired");
+        const dHired = document.getElementById("dHired");
+        dHired.textContent = hired.value;
+
+        const off = document.getElementById("day_off");
+        const dayOff = document.getElementById("dayOff");
+        dayOff.textContent = off.value;
+
+        const posi = document.getElementById("job_position");
+        const posiType = document.getElementById("posiType");
+        posiType.textContent = posi.value;
+
+        const salary = document.getElementById("monthly_salary");
+        const monthSal = document.getElementById("monthSal");
+        monthSal.textContent = salary.value;
+
+        const sched = document.getElementById("salary_sched");
+        const salaSched = document.getElementById("salaSched");
+        salaSched.textContent = sched.value;
+
+        //Pension
+        const mpension = document.getElementById("monthly_pension");
+        const moPension = document.getElementById("moPension");
+        moPension.textContent = mpension.value;
+
+        const spension = document.getElementById("pension_sched");
+        const penSched = document.getElementById("penSched");
+        penSched.textContent = spension.value;
+
+        const ptype = document.getElementById("pension_type");
+        const pType = document.getElementById("pType");
+        pType.textContent = ptype.value;
+
+        //Background
+        const fathername = document.getElementById("fathers_name");
+        const fatherName = document.getElementById("fatherName");
+        fatherName.textContent = fathername.value;
+
+        const fnum = document.getElementById("fathers_num");
+        const fNum = document.getElementById("fNum");
+        fNum.textContent = fnum.value;
+
+        const mothername = document.getElementById("mothers_name");
+        const motherName = document.getElementById("motherName");
+        motherName.textContent = mothername.value;
+
+        const mnum = document.getElementById("mothers_num");
+        const mNum = document.getElementById("mNum");
+        mNum.textContent = mnum.value;
+
+        //Bank Account Information
+        const bbank = document.getElementById("branch");
+        const bBank = document.getElementById("bBank");
+        bBank.textContent = bbank.value;
+
+        const card = document.getElementById("card_no");
+        const cardNo = document.getElementById("cardNo");
+        cardNo.textContent = card.value;
+
+        const accn = document.getElementById("acc_no");
+        const accNo = document.getElementById("accNo");
+        accNo.textContent = accn.value;
+
+        const pin = document.getElementById("pin_no");
+        const pinNo = document.getElementById("pinNo");
+        pinNo.textContent = pin.value;
+
+
     });
+
+    
 
     // Navigation: Previous
     prevBtn.addEventListener("click", function () {
@@ -905,19 +1065,19 @@
     });
 
     // Edit Button
-    editBtn.addEventListener("click", function () {
-        overviewPage.classList.add("hidden");
-        formContainer.classList.remove("hidden");
-        showStep(currentStep);
-    });
+    // editBtn.addEventListener("click", function () {
+    //     overviewPage.classList.add("hidden");
+    //     formContainer.classList.remove("hidden");
+    //     showStep(currentStep);
+    // });
 
     // Submit Button
-    submitBtn.addEventListener("click", function () {
-        alert("Form Submitted Successfully!");
-        console.log("Submitted Data:", formData);
+    // submitBtn.addEventListener("click", function () {
+    //     alert("Form Submitted Successfully!");
+    //     console.log("Submitted Data:", formData);
 
-        // You can send the data to your server here via AJAX/Fetch
-    });
+        
+    // });
 
     // Initialize the first step
     showStep(currentStep);
@@ -1004,398 +1164,3 @@
     }
 </style>
 
-
-
-
-
-<!-- <section class="container px-4 mx-auto py-8">
-                <div class="flex"> -->
-                    <!-- Sidebar -->
-                    <!-- <div class="w-1/4 bg-wshade-100 p-6 rounded-lg">
-                        <a href="#" class="text-gray-600 font-medium block mb-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 inline mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                            </svg>
-                            Back
-                        </a>
-                        <h2 class="text-lg font-semibold pt-8">Loan Application Form</h2>
-                        <p class="text-sm text-gray-500 mb-6">Please fill the form</p>
-                        <ul>
-
-                            <li class="flex items-center space-x-4 mb-4">
-                                <div class="w-8 h-8 bg-indigo-600 text-white flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                </div>
-                                <span class="text-indigo-600 font-medium">Personal Information</span>
-                            </li>
-
-                            <li class="flex items-center space-x-4 mb-4">
-                                <div class="w-8 h-8 border-2 border-indigo-600 text-indigo-600 flex items-center justify-center rounded-full">
-                                    <span class="font-medium">2</span>
-                                </div>
-                                <span class="text-indigo-600 font-medium">Spousal Data</span>
-                            </li>
-
-                            <li class="flex items-center space-x-4 mb-4">
-                                <div class="w-8 h-8 border-2 border-indigo-600 text-indigo-600 flex items-center justify-center rounded-full">
-                                    <span class="font-medium">2</span>
-                                </div>
-                                <span class="text-indigo-600 font-medium">Company Information</span>
-                            </li>
-
-                            <li class="flex items-center space-x-4 mb-4">
-                                <div class="w-8 h-8 border-2 border-indigo-600 text-indigo-600 flex items-center justify-center rounded-full">
-                                    <span class="font-medium">2</span>
-                                </div>
-                                <span class="text-indigo-600 font-medium">For Pensioners Only</span>
-                            </li>
-
-                            <li class="flex items-center space-x-4 mb-4">
-                                <div class="w-8 h-8 border-2 border-indigo-600 text-indigo-600 flex items-center justify-center rounded-full">
-                                    <span class="font-medium">2</span>
-                                </div>
-                                <span class="text-indigo-600 font-medium">Background Data</span>
-                            </li>
-
-                            <li class="flex items-center space-x-4 mb-4">
-                                <div class="w-8 h-8 border-2 border-indigo-600 text-indigo-600 flex items-center justify-center rounded-full">
-                                    <span class="font-medium">2</span>
-                                </div>
-                                <span class="text-indigo-600 font-medium">Bank Account Information</span>
-                            </li>
-                            
-                        </ul>
-                    </div> -->
-
-                    
-                    <!-- Form Content -->
-                    <!-- <div class="w-3/4 bg-white p-8">
-                        <div class=""></div>
-                            <h2 class="text-xl font-semibold mb-6 pt-8">Personal Information</h2>
-                            <form id="loanForm" onsubmit="return validateForm()">
-                                <div class="grid grid-cols-2 gap-4">
-                                    <div>
-                                        <label for="applicant_name" class="block text-sm font-medium text-gray-700">Applicant Name</label>
-                                        <input type="text" id="applicant_name" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm">
-                                        <span class="text-red-500 text-xs hidden" id="error_applicant_name">This field is required.</span>
-                                    </div>
-                                    <div>
-                                        <label for="cell_number" class="block text-sm font-medium text-gray-700">Personal Contact Number</label>
-                                        <input type="text" id="cell_number" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm">
-                                        <span class="text-red-500 text-xs hidden" id="error_cell_number">This field is required.</span>
-                                    </div>
-                                    <div>
-                                        <label for="birthdate" class="block text-sm font-medium text-gray-700">Birthdate</label>
-                                        <input type="date" id="birthdate" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm">
-                                        <span class="text-red-500 text-xs hidden" id="error_birthdate">This field is required.</span>
-                                    </div>
-                                    <div>
-                                        <label for="birth_place" class="block text-sm font-medium text-gray-700">Birth Place</label>
-                                        <input type="text" id="birth_place" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm">
-                                        <span class="text-red-500 text-xs hidden" id="error_birth_place">This field is required.</span>
-                                    </div>
-                                    <div>
-                                        <label for="permanent_address" class="block text-sm font-medium text-gray-700">Permanent Address</label>
-                                        <input type="text" id="permanent_address" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm">
-                                        <div class="flex mt-2">
-                                            <div class="flex items-center me-4">
-                                                <input id="inline-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                                <label for="inline-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Own</label>
-                                            </div>
-                                            <div class="flex items-center me-4">
-                                                <input id="inline-2-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                                <label for="inline-2-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Rent</label>
-                                            </div>
-                                            <div class="flex items-center me-4">
-                                                <input checked id="inline-checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                                <label for="inline-checked-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Living W/ Parents</label>
-                                            </div>
-                                        </div>
-
-                                        <span class="text-red-500 text-xs hidden" id="error_permanent_address">This field is required.</span>
-                                    </div>
-                                    <div>
-                                        <label for="present_address" class="block text-sm font-medium text-gray-700">Present Address</label>
-                                        <input type="text" id="present_address" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm">
-                                        
-                                        <div class="flex mt-2">
-                                            <div class="flex items-center me-4">
-                                                <input id="inline-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                                <label for="inline-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Own</label>
-                                            </div>
-                                            <div class="flex items-center me-4">
-                                                <input id="inline-2-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                                <label for="inline-2-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Rent</label>
-                                            </div>
-                                            <div class="flex items-center me-4">
-                                                <input checked id="inline-checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                                <label for="inline-checked-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Living W/ Parents</label>
-                                            </div>
-                                        </div>
-
-                                        <span class="text-red-500 text-xs hidden" id="error_present_address">This field is required.</span>
-                                    </div>
-                                    <div>
-                                        <label for="civil_status" class="block text-sm font-medium text-gray-700">Civil Status</label>
-                                        <input type="text" id="civil_status" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm">
-                                        <span class="text-red-500 text-xs hidden" id="error_civil_status">This field is required.</span>
-                                    </div>
-                                    <div>
-                                        <label for="age" class="block text-sm font-medium text-gray-700">Age</label>
-                                        <input type="number" id="age" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm">
-                                        <span class="text-red-500 text-xs hidden" id="error_age">This field is required.</span>
-                                    </div>
-                                    <div>
-                                        <label for="gender" class="block text-sm font-medium text-gray-700">Gender</label>
-                                        <input type="text" id="gender" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm">
-                                        <span class="text-red-500 text-xs hidden" id="error_gender">This field is required.</span>
-                                    </div>
-                                    <div>
-                                        <label for="citizenship" class="block text-sm font-medium text-gray-700">Citizenship</label>
-                                        <input type="text" id="citizenship" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm">
-                                        <span class="text-red-500 text-xs hidden" id="error_citizenship">This field is required.</span>
-                                    </div>
-                                    <div class="col-span-2">
-                                        <label for="facebook_name" class="block text-sm font-medium text-gray-700">Facebook Name</label>
-                                        <input type="text" id="facebook_name" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm">
-                                        <span class="text-red-500 text-xs hidden" id="error_facebook_name">This field is required.</span>
-                                    </div>
-                                </div>
-                                
-                            </form>  
-                        </div>
-                    </div>
-                </div>
-            </form>
-                
-        </section> -->
-
-
-
-
-<!-- <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
-
-        <div class="relative">
-            <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-12">Customer Profile</h1>
-        </div>
-
-        <form action="{{ route('customer.store') }}" method="POST">
-            @csrf
-            <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
-                <div>
-                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
-                        <div>
-                            <h1 class="text-xl md:text-xl text-slate-600 dark:text-slate-100 font-bold mb-2">Add Customer
-                            </h1>
-                            <span>Fill up the inputs to add Customer.</span>
-                        </div>
-
-                        <div class="lg:col-span-2">
-                        </div>
-                    </div>
-                </div>
-
-                <x-section-border />
-
-                <div>
-                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
-                        <div class="text-gray-600">
-                            <p class="font-medium text-lg">Customer Type</p>
-                        </div>
-
-                        <div class="lg:col-span-2">
-                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
-                                <div class="md:col-span-1">
-                                    <select name="type" id="type"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
-                                    @foreach ($types as $type)
-                                        <option value="{{$type->code}}">{{$type->description}}</option>
-                                    @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <x-section-border />
-
-                <div>
-                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
-                        <div class="text-gray-600">
-                            <p class="font-medium text-lg">Customer Name</p>
-                        </div>
-
-                        <div class="lg:col-span-2">
-                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6">
-
-                                <div class="md:col-span-2">
-                                    <label for="first_name" class="text-black font-medium">First Name</label>
-                                    <div>
-                                        <input name="first_name" id="first_name"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                            value="" />
-                                    </div>
-                                </div>
-
-                                <div class="md:col-span-2">
-                                    <label for="last_name" class="text-black font-medium">Last Name</label>
-                                    <div>
-                                        <input name="last_name" id="last_name"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                            value="" />
-                                    </div>
-                                </div>
-
-                                <div class="md:col-span-2">
-                                    <label for="middle_name" class="text-black font-medium">Middle Name</label>
-                                    <div>
-                                        <input name="middle_name" id="middle_name"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                            value="" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <x-section-border />
-
-                <div>
-                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
-                        <div class="text-gray-600">
-                            <p class="font-medium text-lg">Address</p>
-                        </div>
-
-                        <div class="lg:col-span-2">
-                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
-                                <div class="md:col-span-1">
-                                    <label for="house" class="text-black font-medium">House/Bldg. No</label>
-                                    <input type="text" name="house" id="house"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                        value="" placeholder="" />
-                                </div>
-
-                                <div class="md:col-span-1">
-                                    <label for="street" class="text-black font-medium">Street</label>
-                                    <input type="text" name="street" id="street"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                        value="" placeholder="" />
-                                </div>
-                            </div>
-
-                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2 mt-4">
-                                <div class="md:col-span-1">
-                                    <label for="barangay" class="text-black font-medium">Barangay</label>
-                                    <input type="text" name="barangay" id="barangay"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                        value="" placeholder="" />
-                                </div>
-
-                                <div class="md:col-span-1">
-                                    <label for="city" class="text-black font-medium">City/Town</label>
-                                    <input type="text" name="city" id="city"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                        value="" placeholder="" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <x-section-border />
-
-                <div>
-                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
-                        <div class="text-gray-600">
-                            <p class="font-medium text-lg">Occupation</p>
-                        </div>
-
-                        <div class="lg:col-span-2">
-                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
-                                <div class="md:col-span-1">
-                                    <label for="job_position" class="text-black font-medium">Job Position</label>
-                                    <input type="text" name="job_position" id="job_position"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                        value="" placeholder="" />
-                                </div>
-
-                                <div class="md:col-span-1">
-                                    <label for="salary_sched" class="text-black font-medium">Salary Sched</label>
-                                    <input type="text" name="salary_sched" id="salary_sched"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                        value="" placeholder="" />
-                                </div>
-                            </div>
-
-                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2 mt-4">
-                                <div class="md:col-span-1">
-                                    <label for="tel_number" class="text-black font-medium">Tel No.</label>
-                                    <input type="text" name="tel_number" id="tel_number"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                        value="" placeholder="" />
-                                </div>
-
-                                <div class="md:col-span-1">
-                                    <label for="cell_number" class="text-black font-medium">Cell No.</label>
-                                    <input type="text" name="cell_number" id="cell_number"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                        value="" placeholder="" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <x-section-border />
-
-                <div>
-                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
-                        <div class="text-gray-600">
-                            <p class="font-medium text-lg">Civil Status</p>
-                        </div>
-
-                        <div class="lg:col-span-2">
-                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
-                                <div class="md:col-span-1">
-                                    <select name="civil_status" id="civil_status"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
-                                    <option value="single">Single</option>
-                                    <option value="married">Married</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <x-section-border />
-
-                <div>
-                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
-                        <div class="text-gray-600">
-                            <p class="font-medium text-lg"></p>
-                        </div>
-
-                        <div class="lg:col-span-2">
-                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
-                                <div class="md:col-span-5 text-right">
-                                    <div class="inline-flex items-end">
-                                        <a href="{{ route('customer.index') }}"
-                                            class="btn bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-4">Cancel</a>
-                                        <button type="submit"
-                                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Confirm
-                                            Submission</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-
-    </div> -->

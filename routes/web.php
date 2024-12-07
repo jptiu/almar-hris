@@ -97,6 +97,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('loan', [LoanController::class, 'index'])->name('loan.index');
     Route::get('loan/create', [LoanController::class, 'create'])->name('loan.create');
     Route::get('loan/show/{id}', [LoanController::class, 'show'])->name('loan.show');
+    Route::get('loan/edit/{id}', [LoanController::class, 'edit'])->name('loan.edit');
     Route::post('loan/store', [LoanController::class, 'store'])->name('loan.store');
     Route::post('loan/update/{id}', [LoanController::class, 'update'])->name('loan.update');
     Route::delete('loan/destroy/{id}', [LoanController::class, 'destroy'])->name('loan.destroy');
@@ -109,6 +110,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('collection', [CollectionController::class, 'index'])->name('collection.index');
     Route::get('collection/create', [CollectionController::class, 'create'])->name('collection.create');
     Route::get('collection/show/{id}', [CollectionController::class, 'show'])->name('collection.show');
+    Route::get('collection/edit/{id}', [CollectionController::class, 'edit'])->name('collection.edit');
     Route::post('collection/store', [CollectionController::class, 'store'])->name('collection.store');
     Route::post('collection/update/{id}', [CollectionController::class, 'update'])->name('collection.update');
     Route::delete('collection/destroy/{id}', [CollectionController::class, 'destroy'])->name('collection.destroy');
@@ -127,6 +129,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('expenses', [ExpensesController::class, 'index'])->name('expenses.index');
     Route::get('expenses/create', [ExpensesController::class, 'create'])->name('expenses.create');
     Route::get('expenses/show/{id}', [ExpensesController::class, 'show'])->name('expenses.show');
+    Route::get('expenses/edit/{id}', [ExpensesController::class, 'edit'])->name('expenses.edit');
     Route::post('expenses/store', [ExpensesController::class, 'store'])->name('expenses.store');
     Route::post('expenses/update/{id}', [ExpensesController::class, 'update'])->name('expenses.update');
     Route::delete('expenses/destroy/{id}', [ExpensesController::class, 'destroy'])->name('expenses.destroy');
@@ -138,6 +141,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::post('compute/store', [ComputeCOHController::class, 'store'])->name('compute.store');
     Route::get('compute/create', [ComputeCOHController::class, 'create'])->name('compute.create');
     Route::get('compute/show', [ComputeCOHController::class, 'show'])->name('compute.show');
+    Route::get('compute/edit/{id}', [ComputeCOHController::class, 'edit'])->name('compute.edit');
+    Route::post('compute/update/{id}', [ComputeCOHController::class, 'update'])->name('compute.update');
     Route::get('compute/destroy/{id}', [ComputeCOHController::class, 'destroy'])->name('compute.destroy');
 
     // Daily

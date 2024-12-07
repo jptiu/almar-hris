@@ -163,7 +163,7 @@
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                {{number_format($list->paid_amount, 2)}}
+                                                {{$list->paid_amount}}
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">

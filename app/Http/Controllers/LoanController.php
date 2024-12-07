@@ -163,7 +163,11 @@ class LoanController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
+        $branch = auth()->user()->branch_id;
+        $loan = Loan::where('branch_id', $branch)->where('id', $id)->first();
+
+        return view('pages.loan.update.index', compact('loan'));
     }
 
     /**

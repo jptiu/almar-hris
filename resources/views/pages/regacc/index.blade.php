@@ -150,10 +150,10 @@
                                             Payable Amount
                                         </th>
 
-                                        <th scope="col"
+                                        {{-- <th scope="col"
                                             class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             Action
-                                        </th>
+                                        </th> --}}
 
                                     </tr>
                                 </thead>
@@ -176,7 +176,7 @@
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
                                                 {{ $list->payable_amount }}
                                             </td>
-                                            <td class="px-4 py-4 text-sm whitespace-nowrap">
+                                            {{-- <td class="px-4 py-4 text-sm whitespace-nowrap">
                                                 <div class="flex items-center gap-x-6">
                                                     <button
                                                         class="text-gray-500 transition-colors duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none">
@@ -200,7 +200,7 @@
                                                         </svg>
                                                     </a>
                                                 </div>
-                                            </td>
+                                            </td> --}}
                                         </tr>
                                     @endforeach
                                 </tbody>

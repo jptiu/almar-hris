@@ -45,8 +45,8 @@
 
                         <div class="ml-4">
                             <div class="self-center">
-                                <p class="text-gray-400 text-sm">Loan Approvals</p>
-                                <span class="text-3xl font-semibold text-gray-800">₱50,000</span>
+                                <p class="text-gray-400 text-sm">Total Customers</p>
+                                <span class="text-3xl font-semibold text-gray-800">50,000</span>
                             </div>
                         </div>
                     </div>
@@ -94,6 +94,10 @@
                 </div>
             </div>
 
+            
+
+
+
 
             <!-- <div
                 class="flex flex-col sm:col-span-6 xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-lg border border-slate-200 dark:border-slate-700">
@@ -122,6 +126,11 @@
                 </div>
             </div> -->
         </div>
+
+
+        
+
+        
 
         <!-- Cards -->
         <div class="px-4 py-8 w-full max-w-9xl mx-auto">
@@ -360,3 +369,33 @@
 
     </div>
 </x-app-layout>
+
+
+<!-- Required chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Chart pie -->
+<script>
+  const dataPie = {
+    labels: ["latest payer", "Late payee"],
+    datasets: [
+      {
+        label: "Finance payers",
+        data: [300, 50],
+        backgroundColor: [
+          "rgb(133, 105, 241)",
+          "rgb(164, 101, 241)",
+        ],
+        hoverOffset: 4,
+      },
+    ],
+  };
+
+  const configPie = {
+    type: "pie",
+    data: dataPie,
+    options: {},
+  };
+
+  var chartBar = new Chart(document.getElementById("chartPie"), configPie);
+</script>
