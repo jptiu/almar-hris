@@ -151,6 +151,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('monthly/store', [CLMController::class, 'store'])->name('monthly.store');
     Route::get('monthly/update/{id}', [CLMController::class, 'update'])->name('monthly.update');
     Route::get('monthly/destroy/{id}', [CLMController::class, 'destroy'])->name('monthly.destroy');
+    Route::get('monthly/print/loan', [CLMController::class, 'printLoan'])->name('printLoan.index');
+    Route::get('monthly/print/statement', [CLMController::class, 'printStatement'])->name('printStatement.index');
 
 
     // Route for the getting the data feed

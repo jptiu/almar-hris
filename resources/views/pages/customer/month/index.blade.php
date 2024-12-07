@@ -29,7 +29,7 @@
 
         </div>
 
-        <form action="{{ route('customer.store') }}" method="POST">
+        <form id="loan-form" action="{{ route('printLoan.index') }}" method="GET">
             @csrf
             <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
                 <div>
@@ -59,12 +59,8 @@
                 <x-section-border />
 
                 <div>
-                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
+                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1 mt-6">
                         <div class="lg:col-span-2">
-                            <div>
-                                <h1 class="text-xl md:text-xl text-slate-600 dark:text-slate-100 font-bold mb-2 -mt-4">
-                                    Date</h1>
-                            </div>
                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-8">
                                 <div class="md:col-span-2">
                                     <label for="house" class="text-black font-medium">From</label>
@@ -92,9 +88,16 @@
                 <div class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
                     <button id="hide-modal" type="button"
                         class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cancel</button>
-                    <button type="submit"
-                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Process
-                        Data</button>
+                    <!-- <button type="submit"
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Process Data
+                    </button> -->
+                    <a href="#" onclick="submitForm()" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
+                        <svg class="w-4 h-4 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
+                            <path
+                                d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
+                        </svg>
+                    <span class="xs:block ml-2">Process Data</span>
+                </a>
                 </div>
             </div>
 
@@ -104,3 +107,18 @@
     </form>
     </div>
 </x-app-layout>
+
+<script>
+    document.getElementById('link-checkbox').addEventListener('change', function() { 
+        var form = document.getElementById('loan-form'); 
+        if (this.checked) { 
+            form.action = "{{ route('printStatement.index') }}"; 
+            } else { 
+                form.action = "{{ route('printLoan.index') }}"; 
+                } 
+        });
+
+        function submitForm() { 
+            document.getElementById('loan-form').submit(); 
+        }
+</script>
