@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Collection;
+use App\Models\Customer;
 use App\Models\Loan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -15,8 +17,10 @@ class BMController extends Controller
     {
         abort_unless(Gate::allows('branch_access'), 404);
         $branch = auth()->user()->branch_id;
+        $lists = Customer::where('branch_id', $branch)->orderByDesc('id')->paginate(10);
+        $totalCustomer = Customer::where('branch_id', $branch)->count();
 
-        return view('pages.branch.index');
+        return view('pages.branch.index',compact('lists', 'totalCustomer'));
     }
 
     /**
@@ -101,7 +105,9 @@ class BMController extends Controller
     }
     public function paymentHistory(Request $request)
     {
-        return view('pages.payhistory.index');
+        $branch = auth()->user()->branch_id;
+        $lists = Collection::where('branch_id', $branch)->paginate(20);
+        return view('pages.payhistory.index', compact('lists'));
     }
 
     public function pendingLoandApproval(Request $request)

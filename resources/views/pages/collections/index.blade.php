@@ -137,10 +137,10 @@
                                             Collector
                                         </th>
 
-                                        <th scope="col"
+                                        {{-- <th scope="col"
                                             class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             Action
-                                        </th>
+                                        </th> --}}
 
                                     </tr>
                                 </thead>
@@ -170,7 +170,7 @@
                                             <td class="px-4 py-4 text-sm whitespace-nowrap">
                                                 <div class="flex items-center gap-x-6">
                                             
-                                                    <a href="{{ route('expenses.show', $list->id) }}"
+                                                    {{-- <a href="{{ route('expenses.show', $list->id) }}"
                                                         class="text-gray-500 transition-colors duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                                             height="16" fill="currentColor" class="bi bi-eye"
@@ -180,9 +180,9 @@
                                                             <path
                                                                 d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
                                                         </svg>
-                                                    </a>
+                                                    </a> --}}
 
-                                                    <form action=""
+                                                    {{-- <form action=""
                                                         method="post">
                                                         @csrf
                                                         @method('DELETE')
@@ -197,7 +197,7 @@
                                                                     d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
                                                             </svg>
                                                         </button>
-                                                    </form>
+                                                    </form> --}}
                                                 </div>
                                             </td>
                                         </tr>

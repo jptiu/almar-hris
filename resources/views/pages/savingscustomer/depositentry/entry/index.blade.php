@@ -41,7 +41,7 @@
 
         </div>
 
-        <form action="{{ route('expenses.store') }}" method="POST">
+        <form action="{{ route('depositentry.storeDeposit') }}" method="POST">
             @csrf
             <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
             <div class="flex items-center text-gray-600 mb-12">
@@ -61,7 +61,7 @@
 
                                 <div class="md:col-span-2">
                                     <label for="ref_id" class="text-black font-medium">Ref No.</label>
-                                    <input type="text" name="exp_ref_no" id="exp_ref_no" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
+                                    <input type="text" name="ref_id" id="ref_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" value="" placeholder="" />
                                 </div>
 
                                 <div class="md:col-span-2">

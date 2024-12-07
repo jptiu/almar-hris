@@ -286,6 +286,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // Deposit
     Route::get('savingscustomer/depositentry', [SavingsController::class, 'indexDeposit'])->name('depositentry.index');
     Route::get('savingscustomer/createDeposit', [SavingsController::class, 'createDeposit'])->name('depositentry.createDeposit');
+    Route::post('savingscustomer/deposit/store', [SavingsController::class, 'storeDeposit'])->name('depositentry.storeDeposit');
 
     //Savings
     Route::get('savingscustomer/withdrawalentry', [SavingsController::class, 'indexWithdrawal'])->name('savingscustomer.index');

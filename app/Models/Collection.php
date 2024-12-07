@@ -17,10 +17,17 @@ class Collection extends Model
         'trans_no',
         'date',
         'branch_id',
+        'customer_id',
+        'paid_amount',
     ];
 
     public function user(){
         return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class, 'customer_id');
     }
     
 }

@@ -137,7 +137,8 @@ class HRController extends Controller
 
     public function cloanHistory()
     {
-        $lists = Loan::with('details')->paginate(20);
+        $branch = auth()->user()->branch_id;
+        $lists = Loan::with('details')->where('branch_id', $branch)->paginate(20);
 
         return view('pages.hr.loanhistory.index', compact('lists'));
     }

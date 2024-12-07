@@ -32,7 +32,9 @@ class CollectionController extends Controller
             $loan = Loan::with('customer')->find($request->transaction_no);
         }
         if ($request->customer_id) {
-            $customer = Customer::with(['loan','customerType','loan.details' => function ($query) {
+            $customer = Customer::with(['loan' => function ($query) {
+                $query->where('status', '!=', null);
+            } ,'customerType','loan.details' => function ($query) {
                 $query->whereNull('loan_date_paid'); // Filter due today
             }])->find($request->customer_id);
         }
@@ -83,12 +85,14 @@ class CollectionController extends Controller
 
         if ($loan) {
             $col = new Collection();
+            $col->customer_id = $loan->customer_id;
             $col->user_id = auth()->user()->id;
             $col->name = $request->name;
             $col->type = $request->type;
             $col->status = $request->status;
             $col->trans_no = $request->trans_no;
             $col->date = $request->date_paid;
+            $col->paid_amount = $request->loan_amount_paid;
             $col->branch_id = $branch;
             $col->save();
         }

@@ -105,7 +105,7 @@
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
-                                                {{ $loan->principal_amount }}
+                                                {{ number_format($loan->principal_amount, 2) }}
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">

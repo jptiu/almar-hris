@@ -276,6 +276,11 @@
                                                 Address
                                             </th>
 
+                                            <th scope="col"
+                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                Customer Type
+                                            </th>
+
                                         </tr>
                                     </thead>
                                     <tbody
@@ -296,15 +301,7 @@
                                                 </td>
                                                 <td
                                                     class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    {{ $list->type }}
-                                                </td>
-                                                <td
-                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    {{ $list->loan_type }}
-                                                </td>
-                                                <td
-                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    {{ $list->transaction_type }}
+                                                    {{ $list->customerType->description }}
                                                 </td>
                                             </tr>
                                         @endforeach

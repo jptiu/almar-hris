@@ -48,16 +48,22 @@
 
                                         <div class="md:col-span-1">
                                             <label for="customer" class="text-black font-medium">Select Customer</label>
-                                            <select onchange="getCustomer()" name="customer" id="customer"
-                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
-                                            <option value="">Select</option>
-                                            @foreach ($customers as $customer)
-                                                <option value="{{ $customer->id }}">
-                                                    {{ $customer->first_name . ' ' . $customer->last_name }}</option>
-                                            @endforeach
-                                            </select>
+                                            <div class="relative">
+                                                <input type="text" id="customerInput" placeholder="Type to search..."
+                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
+                                                    oninput="filterCustomers()" />
+                                                <ul id="customerDropdown"
+                                                    class="absolute bg-white border border-gray-300 rounded-lg w-full mt-1 hidden max-h-48 overflow-y-auto z-10">
+                                                    @foreach ($customers as $customer)
+                                                        <li class="px-4 py-2 cursor-pointer hover:bg-blue-500 hover:text-white"
+                                                            onclick="selectCustomer('{{ $customer->id }}', '{{ $customer->first_name }} {{ $customer->last_name }}')">
+                                                            {{ $customer->first_name . ' ' . $customer->last_name }}
+                                                        </li>
+                                                    @endforeach
+                                                </ul>
+                                                <input type="hidden" name="customer" id="selectedCustomer">
+                                            </div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -334,7 +340,7 @@
                                                         </div>
 
                                                         <div class="md:col-span-1">
-                                                            <input type="number" name="loan_amount_paid"
+                                                            <input type="text" name="loan_amount_paid"
                                                                 id="loan_amount_paid"
                                                                 class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                                                                 value="" placeholder="" />
@@ -396,15 +402,15 @@
 </x-app-layout>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
-    function getCustomer() {
-        const customerID = document.getElementById("customer").value;
+    function getCustomer(id) {
+        // const customerID = document.getElementById("customer").value;
 
         $.ajax({
             url: '{{ route('collection.index') }}',
             type: 'GET',
             data: {
                 _token: '{{ csrf_token() }}',
-                customer_id: customerID,
+                customer_id: id,
             },
             success: function(response) {
                 // Handle the special case for "name" input field
@@ -510,4 +516,36 @@
             }
         });
     }
+
+    function filterCustomers() {
+        const input = document.getElementById('customerInput').value.toLowerCase();
+        const dropdown = document.getElementById('customerDropdown');
+        const items = dropdown.getElementsByTagName('li');
+
+        dropdown.classList.remove('hidden'); // Show dropdown
+
+        Array.from(items).forEach(item => {
+            const name = item.textContent.toLowerCase();
+            if (name.includes(input)) {
+                item.classList.remove('hidden');
+            } else {
+                item.classList.add('hidden');
+            }
+        });
+    }
+
+    function selectCustomer(id, name) {
+        document.getElementById('customerInput').value = name;
+        document.getElementById('selectedCustomer').value = id;
+        document.getElementById('customerDropdown').classList.add('hidden'); // Hide dropdown
+        getCustomer(id);
+    }
+    // Hide dropdown when clicking outside
+    document.addEventListener('click', (event) => {
+        const dropdown = document.getElementById('customerDropdown');
+        const input = document.getElementById('customerInput');
+        if (!dropdown.contains(event.target) && !input.contains(event.target)) {
+            dropdown.classList.add('hidden');
+        }
+    });
 </script>
