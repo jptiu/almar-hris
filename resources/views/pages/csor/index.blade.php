@@ -376,17 +376,22 @@
                                                     <tr>
                                                         <th scope="col"
                                                             class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                            Acct Title
+                                                            Denomination
                                                         </th>
 
                                                         <th scope="col"
                                                             class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                            Justification
+                                                            Type
                                                         </th>
 
                                                         <th scope="col"
                                                             class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                            Amounnt
+                                                            Qty
+                                                        </th>
+
+                                                        <th scope="col"
+                                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                            Amt
                                                         </th>
 
                                                     </tr>
@@ -400,6 +405,10 @@
                                                             </td>
                                                             <td
                                                                 class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
+                                                                test
+                                                            </td>
+                                                            <td
+                                                                class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
                                                                 test
                                                             </td>
                                                             <td
@@ -553,19 +562,28 @@
                                                         <tr>
                                                             <th scope="col"
                                                                 class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                                Acct Title
+                                                                Charge Swipe
                                                             </th>
 
                                                             <th scope="col"
                                                                 class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                                Justification
+                                                                Savings
                                                             </th>
 
                                                             <th scope="col"
                                                                 class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                                Amounnt
+                                                                Death Aid
                                                             </th>
 
+                                                            <th scope="col"
+                                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                                Photocopy
+                                                            </th>
+
+                                                            <th scope="col"
+                                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                                Withdraw
+                                                            </th>
                                                         </tr>
                                                     </thead>
                                                     <tbody
@@ -583,34 +601,694 @@
                                                                     class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
                                                                     test
                                                                 </td>
+                                                                <td
+                                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                                    test
+                                                                </td>
+                                                                <td
+                                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                                    test
+                                                                </td>
                                                             </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
                                         </div>
                                     </div>
+                                    </div>
+                                </div>
 
-                                        <!-- <div class="mb-6">
+                                <div id="step4" class="hidden">
+                                    <div class="flex place-content-center justify-center items-center mb-16 mt-2">
+                                        <ol class="space-y-4 sm:flex sm:space-x-6 sm:space-y-0 rtl:space-x-reverse">
+                                            <li
+                                                class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                                                <span
+                                                    class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+                                                    1
+                                                </span>
+                                                <span>
+                                                    <h3 class="font-medium leading-tight">Expenses</h3>
+                                                </span>
+                                            </li>
+                                            <li
+                                                class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                                                <span
+                                                    class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+                                                    2
+                                                </span>
+                                                <span>
+                                                    <h3 class="font-medium leading-tight">Breakdown of Cash Bills</h3>
+                                                </span>
+                                                <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true"
+                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 12 10">
+                                                    <path stroke="currentColor" stroke-linecap="round"
+                                                        stroke-linejoin="round" stroke-width="2"
+                                                        d="m7 9 4-4-4-4M1 9l4-4-4-4" />
+                                                </svg>
+                                            </li>
+                                            <li
+                                                class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                                                <span
+                                                    class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+                                                    3
+                                                </span>
+                                                <span>
+                                                    <h3 class="font-medium leading-tight">Savings</h3>
+                                                </span>
+                                                <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true"
+                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 12 10">
+                                                    <path stroke="currentColor" stroke-linecap="round"
+                                                        stroke-linejoin="round" stroke-width="2"
+                                                        d="m7 9 4-4-4-4M1 9l4-4-4-4" />
+                                                </svg>
+                                            </li>
+                                            <li
+                                                class="flex items-center text-blue-600 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                                                <span
+                                                    class="flex items-center justify-center w-8 h-8 border border-blue-600 rounded-full shrink-0 dark:border-gray-400">
+                                                    4
+                                                </span>
+                                                <span>
+                                                    <h3 class="font-medium leading-tight">Compute Cash On Hand</h3>
+                                                </span>
+                                                <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true"
+                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 12 10">
+                                                    <path stroke="currentColor" stroke-linecap="round"
+                                                        stroke-linejoin="round" stroke-width="2"
+                                                        d="m7 9 4-4-4-4M1 9l4-4-4-4" />
+                                                </svg>
+                                            </li>
+                                            <li
+                                                class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                                                <span
+                                                    class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+                                                    5
+                                                </span>
+                                                <span>
+                                                    <h3 class="font-medium leading-tight">Regular & Bad Accounts</h3>
+                                                </span>
+                                                <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true"
+                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 12 10">
+                                                    <path stroke="currentColor" stroke-linecap="round"
+                                                        stroke-linejoin="round" stroke-width="2"
+                                                        d="m7 9 4-4-4-4M1 9l4-4-4-4" />
+                                                </svg>
+                                            </li>
+                                            <li
+                                                class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                                                <span
+                                                    class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+                                                    6
+                                                </span>
+                                                <span>
+                                                    <h3 class="font-medium leading-tight">Print</h3>
+                                                </span>
+                                                <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true"
+                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 12 10">
+                                                    <path stroke="currentColor" stroke-linecap="round"
+                                                        stroke-linejoin="round" stroke-width="2"
+                                                        d="m7 9 4-4-4-4M1 9l4-4-4-4" />
+                                                </svg>
+                                            </li>
+                                        </ol>
+                                    </div>
+                                    <div class="">
+                                        <div class="mb-1">
                                             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
                                                 <div class="lg:col-span-2">
                                                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
                                                         <div class="lg:col-span-2">
                                                             <div
-                                                                class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
+                                                                class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-3">
                                                                 <div class="md:col-span-1">
-                                                                    <label for="description"
-                                                                        class="text-lg font-medium py-2">Additional
-                                                                        Notes</label>
-                                                                    <textarea name="description" id="description" rows="4"
-                                                                        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                                        placeholder="Type here..."></textarea>
+                                                                    <label for="ref_no">Reference No.</label>
+                                                                    <input type="text" name="ref_no"
+                                                                        id="ref_no"
+                                                                        class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                                                                        value="" placeholder="" />
+                                                                </div>
+                                                                <div class="md:col-span-1 mt-8">
+                                                                    <button type="button"
+                                                                        class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-1 px-4 rounded mx-2">
+                                                                        Confirm
+                                                                    </button>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div> -->
+                                        </div>
+
+                                        <div class="mt-6">
+                                            <div class="mb-1">
+                                                <div
+                                                class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
+                                                <table
+                                                    class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                                                    <thead class="bg-gray-50 dark:bg-gray-800">
+                                                        <tr>
+                                                            <th scope="col"
+                                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                                Cash Beginning
+                                                            </th>
+
+                                                            <th scope="col"
+                                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                                Collections
+                                                            </th>
+
+                                                            <th scope="col"
+                                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                                Add Cash
+                                                            </th>
+
+                                                            <th scope="col"
+                                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                                Add Cash (2nd)
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody
+                                                        class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
+                                                            <tr>
+                                                                <td
+                                                                    class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
+                                                                    test
+                                                                </td>
+                                                                <td
+                                                                    class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
+                                                                    test
+                                                                </td>
+                                                                <td
+                                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                                    test
+                                                                </td>
+                                                                <td
+                                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                                    test
+                                                                </td>
+                                                            </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+
+                                <div id="step5" class="hidden">
+                                    <div class="flex place-content-center justify-center items-center mb-16 mt-2">
+                                        <ol class="space-y-4 sm:flex sm:space-x-6 sm:space-y-0 rtl:space-x-reverse">
+                                            <li
+                                                class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                                                <span
+                                                    class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+                                                    1
+                                                </span>
+                                                <span>
+                                                    <h3 class="font-medium leading-tight">Expenses</h3>
+                                                </span>
+                                            </li>
+                                            <li
+                                                class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                                                <span
+                                                    class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+                                                    2
+                                                </span>
+                                                <span>
+                                                    <h3 class="font-medium leading-tight">Breakdown of Cash Bills</h3>
+                                                </span>
+                                                <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true"
+                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 12 10">
+                                                    <path stroke="currentColor" stroke-linecap="round"
+                                                        stroke-linejoin="round" stroke-width="2"
+                                                        d="m7 9 4-4-4-4M1 9l4-4-4-4" />
+                                                </svg>
+                                            </li>
+                                            <li
+                                                class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                                                <span
+                                                    class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+                                                    3
+                                                </span>
+                                                <span>
+                                                    <h3 class="font-medium leading-tight">Savings</h3>
+                                                </span>
+                                                <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true"
+                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 12 10">
+                                                    <path stroke="currentColor" stroke-linecap="round"
+                                                        stroke-linejoin="round" stroke-width="2"
+                                                        d="m7 9 4-4-4-4M1 9l4-4-4-4" />
+                                                </svg>
+                                            </li>
+                                            <li
+                                                class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                                                <span
+                                                    class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+                                                    4
+                                                </span>
+                                                <span>
+                                                    <h3 class="font-medium leading-tight">Compute Cash On Hand</h3>
+                                                </span>
+                                                <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true"
+                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 12 10">
+                                                    <path stroke="currentColor" stroke-linecap="round"
+                                                        stroke-linejoin="round" stroke-width="2"
+                                                        d="m7 9 4-4-4-4M1 9l4-4-4-4" />
+                                                </svg>
+                                            </li>
+                                            <li
+                                                class="flex items-center text-blue-600 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                                                <span
+                                                    class="flex items-center justify-center w-8 h-8 border border-blue-600 rounded-full shrink-0 dark:border-gray-400">
+                                                    5
+                                                </span>
+                                                <span>
+                                                    <h3 class="font-medium leading-tight">Regular & Bad Accounts</h3>
+                                                </span>
+                                                <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true"
+                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 12 10">
+                                                    <path stroke="currentColor" stroke-linecap="round"
+                                                        stroke-linejoin="round" stroke-width="2"
+                                                        d="m7 9 4-4-4-4M1 9l4-4-4-4" />
+                                                </svg>
+                                            </li>
+                                            <li
+                                                class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                                                <span
+                                                    class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+                                                    6
+                                                </span>
+                                                <span>
+                                                    <h3 class="font-medium leading-tight">Print</h3>
+                                                </span>
+                                                <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true"
+                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 12 10">
+                                                    <path stroke="currentColor" stroke-linecap="round"
+                                                        stroke-linejoin="round" stroke-width="2"
+                                                        d="m7 9 4-4-4-4M1 9l4-4-4-4" />
+                                                </svg>
+                                            </li>
+                                        </ol>
+                                    </div>
+                                    <div class="">
+                                        <div class="mb-1">
+                                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
+                                                <div class="lg:col-span-2">
+                                                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
+                                                        <div class="lg:col-span-2">
+                                                            <div
+                                                                class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-3">
+                                                                <div class="md:col-span-1">
+                                                                    <label for="ref_no">Reference No. for Regular Accounts</label>
+                                                                    <input type="text" name="ref_no"
+                                                                        id="ref_no"
+                                                                        class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                                                                        value="" placeholder="" />
+                                                                </div>
+                                                                <div class="md:col-span-1 mt-8">
+                                                                    <button type="button"
+                                                                        class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-1 px-4 rounded mx-2">
+                                                                        Confirm
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="mt-2">
+                                            <div class="text-2xl font-medium leading-tight py-4">Regular Accounts</div>
+                                        </div>
+
+                                        <div class="mb-1">
+                                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
+                                                <div class="lg:col-span-2">
+                                                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
+                                                        <div class="lg:col-span-2">
+                                                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-4">
+                                                                <div class="md:col-span-2">
+                                                                    <div class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
+                                                                        <div class="text-lg font-medium leading-tight p-4 text-center bg-blue-100 dark:bg-gray-800 border border-gray-20">Regular Loans</div>
+                                                                        <table
+                                                                            class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                                                                            <thead class="bg-gray-50 dark:bg-gray-800">
+                                                                                <tr>
+                                                                                    <th scope="col"
+                                                                                        class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                                                        No. of Customer
+                                                                                    </th>
+
+                                                                                    <th scope="col"
+                                                                                        class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                                                        Receivable Amount
+                                                                                    </th>
+
+                                                                                    <th scope="col"
+                                                                                        class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                                                        Actual Collection
+                                                                                    </th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody
+                                                                                class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
+                                                                                    <tr>
+                                                                                        <td
+                                                                                            class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
+                                                                                            test
+                                                                                        </td>
+                                                                                        <td
+                                                                                            class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
+                                                                                            test
+                                                                                        </td>
+                                                                                        <td
+                                                                                            class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                                                            test
+                                                                                        </td>
+                                                                                    </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="md:col-span-2">
+                                                                    <div class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
+                                                                        <div class="text-lg font-medium leading-tight p-4 text-center bg-blue-100 dark:bg-gray-800 border border-gray-20">C/A Monthly</div>
+                                                                        <table
+                                                                            class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                                                                            <thead class="bg-gray-50 dark:bg-gray-800">
+                                                                                <tr>
+                                                                                    <th scope="col"
+                                                                                        class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                                                        No. of Customer
+                                                                                    </th>
+
+                                                                                    <th scope="col"
+                                                                                        class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                                                        Receivable Amount
+                                                                                    </th>
+
+                                                                                    <th scope="col"
+                                                                                        class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                                                        Actual Collection
+                                                                                    </th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody
+                                                                                class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
+                                                                                    <tr>
+                                                                                        <td
+                                                                                            class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
+                                                                                            test
+                                                                                        </td>
+                                                                                        <td
+                                                                                            class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
+                                                                                            test
+                                                                                        </td>
+                                                                                        <td
+                                                                                            class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                                                            test
+                                                                                        </td>
+                                                                                    </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-12">
+                                        <div class="mb-1">
+                                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
+                                                <div class="lg:col-span-2">
+                                                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
+                                                        <div class="lg:col-span-2">
+                                                            <div
+                                                                class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-3">
+                                                                <div class="md:col-span-1">
+                                                                    <label for="ref_no">Reference No. for Bad Accounts</label>
+                                                                    <input type="text" name="ref_no"
+                                                                        id="ref_no"
+                                                                        class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                                                                        value="" placeholder="" />
+                                                                </div>
+                                                                <div class="md:col-span-1 mt-8">
+                                                                    <button type="button"
+                                                                        class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-1 px-4 rounded mx-2">
+                                                                        Confirm
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="mt-2">
+                                            <div class="text-2xl font-medium leading-tight py-4">Bad Accounts</div>
+                                        </div>
+
+                                        <div class="mb-1">
+                                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
+                                                <div class="lg:col-span-2">
+                                                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
+                                                        <div class="lg:col-span-2">
+                                                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-4">
+                                                                <div class="md:col-span-2">
+                                                                    <div class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
+                                                                        <div class="text-lg font-medium leading-tight p-4 text-center bg-blue-100 dark:bg-gray-800 border border-gray-20">Active</div>
+                                                                        <table
+                                                                            class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                                                                            <thead class="bg-gray-50 dark:bg-gray-800">
+                                                                                <tr>
+                                                                                    <th scope="col"
+                                                                                        class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                                                        No. of Customer
+                                                                                    </th>
+
+                                                                                    <th scope="col"
+                                                                                        class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                                                        Receivable Amount
+                                                                                    </th>
+
+                                                                                    <th scope="col"
+                                                                                        class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                                                        Actual Collection
+                                                                                    </th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody
+                                                                                class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
+                                                                                    <tr>
+                                                                                        <td
+                                                                                            class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
+                                                                                            test
+                                                                                        </td>
+                                                                                        <td
+                                                                                            class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
+                                                                                            test
+                                                                                        </td>
+                                                                                        <td
+                                                                                            class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                                                            test
+                                                                                        </td>
+                                                                                    </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="md:col-span-2">
+                                                                    <div class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
+                                                                        <div class="text-lg font-medium leading-tight p-4 text-center bg-blue-100 dark:bg-gray-800 border border-gray-20">C/A Becomes BA</div>
+                                                                        <table
+                                                                            class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                                                                            <thead class="bg-gray-50 dark:bg-gray-800">
+                                                                                <tr>
+                                                                                    <th scope="col"
+                                                                                        class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                                                        No. of Customer
+                                                                                    </th>
+
+                                                                                    <th scope="col"
+                                                                                        class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                                                        Receivable Amount
+                                                                                    </th>
+
+                                                                                    <th scope="col"
+                                                                                        class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                                                        Actual Collection
+                                                                                    </th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody
+                                                                                class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
+                                                                                    <tr>
+                                                                                        <td
+                                                                                            class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
+                                                                                            test
+                                                                                        </td>
+                                                                                        <td
+                                                                                            class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
+                                                                                            test
+                                                                                        </td>
+                                                                                        <td
+                                                                                            class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                                                            test
+                                                                                        </td>
+                                                                                    </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="step6" class="hidden">
+                                    <div class="flex place-content-center justify-center items-center mb-16 mt-2">
+                                        <ol class="space-y-4 sm:flex sm:space-x-6 sm:space-y-0 rtl:space-x-reverse">
+                                            <li
+                                                class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                                                <span
+                                                    class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+                                                    1
+                                                </span>
+                                                <span>
+                                                    <h3 class="font-medium leading-tight">Expenses</h3>
+                                                </span>
+                                            </li>
+                                            <li
+                                                class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                                                <span
+                                                    class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+                                                    2
+                                                </span>
+                                                <span>
+                                                    <h3 class="font-medium leading-tight">Breakdown of Cash Bills</h3>
+                                                </span>
+                                                <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true"
+                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 12 10">
+                                                    <path stroke="currentColor" stroke-linecap="round"
+                                                        stroke-linejoin="round" stroke-width="2"
+                                                        d="m7 9 4-4-4-4M1 9l4-4-4-4" />
+                                                </svg>
+                                            </li>
+                                            <li
+                                                class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                                                <span
+                                                    class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+                                                    3
+                                                </span>
+                                                <span>
+                                                    <h3 class="font-medium leading-tight">Savings</h3>
+                                                </span>
+                                                <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true"
+                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 12 10">
+                                                    <path stroke="currentColor" stroke-linecap="round"
+                                                        stroke-linejoin="round" stroke-width="2"
+                                                        d="m7 9 4-4-4-4M1 9l4-4-4-4" />
+                                                </svg>
+                                            </li>
+                                            <li
+                                                class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                                                <span
+                                                    class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+                                                    4
+                                                </span>
+                                                <span>
+                                                    <h3 class="font-medium leading-tight">Compute Cash On Hand</h3>
+                                                </span>
+                                                <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true"
+                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 12 10">
+                                                    <path stroke="currentColor" stroke-linecap="round"
+                                                        stroke-linejoin="round" stroke-width="2"
+                                                        d="m7 9 4-4-4-4M1 9l4-4-4-4" />
+                                                </svg>
+                                            </li>
+                                            <li
+                                                class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                                                <span
+                                                    class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+                                                    5
+                                                </span>
+                                                <span>
+                                                    <h3 class="font-medium leading-tight">Regular & Bad Accounts</h3>
+                                                </span>
+                                                <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true"
+                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 12 10">
+                                                    <path stroke="currentColor" stroke-linecap="round"
+                                                        stroke-linejoin="round" stroke-width="2"
+                                                        d="m7 9 4-4-4-4M1 9l4-4-4-4" />
+                                                </svg>
+                                            </li>
+                                            <li
+                                                class="flex items-center text-blue-600 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                                                <span
+                                                    class="flex items-center justify-center w-8 h-8 border border-blue-600 rounded-full shrink-0 dark:border-gray-400">
+                                                    6
+                                                </span>
+                                                <span>
+                                                    <h3 class="font-medium leading-tight">Print</h3>
+                                                </span>
+                                                <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true"
+                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 12 10">
+                                                    <path stroke="currentColor" stroke-linecap="round"
+                                                        stroke-linejoin="round" stroke-width="2"
+                                                        d="m7 9 4-4-4-4M1 9l4-4-4-4" />
+                                                </svg>
+                                            </li>
+                                        </ol>
+                                    </div>
+                                    <div class="mb-6">
+                                        <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
+                                            <div class="lg:col-span-2">
+                                                <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
+                                                    <div class="lg:col-span-2">
+                                                        <div
+                                                            class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
+                                                            <div class="md:col-span-1">
+                                                                <label for="description"
+                                                                    class="text-lg font-medium py-2">Additional
+                                                                    Notes</label>
+                                                                <textarea name="description" id="description" rows="4"
+                                                                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                                    placeholder="Type here..."></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     </div>
                                 </div>
 
@@ -629,14 +1307,9 @@
                                                             Next Step
                                                         </button>
 
-                                                        <a href="#" id="submitBtn2"
+                                                        <a href="{{ route('print.index') }}" id="submitBtn"
                                                             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-2">
-                                                            Generate Monthly Report
-                                                        </a>
-
-                                                        <a href="#" id="submitBtn"
-                                                            class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mx-2">
-                                                            Generate Daily Report
+                                                            Generate Report
                                                         </a>
 
                                                     </div>
@@ -677,44 +1350,11 @@
         });
 
     }
-    $('#submitBtn').click(function(e) {
-        e.preventDefault(); // Prevent the link from immediately navigating
-        var urlParams = new URLSearchParams(window.location.search);
-        var date_range = urlParams.get('date_range');
-
-        // Get the value from the textarea (or any input field)
-        var cash = $('#cash_on_hand').val();
-        var desc = $('#description').val();
-
-        // Dynamically update the link with query parameters
-        var updatedUrl = '#' + '?cash=' + encodeURIComponent(cash) +
-            '&description=' + encodeURIComponent(desc);
-
-        // Navigate to the updated URL
-        window.location.href = updatedUrl;
-    });
-
-    $('#submitBtn2').click(function(e) {
-        e.preventDefault(); // Prevent the link from immediately navigating
-        var urlParams = new URLSearchParams(window.location.search);
-        var date_range = urlParams.get('date_range');
-
-        // Get the value from the textarea (or any input field)
-        var cash = $('#cash_on_hand').val();
-        var desc = $('#description').val();
-
-        // Dynamically update the link with query parameters
-        var updatedUrl = '#' + '?cash=' + encodeURIComponent(cash) +
-            '&description=' + encodeURIComponent(desc) + '&date=' + date_range;
-
-        // Navigate to the updated URL
-        window.location.href = updatedUrl;
-    });
 </script>
 
 <script>
     let currentStep = 1;
-    const totalSteps = 3;
+    const totalSteps = 6;
 
     document.getElementById('nextBtn').addEventListener('click', () => {
         showLoading();
@@ -746,7 +1386,6 @@
         document.getElementById('prevBtn').style.display = currentStep === 1 ? 'none' : 'inline-block';
         document.getElementById('nextBtn').style.display = currentStep === totalSteps ? 'none' : 'inline-block';
         document.getElementById('submitBtn').style.display = currentStep === totalSteps ? 'inline-block' : 'none';
-        document.getElementById('submitBtn2').style.display = currentStep === totalSteps ? 'inline-block' : 'none';
     }
 
     function showLoading() {

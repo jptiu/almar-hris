@@ -179,6 +179,11 @@ class BMController extends Controller
         return view('pages.csor.index');
     }
 
+    public function csorPrint()
+    {
+        return view('pages.csor.print.index');
+    }
+
     public function leaveRequest()
     {
         return view('pages.requestform.leave.index');
