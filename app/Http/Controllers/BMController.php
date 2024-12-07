@@ -20,7 +20,7 @@ class BMController extends Controller
         $lists = Customer::where('branch_id', $branch)->orderByDesc('id')->paginate(10);
         $totalCustomer = Customer::where('branch_id', $branch)->count();
 
-        return view('pages.branch.index',compact('lists', 'totalCustomer'));
+        return view('pages.branch.index', compact('lists', 'totalCustomer'));
     }
 
     /**
@@ -84,7 +84,24 @@ class BMController extends Controller
 
     public function badAccount(Request $request)
     {
-        $lists = Loan::where('transaction_customer_status', 'BA')->paginate(20);
+        $branch = auth()->user()->branch_id;
+
+        // Initialize the base query
+        $query = Loan::with('customer')
+            ->where('branch_id', $branch)
+            ->where('transaction_customer_status', 'BA')
+            ->where('status', 'UNPD');
+
+        // Apply the search filter
+        if ($request->search) {
+            $query->whereHas('customer', function ($query) use ($request) {
+                $query->where('first_name', 'LIKE', '%' . $request->search . '%');
+            });
+        }
+
+        // Execute the query with pagination
+        $lists = $query->orderBy('created_at', 'asc')->paginate(20);
+
         return view('pages.badacc.index', compact('lists'));
     }
 
