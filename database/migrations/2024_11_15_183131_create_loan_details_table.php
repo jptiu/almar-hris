@@ -16,16 +16,16 @@ return new class extends Migration
             $table->string('loan_id')->nullable();//Lnkltranh_no
             $table->string('loan_day_no')->nullable();//ltrand_dayno
             $table->string('loan_due_date')->nullable();//ltrand_duedate
-            $table->string('loan_due_amount')->nullable();//ltrand_dueamt
+            $table->decimal('loan_due_amount', 10, 2)->nullable();//ltrand_dueamt
             $table->string('loan_date_paid')->nullable();//ltrand_datepaid
-            $table->string('loan_amount_paid')->nullable();//ltrand_amtpaid
-            $table->string('loan_running_balance')->nullable();//ltrand_runbal
+            $table->decimal('loan_amount_paid', 10, 2)->nullable();//ltrand_amtpaid
+            $table->decimal('loan_running_balance', 10, 2)->nullable();//ltrand_runbal
             $table->string('user_id')->nullable();//ltrand_clctor
             $table->string('loan_bank')->nullable();//ltrand_bank
             $table->string('loan_check_no')->nullable();//ltrand_chkno
             $table->string('loan_remarks')->nullable();//ltrand_rem
-            $table->string('loan_amount_tenderd')->nullable();//ltrand_amttend
-            $table->string('loan_amount_change')->nullable();//ltrand_amtchange
+            $table->decimal('loan_amount_tenderd', 10, 2)->nullable();//ltrand_amttend
+            $table->decimal('loan_amount_change', 10, 2)->nullable();//ltrand_amtchange
             $table->string('loan_withdraw_from_bank')->nullable();//ltrand_withdrawn_frombank
             $table->timestamps();
         });

@@ -11,13 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('breakdowns', function (Blueprint $table) {
-            $table->id();
-            $table->string('ref_no');
-            $table->string('date');
-            $table->string('user_id');
-            $table->decimal('total_amount', 10, 2)->nullable();
-            $table->timestamps();
+        Schema::table('collections', function (Blueprint $table) {
+            $table->string('paid_amount')->nullable();
         });
     }
 
@@ -26,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('breakdowns');
+        Schema::table('collections', function (Blueprint $table) {
+            $table->string('paid_amount')->nullable();
+        });
     }
 };

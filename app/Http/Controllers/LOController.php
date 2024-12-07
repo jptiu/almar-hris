@@ -14,8 +14,9 @@ class LOController extends Controller
     public function index()
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
-        $lists = Customer::orderByDesc('id')->paginate(10);
-        $totalCustomer = Customer::count();
+        $branch = auth()->user()->branch_id;
+        $lists = Customer::where('branch_id', $branch)->orderByDesc('id')->paginate(10);
+        $totalCustomer = Customer::where('branch_id', $branch)->count();
         return view('pages.loanofficer.index', compact('lists', 'totalCustomer'));
     }
 

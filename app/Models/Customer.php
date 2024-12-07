@@ -40,7 +40,7 @@ class Customer extends Model
         'day_off',
         'monthly_salary',
         'salary_sched',
-        'monthtly_pension',
+        'monthly_pension',
         'pension_sched',
         'pension_type',
         'fathers_name',
@@ -55,6 +55,11 @@ class Customer extends Model
     public function loan()
     {
         return $this->hasOne(Loan::class, 'customer_id')->latestOfMany();
+    }
+
+    public function loans()
+    {
+        return $this->hasMany(Loan::class, 'customer_id');
     }
 
     public function bry()

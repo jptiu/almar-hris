@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('transaction_customer_status_date')->nullable();//ltranh_cus_stat_dt
             $table->string('transaction_with_collateral')->nullable();//ltranh_wcolat
             $table->string('transaction_with_cert')->nullable();//ltranh_wcert
-            $table->string('principal_amount')->nullable();//ltranh_amt
+            $table->decimal('principal_amount', 10, 2)->nullable();//ltranh_amt
             $table->string('days_to_pay')->nullable();//ltranh_terms_day
             $table->string('months_to_pay')->nullable();//ltranh_terms_mon
             $table->string('interest')->nullable();//ltranh_intrate

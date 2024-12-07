@@ -16,7 +16,7 @@ class CustomerController extends Controller
      */
     public function index(Request $request)
     {
-        abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
+        abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access') || Gate::allows('admin_access'), 404);
         try {
             $branch = auth()->user()->branch_id;
             if ($request->search) {
@@ -94,23 +94,28 @@ class CustomerController extends Controller
         $customer = Customer::where('branch_id', $branch)->where('id', $id)->first();
 
         return view('pages.customer.show.index', compact('customer'));
+        
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
+        $branch = auth()->user()->branch_id;
+        $customer = Customer::where('branch_id', $branch)->where('id', $id)->first();
+        $types = CustomerType::where('branch_id', $branch)->paginate(20);
+        return view('pages.customer.update.index', compact('customer', 'types'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(CustomerUpdateRequest $request, string $id)
+    public function update(Request $request, string $id)
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
-        if ($request->validated()) {
+        // if ($request->validated()) {
             $customer = Customer::find($id);
             $customer->type = $request->type;
             $customer->first_name = $request->first_name;
@@ -129,7 +134,7 @@ class CustomerController extends Controller
 
             return redirect(route("customer.index"))->with('success', 'Updated Successfully');
 
-        }
+        // }
     }
 
     /**

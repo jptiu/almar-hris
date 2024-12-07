@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Collection;
+use App\Models\Customer;
 use App\Models\Loan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -15,8 +17,10 @@ class BMController extends Controller
     {
         abort_unless(Gate::allows('branch_access'), 404);
         $branch = auth()->user()->branch_id;
+        $lists = Customer::where('branch_id', $branch)->orderByDesc('id')->paginate(10);
+        $totalCustomer = Customer::where('branch_id', $branch)->count();
 
-        return view('pages.branch.index');
+        return view('pages.branch.index', compact('lists', 'totalCustomer'));
     }
 
     /**
@@ -80,7 +84,24 @@ class BMController extends Controller
 
     public function badAccount(Request $request)
     {
-        $lists = Loan::where('transaction_customer_status', 'BA')->paginate(20);
+        $branch = auth()->user()->branch_id;
+
+        // Initialize the base query
+        $query = Loan::with('customer')
+            ->where('branch_id', $branch)
+            ->where('transaction_customer_status', 'BA')
+            ->where('status', 'UNPD');
+
+        // Apply the search filter
+        if ($request->search) {
+            $query->whereHas('customer', function ($query) use ($request) {
+                $query->where('first_name', 'LIKE', '%' . $request->search . '%');
+            });
+        }
+
+        // Execute the query with pagination
+        $lists = $query->orderBy('created_at', 'asc')->paginate(20);
+
         return view('pages.badacc.index', compact('lists'));
     }
 
@@ -101,7 +122,9 @@ class BMController extends Controller
     }
     public function paymentHistory(Request $request)
     {
-        return view('pages.payhistory.index');
+        $branch = auth()->user()->branch_id;
+        $lists = Collection::where('branch_id', $branch)->paginate(20);
+        return view('pages.payhistory.index', compact('lists'));
     }
 
     public function pendingLoandApproval(Request $request)
@@ -121,7 +144,8 @@ class BMController extends Controller
         $branch = auth()->user()->branch_id;
         $lists = Loan::where('principal_amount', '<', '50000')
             ->where('branch_id', $branch)
-            ->where('status', '!=', null)->paginate(10);
+            ->where('status', '!=', null)
+            ->where('status', '!=', 'CNCLD')->paginate(10);
 
         return view('pages.pendingloanapp.approvedloans.index', compact('lists'));
     }

@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->string('acc_title')->nullable();
             $table->string('justification')->nullable();
             $table->string('or_no')->nullable();
-            $table->string('amount')->nullable();
+            $table->decimal('amount', 10, 2)->nullable();
             $table->string('exp_date')->nullable();
             $table->timestamps();
         });

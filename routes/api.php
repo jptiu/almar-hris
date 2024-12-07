@@ -45,5 +45,9 @@ Route::group(['middleware' => 'auth:api'], function () {
     });
     Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
         Route::get('customer', 'CustomerController@index')->name('customer.index');
+        Route::get('customer/{id}', 'CustomerController@show')->name('customer.show');
+
+        // Payment Collection
+        Route::post('payment', 'PaymentController@store')->name('payment.store');
     });
 });

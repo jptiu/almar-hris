@@ -129,6 +129,7 @@ class ExpensesController extends Controller
         // dd($header);
 
         foreach ($rows as $row) {
+            $formattedAmount = (float) str_replace(',', '', $row[5]);
             // Create and save your model instance
             Expenses::create([
                 'exp_ref_no' => $row[0],
@@ -136,7 +137,7 @@ class ExpensesController extends Controller
                 'acc_no' => $row[2],
                 'justification' => $row[3],
                 'or_no' => $row[4],
-                'amount' => $row[5],
+                'amount' => number_format($formattedAmount, 2, '.', ''),
                 'user_id' => auth()->user()->id,
                 'branch_id' => $branch,
             ]);

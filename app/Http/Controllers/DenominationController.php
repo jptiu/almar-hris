@@ -102,9 +102,10 @@ class DenominationController extends Controller
         // dd($header);
 
         foreach ($rows as $row) {
+            $formattedAmount = (float) str_replace(',', '', $row[0]);
             // Create and save your model instance
             Denomination::create([
-                'denom_amt' => $row[0],
+                'denom_amt' => number_format($formattedAmount, 2, '.', ''),
                 'denom_typ' => $row[1],
             ]);
         }

@@ -12,373 +12,385 @@
             </svg>
             <a href="{{ route('customer.index') }}" class="text-base font-semibold">Back</a>
         </div>
+
+            <!-- Tabs Section -->
+            <div class="mt-6 mb-8 border-b border-gray-200">
+                <!-- Tabs -->
+                <nav class="flex space-x-4">
+                    <!-- Profile Tab -->
+                    <button
+                    id="profile-tab"
+                    class="tab-btn px-4 py-2 text-sm font-medium text-accent-600 border-b-2 border-accent-100 hover:text-accent-600 focus:outline-none"
+                    onclick="switchTab('profile')"
+                    >
+                    Profile Information
+                    </button>
+                    <!-- Loan History Tab -->
+                    <button
+                    id="loan-history-tab"
+                    class="tab-btn px-4 py-2 text-sm font-medium text-gray-500 border-b-2 border-accent-100 hover:text-accent-600 focus:outline-none"
+                    onclick="switchTab('loan-history')"
+                    >
+                    Loan History
+                    </button>
+                </nav>
+            </div>
             
 
+            <div id="loan-history" class="tab-content mt-6 hidden">
+                <!-- Page Header -->
+                <!-- <div class="flex justify-between items-center mb-6">
+                    <h1 class="text-xl font-bold text-gray-800">Loan History</h1>
+                    <button class="bg-orange-500 hover:bg-orange-600 text-white font-medium px-4 py-2 rounded-md">
+                    Add New Loan
+                    </button>
+                </div> -->
+
+                <!-- Table -->
+                <div class="overflow-x-auto">
+                    <table class="table-auto w-full border-collapse border border-gray-200">
+                    <thead>
+                        <tr class="bg-gray-100 text-left text-sm font-medium text-gray-600">
+                        <th class="border border-gray-200 px-4 py-2">Loan Type</th>
+                        <th class="border border-gray-200 px-4 py-2">Transaction Type</th>
+                        <th class="border border-gray-200 px-4 py-2">Transaction No</th>
+                        <th class="border border-gray-200 px-4 py-2">Date of Loan</th>
+                        <th class="border border-gray-200 px-4 py-2">Customer ID</th>
+                        <th class="border border-gray-200 px-4 py-2">Customer Type</th>
+                        <th class="border border-gray-200 px-4 py-2">Status</th>
+                        <th class="border border-gray-200 px-4 py-2">Collateral</th>
+                        <th class="border border-gray-200 px-4 py-2">Cert</th>
+                        <th class="border border-gray-200 px-4 py-2">Principal Amount</th>
+                        <th class="border border-gray-200 px-4 py-2">Days to Pay</th>
+                        <th class="border border-gray-200 px-4 py-2">Months to Pay</th>
+                        <th class="border border-gray-200 px-4 py-2">Interest Rate</th>
+                        <th class="border border-gray-200 px-4 py-2">Interest Amount</th>
+                        <th class="border border-gray-200 px-4 py-2">SVC Charge</th>
+                        <th class="border border-gray-200 px-4 py-2">Payable Amount</th>
+                        <th class="border border-gray-200 px-4 py-2">Branch ID</th>
+                        <th class="border border-gray-200 px-4 py-2">File</th>
+                        <th class="border border-gray-200 px-4 py-2">Note</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm text-gray-700">
+                        <!-- Example Row -->
+                        @foreach($customer->loans as $loan)
+                        <tr class="hover:bg-gray-50">
+                        <td class="border border-gray-200 px-4 py-2">{{$loan->loan_type}}</td>
+                        <td class="border border-gray-200 px-4 py-2">{{$loan->transaction_type}}</td>
+                        <td class="border border-gray-200 px-4 py-2">{{$loan->id}}</td>
+                        <td class="border border-gray-200 px-4 py-2">{{$loan->date_of_loan}}</td>
+                        <td class="border border-gray-200 px-4 py-2">{{$customer->id}}</td>
+                        <td class="border border-gray-200 px-4 py-2">{{$loan->customer_type}}</td>
+                        <td class="border border-gray-200 px-4 py-2 text-green-600 font-medium">{{$loan->status}}</td>
+                        <td class="border border-gray-200 px-4 py-2 text-center">{{$loan->transaction_with_collateral}}</td>
+                        <td class="border border-gray-200 px-4 py-2 text-center">{{$loan->transaction_with_cert}}</td>
+                        <td class="border border-gray-200 px-4 py-2">{{$loan->principal_amount}}</td>
+                        <td class="border border-gray-200 px-4 py-2">{{$loan->days_to_pay}}</td>
+                        <td class="border border-gray-200 px-4 py-2">{{$loan->months_to_pay}}</td>
+                        <td class="border border-gray-200 px-4 py-2">{{$loan->interest}}</td>
+                        <td class="border border-gray-200 px-4 py-2">{{$loan->interest_amount}}</td>
+                        <td class="border border-gray-200 px-4 py-2">{{$loan->svc_charge}}</td>
+                        <td class="border border-gray-200 px-4 py-2">{{$loan->payable_amount}}</td>
+                        <td class="border border-gray-200 px-4 py-2">{{$loan->branch_id}}</td>
+                        <td class="border border-gray-200 px-4 py-2">
+                            <a href="#" class="text-blue-500 underline">Download</a>
+                        </td>
+                        <td class="border border-gray-200 px-4 py-2">{{$loan->note}}</td>
+                        </tr>
+                        <!-- Repeat rows for more data -->
+                        @endforeach
+                    </tbody>
+                    </table>
+                </div>
+                </div>
+
+
             <!-- First Section: Personal Information -->
-            <div>
-                <h3 class="text-2xl font-semibold mb-4">Personal Information</h3>
-                <div class="flex flex-wrap">
-                    <div class="w-full sm:w-1/3 mb-4">
-                        <label class="block text-gray-500">First Name</label>
-                        <p class="text-gray-900">John</p>
-                    </div>
-                    <div class="w-full sm:w-1/3 mb-4">
-                        <label class="block text-gray-500">Last Name</label>
-                        <p class="text-gray-900">Doe</p>
-                    </div>
-                    <div class="w-full sm:w-1/3 mb-4">
-                        <label class="block text-gray-500">Middle Name</label>
-                        <p class="text-gray-900">Smith</p>
-                    </div>
-                    <div class="w-full sm:w-1/3 mb-4">
-                        <label class="block text-gray-500">Birth Place</label>
-                        <p class="text-gray-900">CDO</p>
-                    </div>
-                    <div class="w-full sm:w-1/3 mb-4">
-                        <label class="block text-gray-500">Birthdate</label>
-                        <p class="text-gray-900">01/01/1990</p>
-                    </div>
-                    <div class="w-full sm:w-1/3 mb-4">
-                        <label class="block text-gray-500">Permanent Address</label>
-                        <p class="text-gray-900">123 Main St, City, Country</p>
-                    </div>
-                    <div class="w-full sm:w-1/3 mb-4">
-                        <label class="block text-gray-500">Present Address</label>
-                        <p class="text-gray-900">123 Main St, City, Country</p>
-                    </div>
-                    <div class="w-full sm:w-1/3 mb-4">
-                        <label class="block text-gray-500">Civil Status</label>
-                        <p class="text-gray-900">Single</p>
-                    </div>
-                    <div class="w-full sm:w-1/3 mb-4">
-                        <label class="block text-gray-500">Age</label>
-                        <p class="text-gray-900">26</p>
-                    </div>
-                    <div class="w-full sm:w-1/3 mb-4">
-                        <label class="block text-gray-500">Gender</label>
-                        <p class="text-gray-900">Male</p>
-                    </div>
-                    <div class="w-full sm:w-1/3 mb-4">
-                        <label class="block text-gray-500">Citizenship</label>
-                        <p class="text-gray-900">Filipino-American</p>
-                    </div>
-                    <div class="w-full sm:w-1/3 mb-4">
-                        <label class="block text-gray-500">Facebook Name</label>
-                        <p class="text-gray-900">Cj Simene</p>
-                    </div>
-                </div>
-            </div>
+            <div id="profile" class="tab-content mt-6"> 
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4">Personal Information</h3>
+                    <div>
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Customer Type:</div>
+                            <div class="text-gray-900">{{$customer->type}}</div>
+                        </li>  
 
-            <!-- Separator Line -->
-            <hr class="my-6 border-gray-300" />
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Full Name:</div>
+                            <div class="text-gray-900">{{$customer->first_name}}</div>
+                        </li>  
 
-            <!-- Second Section: Spousal Data -->
-            <div>
-                <h3 class="text-2xl font-semibold mb-4">Spousal Data</h3>
-                <div class="flex flex-wrap">
-                    <div class="w-full sm:w-1/3 mb-4">
-                        <label class="block text-gray-500">Complete Name of Spouse</label>
-                        <p class="text-gray-900">John Doe</p>
-                    </div>
-                    <div class="w-full sm:w-1/3 mb-4">
-                        <label class="block text-gray-500">Contact Number</label>
-                        <p class="text-gray-900">9284920580</p>
-                    </div>
-                    <div class="w-full sm:w-1/3 mb-4">
-                        <label class="block text-gray-500">Birthdate</label>
-                        <p class="text-gray-900">01/01/1990</p>
-                    </div>
-                    <div class="w-full sm:w-1/3 mb-4">
-                        <label class="block text-gray-500">Age</label>
-                        <p class="text-gray-900">26</p>
-                    </div>
-                    <div class="w-full sm:w-1/3 mb-4">
-                        <label class="block text-gray-500">Occupation</label>
-                        <p class="text-gray-900">Dev</p>
-                    </div>
-                    <div class="w-full sm:w-1/3 mb-4">
-                        <label class="block text-gray-500">Company Name/ Address</label>
-                        <p class="text-gray-900">CJK CDO</p>
-                    </div>
-                    <div class="w-full sm:w-1/3 mb-4">
-                        <label class="block text-gray-500">Facebook Name</label>
-                        <p class="text-gray-900">John Doe</p>
-                    </div>
-                </div>
-            </div>
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Personal Contact Number:</div>
+                            <div class="text-gray-900">{{$customer->cell_number}}</div>
+                        </li>  
 
-            <!-- Separator Line -->
-            <hr class="my-6 border-gray-300" />
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Birthdate:</div>
+                            <div class="text-gray-900">{{$customer->birth_date}}</div>
+                        </li>  
 
-            <!-- Third Section: Company Information -->
-            <div>
-                <h3 class="text-2xl font-semibold mb-4">Company Information</h3>
-                <div class="flex flex-wrap">
-                    <div class="w-full sm:w-1/2 mb-4">
-                        <label class="block text-gray-500">Agency Name</label>
-                        <p class="text-gray-900">CJK</p>
-                    </div>
-                    <div class="w-full sm:w-1/2 mb-4">
-                        <label class="block text-gray-500">Address / Tel. no</label>
-                        <p class="text-gray-900">CDO 20294820</p>
-                    </div>
-                    <div class="w-full sm:w-1/2 mb-4">
-                        <label class="block text-gray-500">Company Name</label>
-                        <p class="text-gray-900">CJK CDO</p>
-                    </div>
-                    <div class="w-full sm:w-1/2 mb-4">
-                        <label class="block text-gray-500">Address / Tel. no</label>
-                        <p class="text-gray-900">CDO 20294820</p>
-                    </div>
-                    <div class="w-full sm:w-1/2 mb-4">
-                        <label class="block text-gray-500">Date Hired</label>
-                        <p class="text-gray-900">01/01/2025</p>
-                    </div>
-                    <div class="w-full sm:w-1/2 mb-4">
-                        <label class="block text-gray-500">Day Off</label>
-                        <p class="text-gray-900">MWF</p>
-                    </div>
-                    <div class="w-full sm:w-1/2 mb-4">
-                        <label class="block text-gray-500">Position</label>
-                        <p class="text-gray-900">Dev</p>
-                    </div>
-                    <div class="w-full sm:w-1/2 mb-4">
-                        <label class="block text-gray-500">Monthly Salary</label>
-                        <p class="text-gray-900">50,000</p>
-                    </div>
-                    <div class="w-full sm:w-1/2 mb-4">
-                        <label class="block text-gray-500">Salary Schedule</label>
-                        <p class="text-gray-900">MWF</p>
-                    </div>
-                </div>
-            </div>
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Birth Place:</div>
+                            <div class="text-gray-900">{{$customer->birth_place}} </div>
+                        </li>  
 
-            <!-- Separator Line -->
-        <hr class="my-6 border-gray-300" />
-
-        <!-- Fourth Section: For Pensioners ONLY -->
-        <div>
-            <h3 class="text-2xl font-semibold mb-4">For Pensioners ONLY</h3>
-            <div class="flex flex-wrap">
-                <div class="w-full sm:w-1/2 mb-4">
-                    <label class="block text-gray-500">Monthly Pension</label>
-                    <p class="text-gray-900">N/A</p>
-                </div>
-                <div class="w-full sm:w-1/2 mb-4">
-                    <label class="block text-gray-500">Pension Schedule</label>
-                    <p class="text-gray-900">N/A</p>
-                </div>
-                <div class="w-full sm:w-1/2 mb-4">
-                    <label class="block text-gray-500">Pension Type</label>
-                    <p class="text-gray-900">N/A</p>
-                </div>
-            </div>
-        </div>
-        <!-- Separator Line -->
-        <hr class="my-6 border-gray-300" />
-
-        <!-- Fifth Section: Background Data -->
-        <div>
-            <h3 class="text-2xl font-semibold mb-4">Background Data</h3>
-            <div class="flex flex-wrap">
-                <div class="w-full sm:w-1/2 mb-4">
-                    <label class="block text-gray-500">Father's Name</label>
-                    <p class="text-gray-900">Cj Simene</p>
-                </div>
-                <div class="w-full sm:w-1/2 mb-4">
-                    <label class="block text-gray-500">Contact No.</label>
-                    <p class="text-gray-900">04957382957</p>
-                </div>
-                <div class="w-full sm:w-1/2 mb-4">
-                    <label class="block text-gray-500">Mother's Name</label>
-                    <p class="text-gray-900">J Simene</p>
-                </div>
-                <div class="w-full sm:w-1/2 mb-4">
-                    <label class="block text-gray-500">Contact No.</label>
-                    <p class="text-gray-900">04957382957</p>
-                </div>
-            </div>
-        </div>
-        <!-- Separator Line -->
-        <hr class="my-6 border-gray-300" />
-
-        <!-- Last Section: Bank Account Informations -->
-        <div>
-            <h3 class="text-2xl font-semibold mb-4">Bank Account Informations</h3>
-            <div class="flex flex-wrap">
-                <div class="w-full sm:w-1/2 mb-4">
-                    <label class="block text-gray-500">Bank / Branch</label>
-                    <p class="text-gray-900">Cj Bank</p>
-                </div>
-                <div class="w-full sm:w-1/2 mb-4">
-                    <label class="block text-gray-500">Card No.</label>
-                    <p class="text-gray-900">049573</p>
-                </div>
-                <div class="w-full sm:w-1/2 mb-4">
-                    <label class="block text-gray-500">Account No.</label>
-                    <p class="text-gray-900">2928</p>
-                </div>
-                <div class="w-full sm:w-1/2 mb-4">
-                    <label class="block text-gray-500">Pin No.</label>
-                    <p class="text-gray-900">1234</p>
-                </div>
-            </div>
-        </div>
-        </div>
-
-        
-
-        </div>
-        </div>
-
-        
-
-
-
-        <!-- Cards -->
-        <!-- <section class="container px-4 mx-auto mt-12">
-            <h3 class="text-2xl font-semibold mb-4">Pending/Submittedsss Requests</h3>
-                <div class="flex flex-col">
-                    <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                        <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-4">
-                            <div class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
-                                <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                                    <thead class="bg-gray-50 dark:bg-gray-800">
-                                        <tr>
-                                            <th scope="col"
-                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                Date Filed
-                                            </th>
-
-                                            <th scope="col"
-                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                Leave Type
-                                            </th>
-
-                                            <th scope="col"
-                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                Date From
-                                            </th>
-
-                                            <th scope="col"
-                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                Date To
-                                            </th>
-
-                                            <th scope="col"
-                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                No of Days w/ Pay
-                                            </th>
-
-                                            <th scope="col"
-                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                               Reason
-                                            </th>
-
-                                            <th scope="col"
-                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                               Status
-                                            </th>
-
-                                            <th scope="col"
-                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                Action
-                                            </th>
-
-                                        </tr>
-                                    </thead>
-                                    <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
-                                            <tr>
-                                                <td
-                                                    class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
-                                                    02/11/2024
-                                                </td>
-                                                <td
-                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    Sick Leave
-                                                </td>
-                                                <td
-                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    02/11/2024
-                                                </td>
-                                                <td
-                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    02/12/2024
-                                                </td>
-                                                <td
-                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    0
-                                                </td>
-                                                <td
-                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    Sick
-                                                </td>
-                                                <td
-                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    Pending
-                                                </td>
-                                                <td class="px-4 py-4 text-sm whitespace-nowrap">
-                                                    <div class="flex items-center gap-x-6">
-                                                        <button
-                                                            class="text-gray-500 transition-colors duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                                height="16" fill="currentColor" class="bi bi-eye"
-                                                                viewBox="0 0 16 16">
-                                                                <path
-                                                                    d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z" />
-                                                                <path
-                                                                    d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
-                                                            </svg>
-                                                        </button>
-
-                                                        <a href="#"
-                                                            class="text-gray-500 transition-colors duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                                height="16" fill="currentColor" class="bi bi-pencil"
-                                                                viewBox="0 0 16 16">
-                                                                <path
-                                                                    d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325" />
-                                                            </svg>
-                                                        </a>
-
-                                                        <form action="#"
-                                                            method="post">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button type="submit"
-                                                                class="text-gray-500 mt-1 transition-colors duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                                    height="16" fill="currentColor"
-                                                                    class="bi bi-trash" viewBox="0 0 16 16">
-                                                                    <path
-                                                                        d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
-                                                                    <path
-                                                                        d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
-                                                                </svg>
-                                                            </button>
-                                                        </form>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                    </tbody>
-                                </table>
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Address:</div>
+                            <div class="text-gray-900">{{$customer->house}}, {{$customer->street}},
+                            {{$customer->barangay}}, {{$customer->city}}
                             </div>
-                        </div>
+                        </li> 
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Civil Status:</div>
+                            <div class="text-gray-900">{{$customer->civil_status}}</div>
+                        </li> 
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Age:</div>
+                            <div class="text-gray-900">{{$customer->age}}</div>
+                        </li> 
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Gender:</div>
+                            <div class="text-gray-900">{{$customer->gender}}</div>
+                        </li> 
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Citizenship:</div>
+                            <div class="text-gray-900">{{$customer->citizenship}}</div>
+                        </li> 
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Facebook:</div>
+                            <div class="text-gray-900">{{$customer->facebook_name}}</div>
+                        </li> 
                     </div>
+                    
                 </div>
-        </section>     -->
+
+                <!-- Separator Line -->
+                <hr class="my-6 border-gray-300" />
+
+                <!-- Second Section: Spousal Data -->
+
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4">Spousal Data</h3>
+                    <div>
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Complete Name of Spouse:</div>
+                            <div class="text-gray-900">{{$customer->spouse_name}}</div>
+                        </li>   
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Personal Contact Number:</div>
+                            <div class="text-gray-900">{{$customer->cell_number}}</div>
+                        </li>  
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Birthdate:</div>
+                            <div class="text-gray-900">{{$customer->birth_date}}</div>
+                        </li>  
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Age:</div>
+                            <div class="text-gray-900">{{$customer->age}}</div>
+                        </li> 
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Occupation:</div>
+                            <div class="text-gray-900">{{$customer->occupation}}</div>
+                        </li> 
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Company Name/ Address:</div>
+                            <div class="text-gray-900">{{$customer->c_nameadd}}</div>
+                        </li> 
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Facebook:</div>
+                            <div class="text-gray-900">{{$customer->facebook_name}}</div>
+                        </li> 
+                    </div>
+                    
+                </div>
+
+                <!-- Separator Line -->
+                <hr class="my-6 border-gray-300" />
+
+                <!-- Third Section: Company Information -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4">Company Information</h3>
+                    <div>
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Agency Name:</div>
+                            <div class="text-gray-900">{{$customer->agency_name}}</div>
+                        </li>   
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Address / Tel. no:</div>
+                            <div class="text-gray-900">{{$customer->add_tel}}</div>
+                        </li>  
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Company Name:</div>
+                            <div class="text-gray-900">{{$customer->comp_name}}</div>
+                        </li>  
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Address / Tel. no:</div>
+                            <div class="text-gray-900">{{$customer->add_tel}}</div>
+                        </li>  
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Date Hired:</div>
+                            <div class="text-gray-900">{{$customer->date_hired}}</div>
+                        </li> 
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Day Off:</div>
+                            <div class="text-gray-900">{{$customer->day_off}}</div>
+                        </li> 
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Position:</div>
+                            <div class="text-gray-900">{{$customer->job_position}}</div>
+                        </li> 
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Monthly Salary:</div>
+                            <div class="text-gray-900">{{$customer->monthly_salary}}</div>
+                        </li> 
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Salary Schedule:</div>
+                            <div class="text-gray-900">{{$customer->salary_sched}}</div>
+                        </li> 
+                    </div>
+                    
+                </div>
+                    
+                    
+                
+                        
+                <!-- Separator Line -->
+                <hr class="my-6 border-gray-300" />
+
+                <!-- Fourth Section: For Pensioners ONLY -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4">For Pensioners ONLY</h3>
+                    <div>
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Monthly Pension:</div>
+                            <div class="text-gray-900">{{$customer->monthly_pension}}</div>
+                        </li>   
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Pension Schedule:</div>
+                            <div class="text-gray-900">{{$customer->pension_sched}}</div>
+                        </li>  
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Pension Type:</div>
+                            <div class="text-gray-900">{{$customer->pension_type}}</div>
+                        </li>  
+
+                    </div>
+                    
+                </div>
+            
+                <!-- Separator Line -->
+                <hr class="my-6 border-gray-300" />
+
+                <!-- Fifth Section: Background Data -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4">Background Data</h3>
+                    <div>
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Father's Name:</div>
+                            <div class="text-gray-900">{{$customer->fathers_name}}</div>
+                        </li>   
+                        
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Contact No.:</div>
+                            <div class="text-gray-900">{{$customer->cell_number}}</div>
+                        </li>   
+                        
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Mother's Name:</div>
+                            <div class="text-gray-900">{{$customer->mothers_name}}C Simene</div>
+                        </li>    
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Contact No.:</div>
+                            <div class="text-gray-900">{{$customer->cell_number}}</div>
+                        </li>   
+                    </div>
+                    
+                </div>
+
+                <!-- Separator Line -->
+                <hr class="my-6 border-gray-300" />
+
+                <!-- Last Section: Bank Account Informations -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4">Bank Account Informations</h3>
+                    <div>
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Bank / Branch:</div>
+                            <div class="text-gray-900">{{$customer->branch}}</div>
+                        </li>   
+                        
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Card No.:</div>
+                            <div class="text-gray-900">{{$customer->card_no}}</div>
+                        </li>    
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Account No.:</div>
+                            <div class="text-gray-900">{{$customer->acc_no}}</div>
+                        </li>   
+
+                        <li class="flex flex-wrap mb-2">
+                            <div class="text-gray-500 w-72">Pin No.:</div>
+                            <div class="text-gray-900">{{$customer->pin_no}}</div>
+                        </li>   
+                    </div>
+                    
+                </div>  
+            </div>
 
     </div>
     
 </x-app-layout>
 
 <script>
-function toggleCustomTime(value) {
-    var customTime = document.getElementById('customTime');
-    if (value === 'Custom') {
-        customTime.style.display = 'block';
-    } else {
-        customTime.style.display = 'none';
+    function switchTab(tabId) {
+        // Hide all tab content
+        document.querySelectorAll(".tab-content").forEach((content) => {
+        content.classList.add("hidden");
+        });
+
+        // Remove active styles from all tab buttons
+        document.querySelectorAll(".tab-btn").forEach((btn) => {
+        btn.classList.remove("text-accent-600", "border-accent-100");
+        btn.classList.add("text-gray-500");
+        });
+
+        // Show the selected tab content
+        document.getElementById(tabId).classList.remove("hidden");
+
+        // Highlight the active tab button
+        document
+        .getElementById(tabId + "-tab")
+        .classList.add("text-accent-600", "border-accent-100");
+        document
+        .getElementById(tabId + "-tab")
+        .classList.remove("text-gray-500");
     }
-}
+
+    // Set default active tab
+    switchTab("profile");
 </script>
