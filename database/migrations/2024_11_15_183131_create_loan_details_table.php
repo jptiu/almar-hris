@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('loan_due_date')->nullable();//ltrand_duedate
             $table->decimal('loan_due_amount', 10, 2)->nullable();//ltrand_dueamt
             $table->string('loan_date_paid')->nullable();//ltrand_datepaid
-            $table->decimal('loan_amount_paid', 10, 2)->nullable();//ltrand_amtpaid
+            $table->string('loan_amount_paid')->nullable();//ltrand_amtpaid
             $table->decimal('loan_running_balance', 10, 2)->nullable();//ltrand_runbal
             $table->string('user_id')->nullable();//ltrand_clctor
             $table->string('loan_bank')->nullable();//ltrand_bank

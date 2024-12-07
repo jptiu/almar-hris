@@ -96,6 +96,7 @@ class CollectionController extends Controller
             $col->branch_id = $branch;
             $col->lat = $request->lat ?? 0;
             $col->long = $request->long ?? 0;
+            $col->loan_details_id = $loanDetails->id;
             $col->save();
         }
 
@@ -116,12 +117,34 @@ class CollectionController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Request $request,string $id)
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
-        $collection = Collection::where('id', $id)->first();
+        $branch = auth()->user()->branch_id;
+        $collection = Collection::where('branch_id', $branch)->find($id);
+        $customers = Customer::where('branch_id', $branch)->get();
+        $collectors = User::where('branch_id', $branch)->where('roles.title', 'Collector')
+            ->join('role_user', 'users.id', '=', 'role_user.user_id')
+            ->join('roles', 'role_user.role_id', '=', 'roles.id')
+            ->get();
+        $loan = [];
+        $customer = [];
+        if ($request->customer_id) {
+            $customer = Customer::with(['loan' => function ($query) {
+                $query->where('status', '!=', null);
+            } ,'customerType','loan.details' => function ($query) {
+                $query->whereNull('loan_date_paid'); // Filter due today
+            }])->find($request->customer_id);
+        }
+        // Check if the request is an AJAX call
+        if ($request->ajax()) {
+            return response()->json([
+                'customer' => $customer,
+                'loan' => $loan,
+            ]);
+        }
 
-        return view('pages.collections.update.index', compact('collection'));
+        return view('pages.collections.update.index', compact('collection', 'customers', 'collectors'));
     }
 
     /**

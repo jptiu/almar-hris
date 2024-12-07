@@ -44,12 +44,12 @@
                             </div> --}}
                             <div>
                                 <label for="prev_transaction" class="text-black font-medium">Prev Tran Date</label>
-                                <input type="date" name="prev_transaction" id="prev_transaction" value="{{ $collection->prev_transaction }}"
+                                <input type="date" name="prev_transaction" id="prev_transaction" value="{{ $computecashonhand->prev_transaction_date }}"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" />
                             </div>
                             <div>
                                 <label for="cash_beginning" class="text-black font-medium">Cash Beginning</label>
-                                <input type="number" name="cash_beginning" id="cash_beginning" value="{{ $collection->cash_beginning }}"
+                                <input type="number" name="cash_beginning" id="cash_beginning" value="{{ $computecashonhand->cash_beginning }}"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                     placeholder="0.00" />
                             </div>
@@ -63,24 +63,24 @@
                         <div class="grid gap-4 text-sm grid-cols-1 md:grid-cols-4">
                             <div>
                                 <label for="transaction_date" class="text-black font-medium">Today's Tran Date</label>
-                                <input type="date" name="transaction_date" id="transaction_date" value="{{ $collection->transaction_date }}"
+                                <input type="date" name="transaction_date" id="transaction_date" value="{{ $computecashonhand->transaction_date }}"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" />
                             </div>
                             <div>
                                 <label for="collection" class="text-black font-medium">Collection</label>
-                                <input type="number" name="collection" id="collection" value="{{ $collection->collection }}"
+                                <input type="number" name="collection" id="collection" value="{{ $computecashonhand->collection }}"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                     placeholder="0.00" />
                             </div>
                             <div>
                                 <label for="add_cash" class="text-black font-medium">Add Cash</label>
-                                <input type="number" name="add_cash" id="add_cash" value="{{ $collection->add_cash }}"
+                                <input type="number" name="add_cash" id="add_cash" value="{{ $computecashonhand->add_cash }}"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                     placeholder="0.00" />
                             </div>
                             <div>
                                 <label for="add_cash_2" class="text-black font-medium">Add Cash (2nd)</label>
-                                <input type="number" name="add_cash_2" id="add_cash_2" value="{{ $collection->add_cash_2 }}"
+                                <input type="number" name="add_cash_2" id="add_cash_2" value="{{ $computecashonhand->add_cash_2 }}"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                     placeholder="0.00" />
                             </div>
@@ -94,19 +94,19 @@
                         <div class="grid gap-4 text-sm grid-cols-1 md:grid-cols-3">
                             <div>
                                 <label for="loan_releases" class="text-black font-medium">Today's Loan Releases</label>
-                                <input type="number" name="loan_releases" id="loan_releases" value="{{ $collection->loan_releases }}"
+                                <input type="number" name="loan_releases" id="loan_releases" value="{{ $computecashonhand->loan_releases }}"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                     placeholder="0.00" />
                             </div>
                             <div>
                                 <label for="expenses" class="text-black font-medium">Today's Expenses</label>
-                                <input type="number" name="expenses" id="expenses" value="{{ $collection->expenses }}"
+                                <input type="number" name="expenses" id="expenses" value="{{ $computecashonhand->expenses }}"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                     placeholder="0.00" />
                             </div>
                             <div>
                                 <label for="new_cash_on_hand" class="text-black font-medium">New Cash on Hand</label>
-                                <input type="number" name="new_cash_on_hand" id="new_cash_on_hand" value="{{ $collection->new_cash_on_hand }}"
+                                <input type="number" name="new_cash_on_hand" id="new_cash_on_hand" value="{{ $computecashonhand->new_cash_on_hand }}"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                     placeholder="0.00" />
                             </div>
@@ -122,25 +122,25 @@
                     <div class="grid gap-4 text-sm grid-cols-1 md:grid-cols-6">
                         <div>
                             <label for="penalty" class="text-black font-medium">Penalty</label>
-                            <input type="number" name="penalty" id="penalty" value="{{ $collection->penalty }}"
+                            <input type="number" name="penalty" id="penalty" value="{{ $computecashonhand->penalty }}"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                 placeholder="0.00" />
                         </div>
                         <div>
                             <label for="passbook" class="text-black font-medium">Passbook</label>
-                            <input type="number" name="passbook" id="passbook" value="{{ $collection->passbook }}"
+                            <input type="number" name="passbook" id="passbook" value="{{ $computecashonhand->passbook }}"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                 placeholder="0.00" />
                         </div>
                         <div>
                             <label for="withdraw" class="text-black font-medium">Withdraw</label>
-                            <input type="number" name="withdraw" id="withdraw" value="{{ $collection->withdraw }}"
+                            <input type="number" name="withdraw" id="withdraw" value="{{ $computecashonhand->withdraw }}"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                 placeholder="0.00" />
                         </div>
                         <div>
                             <label for="xerox" class="text-black font-medium">Xerox</label>
-                            <input type="number" name="xerox" id="xerox" value="{{ $collection->xerox }}"
+                            <input type="number" name="xerox" id="xerox" value="{{ $computecashonhand->xerox }}"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                 placeholder="0.00" />
                         </div>
@@ -154,37 +154,37 @@
                     <div class="grid gap-4 text-sm grid-cols-1 md:grid-cols-6">
                         <div>
                             <label for="charge_swipe" class="text-black font-medium">Charge Swipe</label>
-                            <input type="number" name="charge_swipe" id="charge_swipe" value="{{ $collection->charge_swipe }}"
+                            <input type="number" name="charge_swipe" id="charge_swipe" value="{{ $computecashonhand->charge_swipe }}"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                 placeholder="0.00" />
                         </div>
                         <div>
                             <label for="savings" class="text-black font-medium">Savings</label>
-                            <input type="number" name="savings" id="savings" value="{{ $collection->savings }}"
+                            <input type="number" name="savings" id="savings" value="{{ $computecashonhand->savings }}"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                 placeholder="0.00" />
                         </div>
                         <div>
                             <label for="death_aid" class="text-black font-medium">Death Aid</label>
-                            <input type="number" name="death_aid" id="death_aid" value="{{ $collection->death_aid }}"
+                            <input type="number" name="death_aid" id="death_aid" value="{{ $computecashonhand->death_aid }}"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                 placeholder="0.00" />
                         </div>
                         <div>
                             <label for="photocopy" class="text-black font-medium">Photocopy</label>
-                            <input type="number" name="photocopy" id="photocopy" value="{{ $collection->photocopy }}"
+                            <input type="number" name="photocopy" id="photocopy" value="{{ $computecashonhand->photocopy }}"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                 placeholder="0.00" />
                         </div>
                         <div>
                             <label for="details_withdraw" class="text-black font-medium">Withdraw</label>
-                            <input type="number" name="details_withdraw" id="details_withdraw" value="{{ $collection->details_withdraw }}"
+                            <input type="number" name="details_withdraw" id="details_withdraw" value="{{ $computecashonhand->details_withdraw }}"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                 placeholder="0.00" />
                         </div>
                         <div>
                             <label for="details_xerox" class="text-black font-medium">Xerox</label>
-                            <input type="number" name="details_xerox" id="details_xerox" value="{{ $collection->details_xerox }}"
+                            <input type="number" name="details_xerox" id="details_xerox" value="{{ $computecashonhand->details_xerox }}"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                 placeholder="0.00" />
                         </div>

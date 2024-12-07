@@ -142,6 +142,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('compute/create', [ComputeCOHController::class, 'create'])->name('compute.create');
     Route::get('compute/show', [ComputeCOHController::class, 'show'])->name('compute.show');
     Route::get('compute/edit/{id}', [ComputeCOHController::class, 'edit'])->name('compute.edit');
+    Route::post('compute/update/{id}', [ComputeCOHController::class, 'update'])->name('compute.update');
     Route::get('compute/destroy/{id}', [ComputeCOHController::class, 'destroy'])->name('compute.destroy');
 
     // Daily

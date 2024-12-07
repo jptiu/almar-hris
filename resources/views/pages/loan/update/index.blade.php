@@ -199,10 +199,10 @@
                                     <select name="loan_type" id="loan_type"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
                                     <option>Select</option>
-                                    <option {{ $loan->loan_type=='daily'?selected:''}} value="daily">Daily</option>
+                                    <option {{ $loan->loan_type=='daily'?'selected':''}} value="daily">Daily</option>
                                     {{-- <option value="weekly">Weekly</option>
-                                    <option {{ $loan->loan_type=='semi-monthly'?selected:''}} value="semi-monthly">Semi-Monthly</option> --}}
-                                    <option {{ $loan->loan_type=='monthly'?selected:''}} value="monthly">Monthly</option>
+                                    <option {{ $loan->loan_type=='semi-monthly'?'selected':''}} value="semi-monthly">Semi-Monthly</option> --}}
+                                    <option {{ $loan->loan_type=='monthly'?'selected':''}} value="monthly">Monthly</option>
                                     </select>
                                 </div>
 
@@ -211,13 +211,13 @@
                                         Type</label>
                                     <select name="transaction_type" id="transaction_type"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5">
-                                        <option {{ $loan->transaction_type=='NEW'?selected:''}} value="NEW">NEW</option>
-                                        <option {{ $loan->transaction_type=='RENEW'?selected:''}} value="RENEW">Renew</option>
-                                        <option {{ $loan->transaction_type=='RECONS'?selected:''}} value="RECONS">Recons</option>
-                                        <option {{ $loan->transaction_type=='W/COLLAT'?selected:''}} value="W/COLLAT">With Collat</option>
-                                        <option {{ $loan->transaction_type=='CA'?selected:''}} value="CA">CA</option>
-                                        <option {{ $loan->transaction_type=='W/CERT'?selected:''}} value="W/CERT">With Cert</option>
-                                        <option {{ $loan->transaction_type=='CBA'?selected:''}} value="CBA">C/A Becomes B.A.</option>
+                                        <option {{ $loan->transaction_type=='NEW'?'selected':''}} value="NEW">NEW</option>
+                                        <option {{ $loan->transaction_type=='RENEW'?'selected':''}} value="RENEW">Renew</option>
+                                        <option {{ $loan->transaction_type=='RECONS'?'selected':''}} value="RECONS">Recons</option>
+                                        <option {{ $loan->transaction_type=='W/COLLAT'?'selected':''}} value="W/COLLAT">With Collat</option>
+                                        <option {{ $loan->transaction_type=='CA'?'selected':''}} value="CA">CA</option>
+                                        <option {{ $loan->transaction_type=='W/CERT'?'selected':''}} value="W/CERT">With Cert</option>
+                                        <option {{ $loan->transaction_type=='CBA'?'selected':''}} value="CBA">C/A Becomes B.A.</option>
                                     </select>
                                 </div>
                                 <div class="md:col-span-2 hidden" id="file_upload_field">
@@ -250,21 +250,21 @@
                                     <label for="name" class="text-black font-medium">Customer Name</label>
                                     <input type="text" name="name" id="name"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
-                                        value="{{ $customer->first_name ?? '' }}" placeholder="" />
+                                        value="{{ $loan->customer->first_name ?? '' }}" placeholder="" />
                                 </div>
 
                                 <div class="md:col-span-1">
                                     <label for="type" class="text-black font-medium">Customer Type</label>
                                     <input type="text" name="type" id="type"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
-                                        value="{{ $customer->type ?? '' }}" placeholder="" disabled />
+                                        value="{{ $loan->customer->customerType->description ?? '' }}" placeholder="" disabled />
                                 </div>
 
                                 <div class="md:col-span-1">
                                     <label for="status" class="text-black font-medium">Status</label>
                                     <input type="text" name="status" id="status"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5"
-                                        value="{{ $customer->status ?? '' }}" placeholder="" />
+                                        value="{{ $loan->customer->status ?? '' }}" placeholder="" />
                                 </div>
                             </div>
                         </div>

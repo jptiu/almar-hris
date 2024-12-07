@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Collection extends Model
 {
@@ -21,6 +22,7 @@ class Collection extends Model
         'paid_amount',
         'lat',
         'long',
+        'loan_details_id',
     ];
 
     public function user(){
@@ -30,6 +32,11 @@ class Collection extends Model
     public function customer()
     {
         return $this->belongsTo(Customer::class, 'customer_id');
+    }
+
+    public function loanDetails()
+    {
+        return $this->belongsTo(LoanDetails::class, 'loan_details_id');
     }
     
 }
