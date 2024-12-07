@@ -99,7 +99,7 @@ class CollectionController extends Controller
             $col->save();
         }
 
-        return redirect(route("collection.index"))->with('success', 'Submitted successfully!');
+        return redirect(route("collection.index"))->with('success', 'Payment has been made.');
     }
 
     /**
