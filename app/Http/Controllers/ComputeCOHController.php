@@ -102,7 +102,10 @@ class ComputeCOHController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
+        $computecashonhand = ComputeCashOnHand::where('id', $id)->first();
+
+        return view('pages.compute.update.index', compact('computecashonhand'));
     }
 
     /**

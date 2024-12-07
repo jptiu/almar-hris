@@ -118,7 +118,10 @@ class CollectionController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
+        $collection = Collection::where('id', $id)->first();
+
+        return view('pages.collections.update.index', compact('collection'));
     }
 
     /**
