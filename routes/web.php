@@ -117,6 +117,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     // Breakdown
     Route::get('breakdown', [BreakdownController::class, 'index'])->name('breakdown.index');
+    Route::get('breakdown/create', [BreakdownController::class, 'create'])->name('breakdown.create');
+    Route::get('breakdown/show/{id}', [BreakdownController::class, 'show'])->name('breakdown.show');
     Route::post('breakdown/store', [BreakdownController::class, 'store'])->name('breakdown.store');
     Route::post('breakdown/update/{id}', [BreakdownController::class, 'update'])->name('breakdown.update');
     Route::delete('breakdown/destroy/{id}', [BreakdownController::class, 'destroy'])->name('breakdown.destroy');

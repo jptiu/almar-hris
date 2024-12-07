@@ -20,8 +20,9 @@ class BreakdownController extends Controller
         $branch = auth()->user()->branch_id;
         $user = Auth::user();
         $denoms = Denomination::get();
+        $lists = Breakdown::where('branch_id', $branch)->paginate(10);
 
-        return view('pages.breakdown.index', compact('user', 'denoms'));
+        return view('pages.breakdown.index', compact('user', 'denoms', 'lists'));
     }
 
     /**
@@ -29,7 +30,14 @@ class BreakdownController extends Controller
      */
     public function create()
     {
-        //
+        abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
+        $branch = auth()->user()->branch_id;
+        $user = Auth::user();
+        $denoms = Denomination::get();
+        $lists = Breakdown::where('branch_id', $branch)->paginate(10);
+
+
+        return view('pages.breakdown.entry.index', compact('user', 'denoms', 'lists'));
     }
 
     /**
@@ -66,7 +74,11 @@ class BreakdownController extends Controller
      */
     public function show(string $id)
     {
-        //
+        // abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
+        // $branch = auth()->user()->branch_id;
+        // $breakdown = Breakdown::with('account')->where('branch_id', $branch)->where('id', $id)->first();
+
+        // return view('pages.breakdown.show.index', compact('breakdown'));
     }
 
     /**
