@@ -144,7 +144,8 @@ class BMController extends Controller
         $branch = auth()->user()->branch_id;
         $lists = Loan::where('principal_amount', '<', '50000')
             ->where('branch_id', $branch)
-            ->where('status', '!=', null)->paginate(10);
+            ->where('status', '!=', null)
+            ->where('status', '!=', 'CNCLD')->paginate(10);
 
         return view('pages.pendingloanapp.approvedloans.index', compact('lists'));
     }
