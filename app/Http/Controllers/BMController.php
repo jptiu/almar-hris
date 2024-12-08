@@ -172,7 +172,10 @@ class BMController extends Controller
 
     public function overdueAcc(Request $request)
     {
-        return view('pages.overdueacc.index');
+
+        $lists = Loan::where('transaction_customer_status', '')->paginate(20);
+        return view('pages.overdueacc.index', compact('lists'));
+
     }
 
     public function biometricsAttendance()
@@ -280,6 +283,12 @@ class BMController extends Controller
     public function cashBond(Request $request)
     {
         return view('pages.requestform.cashbond.index');
+    }
+
+    public function printStatement(Request $request)
+    {
+
+        return view('pages.pendingloanapp.printStatement.index');
     }
 
 }

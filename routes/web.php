@@ -198,6 +198,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('loanapprovals-approved', [HRController::class, 'approvedLoans'])->name('approved.index');
     Route::get('loanapprovals-rejected', [HRController::class, 'rejectedLoans'])->name('rejected.index');
     Route::get('loanapprovals-pending', [HRController::class, 'pendingLoans'])->name('pending.index');
+    Route::get('loan-statement', [HRController::class, 'printStatement'])->name('printStatement.index');
 
 
     // Employee
@@ -219,6 +220,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     // Auditor
     Route::get('auditor', [AuditorController::class, 'index'])->name('auditor.index');
+    Route::get('loanLists', [AuditorController::class, 'loanLists'])->name('loans.index');
+    Route::get('customerLists', [AuditorController::class, 'customerLists'])->name('customers.index');
 
     // Branch
     Route::get('branch', [BMController::class, 'index'])->name('branch.index');
@@ -267,6 +270,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     // Approved Loans
     Route::get('branch/approved-loan', [BMController::class, 'approvedLoan'])->name('approvedLoan.index');
+    Route::get('branch/loan-statement', [BMController::class, 'printStatement'])->name('printStatement.index');
 
     // Rejected Loans
     Route::get('branch/rejected-loan', [BMController::class, 'rejectedLoan'])->name('rejectedLoan.index');
