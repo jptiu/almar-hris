@@ -84,12 +84,12 @@ export default {
             },
         },
     },
-
     plugins: [
         forms,
         typography,
         // add custom variant for expanding sidebar
-        plugin(({ addVariant, e }) => {
+        plugin(function({ addVariant, e }) {
+        // plugin(({ addVariant, e }) => {
             addVariant('sidebar-expanded', ({ modifySelectors, separator }) => {
                 modifySelectors(({ className }) => `.sidebar-expanded .${e(`sidebar-expanded${separator}${className}`)}`);
             });
