@@ -17,4 +17,9 @@ class CashBill extends Model
         'amount',
         'branch_id',
     ];
+
+    public function breakdown()
+    {
+        return $this->belongsTo(Breakdown::class, 'breakdown_id');
+    }
 }
