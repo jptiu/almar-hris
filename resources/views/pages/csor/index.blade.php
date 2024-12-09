@@ -24,7 +24,7 @@
         <div class="sm:flex sm:justify-between sm:items-center mb-8 ml-4">
 
             <!-- Right: Actions -->
-            <!-- <div class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
+            <div class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
                 <form id="filterForm" method="GET" action="{{ route('csor.index') }}">
                     <div class="relative">
                         <input name="date_range" id="date_range"
@@ -38,10 +38,10 @@
                             </svg>
                         </div>
                         <button type="submit"
-                            class="bg-primary-100 hover:bg-primary-200 text-white py-2 px-4 rounded">Filter</button>
+                            class="bg-indigo-500 hover:bg-primary-200 text-white py-2 px-4 rounded">Filter</button>
                     </div>
                 </form>
-            </div> -->
+            </div>
 
         </div>
 
@@ -169,32 +169,7 @@
                                             </ol>
                                         </div>
 
-                                        <div class="mb-1">
-                                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
-                                                <div class="lg:col-span-2">
-                                                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
-                                                        <div class="lg:col-span-2">
-                                                            <div
-                                                                class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-3">
-                                                                <div class="md:col-span-1">
-                                                                    <label for="ref_no">Reference No.</label>
-                                                                    <input type="text" name="ref_no"
-                                                                        id="ref_no"
-                                                                        class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                                                                        value="" placeholder="" />
-                                                                </div>
-                                                                <div class="md:col-span-1 mt-8">
-                                                                    <button type="button"
-                                                                        class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-1 px-4 rounded mx-2">
-                                                                        Confirm
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                       
 
                                         <div class="mt-6">
                                             <div class="mb-1">
@@ -348,32 +323,7 @@
                                             </ol>
                                         </div>
 
-                                        <div class="mb-1">
-                                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
-                                                <div class="lg:col-span-2">
-                                                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
-                                                        <div class="lg:col-span-2">
-                                                            <div
-                                                                class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-3">
-                                                                <div class="md:col-span-1">
-                                                                    <label for="ref_no">Reference No.</label>
-                                                                    <input type="text" name="ref_no"
-                                                                        id="ref_no"
-                                                                        class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                                                                        value="" placeholder="" />
-                                                                </div>
-                                                                <div class="md:col-span-1 mt-8">
-                                                                    <button type="button"
-                                                                        class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-1 px-4 rounded mx-2">
-                                                                        Confirm
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                       
 
                                         <div class="mt-6">
                                             <div class="mb-1">
@@ -534,32 +484,7 @@
                                         </ol>
                                     </div>
                                     <div class="">
-                                        <div class="mb-1">
-                                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
-                                                <div class="lg:col-span-2">
-                                                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
-                                                        <div class="lg:col-span-2">
-                                                            <div
-                                                                class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-3">
-                                                                <div class="md:col-span-1">
-                                                                    <label for="ref_no">Reference No.</label>
-                                                                    <input type="text" name="ref_no"
-                                                                        id="ref_no"
-                                                                        class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                                                                        value="" placeholder="" />
-                                                                </div>
-                                                                <div class="md:col-span-1 mt-8">
-                                                                    <button type="button"
-                                                                        class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-1 px-4 rounded mx-2">
-                                                                        Confirm
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        
 
                                         <div class="mt-6">
                                             <div class="mb-1">
@@ -913,33 +838,7 @@
                                         </ol>
                                     </div>
                                     <div class="">
-                                        <div class="mb-1">
-                                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
-                                                <div class="lg:col-span-2">
-                                                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
-                                                        <div class="lg:col-span-2">
-                                                            <div
-                                                                class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-3">
-                                                                <div class="md:col-span-1">
-                                                                    <label for="ref_no">Reference No. for Regular
-                                                                        Accounts</label>
-                                                                    <input type="text" name="ref_no"
-                                                                        id="ref_no"
-                                                                        class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                                                                        value="" placeholder="" />
-                                                                </div>
-                                                                <div class="md:col-span-1 mt-8">
-                                                                    <button type="button"
-                                                                        class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-1 px-4 rounded mx-2">
-                                                                        Confirm
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        
 
                                         <div class="mt-2">
                                             <div class="text-2xl font-medium leading-tight py-4">Regular Accounts</div>
@@ -1053,33 +952,7 @@
                                     </div>
 
                                     <div class="mt-12">
-                                        <div class="mb-1">
-                                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
-                                                <div class="lg:col-span-2">
-                                                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
-                                                        <div class="lg:col-span-2">
-                                                            <div
-                                                                class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-3">
-                                                                <div class="md:col-span-1">
-                                                                    <label for="ref_no">Reference No. for Bad
-                                                                        Accounts</label>
-                                                                    <input type="text" name="ref_no"
-                                                                        id="ref_no"
-                                                                        class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                                                                        value="" placeholder="" />
-                                                                </div>
-                                                                <div class="md:col-span-1 mt-8">
-                                                                    <button type="button"
-                                                                        class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-1 px-4 rounded mx-2">
-                                                                        Confirm
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        
 
                                         <div class="mt-2">
                                             <div class="text-2xl font-medium leading-tight py-4">Bad Accounts</div>

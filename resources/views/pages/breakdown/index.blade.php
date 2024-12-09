@@ -25,13 +25,80 @@
 
         <!-- Dashboard actions -->
         <div class="sm:flex sm:justify-between sm:items-center mb-8">
-            <div></div>
+            <div class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
+                <form id="filterForm" method="GET" action="">
+                    <div class="relative">
+                        <input name="date_range" id="date_range"
+                            class="datepicker form-input pl-9 dark:bg-slate-800 text-slate-500 hover:text-slate-600 dark:text-slate-300 dark:hover:text-slate-200 font-medium w-[15.5rem]"
+                            placeholder="Select dates" data-class="flatpickr-right" />
+                        <div class="absolute inset-0 right-auto flex items-center pointer-events-none">
+                            <svg class="w-4 h-4 fill-current text-slate-500 dark:text-slate-400 ml-3"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M15 2h-2V0h-2v2H9V0H7v2H5V0H3v2H1a1 1 0 00-1 1v12a1 1 0 001 1h14a1 1 0 001-1V3a1 1 0 00-1-1zm-1 12H2V6h12v8z" />
+                            </svg>
+                        </div>
+                        <button type="submit"
+                            class="bg-indigo-500 hover:bg-primary-200 text-white py-2 px-4 rounded">Filter</button>
+                    </div>
+                </form>
+            </div>
 
             <!-- Right: Actions -->
             <div class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
 
                 <!-- Filter button -->
-                <x-dropdown-filter align="right" />
+                @props([
+                    'align' => 'right',
+                ])
+
+                <div class="relative inline-flex" x-data="{ open: false, filters: [
+                    'Simene', 
+                    'TIu', 
+                    'Madrid',
+                    'Orioste',] }">
+                    <button
+                        class="btn bg-white dark:bg-slate-800 border-slate-200 hover:border-slate-300 dark:border-slate-700 dark:hover:border-slate-600 text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"
+                        aria-haspopup="true" @click.prevent="open = !open" :aria-expanded="open">
+                        <span class="sr-only">Cashier</span><wbr>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 16 16">
+                            <path
+                                d="M9 15H7a1 1 0 010-2h2a1 1 0 010 2zM11 11H5a1 1 0 010-2h6a1 1 0 010 2zM13 7H3a1 1 0 010-2h10a1 1 0 010 2zM15 3H1a1 1 0 010-2h14a1 1 0 010 2z" />
+                        </svg>
+                    </button>
+                    <form method="GET" action="{{ route('resignation.index') }}">
+                        <div class="origin-top-right z-10 absolute top-full left-0 right-auto min-w-56 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 pt-1.5 rounded shadow-lg overflow-hidden mt-1 {{ $align === 'right' ? 'md:left-auto md:right-0' : 'md:left-0 md:right-auto' }}"
+                            @click.outside="open = false" @keydown.escape.window="open = false" x-show="open"
+                            x-transition:enter="transition ease-out duration-200 transform"
+                            x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0"
+                            x-transition:leave="transition ease-out duration-200" x-transition:leave-start="opacity-100"
+                            x-transition:leave-end="opacity-0" x-cloak>
+                            <div class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase pt-1.5 pb-2 px-3">Cashier</div>
+                            <ul class="mb-4">
+                                <template x-for="filter in filters" :key="filter">
+                                    <li class="py-1 px-3">
+                                        <label class="flex items-center">
+                                            <input type="checkbox" name="filter[]" :value="filter.toLowerCase()" class="form-checkbox" />
+                                            <span class="text-sm font-medium ml-2" x-text="filter"></span>
+                                        </label>
+                                    </li>
+                                </template>
+                            </ul>
+                            <div class="py-2 px-3 border-t border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-700/20">
+                                <ul class="flex items-center justify-between">
+                                    <li>
+                                        <button type="reset"
+                                            class="btn-xs bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-slate-500 dark:text-slate-300 hover:text-slate-600 dark:hover:text-slate-200">Clear</button>
+                                    </li>
+                                    <li>
+                                        <button type="submit" class="btn-xs bg-blue-400 hover:bg-blue-700 text-white"
+                                            @click="open = false" @focusout="open = false">Apply</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
+                </div>
 
                 <!-- Add view button -->
                 <a href="{{ route('breakdown.create') }}" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">

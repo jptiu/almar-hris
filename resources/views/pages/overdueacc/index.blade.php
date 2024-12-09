@@ -47,7 +47,58 @@
             <div class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
 
                 <!-- Filter button -->
-                <!-- <x-dropdown-filter align="right" /> -->
+                @props([
+                    'align' => 'right',
+                ])
+
+                <div class="relative inline-flex" x-data="{ open: false, filters: [
+                    'Jelmi', 
+                    'Dumapias', 
+                    'Vidad',
+                    'Sison',
+                    'Molena',] }">
+                    <button
+                        class="btn bg-white dark:bg-slate-800 border-slate-200 hover:border-slate-300 dark:border-slate-700 dark:hover:border-slate-600 text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"
+                        aria-haspopup="true" @click.prevent="open = !open" :aria-expanded="open">
+                        <span class="sr-only">Assigned Officer</span><wbr>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 16 16">
+                            <path
+                                d="M9 15H7a1 1 0 010-2h2a1 1 0 010 2zM11 11H5a1 1 0 010-2h6a1 1 0 010 2zM13 7H3a1 1 0 010-2h10a1 1 0 010 2zM15 3H1a1 1 0 010-2h14a1 1 0 010 2z" />
+                        </svg>
+                    </button>
+                    <form method="GET" action="{{ route('resignation.index') }}">
+                        <div class="origin-top-right z-10 absolute top-full left-0 right-auto min-w-56 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 pt-1.5 rounded shadow-lg overflow-hidden mt-1 {{ $align === 'right' ? 'md:left-auto md:right-0' : 'md:left-0 md:right-auto' }}"
+                            @click.outside="open = false" @keydown.escape.window="open = false" x-show="open"
+                            x-transition:enter="transition ease-out duration-200 transform"
+                            x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0"
+                            x-transition:leave="transition ease-out duration-200" x-transition:leave-start="opacity-100"
+                            x-transition:leave-end="opacity-0" x-cloak>
+                            <div class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase pt-1.5 pb-2 px-3">Assigned Officer</div>
+                            <ul class="mb-4">
+                                <template x-for="filter in filters" :key="filter">
+                                    <li class="py-1 px-3">
+                                        <label class="flex items-center">
+                                            <input type="checkbox" name="filter[]" :value="filter.toLowerCase()" class="form-checkbox" />
+                                            <span class="text-sm font-medium ml-2" x-text="filter"></span>
+                                        </label>
+                                    </li>
+                                </template>
+                            </ul>
+                            <div class="py-2 px-3 border-t border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-700/20">
+                                <ul class="flex items-center justify-between">
+                                    <li>
+                                        <button type="reset"
+                                            class="btn-xs bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-slate-500 dark:text-slate-300 hover:text-slate-600 dark:hover:text-slate-200">Clear</button>
+                                    </li>
+                                    <li>
+                                        <button type="submit" class="btn-xs bg-blue-400 hover:bg-blue-700 text-white"
+                                            @click="open = false" @focusout="open = false">Apply</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
+                </div>
                 
                 <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-white bg-indigo-500 hover:bg-indigo-500 focus:ring-4 focus:outline-none focus:ring-primary-100  font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 " type="button">Filter<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
@@ -183,10 +234,10 @@
                                             class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             Assigned Officer
                                         </th>
-                                        <th scope="col"
+                                        <!-- <th scope="col"
                                             class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
                                             Action
-                                        </th>
+                                        </th> -->
 
                                     </tr>
                                 </thead>
@@ -224,7 +275,7 @@
                                             
                                             <td class="px-4 py-4 text-sm whitespace-nowrap">
                                                 <div class="flex items-center gap-x-6">
-                                                    <button
+                                                    <!-- <button
                                                         class="text-gray-500 transition-colors duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                                             height="16" fill="currentColor" class="bi bi-eye"
@@ -261,7 +312,7 @@
                                                                     d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
                                                             </svg>
                                                         </button>
-                                                    </form>
+                                                    </form> -->
                                                 </div>
                                             </td>
                                         </tr>
