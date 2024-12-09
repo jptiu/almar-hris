@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Branch;
 use App\Models\Breakdown;
 use App\Models\CashBill;
 use App\Models\Collection;
@@ -191,6 +192,7 @@ class BMController extends Controller
     public function csorPrint(Request $request)
     {
         $branch = auth()->user()->branch_id;
+        $branchlocation = Branch::find($branch);
 
         // Get the start and end dates of the current month
         $startOfMonth = Carbon::now()->startOfMonth();
@@ -248,7 +250,8 @@ class BMController extends Controller
         return view('pages.csor.print.index', [
             'expenses' => $expenses,
             'cashBillData' => $cashBillData,
-            'comps' => $comps
+            'comps' => $comps,
+            'branchlocation' => $branchlocation->location
         ]);
     }
 

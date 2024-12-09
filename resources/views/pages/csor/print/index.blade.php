@@ -19,8 +19,8 @@
                 <div class="text-gray-600">
                     <img class="h-auto" src="/images/almarlogo.png" alt="almar suites">
                     <div class="text-md font-semibold">Almar Freemile Financing Corporation,</div>
-                    <div class="text-md font-semibold">Therese Joy's Arcade, Pusok</div>
-                    <div class="text-md font-semibold">Lapu-Lapu City, Cebu, 6015</div>
+                    <div class="text-md font-semibold">{{$branchlocation}}</div>
+                    {{-- <div class="text-md font-semibold">Lapu-Lapu City, Cebu, 6015</div> --}}
                 </div>
             </div>
             <div class="flex items-center">
@@ -147,7 +147,7 @@
             </div>
         </div>
 
-        {{-- <div class="text-left text-2xl font-semibold py-2 uppercase mt-12">Regular Accounts</div>
+        <div class="text-left text-2xl font-semibold py-2 uppercase mt-12">Regular Accounts</div>
         <div class="flex">
             <div class="w-1/2 overflow-hidden">
                 <table class="w-full text-center border">
@@ -229,9 +229,9 @@
                 <div class="text-right border bg-gray-100 p-2 text-md">Total No. of Customers: 1500,00.00</div>
                 <div class="text-right border bg-gray-100 p-2 text-md">Total Receivable Amt: 1500,00.00</div>
                 <div class="text-right border bg-gray-100 p-2 text-md">Actual Collections: 150,000.00</div>
-            </div> --}}
+            </div>
 
-            {{-- <div class="w-1/2 overflow-hidden">
+            <div class="w-1/2 overflow-hidden">
                 <table class="w-full text-center border">
                     <thead class="border-b-2 border-gray-200 pb-4 bg-slate-200 text-black">
                         <tr>
@@ -255,7 +255,7 @@
                 <div class="text-right border bg-gray-100 p-2 text-md">Total Receivable Amt: 1500,00.00</div>
                 <div class="text-right border bg-gray-100 p-2 text-md">Actual Collections: 150,000.00</div>
             </div>
-        </div> --}}
+        </div>
 
         <div class="py-8">
             {{-- <div class="text-gray-600 text-lg font-semibold uppercase">Additional Notes:</div>
