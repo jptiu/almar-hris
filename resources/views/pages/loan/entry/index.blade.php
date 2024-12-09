@@ -579,7 +579,7 @@
                 if (type === 'monthly') {
                     // Generate alternating due dates (15th and end of the month)
                     if (i % 2 === 1) {
-                        currentDate.setDate(16); // 15th of the month
+                        currentDate.setDate(15); // 15th of the month
                     } else {
                         currentDate.setMonth(currentDate.getMonth() + 1, 0); // End of the month
                     }
