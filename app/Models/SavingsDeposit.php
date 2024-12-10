@@ -16,5 +16,6 @@ class SavingsDeposit extends Model
         'tran_date',
         'amount',
         'status',
+        'branch_id',
     ];
 }
