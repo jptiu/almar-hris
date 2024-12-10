@@ -513,9 +513,12 @@
         const interestPercent = parseFloat(document.getElementById('interest').value) || 0;
         const serviceCharge = parseFloat(document.getElementById('svc_charge').value) || 0;
 
-        const interestAmount = (principalAmount * interestPercent) / 100;
-        const payableAmount = principalAmount + interestAmount + serviceCharge;
-        const monthlyDue = monthsToPay > 0 ? payableAmount / monthsToPay / 2 : 0;
+        // Adjust the principal amount by subtracting the service charge
+        const adjustedPrincipal = principalAmount - serviceCharge;
+
+        const interestAmount = (adjustedPrincipal * interestPercent) / 100;
+        const payableAmount = adjustedPrincipal + interestAmount; // No service charge added here
+        const monthlyDue = monthsToPay > 0 ? payableAmount / monthsToPay : 0;
 
         updatePaymentDisplay(interestAmount, payableAmount, monthlyDue, monthsToPay, 'monthly');
     }
@@ -526,8 +529,11 @@
         const interestPercent = parseFloat(document.getElementById('interest').value) || 0;
         const serviceCharge = parseFloat(document.getElementById('svc_charge').value) || 0;
 
-        const interestAmount = (principalAmount * interestPercent) / 100;
-        const payableAmount = principalAmount + interestAmount + serviceCharge;
+        // Adjust the principal amount by subtracting the service charge
+        const adjustedPrincipal = principalAmount - serviceCharge;
+
+        const interestAmount = (adjustedPrincipal * interestPercent) / 100;
+        const payableAmount = adjustedPrincipal + interestAmount; // No service charge added here
         const dailyDue = daysToPay > 0 ? payableAmount / daysToPay : 0;
 
         updatePaymentDisplay(interestAmount, payableAmount, dailyDue, daysToPay, 'daily');

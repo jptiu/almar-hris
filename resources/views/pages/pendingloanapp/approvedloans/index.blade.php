@@ -131,7 +131,7 @@
                                     <tr>
                                         <th scope="col"
                                             class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
-                                            ID
+                                            Transaction No.
                                         </th>
 
                                         <th scope="col"
@@ -173,7 +173,7 @@
                                                 {{ $list->customer->first_name }} {{$list->customer->last_name}}
                                             </td>
                                             <td
-                                                class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-wrap">
                                                 {{ $list->customer->house }} {{ $list->customer->street }} {{$list->customer->bry->barangay_name}} {{$list->customer->cty->city_town}}
                                             </td>
                                             <td
