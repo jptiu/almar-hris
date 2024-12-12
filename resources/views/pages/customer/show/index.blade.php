@@ -78,7 +78,11 @@
                         <tr class="hover:bg-gray-50">
                         <td class="border border-gray-200 px-4 py-2">{{$loan->loan_type}}</td>
                         <td class="border border-gray-200 px-4 py-2">{{$loan->transaction_type}}</td>
-                        <td class="border border-gray-200 px-4 py-2">{{$loan->id}}</td>
+                        <td class="border border-gray-200 px-4 py-2">
+                            <a href="{{ route('loan.show', $loan->id) }}" class="text-blue-500 hover:underline">
+                                {{$loan->id}}
+                            </a>
+                        </td>
                         <td class="border border-gray-200 px-4 py-2">{{$loan->date_of_loan}}</td>
                         <td class="border border-gray-200 px-4 py-2">{{$customer->id}}</td>
                         <td class="border border-gray-200 px-4 py-2">{{$loan->customer_type}}</td>
