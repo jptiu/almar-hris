@@ -26,13 +26,13 @@ class CustomerController extends Controller
                     ->orderBy("created_at", "asc")
                     ->paginate(20);
             }else{
-                $lists = Customer::with('loan.details')->where('branch_id', $branch)->get();
+                $lists = Customer::with('loan.details')->where('branch_id', $branch)->paginate(10);
             }
 
             return response()->json($lists, 200);
         } catch (\Throwable $th) {
             //throw $th;
-            $lists = Customer::where('branch_id', $branch)->get();
+            $lists = Customer::where('branch_id', $branch)->paginate(10);
             return response()->json($lists, 200);
         }
     }
