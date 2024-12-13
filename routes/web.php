@@ -303,7 +303,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     //Savings
     Route::get('savingscustomer/withdrawalentry', [SavingsController::class, 'indexWithdrawal'])->name('savingscustomer.index');
     Route::get('savingscustomer/createWithdrawal', [SavingsController::class, 'createWithdrawal'])->name('withdrawalentry.createWithdrawal');
-
+    Route::post('savingscustomer/withdrawal/store', [SavingsController::class, 'storeWithdrawal'])->name('withdrawalentry.storeWithdrawal');
 
     // Payroll
     Route::get('payroll', [PayrollController::class, 'index'])->name('payroll.index');
