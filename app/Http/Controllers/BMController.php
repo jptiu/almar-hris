@@ -294,4 +294,10 @@ class BMController extends Controller
         return view('pages.pendingloanapp.printStatement.index');
     }
 
+    public function reqCheck(Request $request)
+    {
+
+        return view('pages.requestcheck.index');
+    }
+
 }

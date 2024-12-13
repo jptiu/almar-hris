@@ -336,9 +336,9 @@
                                 </div>
 
                                 <div class="md:col-span-2">
-                                    <label for="add_tel">Address / Tel. no.</label>
+                                    <label for="add_telc">Address / Tel. no.</label>
                                     <div>
-                                        <input value="{{ $customer->add_tel }}" name="add_tel" id="add_tel"
+                                        <input value="{{ $customer->add_telc }}" name="add_telc" id="add_telc"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5" />
                                     </div>
                                 </div>
@@ -781,7 +781,7 @@
 
                                 <li class="flex flex-wrap mb-2">
                                     <div class="text-gray-500 w-72">Mother's Name:</div>
-                                    <div class="text-gray-900">{{ $customer->mothers_name }}C Simene</div>
+                                    <div class="text-gray-900">{{ $customer->mothers_name }}</div>
                                 </li>
 
                                 <li class="flex flex-wrap mb-2">

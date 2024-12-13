@@ -122,7 +122,7 @@
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Full Name:</div>
-                            <div class="text-gray-900">{{$customer->first_name}}</div>
+                            <div class="text-gray-900">{{$customer->first_name}} {{$customer->middle_name}} {{$customer->last_name}}</div>
                         </li>  
 
                         <li class="flex flex-wrap mb-2">
@@ -215,7 +215,7 @@
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Facebook:</div>
-                            <div class="text-gray-900">{{$customer->facebook_name}}</div>
+                            <div class="text-gray-900">{{$customer->spouse_fb}}</div>
                         </li> 
                     </div>
                     
@@ -245,7 +245,7 @@
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Address / Tel. no:</div>
-                            <div class="text-gray-900">{{$customer->add_tel}}</div>
+                            <div class="text-gray-900">{{$customer->add_telc}}</div>
                         </li>  
 
                         <li class="flex flex-wrap mb-2">
@@ -319,7 +319,7 @@
                         
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Contact No.:</div>
-                            <div class="text-gray-900">{{$customer->cell_number}}</div>
+                            <div class="text-gray-900">{{$customer->fathers_num}}</div>
                         </li>   
                         
                         <li class="flex flex-wrap mb-2">
@@ -329,7 +329,7 @@
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Contact No.:</div>
-                            <div class="text-gray-900">{{$customer->cell_number}}</div>
+                            <div class="text-gray-900">{{$customer->mothers_num}}</div>
                         </li>   
                     </div>
                     
