@@ -286,6 +286,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('requestform/clearance', [BMController::class, 'clearanceRequest'])->name('clearanceRequest.index');
     Route::get('requestform/cashadvance', [BMController::class, 'cashadvanceRequest'])->name('cashadvanceRequest.index');
     Route::get('requestform/cashbond', [BMController::class, 'cashBond'])->name('cashBond.index');
+    Route::get('requestform/cashbond/print', [BMController::class, 'cashBondPrint'])->name('cashBondPrint.index');
 
     
 
