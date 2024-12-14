@@ -300,4 +300,10 @@ class BMController extends Controller
         return view('pages.requestcheck.index');
     }
 
+    public function cashBondPrint(Request $request)
+    {
+
+        return view('pages.requestform.cashbond.cashBondPrint.index');
+    }
+
 }
