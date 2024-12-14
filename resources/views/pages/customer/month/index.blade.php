@@ -90,9 +90,9 @@
                     </div>
 
                     <div class="flex items-center mt-4">
-                        <input id="link-checkbox" type="checkbox" value=""
+                        <input id="checkbox" type="checkbox" value=""
                             class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                        <label for="link-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">For
+                        <label for="checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">For
                             statement of account</label>
                     </div>
                 </div>
@@ -120,7 +120,7 @@
 </x-app-layout>
 
 <script>
-    document.getElementById('link-checkbox').addEventListener('change', function() {
+    document.getElementById('checkbox').addEventListener('change', function() {
         var form = document.getElementById('loan-form');
         if (this.checked) {
             form.action = "{{ route('printStatement.index') }}";

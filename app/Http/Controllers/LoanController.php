@@ -305,12 +305,13 @@ class LoanController extends Controller
         return redirect(route("loan.index"))->with('success', 'Loan Details Imported Successfully');
     }
 
-    public function approve($id)
+    public function approve(Request $request, $id)
     {
         $loan = Loan::findOrFail($id);
         $loan->trans_no = $loan->id;
         $loan->status = 'UNPD';
         $loan->user_id = auth()->user()->id;
+        $loan->note = $request->input('reason');
         $loan->update();
 
         return redirect()->back()->with('success', 'Loan Approved.');

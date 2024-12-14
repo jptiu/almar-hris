@@ -194,16 +194,46 @@
                                             <td class="px-4 py-4 text-sm whitespace-nowrap">
                                                 <div class="flex items-center gap-x-2">
                                                     <!-- Approve Button -->
-                                                    <a href="{{ route('loan.approve', $list->id) }}"
-                                                        id="show-approve-modal"
-                                                        class="bg-green-500 text-white hover:bg-green-700 flex items-center gap-x-2 px-4 py-2 font-semibold rounded-md">
+                                                    <button id="show-approve-modal"
+                                                        class="bg-green-400 text-white hover:bg-green-600 flex items-center gap-x-2 px-4 py-2 font-semibold rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" height="20px"
                                                             viewBox="0 -960 960 960" width="20px" fill="#F3F3F3">
                                                             <path
                                                                 d="M389-267 195-460l51-52 143 143 325-324 51 51-376 375Z" />
                                                         </svg>
-                                                        <span class="hidden xs:block ml-2">Accept</span>
-                                                    </a>
+                                                        <span class="hidden xs:block ml-2">Approve</span>
+                                                    </button>
+                                                    <!-- Approve Modal -->
+                                                    <div id="approve-modal"
+                                                        class="fixed z-10 inset-0 overflow-y-auto hidden opacity-0 transition-opacity duration-300">
+                                                        <div class="flex items-center justify-center min-h-screen">
+                                                            <div
+                                                                class="bg-white p-6 rounded shadow-md max-w-lg w-full">
+                                                                <h2 class="text-lg font-bold">Are you sure you want to
+                                                                    approve this loan?</h2>
+                                                                <label for="approve-reason"
+                                                                    class="block text-sm font-medium text-gray-700 mt-4">Reason
+                                                                    for
+                                                                    Approval</label>
+                                                                <textarea id="approve-reason" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"></textarea>
+                                                                <div class="mt-4 flex justify-end">
+                                                                    <button id="hide-approve-modal"
+                                                                        class="px-4 py-2 bg-gray-300 rounded-md">Cancel</button>
+                                                                    <button id="approve-confirm-btn"
+                                                                        class="px-4 py-2 bg-red-500 text-white rounded-md ml-2">Confirm</button>
+                                                                </div>
+
+                                                                <!-- Hidden form to submit the approve reason -->
+                                                                <form id="approve-form"
+                                                                    action="{{ route('loan.approve', $list->id) }}"
+                                                                    method="POST" class="hidden">
+                                                                    @csrf
+                                                                    <input type="hidden" name="reason"
+                                                                        id="approve-reason-input">
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
                                                     <!-- Decline Button -->
                                                     <button id="show-decline-modal"
@@ -301,6 +331,9 @@
     const showApproveModalButton = document.getElementById('show-approve-modal');
     const hideApproveModalButton = document.getElementById('hide-approve-modal');
     const approveModal = document.getElementById('approve-modal');
+    const approveConfirmBtn = document.getElementById('approve-confirm-btn');
+    const approveReasonInput = document.getElementById('approve-reason');
+    const approveForm = document.getElementById('approve-form');
 
     showApproveModalButton.addEventListener('click', () => {
         approveModal.classList.remove('hidden');
@@ -310,6 +343,19 @@
     hideApproveModalButton.addEventListener('click', () => {
         approveModal.classList.add('opacity-0');
         setTimeout(() => approveModal.classList.add('hidden'), 300);
+    });
+
+    approveConfirmBtn.addEventListener('click', () => {
+        // Capture the approve reason
+        const reason = approveReasonInput.value.trim();
+
+        // If there's a reason, set it in the form input and submit
+        if (reason) {
+            document.getElementById('approve-reason-input').value = reason;
+            approveForm.submit();
+        } else {
+            alert('Please provide a reason for the approve.');
+        }
     });
 
     // Decline Modal

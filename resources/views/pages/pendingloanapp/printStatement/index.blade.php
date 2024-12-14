@@ -20,100 +20,140 @@
             </div>
             <div class="flex items-center">
                 <div class="text-gray-600">
-                    <div class="text-md font-bold">October 22, 2024</div>
+                    <div class="text-md font-bold">{{ now()->format('F j, Y') }}</div>
                 </div>
             </div>
         </div>
 
-        <div class="flex items-center justify-between mb-2 mt-8 border-b-2 border-gray-300 pb-2 mb-8">
+        <div class="flex items-center justify-between mb-2 mt-8 border-b-2 border-gray-300 pb-2">
             <div class="flex items-center">
                 <div class="text-gray-600">
-                    <div class="text-md font-normal uppercase">Customer ID: <span class="text-md font-semibold">21312</span></div>
-                    <div class="text-md font-normal uppercase">Customer Name: <span class="text-md font-semibold">Jhon Doe</span></div>
-                    <div class="text-md font-normal uppercase">Customer Address: <span class="text-md font-semibold">Cagayan de Oro City</span></div>
+                    <div class="text-md font-normal uppercase">Customer ID: <span
+                            class="text-md font-semibold">{{ $loan->customer->id }}</span></div>
+                    <div class="text-md font-normal uppercase">Customer Name: <span
+                            class="text-md font-semibold">{{ $loan->customer->first_name }} {{ $loan->customer->last_name }}</span>
+                    </div>
+                    <div class="text-md font-normal uppercase">Customer Address: <span
+                            class="text-md font-semibold">{{ $loan->customer->house }} {{ $loan->customer->street }}
+                            {{ $loan->customer->bry->barangay_name }} {{ $loan->customer->cty->city_town }}</span></div>
                 </div>
             </div>
             <div class="flex items-center">
             </div>
         </div>
 
-        <table class="w-full text-left mb-4 mt-4 border">
+        <div class="flex justify-between items-center mt-2 mb-8">
+            <div class="flex items-center">
+                <div class="text-gray-600">
+                    <div class="text-md font-normal py-4">Position: <span
+                            class="text-md font-semibold">{{ $loan->customer->job_position }}</span></div>
+                    <div class="text-md font-normal uppercase">Type of Loan: <span
+                            class="text-md font-semibold">{{ $loan->loan_type }}</span></div>
+                    <div class="text-md font-normal uppercase">Amount Release: <span
+                            class="text-md font-semibold"></span></div>
+                    <div class="text-md font-normal uppercase">Interest Rate: <span
+                            class="text-md font-semibold">{{ $loan->interest }}%</span></div>
+                    <div class="text-md font-normal uppercase">Penalty Rate: <span class="text-md font-semibold"></span>
+                    </div>
+                    <div class="text-md font-normal uppercase">Interest Amount: <span
+                            class="text-md font-semibold">{{ number_format($loan->interest_amount, 2) }}</span>
+                    </div>
+                    <div class="text-md font-normal uppercase">Total Payable Amount: <span
+                            class="text-md font-semibold">{{ $loan->payable_amount }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-center">
+                <div class="text-gray-600">
+                    <div class="text-md font-normal uppercase">Date Release: <span class="text-md font-semibold"></span>
+                    </div>
+                    <div class="text-md font-normal uppercase">Due Date: <span
+                            class="text-md font-semibold">{{ $loan->latestDue->loan_due_date ?? ''}}</span></div>
+                    <div class="text-md font-normal uppercase">Terms: <span class="text-md font-semibold"></span></div>
+                    <div class="text-md font-normal uppercase">Mode of Payment: <span
+                            class="text-md font-semibold"></span></div>
+                    <div class="text-md font-normal py-4">Starting Payments: <span
+                            class="text-md font-semibold">{{ optional($loan->startDue)->first()?->loan_due_date ?? '' }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <table class="w-full text-center mb-4 mt-4 border">
+            <div class="text-md font-semibold uppercase">Computation</div>
+            <div class="text-center text-lg font-semibold">Outstanding Accounts</div>
+            <thead class="border-b-2 border-gray-200 pb-4 bg-slate-200 text-black">
+                <tr>
+                    <th class="font-semibold p-2">Regular Balance</th>
+                    <th class="font-semibold p-2">Cash Advance</th>
+                </tr>
+            </thead>
             <tbody>
-                <tr>
-                    <td class="border px-4 py-2 bg-gray-100">Amount</td>
-                    <td class="border px-4 py-2">₱ 15,000.00</td>
-                </tr>
-                <tr>
-                    <td class="border px-4 py-2 bg-gray-100">Percentage</td>
-                    <td class="border px-4 py-2">4%</td>
-                </tr>
-                <tr>
-                    <td class="border px-4 py-2 bg-gray-100">Terms</td>
-                    <td class="border px-4 py-2">4 mos. 18 aints</td>
-                </tr>
-                <tr>
-                    <td class="border px-4 py-2 bg-gray-100">Interest</td>
-                    <td class="border px-4 py-2">₱ 2,400.00</td>
-                </tr>
-                <tr>
-                    <td class="border px-4 py-2 bg-gray-100">TOTAL</td>
-                    <td class="border px-4 py-2">₱ 17,400.00</td>
+                <tr class="border-b-2 border-gray-200">
+                    <td class="text-black p-2 border w-1/2">
+                        @if ($loan->transaction_type !== 'CA')
+                            Interest {{ $loan->interest }}% 
+                            <span class="font-semibold">
+                                per month ({{ $loan->months_to_pay }} mos. Past Due)
+                            </span><br>
+                            Total Regular Over Due
+                        @else
+                            N/A
+                        @endif
+                    </td>
+                    <td class="text-black p-2 border">
+                        @if ($loan->transaction_type === 'CA')
+                            Interest 5%:
+                            <span class="font-semibold">
+                                {{ $loan->months_to_pay }} mo. Only
+                            </span><br>
+                            Total Interest Over Due:
+                            <span class="font-semibold">17 mos</span>
+                        @else
+                            N/A
+                        @endif
+                    </td>
                 </tr>
             </tbody>
         </table>
+        
 
-        <div class="text-2xl font-bold py-4 uppercase">Deductions:</div>
-        <div class="flex justify-items-start items-center mt-2 mb-4 gap-12">
+        <div class="text-right">
+            OVERALL TOTAL BALANCE: <strong>{{number_format($loan->details->sum('loan_due_amount'), 2)}}</strong>
+        </div>
+
+        <div class="mb-2">
             <div class="flex items-center">
                 <div class="text-gray-600">
-                    <div class="text-lg font-medium py-1">Loan Balance:</div>
-                    <div class="text-lg font-medium py-1">Cash Advance:</div>
-                    <div class="text-lg font-medium py-1">Req. Hold:</div>
-                    <div class="text-lg font-medium py-1">Pro. Fee:</div>
-                    <div class="text-lg font-medium py-1">Not. Fee:</div>
-                    <div class="text-lg font-medium py-1">Savings:</div>
-                    <div class="text-lg font-medium py-1">Death Aid:</div>
-                    <div class="text-lg font-medium py-1">Photocopy:</div>
-                    <div class="text-lg font-medium py-1 uppercase">TOTAL DEDUCTIONS:</div>
-                </div>
-            </div>
-            <div class="flex items-center">
-                <div class="text-gray-600">
-                    <div class="text-lg font-semibold py-1">₱ 12,720.00</div>
-                    <div class="text-lg font-semibold py-1">₱ 12,720.00</div>
-                    <div class="text-lg font-semibold py-1">₱ 12,720.00</div>
-                    <div class="text-lg font-semibold py-1">₱ 12,720.00</div>
-                    <div class="text-lg font-semibold py-1">₱ 12,720.00</div>
-                    <div class="text-lg font-semibold py-1">₱ 12,720.00</div>
-                    <div class="text-lg font-semibold py-1">₱ 12,720.00</div>
-                    <div class="text-lg font-semibold py-1">₱ 12,720.00</div>
-                    <div class="text-lg font-semibold py-1">₱ 12,720.00</div>
+                    <div class="text-md font-semibold uppercase py-4">Co-maker:</div>
+                    <div class="text-md font-normal uppercase">1. <span class="text-md font-semibold"></span></div>
+                    <div class="text-md font-normal uppercase">2. <span class="text-md font-semibold"></span></div>
                 </div>
             </div>
         </div>
 
-        <div class="text-gray-600 text-xl font-medium text-left py-1 uppercase">
-            Net Released: <strong>₱ 11,500,000.00</strong>
+        <div class="py-8">
+            <div class="text-gray-600 text-md font-semibold uppercase">Note:</div>
+            <p>
+                w/ Print Out Support
+            </p>
         </div>
 
-        <div class="text-gray-600 text-xl font-medium text-left py-1 uppercase">
-            Payment Deductions: <strong>₱ 11,500,000.00</strong>
-        </div>
-
-        <div class="flex items-center justify-center mt-12">
+        <div class="flex items-center justify-center">
             <div class="flex items-center">
                 <div class="text-gray-600">
-                    <div class="text-md font-semibold">Approved by:</div>
+                    <div class="text-md font-semibold">Prepared by:</div>
                     <img class="h-auto w-1/2" src="/images/sample signature.png" alt="almar suites">
-                    <div class="text-lg font-bold">James Simene</div>
-                    <div class="text-md font-normal">Manager</div>
+                    <div class="text-lg font-bold">Estrellada, Michelle</div>
+                    <div class="text-md font-normal">Clerk</div>
                 </div>
             </div>
             <div class="flex items-center">
                 <div class="text-gray-600">
                     <div class="text-md font-semibold">Approved by:</div>
                     <img class="h-auto w-1/2" src="/images/sample signature.png" alt="almar suites">
-                    <div class="text-lg font-bold">JP Tiu</div>
+                    <div class="text-lg font-bold">Cabahug, Lleyn</div>
                     <div class="text-md font-normal">Manager</div>
                 </div>
             </div>

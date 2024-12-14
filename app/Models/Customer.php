@@ -88,4 +88,9 @@ class Customer extends Model
     {
         return $this->hasMany(SavingsDeposit::class, 'customer_id');
     }
+
+    public function withdraws()
+    {
+        return $this->hasMany(SavingsWithdrawal::class, 'customer_id');
+    }
 }

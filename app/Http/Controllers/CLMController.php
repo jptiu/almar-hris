@@ -77,17 +77,27 @@ class CLMController extends Controller
     {
         $branch = auth()->user()->branch_id;
         $branchAddress = Branch::find($branch);
-        $customer = Customer::with(['loan', 'loan.details' => function ($query) use ($request) {
-            $query->whereBetween('loan_due_date', [$request->date_from, $request->date_to]);
-        }])->where('branch_id', $branch)->find($request->customer);
-                
+        if ($request->date_from) {
+            $customer = Customer::with([
+                'loan',
+                'loan.details' => function ($query) use ($request) {
+                    $query->whereBetween('loan_due_date', [$request->date_from, $request->date_to]);
+                }
+            ])->where('branch_id', $branch)->find($request->customer);
+        } else {
+            $customer = Customer::with([
+                'loan',
+                'loan.details'
+            ])->where('branch_id', $branch)->find($request->customer);
+        }
+
         return view('pages.customer.month.printLoan.index', compact('customer', 'branchAddress'));
     }
 
     public function printStatement(Request $request)
     {
-        $lists = Customer::all();
-        return view('pages.customer.month.printStatement.index', compact('lists'));
+        $customer = Customer::find($request->customer);
+        return view('pages.customer.month.printStatement.index', compact('customer'));
     }
 
 }

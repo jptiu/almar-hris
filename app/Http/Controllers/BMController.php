@@ -288,10 +288,12 @@ class BMController extends Controller
         return view('pages.requestform.cashbond.index');
     }
 
-    public function printStatement(Request $request)
+    public function printStatement(Request $request, $id)
     {
+        $loan = Loan::find($id);
+        
+        return view('pages.pendingloanapp.printStatement.index', compact('loan'));
 
-        return view('pages.pendingloanapp.printStatement.index');
     }
 
     public function reqCheck(Request $request)

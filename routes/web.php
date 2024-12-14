@@ -104,7 +104,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::delete('loan/destroy/{id}', [LoanController::class, 'destroy'])->name('loan.destroy');
     Route::post('loan/import', [LoanController::class, 'importCSV'])->name('loan.importcsv');
     Route::post('loan/import-details', [LoanController::class, 'importCSVDetails'])->name('loan.importcsvdetails');
-    Route::get('loan/approve/{id}', [LoanController::class, 'approve'])->name('loan.approve');
+    Route::post('loan/approve/{id}', [LoanController::class, 'approve'])->name('loan.approve');
     Route::post('loan/decline/{id}', [LoanController::class, 'decline'])->name('loan.decline');
 
     // Collection
@@ -287,6 +287,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('requestform/cashadvance', [BMController::class, 'cashadvanceRequest'])->name('cashadvanceRequest.index');
     Route::get('requestform/cashbond', [BMController::class, 'cashBond'])->name('cashBond.index');
     Route::get('requestform/cashbond/print', [BMController::class, 'cashBondPrint'])->name('cashBondPrint.index');
+
+    //Print Statement
+    Route::get('branch/print/statement/{id}', [BMController::class, 'printStatement'])->name('printStatementBranch.index');
 
     
 

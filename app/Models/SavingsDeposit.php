@@ -18,4 +18,9 @@ class SavingsDeposit extends Model
         'status',
         'branch_id',
     ];
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class, 'customer_id');
+    }
 }

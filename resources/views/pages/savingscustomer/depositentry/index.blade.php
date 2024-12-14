@@ -150,7 +150,7 @@
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                {{ $list->customer_id }}
+                                                {{ $list->customer->first_name }} {{ $list->customer->last_name }}
                                             </td>
                                             <td
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
