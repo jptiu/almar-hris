@@ -456,11 +456,6 @@
                         </li>  
 
                         <li class="flex flex-wrap mb-2">
-                            <div class="text-gray-500 w-72">Address:</div>
-                            <div class="text-gray-900" id="address"></div>
-                        </li> 
-
-                        <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Civil Status:</div>
                             <div class="text-gray-900" id="civilStatus"></div>
                         </li> 
@@ -778,9 +773,6 @@
         if (currentStep < steps.length - 1) {
             currentStep++;
             showStep(currentStep);
-        } else {
-            alert('Form Submitted!');
-            // Perform form submission logic here
         }
     });
 
