@@ -300,11 +300,13 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('savingscustomer/depositentry', [SavingsController::class, 'indexDeposit'])->name('depositentry.index');
     Route::get('savingscustomer/createDeposit', [SavingsController::class, 'createDeposit'])->name('depositentry.createDeposit');
     Route::post('savingscustomer/deposit/store', [SavingsController::class, 'storeDeposit'])->name('depositentry.storeDeposit');
+    Route::get('savingscustomer/depositentry/print', [SavingsController::class, 'printDeposit'])->name('printDeposit.index');
 
     //Savings
     Route::get('savingscustomer/withdrawalentry', [SavingsController::class, 'indexWithdrawal'])->name('savingscustomer.index');
     Route::get('savingscustomer/createWithdrawal', [SavingsController::class, 'createWithdrawal'])->name('withdrawalentry.createWithdrawal');
-
+    Route::get('savingscustomer/withdrawalentry/print', [SavingsController::class, 'printWithdrawal'])->name('printWithdrawal.index');
+    
 
     // Payroll
     Route::get('payroll', [PayrollController::class, 'index'])->name('payroll.index');
