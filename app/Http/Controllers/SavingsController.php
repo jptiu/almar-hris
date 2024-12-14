@@ -101,4 +101,16 @@ class SavingsController extends Controller
         return redirect()->route('savings.withdrawal.index')->with('success', 'Withdrawal entry created successfully.');
     }
 
+    public function printDeposit(Request $request)
+    {
+
+        return view('pages.savingscustomer.depositentry.printDeposit.index');
+    }
+
+    public function printWithdrawal(Request $request)
+    {
+
+        return view('pages.savingscustomer.withdrawalentry.printWithdrawal.index');
+    }
+
 }
