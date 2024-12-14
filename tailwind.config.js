@@ -1,6 +1,7 @@
 import forms from '@tailwindcss/forms';
 import typography from '@tailwindcss/typography';
-const plugin = require('tailwindcss/plugin');
+// const plugin = require('tailwindcss/plugin');
+import plugin from 'tailwindcss/plugin';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -84,7 +85,6 @@ export default {
             },
         },
     },
-
     plugins: [
         forms,
         typography,

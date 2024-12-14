@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Http\Requests\SavingsCreateRequest;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 // use App\Http\Controllers\SavingsController;
 use Illuminate\Support\Facades\Gate;
@@ -37,6 +38,7 @@ class SavingsController extends Controller
         $dep->customer_name = $request->customer_name;
         $dep->tran_date = $request->tran_date;
         $dep->amount = $request->amount;
+        $dep->branch_id = $branch;
         $dep->save();
 
         return redirect()->route('depositentry.index')->with('success', 'Deposit entry created successfully.');
@@ -50,9 +52,24 @@ class SavingsController extends Controller
         return view('pages.savingscustomer.withdrawalentry.index', compact('lists'));
     }
 
-    public function createWithdrawal()
+    public function createWithdrawal(Request $request)
     {
-        return view('pages.savingscustomer.withdrawalentry.entry.index');
+        $branch = auth()->user()->branch_id;
+        $customers = Customer::where('branch_id', $branch)->get();
+        $customer = '';
+        if ($request->customer) {
+            $customer = Customer::with(['loan', 'loan.details', 'deposits'])->where('branch_id', $branch)->find($request->customer);
+        }
+
+        // Check if the request is an AJAX call
+        if ($request->ajax()) {
+            return response()->json([
+                'customer' => $customer,
+            ]);
+        }
+
+
+        return view('pages.savingscustomer.withdrawalentry.entry.index', compact('customer', 'customers'));
     }
 
     public function storeWithdrawal(Request $request)
@@ -62,10 +79,26 @@ class SavingsController extends Controller
             'customer_id' => 'required',
             'amount' => 'required|numeric',
             'date' => 'required|date',
+            'customer_name' => 'required|string',
+            'tran_date' => 'required|string',
+            'net_amount' => 'required|numeric',
+            'interest_amount' => 'required|numeric',
+            'interest_rate' => 'required|numeric',
         ]);
 
-        SavingsWithdrawal::create($request->all());
+        $w = new SavingsWithdrawal();
+        $w->customer_id = $request->customer_id;
+        $w->amount = $request->amount;
+        $w->date = $request->date;
+        $w->customer_name = $request->customer_name;
+        $w->tran_date = $request->tran_date;
+        $w->net_amount = $request->net_amount;
+        $w->interest_amount = $request->interest_amount;
+        $w->interest_rate = $request->interest_rate;
+        $w->branch_id = $branch;
+        $w->save();
+
         return redirect()->route('savings.withdrawal.index')->with('success', 'Withdrawal entry created successfully.');
     }
-   
+
 }

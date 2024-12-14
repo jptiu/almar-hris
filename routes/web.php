@@ -62,6 +62,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // Customer
     // Route::resource('customer', App\Http\Controllers\CustomerController::class);
     Route::get('customer-add', [CustomerController::class, 'add'])->name('customer.add');
+    Route::get('customer/print', [CustomerController::class, 'printCustomer'])->name('printCustomer.index');
     Route::get('customer/edit/{id}', [CustomerController::class, 'edit'])->name('customer.edit');
     Route::get('customer-daily', [CustomerController::class, 'daily'])->name('customer.daily');
     Route::get('customer-month', [CustomerController::class, 'month'])->name('customer.month');
@@ -117,6 +118,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     // Breakdown
     Route::get('breakdown', [BreakdownController::class, 'index'])->name('breakdown.index');
+    Route::get('breakdown/create', [BreakdownController::class, 'create'])->name('breakdown.create');
+    
     Route::post('breakdown/store', [BreakdownController::class, 'store'])->name('breakdown.store');
     Route::post('breakdown/update/{id}', [BreakdownController::class, 'update'])->name('breakdown.update');
     Route::delete('breakdown/destroy/{id}', [BreakdownController::class, 'destroy'])->name('breakdown.destroy');
@@ -196,7 +199,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('loanapprovals-approved', [HRController::class, 'approvedLoans'])->name('approved.index');
     Route::get('loanapprovals-rejected', [HRController::class, 'rejectedLoans'])->name('rejected.index');
     Route::get('loanapprovals-pending', [HRController::class, 'pendingLoans'])->name('pending.index');
-    Route::get('loan-statement', [HRController::class, 'printStatement'])->name('printStatement.index');
 
 
     // Employee
@@ -218,12 +220,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     // Auditor
     Route::get('auditor', [AuditorController::class, 'index'])->name('auditor.index');
-    Route::get('loanLists', [AuditorController::class, 'loanLists'])->name('loans.index');
-    Route::get('customerLists', [AuditorController::class, 'customerLists'])->name('customers.index');
 
     // Branch
     Route::get('branch', [BMController::class, 'index'])->name('branch.index');
     Route::get('csor', [BMController::class, 'csor'])->name('csor.index');
+    Route::get('requestcheck', [BMController::class, 'reqCheck'])->name('requestcheck.index');
     Route::get('csor/print', [BMController::class, 'csorPrint'])->name('print.index');
 
     // Collector
@@ -268,7 +269,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     // Approved Loans
     Route::get('branch/approved-loan', [BMController::class, 'approvedLoan'])->name('approvedLoan.index');
-    Route::get('branch/loan-statement', [BMController::class, 'printStatement'])->name('printStatement.index');
 
     // Rejected Loans
     Route::get('branch/rejected-loan', [BMController::class, 'rejectedLoan'])->name('rejectedLoan.index');

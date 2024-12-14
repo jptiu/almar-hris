@@ -78,7 +78,11 @@
                         <tr class="hover:bg-gray-50">
                         <td class="border border-gray-200 px-4 py-2">{{$loan->loan_type}}</td>
                         <td class="border border-gray-200 px-4 py-2">{{$loan->transaction_type}}</td>
-                        <td class="border border-gray-200 px-4 py-2">{{$loan->id}}</td>
+                        <td class="border border-gray-200 px-4 py-2">
+                            <a href="{{ route('loan.show', $loan->id) }}" class="text-blue-500 hover:underline">
+                                {{$loan->id}}
+                            </a>
+                        </td>
                         <td class="border border-gray-200 px-4 py-2">{{$loan->date_of_loan}}</td>
                         <td class="border border-gray-200 px-4 py-2">{{$customer->id}}</td>
                         <td class="border border-gray-200 px-4 py-2">{{$loan->customer_type}}</td>
@@ -118,7 +122,7 @@
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Full Name:</div>
-                            <div class="text-gray-900">{{$customer->first_name}}</div>
+                            <div class="text-gray-900">{{$customer->first_name}} {{$customer->middle_name}} {{$customer->last_name}}</div>
                         </li>  
 
                         <li class="flex flex-wrap mb-2">
@@ -211,7 +215,7 @@
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Facebook:</div>
-                            <div class="text-gray-900">{{$customer->facebook_name}}</div>
+                            <div class="text-gray-900">{{$customer->spouse_fb}}</div>
                         </li> 
                     </div>
                     
@@ -241,7 +245,7 @@
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Address / Tel. no:</div>
-                            <div class="text-gray-900">{{$customer->add_tel}}</div>
+                            <div class="text-gray-900">{{$customer->add_telc}}</div>
                         </li>  
 
                         <li class="flex flex-wrap mb-2">
@@ -315,17 +319,17 @@
                         
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Contact No.:</div>
-                            <div class="text-gray-900">{{$customer->cell_number}}</div>
+                            <div class="text-gray-900">{{$customer->fathers_num}}</div>
                         </li>   
                         
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Mother's Name:</div>
-                            <div class="text-gray-900">{{$customer->mothers_name}}C Simene</div>
+                            <div class="text-gray-900">{{$customer->mothers_name}}</div>
                         </li>    
 
                         <li class="flex flex-wrap mb-2">
                             <div class="text-gray-500 w-72">Contact No.:</div>
-                            <div class="text-gray-900">{{$customer->cell_number}}</div>
+                            <div class="text-gray-900">{{$customer->mothers_num}}</div>
                         </li>   
                     </div>
                     

@@ -2,9 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Branch;
+use App\Models\Breakdown;
+use App\Models\CashBill;
 use App\Models\Collection;
+use App\Models\ComputeCashOnHand;
 use App\Models\Customer;
+use App\Models\Expenses;
 use App\Models\Loan;
+use App\Models\SavingsDeposit;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
@@ -182,10 +189,73 @@ class BMController extends Controller
         return view('pages.csor.index');
     }
 
-    public function csorPrint()
+    public function csorPrint(Request $request)
     {
-        return view('pages.csor.print.index');
+        $branch = auth()->user()->branch_id;
+        $branchlocation = Branch::find($branch);
+
+        // Get the start and end dates of the current month
+        $startOfMonth = Carbon::now()->startOfMonth();
+        $endOfMonth = Carbon::now()->endOfMonth();
+
+        // Fetch expenses for the current month and branch
+        $expenses = Expenses::where('branch_id', $branch)
+            ->whereBetween('exp_date', [$startOfMonth, $endOfMonth])
+            ->get();
+
+        $breakdown = Breakdown::where('branch_id', $branch)->latest('created_at')->first();
+
+        // Denominations and their types
+        $denominations = [
+            '1000.00' => 'pbil',
+            '500.00' => 'pbil',
+            '200.00' => 'pbil',
+            '100.00' => 'pbil',
+            '50.00' => 'pbil',
+            '20.00' => 'pbil',
+            '10.00' => 'coin',
+            '5.00' => 'coin',
+            '1.00' => 'coin',
+            '0.25' => 'coin',
+        ];
+
+        $cashBillData = [];
+
+        // Fetch data for each denomination
+        foreach ($denominations as $denomination => $type) {
+            $count = CashBill::where('branch_id', $branch)
+                ->where('breakdown_id', $breakdown->id)
+                ->where('denomination', $denomination)
+                ->whereBetween('created_at', [$startOfMonth, $endOfMonth])
+                ->count();
+
+            $sum = CashBill::where('branch_id', $branch)
+                ->where('breakdown_id', $breakdown->id)
+                ->where('denomination', $denomination)
+                ->whereBetween('created_at', [$startOfMonth, $endOfMonth])
+                ->sum('amount');
+
+            $cashBillData[] = [
+                'denomination' => $denomination,
+                'type' => $type,
+                'count' => $count,
+                'sum' => $sum
+            ];
+        }
+
+        // Find compute cash on hand record
+        $comps = ComputeCashOnHand::find($request->coh_id);
+
+        // Return the view with compacted data
+        return view('pages.csor.print.index', [
+            'expenses' => $expenses,
+            'cashBillData' => $cashBillData,
+            'comps' => $comps,
+            'branchlocation' => $branchlocation->location
+        ]);
     }
+
+
 
     public function leaveRequest()
     {
@@ -222,6 +292,12 @@ class BMController extends Controller
     {
 
         return view('pages.pendingloanapp.printStatement.index');
+    }
+
+    public function reqCheck(Request $request)
+    {
+
+        return view('pages.requestcheck.index');
     }
 
 }

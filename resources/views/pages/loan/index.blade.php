@@ -25,7 +25,7 @@
 
         <!-- Dashboard actions -->
         <div class="sm:flex sm:justify-between sm:items-center mb-8">
-            <div>
+            <div class="flex gap-2">
                 <form method="GET" action="{{route('loan.index')}}" class="flex items-center max-w-sm mx-auto">
                     <label for="search" class="sr-only">Search</label>
                     <div class="relative w-full">
@@ -45,13 +45,90 @@
                         <span class="sr-only">Search</span>
                     </button>
                 </form>
+
+                <form method="GET" action="{{route('loan.index')}}" class="flex items-center max-w-sm mx-auto">
+                    <label for="search" class="sr-only">Search</label>
+                    <div class="relative w-full">
+                        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                        </div>
+                        <input type="text" id="search" name="search"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Customer Name" required />
+                    </div>
+                    <button type="submit" class="btn bg-indigo-500 hover:bg-indigo-600 text-white ml-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                            fill="#FFFFFF">
+                            <path d="M0 0h24v24H0z" fill="none" />
+                            <path
+                                d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                        </svg>
+                        <span class="sr-only">Search</span>
+                    </button>
+                </form>
             </div>
+
+            <div>
+                
+            </div>
+
+                
 
             <!-- Right: Actions -->
             <div class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
 
                 <!-- Filter button -->
-                <x-dropdown-filter align="right" />
+                @props([
+                    'align' => 'right',
+                ])
+
+                <div class="relative inline-flex" x-data="{ open: false }">
+                    <button
+                        class="btn bg-white dark:bg-slate-800 border-slate-200 hover:border-slate-300 dark:border-slate-700 dark:hover:border-slate-600 text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"
+                        aria-haspopup="true" @click.prevent="open = !open" :aria-expanded="open">
+                        <span class="sr-only">Filter</span><wbr>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 16 16">
+                            <path
+                                d="M9 15H7a1 1 0 010-2h2a1 1 0 010 2zM11 11H5a1 1 0 010-2h6a1 1 0 010 2zM13 7H3a1 1 0 010-2h10a1 1 0 010 2zM15 3H1a1 1 0 010-2h14a1 1 0 010 2z" />
+                        </svg>
+                    </button>
+                    <form method="GET" action="{{ route('resignation.index') }}">
+                        <div class="origin-top-right z-10 absolute top-full left-0 right-auto min-w-56 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 pt-1.5 rounded shadow-lg overflow-hidden mt-1 {{ $align === 'right' ? 'md:left-auto md:right-0' : 'md:left-0 md:right-auto' }}"
+                            @click.outside="open = false" @keydown.escape.window="open = false" x-show="open"
+                            x-transition:enter="transition ease-out duration-200 transform"
+                            x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0"
+                            x-transition:leave="transition ease-out duration-200" x-transition:leave-start="opacity-100"
+                            x-transition:leave-end="opacity-0" x-cloak>
+                            <div class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase pt-1.5 pb-2 px-3">Filters</div>
+                            <ul class="mb-4">
+                                <li class="py-1 px-3">
+                                    <label class="flex items-center">
+                                        <input type="checkbox" name="filter[]" value="collector" class="form-checkbox" />
+                                        <span class="text-sm font-medium ml-2">Daily</span>
+                                    </label>
+                                </li>
+                                <li class="py-1 px-3">
+                                    <label class="flex items-center">
+                                        <input type="checkbox" name="filter[]" value="branch manager" class="form-checkbox" />
+                                        <span class="text-sm font-medium ml-2">Monthly</span>
+                                    </label>
+                                </li>
+                            </ul>
+                            <div class="py-2 px-3 border-t border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-700/20">
+                                <ul class="flex items-center justify-between">
+                                    <li>
+                                        <button type="reset"
+                                            class="btn-xs bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-slate-500 dark:text-slate-300 hover:text-slate-600 dark:hover:text-slate-200">Clear</button>
+                                    </li>
+                                    <li>
+                                        <button type="submit" class="btn-xs bg-blue-400 hover:bg-blue-700 text-white"
+                                            @click="open = false" @focusout="open = false">Apply</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
 
                 <!-- Add view button -->
                 <a href="{{ route('loan.create') }}" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">

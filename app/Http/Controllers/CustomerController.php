@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CustomerCreateRequest;
 use App\Http\Requests\CustomerUpdateRequest;
 use App\Models\Customer;
+use App\Models\Branch;
 use App\Models\CustomerType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -231,5 +232,16 @@ class CustomerController extends Controller
         }
 
         return redirect(route("customer.index"))->with('success', 'CSV Data Imported Successfully');
+    }
+
+    public function printCustomer(Request $request)
+    {
+        $branch = auth()->user()->branch_id;
+        $branchAddress = Branch::find($branch);
+        $customer = Customer::with(['loan', 'loan.details' => function ($query) use ($request) {
+            $query->whereBetween('loan_due_date', [$request->date_from, $request->date_to]);
+        }])->where('branch_id', $branch)->find($request->customer);
+                
+        return view('pages.customer.print.index', compact('customer', 'branchAddress'));
     }
 }

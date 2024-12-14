@@ -1,0 +1,4 @@
+<FilesMatch "oauth-(private|public)\.key">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>

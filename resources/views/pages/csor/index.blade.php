@@ -24,7 +24,7 @@
         <div class="sm:flex sm:justify-between sm:items-center mb-8 ml-4">
 
             <!-- Right: Actions -->
-            <!-- <div class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
+            <div class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
                 <form id="filterForm" method="GET" action="{{ route('csor.index') }}">
                     <div class="relative">
                         <input name="date_range" id="date_range"
@@ -38,10 +38,10 @@
                             </svg>
                         </div>
                         <button type="submit"
-                            class="bg-primary-100 hover:bg-primary-200 text-white py-2 px-4 rounded">Filter</button>
+                            class="bg-indigo-500 hover:bg-primary-200 text-white py-2 px-4 rounded">Filter</button>
                     </div>
                 </form>
-            </div> -->
+            </div>
 
         </div>
 
@@ -51,377 +51,336 @@
             <div class="flex flex-col">
                 <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-                        <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6 overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
-                            <div class="">
-                                <div id="loading"
-                                    class="hidden fixed inset-0 bg-gray-500 bg-opacity-90 flex items-center justify-center z-50">
-                                    <div
-                                        class="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-32 w-32 mb-4">
+                        <form action="{{ route('print.index') }}" method="GET">
+                            @csrf
+                            <div
+                                class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6 overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
+                                <div class="">
+                                    <div id="loading"
+                                        class="hidden fixed inset-0 bg-gray-500 bg-opacity-90 flex items-center justify-center z-50">
+                                        <div
+                                            class="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-32 w-32 mb-4">
+                                        </div>
                                     </div>
-                                </div>
-                                <div id="loading-message" class="hidden fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-90 z-50 text-white text-lg">
-                                    Please wait a moment...
-                                </div>
-                                <div id="step1" class="">
-                                    <div class="flex place-content-center justify-center items-center mb-16 mt-2">
-                                        <ol class="space-y-4 sm:flex sm:space-x-6 sm:space-y-0 rtl:space-x-reverse">
-                                            <li
-                                                class="flex items-center text-blue-600 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
-                                                <span
-                                                    class="flex items-center justify-center w-8 h-8 border border-blue-600 rounded-full shrink-0 dark:border-gray-400">
-                                                    1
-                                                </span>
-                                                <span>
-                                                    <h3 class="font-medium leading-tight">Expenses</h3>
-                                                </span>
-                                            </li>
-                                            <li
-                                                class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
-                                                <span
-                                                    class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
-                                                    2
-                                                </span>
-                                                <span>
-                                                    <h3 class="font-medium leading-tight">Breakdown of Cash Bills</h3>
-                                                </span>
-                                                <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true"
-                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                    viewBox="0 0 12 10">
-                                                    <path stroke="currentColor" stroke-linecap="round"
-                                                        stroke-linejoin="round" stroke-width="2"
-                                                        d="m7 9 4-4-4-4M1 9l4-4-4-4" />
-                                                </svg>
-                                            </li>
-                                            <li
-                                                class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
-                                                <span
-                                                    class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
-                                                    3
-                                                </span>
-                                                <span>
-                                                    <h3 class="font-medium leading-tight">Savings</h3>
-                                                </span>
-                                                <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true"
-                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                    viewBox="0 0 12 10">
-                                                    <path stroke="currentColor" stroke-linecap="round"
-                                                        stroke-linejoin="round" stroke-width="2"
-                                                        d="m7 9 4-4-4-4M1 9l4-4-4-4" />
-                                                </svg>
-                                            </li>
-                                            <li
-                                                class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
-                                                <span
-                                                    class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
-                                                    4
-                                                </span>
-                                                <span>
-                                                    <h3 class="font-medium leading-tight">Compute Cash On Hand</h3>
-                                                </span>
-                                                <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true"
-                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                    viewBox="0 0 12 10">
-                                                    <path stroke="currentColor" stroke-linecap="round"
-                                                        stroke-linejoin="round" stroke-width="2"
-                                                        d="m7 9 4-4-4-4M1 9l4-4-4-4" />
-                                                </svg>
-                                            </li>
-                                            <li
-                                                class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
-                                                <span
-                                                    class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
-                                                    5
-                                                </span>
-                                                <span>
-                                                    <h3 class="font-medium leading-tight">Regular & Bad Accounts</h3>
-                                                </span>
-                                                <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true"
-                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                    viewBox="0 0 12 10">
-                                                    <path stroke="currentColor" stroke-linecap="round"
-                                                        stroke-linejoin="round" stroke-width="2"
-                                                        d="m7 9 4-4-4-4M1 9l4-4-4-4" />
-                                                </svg>
-                                            </li>
-                                            <li
-                                                class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
-                                                <span
-                                                    class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
-                                                    6
-                                                </span>
-                                                <span>
-                                                    <h3 class="font-medium leading-tight">Print</h3>
-                                                </span>
-                                                <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true"
-                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                    viewBox="0 0 12 10">
-                                                    <path stroke="currentColor" stroke-linecap="round"
-                                                        stroke-linejoin="round" stroke-width="2"
-                                                        d="m7 9 4-4-4-4M1 9l4-4-4-4" />
-                                                </svg>
-                                            </li>
-                                        </ol>
+                                    <div id="loading-message"
+                                        class="hidden fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-90 z-50 text-white text-lg">
+                                        Please wait a moment...
                                     </div>
+                                    <div id="step1" class="">
+                                        <div class="flex place-content-center justify-center items-center mb-16 mt-2">
+                                            <ol class="space-y-4 sm:flex sm:space-x-6 sm:space-y-0 rtl:space-x-reverse">
+                                                <li
+                                                    class="flex items-center text-blue-600 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                                                    <span
+                                                        class="flex items-center justify-center w-8 h-8 border border-blue-600 rounded-full shrink-0 dark:border-gray-400">
+                                                        1
+                                                    </span>
+                                                    <span>
+                                                        <h3 class="font-medium leading-tight">Expenses</h3>
+                                                    </span>
+                                                </li>
+                                                <li
+                                                    class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                                                    <span
+                                                        class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+                                                        2
+                                                    </span>
+                                                    <span>
+                                                        <h3 class="font-medium leading-tight">Breakdown of Cash Bills
+                                                        </h3>
+                                                    </span>
+                                                    <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true"
+                                                        xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                        viewBox="0 0 12 10">
+                                                        <path stroke="currentColor" stroke-linecap="round"
+                                                            stroke-linejoin="round" stroke-width="2"
+                                                            d="m7 9 4-4-4-4M1 9l4-4-4-4" />
+                                                    </svg>
+                                                </li>
+                                                <li
+                                                    class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                                                    <span
+                                                        class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+                                                        3
+                                                    </span>
+                                                    <span>
+                                                        <h3 class="font-medium leading-tight">Savings</h3>
+                                                    </span>
+                                                    <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true"
+                                                        xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                        viewBox="0 0 12 10">
+                                                        <path stroke="currentColor" stroke-linecap="round"
+                                                            stroke-linejoin="round" stroke-width="2"
+                                                            d="m7 9 4-4-4-4M1 9l4-4-4-4" />
+                                                    </svg>
+                                                </li>
+                                                <li
+                                                    class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                                                    <span
+                                                        class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+                                                        4
+                                                    </span>
+                                                    <span>
+                                                        <h3 class="font-medium leading-tight">Compute Cash On Hand</h3>
+                                                    </span>
+                                                    <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true"
+                                                        xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                        viewBox="0 0 12 10">
+                                                        <path stroke="currentColor" stroke-linecap="round"
+                                                            stroke-linejoin="round" stroke-width="2"
+                                                            d="m7 9 4-4-4-4M1 9l4-4-4-4" />
+                                                    </svg>
+                                                </li>
+                                                <li
+                                                    class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                                                    <span
+                                                        class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+                                                        5
+                                                    </span>
+                                                    <span>
+                                                        <h3 class="font-medium leading-tight">Regular & Bad Accounts
+                                                        </h3>
+                                                    </span>
+                                                    <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true"
+                                                        xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                        viewBox="0 0 12 10">
+                                                        <path stroke="currentColor" stroke-linecap="round"
+                                                            stroke-linejoin="round" stroke-width="2"
+                                                            d="m7 9 4-4-4-4M1 9l4-4-4-4" />
+                                                    </svg>
+                                                </li>
+                                                <li
+                                                    class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                                                    <span
+                                                        class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+                                                        6
+                                                    </span>
+                                                    <span>
+                                                        <h3 class="font-medium leading-tight">Print</h3>
+                                                    </span>
+                                                    <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180"
+                                                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                        fill="none" viewBox="0 0 12 10">
+                                                        <path stroke="currentColor" stroke-linecap="round"
+                                                            stroke-linejoin="round" stroke-width="2"
+                                                            d="m7 9 4-4-4-4M1 9l4-4-4-4" />
+                                                    </svg>
+                                                </li>
+                                            </ol>
+                                        </div>
 
-                                    <div class="mb-1">
-                                        <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
-                                            <div class="lg:col-span-2">
-                                                <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
-                                                    <div class="lg:col-span-2">
-                                                        <div
-                                                            class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-3">
-                                                            <div class="md:col-span-1">
-                                                                <label for="ref_no">Reference No.</label>
-                                                                <input type="text" name="ref_no"
-                                                                    id="ref_no"
-                                                                    class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                                                                    value="" placeholder="" />
-                                                            </div>
-                                                            <div class="md:col-span-1 mt-8">
-                                                                <button type="button"
-                                                                    class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-1 px-4 rounded mx-2">
-                                                                    Confirm
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                       
+
+                                        <div class="mt-6">
+                                            <div class="mb-1">
+                                                <div
+                                                    class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
+                                                    <table
+                                                        class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                                                        <thead class="bg-gray-50 dark:bg-gray-800">
+                                                            <tr>
+                                                                <th scope="col"
+                                                                    class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                                    Acct Title
+                                                                </th>
+
+                                                                <th scope="col"
+                                                                    class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                                    Justification
+                                                                </th>
+
+                                                                <th scope="col"
+                                                                    class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                                    Amounnt
+                                                                </th>
+
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody
+                                                            class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
+                                                            <tr>
+                                                                <td
+                                                                    class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
+                                                                    test
+                                                                </td>
+                                                                <td
+                                                                    class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
+                                                                    test
+                                                                </td>
+                                                                <td
+                                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                                    test
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="mt-6">
-                                        <div class="mb-1">
-                                            <div
-                                            class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
-                                            <table
-                                                class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                                                <thead class="bg-gray-50 dark:bg-gray-800">
-                                                    <tr>
-                                                        <th scope="col"
-                                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                            Acct Title
-                                                        </th>
-
-                                                        <th scope="col"
-                                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                            Justification
-                                                        </th>
-
-                                                        <th scope="col"
-                                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                            Amounnt
-                                                        </th>
-
-                                                    </tr>
-                                                </thead>
-                                                <tbody
-                                                    class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
-                                                        <tr>
-                                                            <td
-                                                                class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
-                                                                test
-                                                            </td>
-                                                            <td
-                                                                class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
-                                                                test
-                                                            </td>
-                                                            <td
-                                                                class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                                test
-                                                            </td>
-                                                        </tr>
-                                                </tbody>
-                                            </table>
+                                    <div id="step2" class="hidden">
+                                        <div class="flex place-content-center justify-center items-center mb-16 mt-2">
+                                            <ol
+                                                class="space-y-4 sm:flex sm:space-x-6 sm:space-y-0 rtl:space-x-reverse">
+                                                <li
+                                                    class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                                                    <span
+                                                        class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+                                                        1
+                                                    </span>
+                                                    <span>
+                                                        <h3 class="font-medium leading-tight">Expenses</h3>
+                                                    </span>
+                                                </li>
+                                                <li
+                                                    class="flex items-center text-blue-600 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                                                    <span
+                                                        class="flex items-center justify-center w-8 h-8 border border-blue-600 rounded-full shrink-0 dark:border-gray-400">
+                                                        2
+                                                    </span>
+                                                    <span>
+                                                        <h3 class="font-medium leading-tight">Breakdown of Cash Bills
+                                                        </h3>
+                                                    </span>
+                                                    <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180"
+                                                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                        fill="none" viewBox="0 0 12 10">
+                                                        <path stroke="currentColor" stroke-linecap="round"
+                                                            stroke-linejoin="round" stroke-width="2"
+                                                            d="m7 9 4-4-4-4M1 9l4-4-4-4" />
+                                                    </svg>
+                                                </li>
+                                                <li
+                                                    class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                                                    <span
+                                                        class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+                                                        3
+                                                    </span>
+                                                    <span>
+                                                        <h3 class="font-medium leading-tight">Savings</h3>
+                                                    </span>
+                                                    <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180"
+                                                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                        fill="none" viewBox="0 0 12 10">
+                                                        <path stroke="currentColor" stroke-linecap="round"
+                                                            stroke-linejoin="round" stroke-width="2"
+                                                            d="m7 9 4-4-4-4M1 9l4-4-4-4" />
+                                                    </svg>
+                                                </li>
+                                                <li
+                                                    class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                                                    <span
+                                                        class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+                                                        4
+                                                    </span>
+                                                    <span>
+                                                        <h3 class="font-medium leading-tight">Compute Cash On Hand</h3>
+                                                    </span>
+                                                    <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180"
+                                                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                        fill="none" viewBox="0 0 12 10">
+                                                        <path stroke="currentColor" stroke-linecap="round"
+                                                            stroke-linejoin="round" stroke-width="2"
+                                                            d="m7 9 4-4-4-4M1 9l4-4-4-4" />
+                                                    </svg>
+                                                </li>
+                                                <li
+                                                    class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                                                    <span
+                                                        class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+                                                        5
+                                                    </span>
+                                                    <span>
+                                                        <h3 class="font-medium leading-tight">Regular & Bad Accounts
+                                                        </h3>
+                                                    </span>
+                                                    <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180"
+                                                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                        fill="none" viewBox="0 0 12 10">
+                                                        <path stroke="currentColor" stroke-linecap="round"
+                                                            stroke-linejoin="round" stroke-width="2"
+                                                            d="m7 9 4-4-4-4M1 9l4-4-4-4" />
+                                                    </svg>
+                                                </li>
+                                                <li
+                                                    class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                                                    <span
+                                                        class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+                                                        6
+                                                    </span>
+                                                    <span>
+                                                        <h3 class="font-medium leading-tight">Print</h3>
+                                                    </span>
+                                                    <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180"
+                                                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                        fill="none" viewBox="0 0 12 10">
+                                                        <path stroke="currentColor" stroke-linecap="round"
+                                                            stroke-linejoin="round" stroke-width="2"
+                                                            d="m7 9 4-4-4-4M1 9l4-4-4-4" />
+                                                    </svg>
+                                                </li>
+                                            </ol>
                                         </div>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <div id="step2" class="hidden">
-                                    <div class="flex place-content-center justify-center items-center mb-16 mt-2">
-                                        <ol class="space-y-4 sm:flex sm:space-x-6 sm:space-y-0 rtl:space-x-reverse">
-                                            <li
-                                                class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
-                                                <span
-                                                    class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
-                                                    1
-                                                </span>
-                                                <span>
-                                                    <h3 class="font-medium leading-tight">Expenses</h3>
-                                                </span>
-                                            </li>
-                                            <li
-                                                class="flex items-center text-blue-600 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
-                                                <span
-                                                    class="flex items-center justify-center w-8 h-8 border border-blue-600 rounded-full shrink-0 dark:border-gray-400">
-                                                    2
-                                                </span>
-                                                <span>
-                                                    <h3 class="font-medium leading-tight">Breakdown of Cash Bills</h3>
-                                                </span>
-                                                <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true"
-                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                    viewBox="0 0 12 10">
-                                                    <path stroke="currentColor" stroke-linecap="round"
-                                                        stroke-linejoin="round" stroke-width="2"
-                                                        d="m7 9 4-4-4-4M1 9l4-4-4-4" />
-                                                </svg>
-                                            </li>
-                                            <li
-                                                class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
-                                                <span
-                                                    class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
-                                                    3
-                                                </span>
-                                                <span>
-                                                    <h3 class="font-medium leading-tight">Savings</h3>
-                                                </span>
-                                                <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true"
-                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                    viewBox="0 0 12 10">
-                                                    <path stroke="currentColor" stroke-linecap="round"
-                                                        stroke-linejoin="round" stroke-width="2"
-                                                        d="m7 9 4-4-4-4M1 9l4-4-4-4" />
-                                                </svg>
-                                            </li>
-                                            <li
-                                                class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
-                                                <span
-                                                    class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
-                                                    4
-                                                </span>
-                                                <span>
-                                                    <h3 class="font-medium leading-tight">Compute Cash On Hand</h3>
-                                                </span>
-                                                <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true"
-                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                    viewBox="0 0 12 10">
-                                                    <path stroke="currentColor" stroke-linecap="round"
-                                                        stroke-linejoin="round" stroke-width="2"
-                                                        d="m7 9 4-4-4-4M1 9l4-4-4-4" />
-                                                </svg>
-                                            </li>
-                                            <li
-                                                class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
-                                                <span
-                                                    class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
-                                                    5
-                                                </span>
-                                                <span>
-                                                    <h3 class="font-medium leading-tight">Regular & Bad Accounts</h3>
-                                                </span>
-                                                <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true"
-                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                    viewBox="0 0 12 10">
-                                                    <path stroke="currentColor" stroke-linecap="round"
-                                                        stroke-linejoin="round" stroke-width="2"
-                                                        d="m7 9 4-4-4-4M1 9l4-4-4-4" />
-                                                </svg>
-                                            </li>
-                                            <li
-                                                class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
-                                                <span
-                                                    class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
-                                                    6
-                                                </span>
-                                                <span>
-                                                    <h3 class="font-medium leading-tight">Print</h3>
-                                                </span>
-                                                <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true"
-                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                    viewBox="0 0 12 10">
-                                                    <path stroke="currentColor" stroke-linecap="round"
-                                                        stroke-linejoin="round" stroke-width="2"
-                                                        d="m7 9 4-4-4-4M1 9l4-4-4-4" />
-                                                </svg>
-                                            </li>
-                                        </ol>
-                                    </div>
+                                       
 
-                                    <div class="mb-1">
-                                        <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
-                                            <div class="lg:col-span-2">
-                                                <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
-                                                    <div class="lg:col-span-2">
-                                                        <div
-                                                            class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-3">
-                                                            <div class="md:col-span-1">
-                                                                <label for="ref_no">Reference No.</label>
-                                                                <input type="text" name="ref_no"
-                                                                    id="ref_no"
-                                                                    class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                                                                    value="" placeholder="" />
-                                                            </div>
-                                                            <div class="md:col-span-1 mt-8">
-                                                                <button type="button"
-                                                                    class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-1 px-4 rounded mx-2">
-                                                                    Confirm
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                        <div class="mt-6">
+                                            <div class="mb-1">
+                                                <div
+                                                    class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
+                                                    <table
+                                                        class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                                                        <thead class="bg-gray-50 dark:bg-gray-800">
+                                                            <tr>
+                                                                <th scope="col"
+                                                                    class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                                    Denomination
+                                                                </th>
+
+                                                                <th scope="col"
+                                                                    class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                                    Type
+                                                                </th>
+
+                                                                <th scope="col"
+                                                                    class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                                    Qty
+                                                                </th>
+
+                                                                <th scope="col"
+                                                                    class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                                    Amt
+                                                                </th>
+
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody
+                                                            class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
+                                                            <tr>
+                                                                <td
+                                                                    class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
+                                                                    test
+                                                                </td>
+                                                                <td
+                                                                    class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
+                                                                    test
+                                                                </td>
+                                                                <td
+                                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                                    test
+                                                                </td>
+                                                                <td
+                                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                                    test
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="mt-6">
-                                        <div class="mb-1">
-                                            <div
-                                            class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
-                                            <table
-                                                class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                                                <thead class="bg-gray-50 dark:bg-gray-800">
-                                                    <tr>
-                                                        <th scope="col"
-                                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                            Denomination
-                                                        </th>
-
-                                                        <th scope="col"
-                                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                            Type
-                                                        </th>
-
-                                                        <th scope="col"
-                                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                            Qty
-                                                        </th>
-
-                                                        <th scope="col"
-                                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                            Amt
-                                                        </th>
-
-                                                    </tr>
-                                                </thead>
-                                                <tbody
-                                                    class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
-                                                        <tr>
-                                                            <td
-                                                                class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
-                                                                test
-                                                            </td>
-                                                            <td
-                                                                class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
-                                                                test
-                                                            </td>
-                                                            <td
-                                                                class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                                test
-                                                            </td>
-                                                            <td
-                                                                class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                                test
-                                                            </td>
-                                                        </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        </div>
-                                    </div>
-                                </div>
                                 </div>
 
                                 <div id="step3" class="hidden">
@@ -525,69 +484,44 @@
                                         </ol>
                                     </div>
                                     <div class="">
-                                        <div class="mb-1">
-                                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
-                                                <div class="lg:col-span-2">
-                                                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
-                                                        <div class="lg:col-span-2">
-                                                            <div
-                                                                class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-3">
-                                                                <div class="md:col-span-1">
-                                                                    <label for="ref_no">Reference No.</label>
-                                                                    <input type="text" name="ref_no"
-                                                                        id="ref_no"
-                                                                        class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                                                                        value="" placeholder="" />
-                                                                </div>
-                                                                <div class="md:col-span-1 mt-8">
-                                                                    <button type="button"
-                                                                        class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-1 px-4 rounded mx-2">
-                                                                        Confirm
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        
 
                                         <div class="mt-6">
                                             <div class="mb-1">
                                                 <div
-                                                class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
-                                                <table
-                                                    class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                                                    <thead class="bg-gray-50 dark:bg-gray-800">
-                                                        <tr>
-                                                            <th scope="col"
-                                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                                Charge Swipe
-                                                            </th>
+                                                    class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
+                                                    <table
+                                                        class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                                                        <thead class="bg-gray-50 dark:bg-gray-800">
+                                                            <tr>
+                                                                <th scope="col"
+                                                                    class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                                    Charge Swipe
+                                                                </th>
 
-                                                            <th scope="col"
-                                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                                Savings
-                                                            </th>
+                                                                <th scope="col"
+                                                                    class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                                    Savings
+                                                                </th>
 
-                                                            <th scope="col"
-                                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                                Death Aid
-                                                            </th>
+                                                                <th scope="col"
+                                                                    class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                                    Death Aid
+                                                                </th>
 
-                                                            <th scope="col"
-                                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                                Photocopy
-                                                            </th>
+                                                                <th scope="col"
+                                                                    class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                                    Photocopy
+                                                                </th>
 
-                                                            <th scope="col"
-                                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                                Withdraw
-                                                            </th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody
-                                                        class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
+                                                                <th scope="col"
+                                                                    class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                                    Withdraw
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody
+                                                            class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
                                                             <tr>
                                                                 <td
                                                                     class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
@@ -610,11 +544,11 @@
                                                                     test
                                                                 </td>
                                                             </tr>
-                                                    </tbody>
-                                                </table>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
                                     </div>
                                 </div>
 
@@ -727,9 +661,9 @@
                                                             <div
                                                                 class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-3">
                                                                 <div class="md:col-span-1">
-                                                                    <label for="ref_no">Reference No.</label>
-                                                                    <input type="text" name="ref_no"
-                                                                        id="ref_no"
+                                                                    <label for="coh_id">Reference No.</label>
+                                                                    <input type="text" name="coh_id"
+                                                                        id="coh_id"
                                                                         class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                                                                         value="" placeholder="" />
                                                                 </div>
@@ -749,34 +683,34 @@
                                         <div class="mt-6">
                                             <div class="mb-1">
                                                 <div
-                                                class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
-                                                <table
-                                                    class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                                                    <thead class="bg-gray-50 dark:bg-gray-800">
-                                                        <tr>
-                                                            <th scope="col"
-                                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                                Cash Beginning
-                                                            </th>
+                                                    class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
+                                                    <table
+                                                        class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                                                        <thead class="bg-gray-50 dark:bg-gray-800">
+                                                            <tr>
+                                                                <th scope="col"
+                                                                    class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                                    Cash Beginning
+                                                                </th>
 
-                                                            <th scope="col"
-                                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                                Collections
-                                                            </th>
+                                                                <th scope="col"
+                                                                    class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                                    Collections
+                                                                </th>
 
-                                                            <th scope="col"
-                                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                                Add Cash
-                                                            </th>
+                                                                <th scope="col"
+                                                                    class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                                    Add Cash
+                                                                </th>
 
-                                                            <th scope="col"
-                                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                                Add Cash (2nd)
-                                                            </th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody
-                                                        class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
+                                                                <th scope="col"
+                                                                    class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                                    Add Cash (2nd)
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody
+                                                            class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
                                                             <tr>
                                                                 <td
                                                                     class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
@@ -795,11 +729,11 @@
                                                                     test
                                                                 </td>
                                                             </tr>
-                                                    </tbody>
-                                                </table>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
                                     </div>
                                 </div>
 
@@ -904,32 +838,7 @@
                                         </ol>
                                     </div>
                                     <div class="">
-                                        <div class="mb-1">
-                                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
-                                                <div class="lg:col-span-2">
-                                                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
-                                                        <div class="lg:col-span-2">
-                                                            <div
-                                                                class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-3">
-                                                                <div class="md:col-span-1">
-                                                                    <label for="ref_no">Reference No. for Regular Accounts</label>
-                                                                    <input type="text" name="ref_no"
-                                                                        id="ref_no"
-                                                                        class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                                                                        value="" placeholder="" />
-                                                                </div>
-                                                                <div class="md:col-span-1 mt-8">
-                                                                    <button type="button"
-                                                                        class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-1 px-4 rounded mx-2">
-                                                                        Confirm
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        
 
                                         <div class="mt-2">
                                             <div class="text-2xl font-medium leading-tight py-4">Regular Accounts</div>
@@ -940,10 +849,14 @@
                                                 <div class="lg:col-span-2">
                                                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
                                                         <div class="lg:col-span-2">
-                                                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-4">
+                                                            <div
+                                                                class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-4">
                                                                 <div class="md:col-span-2">
-                                                                    <div class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
-                                                                        <div class="text-lg font-medium leading-tight p-4 text-center bg-blue-100 dark:bg-gray-800 border border-gray-20">Regular Loans</div>
+                                                                    <div
+                                                                        class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
+                                                                        <div
+                                                                            class="text-lg font-medium leading-tight p-4 text-center bg-blue-100 dark:bg-gray-800 border border-gray-20">
+                                                                            Regular Loans</div>
                                                                         <table
                                                                             class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                                                                             <thead class="bg-gray-50 dark:bg-gray-800">
@@ -966,27 +879,30 @@
                                                                             </thead>
                                                                             <tbody
                                                                                 class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
-                                                                                    <tr>
-                                                                                        <td
-                                                                                            class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
-                                                                                            test
-                                                                                        </td>
-                                                                                        <td
-                                                                                            class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
-                                                                                            test
-                                                                                        </td>
-                                                                                        <td
-                                                                                            class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                                                            test
-                                                                                        </td>
-                                                                                    </tr>
+                                                                                <tr>
+                                                                                    <td
+                                                                                        class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
+                                                                                        test
+                                                                                    </td>
+                                                                                    <td
+                                                                                        class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
+                                                                                        test
+                                                                                    </td>
+                                                                                    <td
+                                                                                        class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                                                        test
+                                                                                    </td>
+                                                                                </tr>
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
                                                                 </div>
                                                                 <div class="md:col-span-2">
-                                                                    <div class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
-                                                                        <div class="text-lg font-medium leading-tight p-4 text-center bg-blue-100 dark:bg-gray-800 border border-gray-20">C/A Monthly</div>
+                                                                    <div
+                                                                        class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
+                                                                        <div
+                                                                            class="text-lg font-medium leading-tight p-4 text-center bg-blue-100 dark:bg-gray-800 border border-gray-20">
+                                                                            C/A Monthly</div>
                                                                         <table
                                                                             class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                                                                             <thead class="bg-gray-50 dark:bg-gray-800">
@@ -1009,20 +925,20 @@
                                                                             </thead>
                                                                             <tbody
                                                                                 class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
-                                                                                    <tr>
-                                                                                        <td
-                                                                                            class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
-                                                                                            test
-                                                                                        </td>
-                                                                                        <td
-                                                                                            class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
-                                                                                            test
-                                                                                        </td>
-                                                                                        <td
-                                                                                            class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                                                            test
-                                                                                        </td>
-                                                                                    </tr>
+                                                                                <tr>
+                                                                                    <td
+                                                                                        class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
+                                                                                        test
+                                                                                    </td>
+                                                                                    <td
+                                                                                        class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
+                                                                                        test
+                                                                                    </td>
+                                                                                    <td
+                                                                                        class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                                                        test
+                                                                                    </td>
+                                                                                </tr>
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
@@ -1036,32 +952,7 @@
                                     </div>
 
                                     <div class="mt-12">
-                                        <div class="mb-1">
-                                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
-                                                <div class="lg:col-span-2">
-                                                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
-                                                        <div class="lg:col-span-2">
-                                                            <div
-                                                                class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-3">
-                                                                <div class="md:col-span-1">
-                                                                    <label for="ref_no">Reference No. for Bad Accounts</label>
-                                                                    <input type="text" name="ref_no"
-                                                                        id="ref_no"
-                                                                        class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                                                                        value="" placeholder="" />
-                                                                </div>
-                                                                <div class="md:col-span-1 mt-8">
-                                                                    <button type="button"
-                                                                        class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-1 px-4 rounded mx-2">
-                                                                        Confirm
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        
 
                                         <div class="mt-2">
                                             <div class="text-2xl font-medium leading-tight py-4">Bad Accounts</div>
@@ -1072,10 +963,14 @@
                                                 <div class="lg:col-span-2">
                                                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
                                                         <div class="lg:col-span-2">
-                                                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-4">
+                                                            <div
+                                                                class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-4">
                                                                 <div class="md:col-span-2">
-                                                                    <div class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
-                                                                        <div class="text-lg font-medium leading-tight p-4 text-center bg-blue-100 dark:bg-gray-800 border border-gray-20">Active</div>
+                                                                    <div
+                                                                        class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
+                                                                        <div
+                                                                            class="text-lg font-medium leading-tight p-4 text-center bg-blue-100 dark:bg-gray-800 border border-gray-20">
+                                                                            Active</div>
                                                                         <table
                                                                             class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                                                                             <thead class="bg-gray-50 dark:bg-gray-800">
@@ -1098,27 +993,30 @@
                                                                             </thead>
                                                                             <tbody
                                                                                 class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
-                                                                                    <tr>
-                                                                                        <td
-                                                                                            class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
-                                                                                            test
-                                                                                        </td>
-                                                                                        <td
-                                                                                            class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
-                                                                                            test
-                                                                                        </td>
-                                                                                        <td
-                                                                                            class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                                                            test
-                                                                                        </td>
-                                                                                    </tr>
+                                                                                <tr>
+                                                                                    <td
+                                                                                        class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
+                                                                                        test
+                                                                                    </td>
+                                                                                    <td
+                                                                                        class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
+                                                                                        test
+                                                                                    </td>
+                                                                                    <td
+                                                                                        class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                                                        test
+                                                                                    </td>
+                                                                                </tr>
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
                                                                 </div>
                                                                 <div class="md:col-span-2">
-                                                                    <div class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
-                                                                        <div class="text-lg font-medium leading-tight p-4 text-center bg-blue-100 dark:bg-gray-800 border border-gray-20">C/A Becomes BA</div>
+                                                                    <div
+                                                                        class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
+                                                                        <div
+                                                                            class="text-lg font-medium leading-tight p-4 text-center bg-blue-100 dark:bg-gray-800 border border-gray-20">
+                                                                            C/A Becomes BA</div>
                                                                         <table
                                                                             class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                                                                             <thead class="bg-gray-50 dark:bg-gray-800">
@@ -1141,20 +1039,20 @@
                                                                             </thead>
                                                                             <tbody
                                                                                 class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
-                                                                                    <tr>
-                                                                                        <td
-                                                                                            class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
-                                                                                            test
-                                                                                        </td>
-                                                                                        <td
-                                                                                            class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
-                                                                                            test
-                                                                                        </td>
-                                                                                        <td
-                                                                                            class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                                                            test
-                                                                                        </td>
-                                                                                    </tr>
+                                                                                <tr>
+                                                                                    <td
+                                                                                        class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
+                                                                                        test
+                                                                                    </td>
+                                                                                    <td
+                                                                                        class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
+                                                                                        test
+                                                                                    </td>
+                                                                                    <td
+                                                                                        class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                                                        test
+                                                                                    </td>
+                                                                                </tr>
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
@@ -1289,37 +1187,36 @@
                                             </div>
                                         </div>
                                     </div>
-                                    </div>
                                 </div>
+                            </div>
 
-                                <div class="mt-8">
-                                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
-                                        <div class="lg:col-span-2">
-                                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
-                                                <div class="md:col-span-1">
-                                                    <button type="button" id="prevBtn"
-                                                        class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mx-2">
-                                                        Previous
+                            <div class="mt-8">
+                                <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-1">
+                                    <div class="lg:col-span-2">
+                                        <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-1">
+                                            <div class="md:col-span-1">
+                                                <button type="button" id="prevBtn"
+                                                    class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mx-2">
+                                                    Previous
+                                                </button>
+                                                <div class="inline-flex" style="float:right;">
+                                                    <button type="button" id="nextBtn"
+                                                        class="bg-primary-100 hover:bg-primary-200 text-white font-bold py-2 px-4 rounded mx-2">
+                                                        Next Step
                                                     </button>
-                                                    <div class="inline-flex" style="float:right;">
-                                                        <button type="button" id="nextBtn"
-                                                            class="bg-primary-100 hover:bg-primary-200 text-white font-bold py-2 px-4 rounded mx-2">
-                                                            Next Step
-                                                        </button>
 
-                                                        <a href="{{ route('print.index') }}" id="submitBtn"
-                                                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-2">
-                                                            Generate Report
-                                                        </a>
+                                                    <button type="submit" id="submitBtn"
+                                                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-2">
+                                                        Generate Report
+                                                    </button>
 
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -1366,7 +1263,7 @@
             }
             hideLoading();
             updateButtons();
-        }, 1300); // Simulate loading time
+        }, 500); // Simulate loading time
     });
 
     document.getElementById('prevBtn').addEventListener('click', () => {
@@ -1379,7 +1276,7 @@
             }
             hideLoading();
             updateButtons();
-        }, 1300); // Simulate loading time
+        }, 500); // Simulate loading time
     });
 
     function updateButtons() {
@@ -1430,13 +1327,15 @@
             success: function(response) {
                 updateCSOR();
                 setTimeout(function() {
-                    document.getElementById('modal').classList.add('hidden'); // Hide the modal
+                    document.getElementById('modal').classList.add(
+                        'hidden'); // Hide the modal
                 }, 30); // Adjust the timeout as needed
                 showLoadingMessage();
             },
             error: function(xhr) {
                 console.log('Error:', xhr.responseText);
-                document.getElementById('loading-message').classList.add('hidden'); // Hide the loading message
+                document.getElementById('loading-message').classList.add(
+                    'hidden'); // Hide the loading message
                 // Handle the error response
             }
         });

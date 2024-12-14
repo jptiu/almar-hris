@@ -83,4 +83,9 @@ class Customer extends Model
     {
         return $this->belongsTo(CustomerType::class, 'type', 'code');
     }
+
+    public function deposits()
+    {
+        return $this->hasMany(SavingsDeposit::class, 'customer_id');
+    }
 }

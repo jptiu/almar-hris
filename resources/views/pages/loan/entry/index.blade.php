@@ -515,7 +515,7 @@
 
         const interestAmount = (principalAmount * interestPercent) / 100;
         const payableAmount = principalAmount + interestAmount + serviceCharge;
-        const monthlyDue = monthsToPay > 0 ? payableAmount / monthsToPay : 0;
+        const monthlyDue = monthsToPay > 0 ? payableAmount / monthsToPay / 2 : 0;
 
         updatePaymentDisplay(interestAmount, payableAmount, monthlyDue, monthsToPay, 'monthly');
     }
@@ -544,29 +544,18 @@
 
         let runningBalance = payableAmount;
         let currentDate = new Date();
+        if (type === 'daily') {
+            for (let i = 1; i <= duration; i++) {
+                let dueDate;
 
-        for (let i = 1; i <= duration; i++) {
-            let dueDate;
-
-            if (type === 'daily') {
-                dueDate = currentDate.toISOString().split('T')[0];
-                currentDate.setDate(currentDate.getDate() + 1); // Increment by 1 day
-            } else if (type === 'monthly') {
-                // Generate alternating due dates (15th and end of the month)
-                if (i % 2 === 1) {
-                    currentDate.setDate(15); // 15th of the month
-                } else {
-                    currentDate.setMonth(currentDate.getMonth() + 1, 0); // End of the month
+                if (type === 'daily') {
+                    dueDate = currentDate.toISOString().split('T')[0];
+                    currentDate.setDate(currentDate.getDate() + 1); // Increment by 1 day
                 }
-                dueDate = currentDate.toISOString().split('T')[0];
-                if (i % 2 === 0) {
-                    currentDate.setMonth(currentDate.getMonth() + 1, 1); // Start of the next month
-                }
-            }
 
-            runningBalance -= dueAmount;
+                runningBalance -= dueAmount;
 
-            const row = `
+                const row = `
         <tr>
             <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">${i}</td>
             <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">${dueDate}</td>
@@ -575,15 +564,53 @@
             <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">${runningBalance.toFixed(2)}</td>
         </tr>
         `;
-            tbody.innerHTML += row;
+                tbody.innerHTML += row;
 
-            hiddenInputsContainer.innerHTML += `
+                hiddenInputsContainer.innerHTML += `
         <input type="hidden" name="rows[${i}][id]" value="${i}">
         <input type="hidden" name="rows[${i}][due_date]" value="${dueDate}">
         <input type="hidden" name="rows[${i}][due_amount]" value="${dueAmount.toFixed(2)}">
         <input type="hidden" name="rows[${i}][remaining_balance]" value="${runningBalance.toFixed(2)}">
         `;
+            }
+        } else {
+            for (let i = 1; i <= duration * 2; i++) {
+                let dueDate;
+                if (type === 'monthly') {
+                    // Generate alternating due dates (15th and end of the month)
+                    if (i % 2 === 1) {
+                        currentDate.setDate(15); // 15th of the month
+                    } else {
+                        currentDate.setMonth(currentDate.getMonth() + 1, 0); // End of the month
+                    }
+                    dueDate = currentDate.toISOString().split('T')[0];
+                    if (i % 2 === 0) {
+                        currentDate.setMonth(currentDate.getMonth() + 1, 1); // Start of the next month
+                    }
+                }
+
+                runningBalance -= dueAmount;
+
+                const row = `
+        <tr>
+            <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">${i}</td>
+            <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">${dueDate}</td>
+            <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">${dueAmount.toFixed(2)}</td>
+            <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap"></td>
+            <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">${runningBalance.toFixed(2)}</td>
+        </tr>
+        `;
+                tbody.innerHTML += row;
+
+                hiddenInputsContainer.innerHTML += `
+        <input type="hidden" name="rows[${i}][id]" value="${i}">
+        <input type="hidden" name="rows[${i}][due_date]" value="${dueDate}">
+        <input type="hidden" name="rows[${i}][due_amount]" value="${dueAmount.toFixed(2)}">
+        <input type="hidden" name="rows[${i}][remaining_balance]" value="${runningBalance.toFixed(2)}">
+        `;
+            }
         }
+
     }
 
 
