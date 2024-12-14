@@ -51,8 +51,8 @@
                         @endforeach
                     </tbody>
                 </table>
-                <div class="text-right border bg-gray-100 p-2 text-xs">Total: 1500,00.00</div>
-                <div class="text-right border bg-gray-100 p-2 text-xs">Grand Total Expenses: <strong>150,000.00</strong>
+                <div class="text-right border bg-gray-100 p-2 text-xs">Total: {{number_format($expenses->sum('amount'), 2)}}</div>
+                <div class="text-right border bg-gray-100 p-2 text-xs">Grand Total Expenses: <strong>{{number_format($expenses->sum('amount'), 2)}}</strong>
                 </div>
             </div>
 
@@ -68,6 +68,10 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @php
+                            $grandTotal = 0; // Initialize a variable to hold the grand total sum
+                        @endphp
+                
                         @foreach ($cashBillData as $denomination => $data)
                             @if ($data['count'] > 0)
                                 <tr>
@@ -76,12 +80,19 @@
                                     <td class="p-2 text-xs">{{ $data['count'] }}</td>
                                     <td class="p-2 text-xs">{{ number_format($data['sum'], 2) }}</td>
                                 </tr>
+                
+                                @php
+                                    $grandTotal += $data['sum']; // Add the sum of each row to the grand total
+                                @endphp
                             @endif
                         @endforeach
                     </tbody>
                 </table>
-                <div class="text-right border bg-gray-100 p-2 text-xs">Grand Total Cash: <strong>150,000.00</strong>
+                
+                <div class="text-right border bg-gray-100 p-2 text-xs">
+                    Grand Total Cash: <strong>{{ number_format($grandTotal, 2) }}</strong>
                 </div>
+                
             </div>
         </div>
 
@@ -147,7 +158,7 @@
             </div>
         </div>
 
-        <div class="text-left text-base font-semibold py-2 uppercase mt-8">Regular Accounts</div>
+        {{-- <div class="text-left text-base font-semibold py-2 uppercase mt-8">Regular Accounts</div>
         <div class="flex">
             <div class="w-1/2 overflow-hidden">
                 <table class="w-full text-center border">
@@ -255,7 +266,7 @@
                 <div class="text-right border bg-gray-100 p-2 text-xs">Total Receivable Amt: 1500,00.00</div>
                 <div class="text-right border bg-gray-100 p-2 text-xs">Actual Collections: 150,000.00</div>
             </div>
-        </div>
+        </div> --}}
 
         <div class="py-8">
             {{-- <div class="text-gray-600 text-lg font-semibold uppercase">Additional Notes:</div>

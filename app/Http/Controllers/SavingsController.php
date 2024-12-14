@@ -75,30 +75,42 @@ class SavingsController extends Controller
     public function storeWithdrawal(Request $request)
     {
         $branch = auth()->user()->branch_id;
-        $request->validate([
-            'customer_id' => 'required',
-            'amount' => 'required|numeric',
-            'date' => 'required|date',
-            'customer_name' => 'required|string',
-            'tran_date' => 'required|string',
-            'net_amount' => 'required|numeric',
-            'interest_amount' => 'required|numeric',
-            'interest_rate' => 'required|numeric',
-        ]);
+        // $request->validate([
+        //     'customer_id' => 'required',
+        //     'amount' => 'required|numeric',
+        //     'date' => 'required|date',
+        //     'customer_name' => 'required|string',
+        //     'tran_date' => 'required|string',
+        //     'net_amount' => 'required|numeric',
+        //     'interest_amount' => 'required|numeric',
+        //     'interest_rate' => 'required|numeric',
+        // ]);
 
         $w = new SavingsWithdrawal();
-        $w->customer_id = $request->customer_id;
+        $w->customer_id = $request->customer;
         $w->amount = $request->amount;
-        $w->date = $request->date;
+        // $w->date = now()->toDateString();
         $w->customer_name = $request->customer_name;
-        $w->tran_date = $request->tran_date;
-        $w->net_amount = $request->net_amount;
-        $w->interest_amount = $request->interest_amount;
-        $w->interest_rate = $request->interest_rate;
+        $w->tran_date = now()->toDateString();
+        $w->net_amount = $request->netAmount;
+        $w->interest_amount = $request->interestAmount;
+        $w->interest_rate = $request->interestRate;
         $w->branch_id = $branch;
         $w->save();
 
-        return redirect()->route('savings.withdrawal.index')->with('success', 'Withdrawal entry created successfully.');
+        return redirect()->route('savingscustomer.index')->with('success', 'Withdrawal entry created successfully.');
+    }
+
+    public function printDeposit(Request $request)
+    {
+
+        return view('pages.savingscustomer.depositentry.printDeposit.index');
+    }
+
+    public function printWithdrawal(Request $request)
+    {
+
+        return view('pages.savingscustomer.withdrawalentry.printWithdrawal.index');
     }
 
 }

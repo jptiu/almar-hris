@@ -20,12 +20,13 @@
             <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-12 lg:px-4">CSOR</h1>
         </div>
 
-        <!-- Dashboard actions -->
-        <div class="sm:flex sm:justify-between sm:items-center mb-8 ml-4">
+        <form action="{{ route('print.index') }}" method="GET">
+            @csrf
+            <!-- Dashboard actions -->
+            <div class="sm:flex sm:justify-between sm:items-center mb-8 ml-4">
 
-            <!-- Right: Actions -->
-            <div class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
-                <form id="filterForm" method="GET" action="{{ route('csor.index') }}">
+                <!-- Right: Actions -->
+                <div class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
                     <div class="relative">
                         <input name="date_range" id="date_range"
                             class="datepicker form-input pl-9 dark:bg-slate-800 text-slate-500 hover:text-slate-600 dark:text-slate-300 dark:hover:text-slate-200 font-medium w-[15.5rem]"
@@ -37,22 +38,19 @@
                                     d="M15 2h-2V0h-2v2H9V0H7v2H5V0H3v2H1a1 1 0 00-1 1v12a1 1 0 001 1h14a1 1 0 001-1V3a1 1 0 00-1-1zm-1 12H2V6h12v8z" />
                             </svg>
                         </div>
-                        <button type="submit"
-                            class="bg-indigo-500 hover:bg-primary-200 text-white py-2 px-4 rounded">Filter</button>
+                        {{-- <button type="submit"
+                            class="bg-indigo-500 hover:bg-primary-200 text-white py-2 px-4 rounded">Filter</button> --}}
                     </div>
-                </form>
+                </div>
+
             </div>
 
-        </div>
+            <div></div>
 
-        <div></div>
-
-        <section class="container px-4 mx-auto mt-8">
-            <div class="flex flex-col">
-                <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                    <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-                        <form action="{{ route('print.index') }}" method="GET">
-                            @csrf
+            <section class="container px-4 mx-auto mt-8">
+                <div class="flex flex-col">
+                    <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                        <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
                             <div
                                 class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6 overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
                                 <div class="">
@@ -158,9 +156,9 @@
                                                     <span>
                                                         <h3 class="font-medium leading-tight">Print</h3>
                                                     </span>
-                                                    <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180"
-                                                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                                        fill="none" viewBox="0 0 12 10">
+                                                    <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true"
+                                                        xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                        viewBox="0 0 12 10">
                                                         <path stroke="currentColor" stroke-linecap="round"
                                                             stroke-linejoin="round" stroke-width="2"
                                                             d="m7 9 4-4-4-4M1 9l4-4-4-4" />
@@ -169,7 +167,7 @@
                                             </ol>
                                         </div>
 
-                                       
+
 
                                         <div class="mt-6">
                                             <div class="mb-1">
@@ -323,7 +321,7 @@
                                             </ol>
                                         </div>
 
-                                       
+
 
                                         <div class="mt-6">
                                             <div class="mb-1">
@@ -484,7 +482,7 @@
                                         </ol>
                                     </div>
                                     <div class="">
-                                        
+
 
                                         <div class="mt-6">
                                             <div class="mb-1">
@@ -838,7 +836,7 @@
                                         </ol>
                                     </div>
                                     <div class="">
-                                        
+
 
                                         <div class="mt-2">
                                             <div class="text-2xl font-medium leading-tight py-4">Regular Accounts</div>
@@ -952,7 +950,7 @@
                                     </div>
 
                                     <div class="mt-12">
-                                        
+
 
                                         <div class="mt-2">
                                             <div class="text-2xl font-medium leading-tight py-4">Bad Accounts</div>
@@ -1216,11 +1214,11 @@
                                     </div>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </form>
     </div>
 </x-app-layout>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

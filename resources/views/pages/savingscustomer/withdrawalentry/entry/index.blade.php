@@ -118,22 +118,22 @@
                             </div>
                             <div>
                                 <label for="interestRate" class="block text-sm font-medium mb-1">Interest Rate</label>
-                                <input type="text" id="interestRate"
+                                <input type="text" id="interestRate" name="interestRate"
                                     class="w-full p-2 border border-gray-300 rounded-md focus:outline-none"
-                                    value="0.00" readonly>
+                                    value="0.00">
                             </div>
                             <div>
                                 <label for="interestAmount" class="block text-sm font-medium mb-1">Interest
                                     Amount</label>
-                                <input type="text" id="interestAmount"
+                                <input type="text" id="interestAmount" name="interestAmount"
                                     class="w-full p-2 border border-gray-300 rounded-md focus:outline-none"
-                                    value="0.00" readonly>
+                                    value="0.00">
                             </div>
                             <div>
                                 <label for="netAmount" class="block text-sm font-medium mb-1">Net Amount</label>
-                                <input type="text" id="netAmount"
+                                <input type="text" id="netAmount" name="netAmount"
                                     class="w-full p-2 border border-gray-300 rounded-md focus:outline-none"
-                                    value="0.00" readonly>
+                                    value="0.00">
                             </div>
                         </div>
 

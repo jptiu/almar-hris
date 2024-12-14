@@ -195,8 +195,15 @@ class BMController extends Controller
         $branchlocation = Branch::find($branch);
 
         // Get the start and end dates of the current month
-        $startOfMonth = Carbon::now()->startOfMonth();
-        $endOfMonth = Carbon::now()->endOfMonth();
+        // Assume this is the input from $request->date_range
+        $dateRange = $request->date_range;
+
+        // Split the date range into start and end dates
+        [$startOfMonth, $endOfMonth] = explode(' - ', $dateRange);
+
+        // Optionally convert the dates to a standard format (Y-m-d) if needed
+        $startOfMonth = date('Y-m-d', strtotime($startOfMonth));
+        $endOfMonth = date('Y-m-d', strtotime($endOfMonth));
 
         // Fetch expenses for the current month and branch
         $expenses = Expenses::where('branch_id', $branch)
@@ -291,7 +298,7 @@ class BMController extends Controller
     public function printStatement(Request $request, $id)
     {
         $loan = Loan::find($id);
-        
+
         return view('pages.pendingloanapp.printStatement.index', compact('loan'));
 
     }
