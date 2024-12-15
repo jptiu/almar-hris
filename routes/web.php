@@ -240,6 +240,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // Loan Officer
     Route::get('loanofficer', [LOController::class, 'index'])->name('loanofficer.index');
     Route::get('addloan', [LOController::class, 'addLoan'])->name('addLoan.index');
+    Route::get('loanofficer/autopayment', [LOController::class, 'autoPaymentreq'])->name('autoPaymentreq.index');
+    Route::get('loanofficer/dailyworkorder', [LOController::class, 'dailyWorkorder'])->name('dailyWorkorder.index');
 
 
     // Employee Evaluation
@@ -290,6 +292,14 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     //Print Statement
     Route::get('branch/print/statement/{id}', [BMController::class, 'printStatement'])->name('printStatementBranch.index');
+
+    //Automated Payment
+    Route::get('reminder', [BMController::class, 'reminderPay'])->name('reminderPay.index');
+    
+     //Daily Work Order
+     Route::get('dailywork', [BMController::class, 'dailyWorklist'])->name('dailyWorklist.index');
+
+    
 
     
 

@@ -77,4 +77,14 @@ class LOController extends Controller
     {
         return view('pages.addloan.index');
     }
+
+    public function autoPaymentreq (Request $request)
+    {
+        return view('pages.loanofficer.autopayment.index');
+    }
+
+    public function dailyWorkorder (Request $request)
+    {
+        return view('pages.loanofficer.dailyworkorder.index');
+    }
 }

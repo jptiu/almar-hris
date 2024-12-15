@@ -315,4 +315,16 @@ class BMController extends Controller
         return view('pages.requestform.cashbond.cashBondPrint.index');
     }
 
+    public function reminderPay(Request $request)
+    {
+
+        return view('pages.reminder.index');
+    }
+
+    public function dailyWorklist(Request $request)
+    {
+
+        return view('pages.dailywork.index');
+    }
+
 }
