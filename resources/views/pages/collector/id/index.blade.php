@@ -17,13 +17,13 @@
         <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
             
             <div class="grid grid-cols-4 gap-4">
-                <div class="bg-white p-4 border-r-2 border-gray-100 col-span-1">
+                <!-- <div class="bg-white p-4 border-r-2 border-gray-100 col-span-1">
                     <ul class="space-y-4"> 
                         <li> <strong>Full Name:</strong> John Doe </li> 
                         <li> <strong>Position:</strong> Dev </li> 
                         <li> <strong>Department:</strong> Hr Department </li> 
                     </ul>
-                </div>
+                </div> -->
                 <div class="bg-white p-4 rounded-lg col-span-3">
                     <form action="#" method="POST">
                         @csrf
@@ -38,19 +38,38 @@
                             </select>
                             </div>
                             <div>
-                                <label for="startDate" class="block text-sm font-medium text-gray-700">Start Date</label>
+                                <label for="startDate" class="block text-sm font-medium text-gray-700">Date</label>
                                 <input type="date" id="startDate" name="startDate" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                             </div>
                         </div>
                             
                         <div class="mb-4 grid grid-cols-2 gap-4">
                             <div>
-                                <label class="block mb-2 text-sm font-medium" for="name">Name</label>
+                                <label class="block mb-2 text-sm font-medium" for="name">Full Name</label>
                                 <input id="name" type="text" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Enter Name" required>
                             </div>
                             <div>
                                 <label class="block mb-2 text-sm font-medium" for="employeeId">Employee/Account ID</label>
                                 <input id="employeeId" type="text" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Enter Employee/Account ID" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-4 grid grid-cols-2 gap-4">
+                            <div>
+                                <label for="leaveType" class="block text-sm font-medium text-gray-700">Department</label>
+                                <select id="leaveType" name="leaveType" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                                    <option>Select Type</option>
+                                    <option>HR</option>
+                                    <option>Admin</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="leaveType" class="block text-sm font-medium text-gray-700">Position</label>
+                                <select id="leaveType" name="leaveType" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                                    <option>Select Type</option>
+                                    <option>HR</option>
+                                    <option>Admin</option>
+                                </select>
                             </div>
                         </div>
                     

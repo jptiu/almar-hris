@@ -13,20 +13,20 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('type');
-            $table->string('first_name');
+            $table->string('type')->nullable();
+            $table->string('first_name')->nullable();
             $table->string('middle_name')->nullable();
-            $table->string('last_name');
-            $table->string('house');
-            $table->string('street');
-            $table->integer('barangay');
-            $table->integer('city');
-            $table->string('job_position');
-            $table->string('salary_sched');
+            $table->string('last_name')->nullable();
+            $table->string('house')->nullable();
+            $table->string('street')->nullable();
+            $table->integer('barangay')->nullable();
+            $table->integer('city')->nullable();
+            $table->string('job_position')->nullable();
+            $table->string('salary_sched')->nullable();
             $table->string('tel_number')->nullable();
             $table->string('cell_number')->nullable();
-            $table->string('civil_status');
-            $table->string('status');
+            $table->string('civil_status')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
