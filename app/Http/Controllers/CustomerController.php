@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CustomerCreateRequest;
 use App\Http\Requests\CustomerUpdateRequest;
+use App\Models\Barangay;
+use App\Models\CityTown;
 use App\Models\Customer;
 use App\Models\Branch;
 use App\Models\CustomerType;
@@ -43,7 +45,9 @@ class CustomerController extends Controller
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
         $branch = auth()->user()->branch_id;
         $types = CustomerType::where('branch_id', $branch)->paginate(20);
-        return view('pages.customer.add.index', compact('types'));
+        $barangays = Barangay::where('branch_id', $branch)->get();
+        $cities = CityTown::where('branch_id', $branch)->get();
+        return view('pages.customer.add.index', compact('types', 'barangays', 'cities'));
     }
 
     /**
@@ -57,65 +61,65 @@ class CustomerController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CustomerCreateRequest $request)
+    public function store(Request $request)
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
         $branch = auth()->user()->branch_id;
-        if ($request->validated()) {
-            $customer = new Customer();
-            $customer->type = $request->type;
-            $customer->first_name = $request->first_name;
-            $customer->middle_name = $request->middle_name;
-            $customer->last_name = $request->last_name;
-            $customer->house = $request->house;
-            $customer->street = $request->street;
-            $customer->barangay = $request->barangay;
-            $customer->city = $request->city;
-            $customer->job_position = $request->job_position;
-            $customer->salary_sched = $request->salary_sched;
-            $customer->tel_number = $request->tel_number;
-            $customer->cell_number = $request->cell_number;
-            $customer->civil_status = $request->civil_status;
-            $customer->status = 1;
-            $customer->birthdate = $request->birthdate;
-            $customer->birth_place = $request->birth_place;
-            $customer->age = $request->age;
-            $customer->gender = $request->gender;
-            $customer->citizenship = $request->citizenship;
-            $customer->facebook_name = $request->facebook_name;
-            $customer->spouse_name = $request->spouse_name;
-            $customer->spouse_number = $request->spouse_number;
-            $customer->spouse_age = $request->spouse_age;
-            $customer->spouse_bdate = $request->spouse_bdate;
-            $customer->spouse_fb = $request->spouse_fb;
-            $customer->occupation = $request->occupation;
-            $customer->c_nameadd = $request->c_nameadd;
-            $customer->agency_name = $request->agency_name;
-            $customer->add_tel = $request->add_tel;
-            $customer->add_telc = $request->add_telc;
-            $customer->comp_name = $request->comp_name;
-            $customer->date_hired = $request->date_hired;
-            $customer->day_off = $request->day_off;
-            $customer->monthly_salary = $request->monthly_salary;
-            $customer->salary_sched = $request->salary_sched;
-            $customer->monthly_pension = $request->monthly_pension;
-            $customer->pension_sched = $request->pension_sched;
-            $customer->pension_type = $request->pension_type;
-            $customer->fathers_name = $request->fathers_name;
-            $customer->fathers_num = $request->fathers_num;
-            $customer->mothers_name = $request->mothers_name;
-            $customer->mothers_num = $request->mothers_num;
-            $customer->fathers_name = $request->fathers_name;
-            $customer->branch = $request->branch;
-            $customer->card_no = $request->card_no;
-            $customer->acc_no = $request->acc_no;
-            $customer->pin_no = $request->pin_no;
-            $customer->branch_id = $branch;
-            $customer->save();
+        // if ($request->validated()) {
+        $customer = new Customer();
+        $customer->type = $request->type;
+        $customer->first_name = $request->first_name;
+        $customer->middle_name = $request->middle_name;
+        $customer->last_name = $request->last_name;
+        $customer->house = $request->house??'';
+        $customer->street = $request->street??'';
+        $customer->barangay = $request->barangay;
+        $customer->city = $request->city;
+        $customer->job_position = $request->job_position;
+        $customer->salary_sched = $request->salary_sched;
+        $customer->tel_number = $request->tel_number;
+        $customer->cell_number = $request->cell_number;
+        $customer->civil_status = $request->civil_status;
+        $customer->status = 1;
+        $customer->birth_date = $request->birth_date;
+        $customer->birth_place = $request->birth_place;
+        $customer->age = $request->age;
+        $customer->gender = $request->gender;
+        $customer->citizenship = $request->citizenship;
+        $customer->facebook_name = $request->facebook_name;
+        $customer->spouse_name = $request->spouse_name;
+        $customer->spouse_number = $request->spouse_number;
+        $customer->spouse_age = $request->spouse_age;
+        $customer->spouse_bdate = $request->spouse_bdate;
+        $customer->spouse_fb = $request->spouse_fb;
+        $customer->occupation = $request->occupation;
+        $customer->c_nameadd = $request->c_nameadd;
+        $customer->agency_name = $request->agency_name;
+        $customer->add_tel = $request->add_tel;
+        $customer->add_telc = $request->add_telc;
+        $customer->comp_name = $request->comp_name;
+        // $customer->date_hired = $request->date_hired;
+        $customer->day_off = $request->day_off;
+        $customer->monthly_salary = $request->monthly_salary;
+        $customer->salary_sched = $request->salary_sched;
+        $customer->monthly_pension = $request->monthly_pension;
+        $customer->pension_sched = $request->pension_sched;
+        $customer->pension_type = $request->pension_type;
+        $customer->fathers_name = $request->fathers_name;
+        $customer->fathers_num = $request->fathers_num;
+        $customer->mothers_name = $request->mothers_name;
+        $customer->mothers_num = $request->mothers_num;
+        $customer->fathers_name = $request->fathers_name;
+        $customer->branch = $request->branch;
+        $customer->card_no = $request->card_no;
+        $customer->acc_no = $request->acc_no;
+        $customer->pin_no = $request->pin_no;
+        $customer->branch_id = $branch;
+        $customer->save();
 
-            return redirect(route("customer.index"))->with('success', 'Created Successfully');
+        return redirect(route("customer.index"))->with('success', 'Created Successfully');
 
-        }
+        // }
     }
 
     /**
@@ -128,7 +132,7 @@ class CustomerController extends Controller
         $customer = Customer::where('branch_id', $branch)->where('id', $id)->first();
 
         return view('pages.customer.show.index', compact('customer'));
-        
+
     }
 
     /**
@@ -150,23 +154,23 @@ class CustomerController extends Controller
     {
         abort_unless(Gate::allows('loan_access') || Gate::allows('branch_access'), 404);
         // if ($request->validated()) {
-            $customer = Customer::find($id);
-            $customer->type = $request->type;
-            $customer->first_name = $request->first_name;
-            $customer->middle_name = $request->middle_name;
-            $customer->last_name = $request->last_name;
-            $customer->house = $request->house;
-            $customer->street = $request->street;
-            $customer->barangay = $request->barangay;
-            $customer->city = $request->city;
-            $customer->job_position = $request->job_position;
-            $customer->salary_sched = $request->salary_sched;
-            $customer->tel_number = $request->tel_number;
-            $customer->cell_number = $request->cell_number;
-            $customer->status = $request->status;
-            $customer->save();
+        $customer = Customer::find($id);
+        $customer->type = $request->type;
+        $customer->first_name = $request->first_name;
+        $customer->middle_name = $request->middle_name;
+        $customer->last_name = $request->last_name;
+        $customer->house = $request->house;
+        $customer->street = $request->street;
+        $customer->barangay = $request->barangay;
+        $customer->city = $request->city;
+        $customer->job_position = $request->job_position;
+        $customer->salary_sched = $request->salary_sched;
+        $customer->tel_number = $request->tel_number;
+        $customer->cell_number = $request->cell_number;
+        $customer->status = $request->status;
+        $customer->save();
 
-            return redirect(route("customer.index"))->with('success', 'Updated Successfully');
+        return redirect(route("customer.index"))->with('success', 'Updated Successfully');
 
         // }
     }
@@ -238,10 +242,13 @@ class CustomerController extends Controller
     {
         $branch = auth()->user()->branch_id;
         $branchAddress = Branch::find($branch);
-        $customer = Customer::with(['loan', 'loan.details' => function ($query) use ($request) {
-            $query->whereBetween('loan_due_date', [$request->date_from, $request->date_to]);
-        }])->where('branch_id', $branch)->find($request->customer);
-                
+        $customer = Customer::with([
+            'loan',
+            'loan.details' => function ($query) use ($request) {
+                $query->whereBetween('loan_due_date', [$request->date_from, $request->date_to]);
+            }
+        ])->where('branch_id', $branch)->find($request->customer);
+
         return view('pages.customer.print.index', compact('customer', 'branchAddress'));
     }
 }
