@@ -232,6 +232,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::post('requestcheck/store', [CheckController::class, 'store'])->name('requestcheck.store');
     Route::get('requestcheck/approve/{id}', [CheckController::class, 'approve'])->name('requestcheck.approve');
     Route::get('requestcheck/reject/{id}', [CheckController::class, 'reject'])->name('requestcheck.reject');
+    Route::get('requestcheck/print/{id}', [CheckController::class, 'printCheck'])->name('printCheck.index');
 
     // Collector
     Route::get('collector', [CollectorController::class, 'index'])->name('collector.index');
