@@ -303,12 +303,6 @@ class BMController extends Controller
 
     }
 
-    public function reqCheck(Request $request)
-    {
-
-        return view('pages.requestcheck.index');
-    }
-
     public function cashBondPrint(Request $request)
     {
 

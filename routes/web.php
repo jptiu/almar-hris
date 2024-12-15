@@ -5,6 +5,7 @@ use App\Http\Controllers\BMController;
 use App\Http\Controllers\BranchController;
 use App\Http\Controllers\BreakdownController;
 use App\Http\Controllers\ChartController;
+use App\Http\Controllers\CheckController;
 use App\Http\Controllers\CityTownController;
 use App\Http\Controllers\CLDController;
 use App\Http\Controllers\CLMController;
@@ -224,8 +225,13 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // Branch
     Route::get('branch', [BMController::class, 'index'])->name('branch.index');
     Route::get('csor', [BMController::class, 'csor'])->name('csor.index');
-    Route::get('requestcheck', [BMController::class, 'reqCheck'])->name('requestcheck.index');
     Route::get('csor/print', [BMController::class, 'csorPrint'])->name('print.index');
+
+    // Check
+    Route::get('requestcheck', [CheckController::class, 'index'])->name('requestcheck.index');
+    Route::post('requestcheck/store', [CheckController::class, 'store'])->name('requestcheck.store');
+    Route::get('requestcheck/approve/{id}', [CheckController::class, 'approve'])->name('requestcheck.approve');
+    Route::get('requestcheck/reject/{id}', [CheckController::class, 'reject'])->name('requestcheck.reject');
 
     // Collector
     Route::get('collector', [CollectorController::class, 'index'])->name('collector.index');
