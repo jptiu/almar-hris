@@ -1115,7 +1115,7 @@
                         <!-- Automated Payment Reminders -->
                         <li
                             class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
-                            <a href="/"
+                            <a href="{{ route('autoPaymentreq.index') }}"
                                 class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
                                 <div class="flex items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
@@ -1131,9 +1131,9 @@
                         </li>
 
                         <!-- Daily Work order -->
-                        <li
+                        <li 
                             class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
-                            <a href="/"
+                            <a href="{{ route('dailyWorkorder.index') }}"
                                 class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
                                 <div class="flex items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
@@ -2237,7 +2237,7 @@
                         <!-- Automated Payment Reminders -->
                         <li
                             class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
-                            <a href="/"
+                            <a href="{{ route('reminderPay.index') }}"
                                 class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
                                 <div class="flex items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
@@ -2253,9 +2253,9 @@
                         </li>
 
                         <!-- Daily Work Order -->
-                        <li
+                        <li 
                             class="px-3 py-3 rounded-sm mb-0.5 last:mb-0 @if (in_array(Request::segment(1), [''])) {{ 'bg-accent-100' }} @endif">
-                            <a href="/"
+                            <a href="{{ route('dailyWorklist.index') }}"
                                 class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['hr'])) {{ 'hover:text-slate-200' }} @endif">
                                 <div class="flex items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
