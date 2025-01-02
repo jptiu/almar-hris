@@ -156,6 +156,16 @@ class EmployeeController extends Controller
         return view('pages.hr.employee.show', compact('hr'));
     }
 
+    public function employeeprofile(string $id)
+    {
+        abort_unless(Gate::allows('hr_access'), 404);
+        $lists = Probation::with('employee')->get();
+        $employee = Employee::where('id', $id)->first();
+
+        return view('pages.hr.employee.profile.index', compact('lists', 'employee'));
+    }
+
+
     /**
      * Show the form for editing the specified resource.
      */

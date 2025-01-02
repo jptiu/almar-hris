@@ -33,6 +33,12 @@
                     <span class="hidden xs:block ml-2">Add Employee</span>
                 </a>
 
+                <!-- Add view button -->
+                <a href="#" class="btn bg-orange-500 hover:bg-orange-600 text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/></svg>
+                    <span class="hidden xs:block ml-2">Export Data</span>
+                </a>
+
             </div>
         </header>
         
@@ -101,7 +107,7 @@
                                                 </td>
                                                 <td class="px-4 py-4 text-sm whitespace-nowrap">
                                                     <div class="flex items-center gap-x-6">
-                                                        <button
+                                                        <a href="{{ route('employee.profile', $list->id) }}"
                                                             class="text-gray-500 transition-colors duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                                                 height="16" fill="currentColor" class="bi bi-eye"
@@ -111,7 +117,7 @@
                                                                 <path
                                                                     d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
                                                             </svg>
-                                                        </button>
+                                                        </a>
 
                                                         <a href="{{ route('employee.show', $list->id) }}"
                                                             class="text-gray-500 transition-colors duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none">
