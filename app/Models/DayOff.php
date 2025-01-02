@@ -9,10 +9,11 @@ class DayOff extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['employee_id', 'day_of_week'];
+    protected $fillable = ['schedule_id', 'day_of_week'];
 
-    public function employee()
+    public function Schedule()
     {
-        return $this->belongsTo(Employee::class);
+        return $this->belongsTo(Schedule::class, 'schedule_id');
     }
+
 }

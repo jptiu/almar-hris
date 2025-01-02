@@ -23,4 +23,9 @@ class Schedule extends Model
     { 
         return $this->belongsTo(Employee::class); 
     }
+
+    public function dayOffs()
+    {
+        return $this->hasMany(DayOff::class, 'schedule_id');
+    }
 }

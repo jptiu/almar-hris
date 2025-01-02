@@ -15,11 +15,11 @@ class CreateDayoffsTable extends Migration
     {
         Schema::create('day_offs', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('employee_id');
+            $table->unsignedBigInteger('schedule_id');
             $table->string('day_of_week');
             $table->timestamps();
 
-            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
+            $table->foreign('schedule_id')->references('id')->on('schedules')->onDelete('cascade');
         });
     }
 

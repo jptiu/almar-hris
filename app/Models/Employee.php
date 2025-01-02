@@ -74,9 +74,9 @@ class Employee extends Model
         return $this->belongsTo(Probation::class, 'user_id');
     }
 
-    public function schedules()
+    public function schedule()
     {
-        return $this->hasMany(Schedule::class);
+        return $this->hasOne(Schedule::class);
     }
 
     public function dayoffs() 

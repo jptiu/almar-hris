@@ -292,7 +292,7 @@ class EmployeeController extends Controller
     public function schedule()
     {
         abort_unless(Gate::allows('hr_access'), 404);
-        $schedules = Schedule::with('employee', 'employee.dayoffs')->get();
+        $schedules = Schedule::with('employee', 'dayOffs')->get();
 
         return view('pages.hr.employee.schedule.index', compact('schedules'));
     }
@@ -312,7 +312,7 @@ class EmployeeController extends Controller
         $request->validate([
             'employee_name' => 'required|exists:employees,id',
             'day_of_week' => 'required|array',
-            'day_of_week.*' => 'in:Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday',
+            // 'day_of_week.*' => 'in:Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday',
             'shift' => 'nullable|string',
             'day_off' => 'nullable|array',
             'day_off.*' => 'in:Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday',
@@ -320,19 +320,19 @@ class EmployeeController extends Controller
     
         DB::transaction(function () use ($request) {
             // Store schedule
-            foreach ($request->day_of_week as $day) {
-                Schedule::create([
+            // foreach ($request->day_of_week as $day) {
+                $sched = Schedule::create([
                     'employee_id' => $request->employee_name,
-                    'day_of_week' => $day,
+                    'day_of_week' => $request->day_of_week,
                     'shift' => $request->shift,
                 ]);
-            }
+            // }
     
             // Store day-offs
             if ($request->day_off) {
                 foreach ($request->day_off as $day) {
                     DayOff::create([
-                        'employee_id' => $request->employee_name,
+                        'schedule_id' => $sched->id,
                         'day_of_week' => $day,
                     ]);
                 }
@@ -347,6 +347,12 @@ class EmployeeController extends Controller
         $employees = Employee::all(); 
         
         return view('pages.hr.employee.schedule.show.index', compact('schedule', 'employees')); 
+    }
+
+    public function employeeSchedules(){
+        $scheds = Schedule::with('employee.schedule.dayOffs')->get();
+
+        return response()->json($scheds, 200);
     }
 
 

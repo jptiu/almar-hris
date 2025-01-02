@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\CustomerController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\EmployeeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -51,3 +52,6 @@ Route::group(['middleware' => 'auth:api'], function () {
         Route::post('payment', 'PaymentController@store')->name('payment.store');
     });
 });
+
+
+Route::get('employee/schedules', [EmployeeController::class, 'employeeSchedules'])->name('employee.schedules');
