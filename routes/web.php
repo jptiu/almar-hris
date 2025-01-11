@@ -227,6 +227,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('attendance', [EmployeeController::class, 'attendance'])->name('attendance.index');
     Route::get('emailrequest', [EmployeeController::class, 'emailrequest'])->name('emailrequest.index');
 
+    Route::get('empdashboard', [EmployeeController::class, 'employeeDashboard'])->name('employeeDashboard.show');
+    Route::get('leaveemployee', [EmployeeController::class, 'leaveEmployee'])->name('leaveEmployee.index');
+    Route::get('undertimeemployee', [EmployeeController::class, 'undertimeEmployee'])->name('undertimeEmployee.index');
+    Route::get('overtimeemployee', [EmployeeController::class, 'overtimeEmployee'])->name('overtimeEmployee.index');
+
     // Auditor
     Route::get('auditor', [AuditorController::class, 'index'])->name('auditor.index');
 
