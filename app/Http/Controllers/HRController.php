@@ -118,26 +118,47 @@ class HRController extends Controller
         return view('pages.hr.attendance.index');
     }
 
-    public function approvedLoans()
+    public function approvedLoans(Request $request)
     {
-        $loan = env('FINANCE_URL') . '/api/loan-approved';
+        // Get the current page from the request, default to 1 if not provided
+        $page = $request->get('page', 1);
 
-        $response = Http::get($loan);
+        // Construct the API URL with the page parameter
+        $loanApiUrl = env('FINANCE_URL') . "/api/loan-approved?page=$page";
+
+        // Fetch data from the API
+        $response = Http::get($loanApiUrl);
+
+        // Check if the API response is successful
         if ($response->successful()) {
-            $loans = json_encode($response->body()); // Decode as an array
+            $loans = $response->json(); // Decode the response as an array
             return view('pages.hr.loanapprovals.approved.index', compact('loans'));
         }
+
+        // Handle API failure gracefully
         return back()->with('error', 'Unable to fetch approved loans.');
     }
 
-    public function rejectedLoans()
+    public function rejectedLoans(Request $request)
     {
-        $branch = auth()->user()->branch_id;
-        $loans = Loan::where('principal_amount', '>', '50000')
-            ->where('branch_id', $branch)
-            ->where('status', '=', 'CNCLD')->paginate(10);
+        // Get the current page from the request, default to 1 if not provided
+        $page = $request->get('page', 1);
 
-        return view('pages.hr.loanapprovals.rejected.index', compact('loans'));
+        // Construct the API URL with the page parameter
+        $loanApiUrl = env('FINANCE_URL') . "/api/loan-rejected?page=$page";
+
+        // Fetch data from the API
+        $response = Http::get($loanApiUrl);
+
+        // Check if the API response is successful
+        if ($response->successful()) {
+            $loans = $response->json(); // Decode the response as an array
+            return view('pages.hr.loanapprovals.rejected.index', compact('loans'));
+        }
+
+        // Handle API failure gracefully
+        return back()->with('error', 'Unable to fetch rejected loans.');
+
     }
 
     public function cloanHistory()
@@ -148,15 +169,25 @@ class HRController extends Controller
         return view('pages.hr.loanhistory.index', compact('lists'));
     }
 
-    public function pendingLoans()
+    public function pendingLoans(Request $request)
     {
-        $branch = auth()->user()->branch_id;
-        $loans = Loan::where('principal_amount', '>', '50000')
-            ->where('branch_id', $branch)
-            ->where('status', '=', NULL)
-            ->paginate(10);
+        // Get the current page from the request, default to 1 if not provided
+        $page = $request->get('page', 1);
 
-        return view('pages.hr.loanapprovals.pending.index', compact('loans'));
+        // Construct the API URL with the page parameter
+        $loanApiUrl = env('FINANCE_URL') . "/api/loan-pending?page=$page";
+
+        // Fetch data from the API
+        $response = Http::get($loanApiUrl);
+
+        // Check if the API response is successful
+        if ($response->successful()) {
+            $loans = $response->json(); // Decode the response as an array
+            return view('pages.hr.loanapprovals.pending.index', compact('loans'));
+        }
+
+        // Handle API failure gracefully
+        return back()->with('error', 'Unable to fetch approved loans.');
     }
 
     public function announcementHr()
