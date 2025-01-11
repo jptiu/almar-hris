@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Announcement;
+use Http;
 use Illuminate\Http\Request;
 use App\Models\Employee;
 use App\Models\Loan;
@@ -119,10 +120,14 @@ class HRController extends Controller
 
     public function approvedLoans()
     {
-        $loans = Loan::where('principal_amount', '>', '50000')
-            ->where('status', '=', 'FULPD')->paginate(10);
+        $loan = env('FINANCE_URL') . '/api/loan-approved';
 
-        return view('pages.hr.loanapprovals.approved.index', compact('loans'));
+        $response = Http::get($loan);
+        if ($response->successful()) {
+            $loans = json_encode($response->body()); // Decode as an array
+            return view('pages.hr.loanapprovals.approved.index', compact('loans'));
+        }
+        return back()->with('error', 'Unable to fetch approved loans.');
     }
 
     public function rejectedLoans()
