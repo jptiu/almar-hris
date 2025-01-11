@@ -366,5 +366,18 @@ class EmployeeController extends Controller
     }
 
 
+    public function attendance()
+    {
+        abort_unless(Gate::allows('hr_access'), 404);
+
+        return view('pages.hr.attendance.index');
+    }
+
+    public function emailrequest()
+    {
+        abort_unless(Gate::allows('hr_access'), 404);
+
+        return view('pages.hr.emailrequest.index');
+    }
 
 }

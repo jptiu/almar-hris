@@ -224,6 +224,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::post('schedule/store', [EmployeeController::class, 'schedulestore'])->name('schedule.store');
     Route::post('schedule/update/{id}', [EmployeeController::class, 'scheduleupdate'])->name('schedule.update');
     Route::get('schedule/show/{id}', [EmployeeController::class, 'scheduleshow'])->name('schedule.show');
+    Route::get('attendance', [EmployeeController::class, 'attendance'])->name('attendance.index');
+    Route::get('emailrequest', [EmployeeController::class, 'emailrequest'])->name('emailrequest.index');
 
     // Auditor
     Route::get('auditor', [AuditorController::class, 'index'])->name('auditor.index');
