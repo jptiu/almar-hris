@@ -366,5 +366,38 @@ class EmployeeController extends Controller
     }
 
 
+    public function attendance()
+    {
+        abort_unless(Gate::allows('hr_access'), 404);
+
+        return view('pages.hr.attendance.index');
+    }
+
+    public function emailrequest()
+    {
+        abort_unless(Gate::allows('hr_access'), 404);
+
+        return view('pages.hr.emailrequest.index');
+    }
+    public function employeeDashboard()
+    {
+        return view('pages.empdashboard.dashboard');
+    }
+
+    public function leaveEmployee()
+    {
+        return view('pages.empdashboard.leave.index');
+    }
+
+    public function undertimeEmployee()
+    {
+        return view('pages.empdashboard.undertime.index');
+    }
+
+    public function overtimeEmployee()
+    {
+        return view('pages.empdashboard.overtime.index');
+    }
+
 
 }

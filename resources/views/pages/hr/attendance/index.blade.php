@@ -6,7 +6,7 @@
         
          <!-- Cards -->
          <div class="flex justify-between relative items-center mb-4">
-            <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold lg:px-4">Biometrics Attendance</h1>
+            <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold lg:px-4">Employee Clock-in/Clock-out</h1>
             <!-- Dashboard actions -->
         <div class="sm:flex sm:justify-between sm:items-center">
             <div></div>
@@ -33,89 +33,122 @@
         </div>
         </div>
         <section class="container px-4 mx-auto">
-            <div class="flex flex-col">
-                <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                    <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-                        <div class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
-                            <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                                <thead class="bg-gray-50 dark:bg-gray-800">
-                                    <tr>
-                                        <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
-                                            ID
-                                        </th>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
 
-                                        <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
-                                            Name
-                                        </th>
+                <div class="bg-white shadow rounded-lg p-4">
+                    <div class="flex items-center justify-center mb-4">
+                        <div class="w-24 h-24 rounded-full bg-gray-200"></div>
+                    </div>
+                    <h2 class="text-lg font-semibold text-center">John Doe</h2>
+                    <div class="text-center mt-4">
+                        <p>Clock-in: 7:00 AM</p>
+                        <p>Clock-out: 5:00 PM</p>
+                    </div>
+                    <div class="text-center mt-4">
+                        <span class="px-2 py-1 bg-green-200 text-green-800 rounded-full">On-time</span>
+                    </div>
+                </div>
+ 
+                <div class="bg-white shadow rounded-lg p-4">
+                    <div class="flex items-center justify-center mb-4">
+                        <div class="w-24 h-24 rounded-full bg-gray-200"></div>
+                    </div>
+                    <h2 class="text-lg font-semibold text-center">Jane Smith</h2>
+                    <div class="text-center mt-4">
+                        <p>Clock-in: 8:15 AM</p>
+                        <p>Clock-out: 5:15 PM</p>
+                    </div>
+                    <div class="text-center mt-4">
+                        <span class="px-2 py-1 bg-orange-200 text-orange-800 rounded-full">Late</span>
+                    </div>
+                </div>
+              
+                <div class="bg-white shadow rounded-lg p-4">
+                    <div class="flex items-center justify-center mb-4">
+                        <div class="w-24 h-24 rounded-full bg-gray-200"></div>
+                    </div>
+                    <h2 class="text-lg font-semibold text-center">Bob Johnson</h2>
+                    <div class="text-center mt-4">
+                        <p>Clock-in: N/A</p>
+                        <p>Clock-out: N/A</p>
+                    </div>
+                    <div class="text-center mt-4">
+                        <span class="px-2 py-1 bg-red-200 text-red-800 rounded-full">Absent</span>
+                    </div>
+                </div>
+                
+                <div class="bg-white shadow rounded-lg p-4">
+                    <div class="flex items-center justify-center mb-4">
+                        <div class="w-24 h-24 rounded-full bg-gray-200"></div>
+                    </div>
+                    <h2 class="text-lg font-semibold text-center">Wow Mali</h2>
+                    <div class="text-center mt-4">
+                        <p>Clock-in: N/A</p>
+                        <p>Clock-out: N/A</p>
+                    </div>
+                    <div class="text-center mt-4">
+                        <span class="px-2 py-1 bg-red-200 text-red-800 rounded-full">Absent</span>
+                    </div>
+                </div>
 
-                                        <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
-                                            Check-In Time
-                                        </th>
-                                        <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
-                                            Check-Out Time
-                                        </th>
-                                        <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
-                                            Status
-                                        </th>
-                                    </tr>
-                                </thead>
-                                
-                            </table>
-                        </div>
+                <div class="bg-white shadow rounded-lg p-4">
+                    <div class="flex items-center justify-center mb-4">
+                        <div class="w-24 h-24 rounded-full bg-gray-200"></div>
+                    </div>
+                    <h2 class="text-lg font-semibold text-center">Wow Mali</h2>
+                    <div class="text-center mt-4">
+                        <p>Clock-in: N/A</p>
+                        <p>Clock-out: N/A</p>
+                    </div>
+                    <div class="text-center mt-4">
+                        <span class="px-2 py-1 bg-red-200 text-red-800 rounded-full">Absent</span>
+                    </div>
+                </div>
+
+                <div class="bg-white shadow rounded-lg p-4">
+                    <div class="flex items-center justify-center mb-4">
+                        <div class="w-24 h-24 rounded-full bg-gray-200"></div>
+                    </div>
+                    <h2 class="text-lg font-semibold text-center">Wow Mali</h2>
+                    <div class="text-center mt-4">
+                        <p>Clock-in: N/A</p>
+                        <p>Clock-out: N/A</p>
+                    </div>
+                    <div class="text-center mt-4">
+                        <span class="px-2 py-1 bg-red-200 text-red-800 rounded-full">Absent</span>
+                    </div>
+                </div>
+
+                <div class="bg-white shadow rounded-lg p-4">
+                    <div class="flex items-center justify-center mb-4">
+                        <div class="w-24 h-24 rounded-full bg-gray-200"></div>
+                    </div>
+                    <h2 class="text-lg font-semibold text-center">Wow Mali</h2>
+                    <div class="text-center mt-4">
+                        <p>Clock-in: N/A</p>
+                        <p>Clock-out: N/A</p>
+                    </div>
+                    <div class="text-center mt-4">
+                        <span class="px-2 py-1 bg-red-200 text-red-800 rounded-full">Absent</span>
+                    </div>
+                </div>
+
+                <div class="bg-white shadow rounded-lg p-4">
+                    <div class="flex items-center justify-center mb-4">
+                        <div class="w-24 h-24 rounded-full bg-gray-200"></div>
+                    </div>
+                    <h2 class="text-lg font-semibold text-center">Wow Mali</h2>
+                    <div class="text-center mt-4">
+                        <p>Clock-in: N/A</p>
+                        <p>Clock-out: N/A</p>
+                    </div>
+                    <div class="text-center mt-4">
+                        <span class="px-2 py-1 bg-red-200 text-red-800 rounded-full">Absent</span>
                     </div>
                 </div>
             </div>
-
-            <div class="flex items-center justify-between mt-6">
-                <a href="#"
-                    class="flex items-center px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md gap-x-2 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-5 h-5 rtl:-scale-x-100">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
-                    </svg>
-
-                    <span>
-                        previous
-                    </span>
-                </a>
-
-                <div class="items-center hidden md:flex gap-x-3">
-                    <a href="#"
-                        class="px-2 py-1 text-sm text-blue-500 rounded-md dark:bg-gray-800 bg-blue-100/60">1</a>
-                    <a href="#"
-                        class="px-2 py-1 text-sm text-gray-500 rounded-md dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">2</a>
-                    <a href="#"
-                        class="px-2 py-1 text-sm text-gray-500 rounded-md dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">3</a>
-                    <a href="#"
-                        class="px-2 py-1 text-sm text-gray-500 rounded-md dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">...</a>
-                    <a href="#"
-                        class="px-2 py-1 text-sm text-gray-500 rounded-md dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">12</a>
-                    <a href="#"
-                        class="px-2 py-1 text-sm text-gray-500 rounded-md dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">13</a>
-                    <a href="#"
-                        class="px-2 py-1 text-sm text-gray-500 rounded-md dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">14</a>
-                </div>
-
-                <a href="#"
-                    class="flex items-center px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md gap-x-2 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800">
-                    <span>
-                        Next
-                    </span>
-
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-5 h-5 rtl:-scale-x-100">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-                    </svg>
-                </a>
-            </div>
         </section>
+
 
     </div>
 </x-app-layout>
