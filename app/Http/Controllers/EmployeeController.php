@@ -366,5 +366,25 @@ class EmployeeController extends Controller
     }
 
 
+    public function employeeDashboard()
+    {
+        return view('pages.empdashboard.dashboard');
+    }
+
+    public function leaveEmployee()
+    {
+        return view('pages.empdashboard.leave.index');
+    }
+
+    public function undertimeEmployee()
+    {
+        return view('pages.empdashboard.undertime.index');
+    }
+
+    public function overtimeEmployee()
+    {
+        return view('pages.empdashboard.overtime.index');
+    }
+
 
 }
