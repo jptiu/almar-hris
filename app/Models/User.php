@@ -122,4 +122,9 @@ class User extends Authenticatable
         return $this->belongsTo(Branch::class);
     }
 
+    public function employee()
+    {
+        return $this->belongsTo(Employee::class);
+    }
+
 }

@@ -1,4 +1,4 @@
-<div class="relative bg-indigo-200 dark:bg-indigo-500 p-4 sm:p-6 rounded-sm overflow-hidden mb-8">
+<div class="relative bg-onyx-200 dark:bg-indigo-500 p-4 sm:p-6 rounded-sm overflow-hidden mb-8">
 
     <!-- Background illustration -->
     <div class="absolute right-0 top-0 -mt-4 mr-16 pointer-events-none hidden xl:block" aria-hidden="true">
@@ -44,8 +44,8 @@
 
     <!-- Content -->
     <div class="relative">
-        <h1 class="text-2xl md:text-3xl text-slate-800 dark:text-slate-100 font-bold mb-1">Welcome back, {{ Auth::user()->name }}</h1>
-        <p class="dark:text-indigo-200">Here is what's happening with your projects today:</p>
+        <h1 class="text-2xl md:text-3xl text-onyx-300 dark:text-slate-100 font-bold mb-1">Welcome back, {{ Auth::user()->name }}</h1>
+        <p class="text-white dark:text-indigo-200">Here is what's happening with your projects today:</p>
     </div>
 
 </div>

@@ -5,12 +5,12 @@
 
     <!-- Sidebar -->
     <div>
-        <a class="block" href="{{ route('dashboard') }}">
-            <img class="h-auto" src="/images/almarlogo.png" alt="image description">
+        <a class="block flex justify-center bg-onyx-100 px-12 pt-8"  href="{{ route('dashboard') }}">
+            <img class="h-20" src="/images/hris logo 3.svg" alt="image description">
         </a>
     </div>
     <div id="sidebar"
-        class="flex flex-col absolute z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 h-screen overflow-y-scroll lg:overflow-y-auto no-scrollbar w-72 lg:sidebar-expanded:!w-72 2xl:!w-72 shrink-0 bg-primary-100 p-4 transition-all duration-200 ease-in-out"
+        class="flex flex-col absolute z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 h-screen overflow-y-scroll lg:overflow-y-auto no-scrollbar w-72 lg:sidebar-expanded:!w-72 2xl:!w-72 shrink-0 bg-onyx-100 p-4 transition-all duration-200 ease-in-out"
         :class="sidebarOpen ? 'translate-x-0' : '-translate-x-64'" @click.outside="sidebarOpen = false"
         @keydown.escape.window="sidebarOpen = false" x-cloak="lg">
 
@@ -128,8 +128,8 @@
                                     </li>
 
                                     <li class="mb-1 last:mb-0">
-                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if (Route::is('schedule.index')) {{ '!text-violet-500' }} @endif"
-                                            href="{{ route('employeeDashboard.show') }}">
+                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if (Route::is('employeeDashboard.index')) {{ '!text-violet-500' }} @endif"
+                                            href="{{ route('employeeDashboard.index') }}">
                                             <span
                                                 class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Dashboard</span>
                                         </a>

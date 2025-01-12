@@ -3,7 +3,7 @@
     <section class="container px-4 mx-auto py-8">
         <div class="flex">
             <!-- Sidebar -->
-            <div class="w-1/4 bg-blackc-100 p-6 rounded-lg">
+            <div class="w-1/4 bg-onyx-200 p-6 rounded-lg">
                 <a href="{{ route('employeeDashboard.show') }}" class="text-white font-medium block mb-8">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 inline mr-2" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
