@@ -1,253 +1,272 @@
 <x-app-layout>
     <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
-        @if (session()->has('success'))
-            <div class="alert alert-success">
-                <div class="flex items-center p-4 mb-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800"
-                    role="alert">
-                    <svg class="flex-shrink-0 inline w-4 h-4 mr-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                        fill="currentColor" viewBox="0 0 20 20">
-                        <path
-                            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-                    </svg>
-                    <span class="sr-only">Info</span>
-                    <div>
-                        <span class="font-medium">{{ session()->get('success') }}</span>
-                    </div>
-                </div>
-            </div>
-        @endif
+        
         <div class="relative">
-            <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-12">Customer Profile
-            </h1>
+            <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-12">Employee Profile</h1>
         </div>
 
-        <div></div>
+        <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
+            <div class="mb-6">
+                <!-- Horizontal Tabs -->
+                <div class="flex border-b">
+                    <button class="tab-link px-4 py-2 -mb-px border-b-2 focus:outline-none" onclick="openTab(event, 'summary')">Employee Summary</button>
+                    <button class="tab-link px-4 py-2 -mb-px text-gray-500 hover:text-blue-500 border-b-2 border-transparent hover:border-blue-500 focus:outline-none" onclick="openTab(event, 'basic')">Basic Info</button>
+                    <button class="tab-link px-4 py-2 -mb-px text-gray-500 hover:text-blue-500 border-b-2 border-transparent hover:border-blue-500 focus:outline-none" onclick="openTab(event, 'work')">Work Info</button>
+                    <button class="tab-link px-4 py-2 -mb-px text-gray-500 hover:text-blue-500 border-b-2 border-transparent hover:border-blue-500 focus:outline-none" onclick="openTab(event, 'other')">Other Info</button>
+                </div>
 
-        <!-- Dashboard actions -->
-        <div class="sm:flex sm:justify-between sm:items-center mb-4">
-            <div>
-            <form method="GET" action="{{route('customer.index')}}" class="flex items-center max-w-sm mx-auto">
-                    <label for="search" class="sr-only">Search</label>
-                    <div class="relative w-full">
-                        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                <!-- Tab Content -->
+                <div class="tab-content mt-6" id="summary">
+                    <div class="flex">
+                        <!-- First Section: Profile Image and Basic Info on the left -->
+                        <div class="w-1/4 flex items-center">
+                            <div class="w-24 h-24 bg-gray-200 rounded-full mr-4 border-4 {{ $employee->status == 'Regular' ? 'border-blue-500' : 'border-green-500' }}">
+                                <!-- Profile Image placeholder -->
+                                <img src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" class="w-full h-full rounded-full object-cover" />
+                            </div>
+                            <div>
+                                <p class="bg-green-500 px-2 text-xs w-1/2 text-center rounded font-semibold text-white">
+                                    Regular
+                                </p>
+                                <h2 class="text-xl font-bold">{{$employee->f_name .' '. $employee->l_name}}</h2>
+                                <p class="text-gray-600">{{$employee->position_desired}}</p>
+                            </div>
                         </div>
-                        <input type="text" id="search" name="search"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Search customer name..." required />
-                    </div>
-                    <button type="submit"
-                        class="btn bg-indigo-500 hover:bg-indigo-600 text-white ml-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0z" fill="none"/><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-                        <span class="sr-only">Search</span>
-                    </button>
-                </form>
-            </div>
 
-            <!-- Right: Actions -->
-            <div class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
+                        <!-- Add a gap between the two sections -->
+                        <div class="w-1/12"></div>
 
-                <!-- Filter button -->
-                <x-dropdown-filter align="right" />
-
-                <!-- Add view button -->
-                <a href="{{ route('customer.add') }}" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
-                    <svg class="w-4 h-4 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
-                        <path
-                            d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
-                    </svg>
-                    <span class="hidden xs:block ml-2">Add Customer</span>
-                </a>
-                <a id="show-modal" href="#" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
-                    <svg class="w-4 h-4 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
-                        <path
-                            d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
-                    </svg>
-                    <span class="hidden xs:block ml-2">Import</span>
-                </a>
-                <div id="modal" class="relative z-10 hidden" aria-labelledby="modal-title" role="dialog"
-                    aria-modal="true">
-                    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
-
-                    <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
-                        <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-                            <div
-                                class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-                                <form action="{{ route('customer.importcsv') }}" method="POST"
-                                    enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-                                        <div class="sm:flex sm:items-start">
-                                            <div
-                                                class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 sm:mx-0 sm:h-10 sm:w-10">
-                                                <svg class="h-6 w-6 text-blue-500" viewBox="0 0 24 24" fill="none"
-                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                    stroke-linejoin="round">
-                                                    <polyline points="16 16 12 12 8 16" />
-                                                    <line x1="12" y1="12" x2="12" y2="21" />
-                                                    <path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3" />
-                                                    <polyline points="16 16 12 12 8 16" />
-                                                </svg>
-                                            </div>
-                                            <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                                                <h3 class="text-base font-semibold leading-6 text-gray-900"
-                                                    id="modal-title">Import Customer</h3>
-                                                <div class="mt-2">
-                                                    <div class="fields">
-                                                        <div class="input-group mb-3">
-                                                            <input type="file" class="form-control" id="file"
-                                                                name="file" accept=".csv">
-                                                            <label class="input-group-text"
-                                                                for="file">Upload</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                        <!-- Progress Bar on the right -->
+                        <div class="w-7/12 flex items-center justify-end relative">
+                            <div class="w-full">
+                                <label for="progress" class="block text-sm font-medium text-gray-700">
+                                    Regular
+                                </label>
+                                <div class="relative">
+                                    @if ($employee->status == 'Probation')
+                                        @php
+                                            $startDate = \Carbon\Carbon::parse($employee->probation_start_date);
+                                            $endDate = \Carbon\Carbon::parse($employee->probation_end_date);
+                                            $currentDate = \Carbon\Carbon::now();
+                                            $totalDays = $endDate->diffInDays($startDate);
+                                            $elapsedDays = $currentDate->diffInDays($startDate);
+                                            $percentage = ($elapsedDays / $totalDays) * 100;
+                                        @endphp
+                                        <div class="overflow-hidden h-4 text-xs flex rounded bg-blue-200">
+                                            <div style="width: {{ $percentage }}%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500"></div>
                                         </div>
+                                        <p class="text-right text-xs mt-1">{{ round($percentage) }}%</p>
+                                    @else
+                                        <div class="overflow-hidden h-4 text-xs flex rounded bg-green-200">
+                                            <div style="width: 100%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-500"></div>
+                                        </div>
+                                        <p class="text-right text-xs mt-1">100%</p>
+                                    @endif
+                                </div>
+                                <div class="flex items-center mt-2">
+                                    <p class="text-sm">Employment date: December 24, 2023</p>
+                                    <div class="ml-2 relative">
+                                        <span class="tooltip-icon cursor-pointer text-gray-500" title="Start of Probation Period December 24, 2023, End of Probation Period December 24, 2024">
+                                            ⓘ
+                                        </span>
                                     </div>
-                                    <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                                        <button type="submit"
-                                            class="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto">Upload</button>
-                                        <button id="hide-modal" type="button"
-                                            class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cancel</button>
-                                    </div>
-                                </form>
+                                </div>
+                                <!-- Add Employee Credits section -->
+                                <div class="mt-4">
+                                    <h4 class="text-lg font-medium text-gray-700">Employee Credits:</h4> 
+                                    <div class="grid grid-cols-3 gap-4 mt-2"> 
+                                        <p class="text-sm mt-1">Holiday Leave: 0/3</p> 
+                                        <p class="text-sm mt-1">Sick Leave: 2/12</p> 
+                                        <p class="text-sm mt-1">Paid Leave: 0/60</p> 
+                                        <p class="text-sm mt-1">Other Leave: 5/10</p> 
+                                    </div> 
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-        </div>
+                <!-- basic Information Tab -->
+                <div class="tab-content mt-6" id="basic" style="display:none;">
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-4">Personal Information</h3>
+                            <div class="flex flex-wrap">
+                                <div class="w-full sm:w-1/3 mb-4">
+                                    <label class="block text-gray-500">First Name</label>
+                                    <p class="text-gray-900">{{$employee->f_name}}</p>
+                                </div>
+                                <div class="w-full sm:w-1/3 mb-4">
+                                    <label class="block text-gray-500">Last Name</label>
+                                    <p class="text-gray-900">{{$employee->l_name}}</p>
+                                </div>
+                                <div class="w-full sm:w-1/3 mb-4">
+                                    <label class="block text-gray-500">Middle Name</label>
+                                    <p class="text-gray-900">{{$employee->m_name}}</p>
+                                </div>
+                                <div class="w-full sm:w-1/3 mb-4">
+                                    <label class="block text-gray-500">Age</label>
+                                    <p class="text-gray-900">{{$employee->age}}</p>
+                                </div>
+                                <div class="w-full sm:w-1/3 mb-4">
+                                    <label class="block text-gray-500">Birthdate</label>
+                                    <p class="text-gray-900">{{$employee->birth_date}}</p>
+                                </div>
+                                <div class="w-full sm:w-1/3 mb-4">
+                                    <label class="block text-gray-500">Present Address</label>
+                                    <p class="text-gray-900">{{$employee->present_address}}</p>
+                                </div>
+                                <div class="w-full sm:w-1/3 mb-4">
+                                    <label class="block text-gray-500">Provincial Address</label>
+                                    <p class="text-gray-900">{{$employee->provincial_address}}</p>
+                                </div>
+                                <div class="w-full sm:w-1/3 mb-4">
+                                    <label class="block text-gray-500">Phone Number</label>
+                                    <p class="text-gray-900">{{$employee->phone_number}}</p>
+                                </div>
+                                <div class="w-full sm:w-1/3 mb-4">
+                                    <label class="block text-gray-500">Birthdate</label>
+                                    <p class="text-gray-900">{{$employee->birth_date}}</p>
+                                </div>
+                                <div class="w-full sm:w-1/3 mb-4">
+                                    <label class="block text-gray-500">Birth Place</label>
+                                    <p class="text-gray-900">{{$employee->birth_place}}</p>
+                                </div>
+                                <div class="w-full sm:w-1/3 mb-4">
+                                    <label class="block text-gray-500">Civil Status</label>
+                                    <p class="text-gray-900">{{$employee->civil_status}}</p>
+                                </div>
+                                <div class="w-full sm:w-1/3 mb-4">
+                                    <label class="block text-gray-500">Religion</label>
+                                    <p class="text-gray-900">{{$employee->religion}}</p>
+                                </div>
+                                <div class="w-full sm:w-1/3 mb-4">
+                                    <label class="block text-gray-500">Height</label>
+                                    <p class="text-gray-900">{{$employee->Height}}</p>
+                                </div>
+                                <div class="w-full sm:w-1/3 mb-4">
+                                    <label class="block text-gray-500">Weight</label>
+                                    <p class="text-gray-900">{{$employee->weight}}</p>
+                                </div>
+                            </div>
 
-        <!-- Cards -->
-        <section class="container mx-auto">
-            <div class="flex flex-col">
-                <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                    <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-                        <div class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
-                            <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                                <thead class="bg-gray-50 dark:bg-gray-800">
-                                    <tr>
-                                        <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
-                                            Customer ID
-                                        </th>
+                            <!-- Separator Line -->
+                            <hr class="my-6 border-gray-300" />
 
-                                        <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
-                                            Name
-                                        </th>
+                            <div>
+                                <h3 class="text-2xl font-semibold mb-4">Family Information</h3>
+                                <div class="flex flex-wrap">
+                                    <div class="w-full sm:w-1/3 mb-4">
+                                        <label class="block text-gray-500">Spouse Fullname</label>
+                                        <p class="text-gray-900">{{$employee->f_spouse .' '. $employee->m_spouse  .' '. $employee->l_spouse}}</p>
+                                    </div>
+                                    <div class="w-full sm:w-1/3 mb-4">
+                                        <label class="block text-gray-500">First Child Fullname</label>
+                                        <p class="text-gray-900">{{$employee->child_1_name}}</p>
+                                    </div>
+                                    <div class="w-full sm:w-1/3 mb-4">
+                                        <label class="block text-gray-500">Second Child Fullname</label>
+                                        <p class="text-gray-900">{{$employee->child_2_name}}</p>
+                                    </div>
+                                    <div class="w-full sm:w-1/3 mb-4">
+                                        <label class="block text-gray-500">Third Child Fullname</label>
+                                        <p class="text-gray-900">{{$employee->child_3_name}}</p>
+                                    </div>
+                                    <div class="w-full sm:w-1/3 mb-4">
+                                        <label class="block text-gray-500">Mother's Maiden Name</label>
+                                        <p class="text-gray-900">{{$employee->m_maiden_f_name .' '. $employee->m_maiden_m_name  .' '. $employee->m_maiden_l_name}}</p>
+                                    </div>
+                                    <div class="w-full sm:w-1/3 mb-4">
+                                        <label class="block text-gray-500">Father's Maiden Name</label>
+                                        <p class="text-gray-900">{{$employee->father_f_name .' '. $employee->father_m_name  .' '. $employee->father_l_name}}</p>
+                                    </div>
+                                    <div class="w-full sm:w-1/3 mb-4">
+                                        <label class="block text-gray-500">Contact Person(Name)</label>
+                                        <p class="text-gray-900">{{$employee->emergency_name}}</p>
+                                    </div>
+                                    <div class="w-full sm:w-1/3 mb-4">
+                                        <label class="block text-gray-500">Contact Person(Address)</label>
+                                        <p class="text-gray-900">{{$employee->emergency_address}}</p>
+                                    </div>
+                                    <div class="w-full sm:w-1/3 mb-4">
+                                        <label class="block text-gray-500">Contact Person(Phone)</label>
+                                        <p class="text-gray-900">{{$employee->emergency_phone}}</p>
+                                    </div>
+                                    <div class="w-full sm:w-1/3 mb-4">
+                                        <label class="block text-gray-500">Contact Person(Relationship)</label>
+                                        <p class="text-gray-900">{{$employee->relationship}}</p>
+                                    </div>
+                                </div>
+                            </div>
 
-                                        <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
-                                            Address
-                                        </th>
-
-                                        <th scope="col"
-                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
-                                            Action
-                                        </th>
-
-                                    </tr>
-                                </thead>
-                                <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
-                                    @foreach ($lists as $list)
-                                        <tr>
-                                            <td
-                                                class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
-                                                {{ $list->id }}
-                                            </td>
-                                            <td
-                                                class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                {{ $list->first_name }} {{ $list->last_name }}
-                                            </td>
-                                            <td
-                                                class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                <div class="flex items-center gap-x-2">
-                                                    <div>
-                                                        <h2 class="text-sm font-medium text-gray-500 dark:text-white ">
-                                                            {{ $list->house }} {{ $list->street }} {{$list->bry->barangay_name??''}} {{$list->cty->city_town??''}}    
-                                                        </h2>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="px-4 py-4 text-sm whitespace-nowrap">
-                                                <div class="flex items-center gap-x-6">
-                                                    <a href="{{ route('printCustomer.index') }}"
-                                                        class="text-gray-500 transition-colors duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#6b7280">
-                                                            <path d="M648-624v-120H312v120h-72v-192h480v192h-72Zm-480 72h625-625Zm539.79 96q15.21 0 25.71-10.29t10.5-25.5q0-15.21-10.29-25.71t-25.5-10.5q-15.21 0-25.71 10.29t-10.5 25.5q0 15.21 10.29 25.71t25.5 10.5ZM648-216v-144H312v144h336Zm72 72H240v-144H96v-240q0-40 28-68t68-28h576q40 0 68 28t28 68v240H720v144Zm73-216v-153.67Q793-530 781-541t-28-11H206q-16.15 0-27.07 11.04Q168-529.92 168-513.6V-360h72v-72h480v72h73Z"/>
-                                                        </svg>
-                                                    </a>
-
-                                                    <a href="{{ route('customer.show', $list->id)}}"
-                                                        class="text-gray-500 transition-colors duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                            height="16" fill="currentColor" class="bi bi-eye"
-                                                            viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z" />
-                                                            <path
-                                                                d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
-                                                        </svg>
-                                                    </a>
-                                                    
-
-                                                    <a href="{{ route('customer.edit', $list->id)}}"
-                                                        class="text-gray-500 transition-colors duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                            height="16" fill="currentColor" class="bi bi-pencil"
-                                                            viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325" />
-                                                        </svg>
-                                                    </a>
-
-                                                    <form action="{{ route('customer.destroy', $list->id) }}"
-                                                        method="post">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit"
-                                                            class="text-gray-500 mt-1 transition-colors duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                                height="16" fill="currentColor" class="bi bi-trash"
-                                                                viewBox="0 0 16 16">
-                                                                <path
-                                                                    d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
-                                                                <path
-                                                                    d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
-                                                            </svg>
-                                                        </button>
-                                                    </form>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
                         </div>
-                    </div>
+                </div>
+
+                <!-- work Information Tab -->
+                <div class="tab-content mt-6" id="work" style="display:none;">
+                    <h2 class="text-xl font-bold mb-6">Work Information</h2>
+                        <div class="flex flex-wrap">
+                            <div class="w-full sm:w-1/3 mb-4">
+                                <label class="block text-gray-500">First Name</label>
+                                <p class="text-gray-900">{{$employee->f_name}}</p>
+                            </div>
+                            <div class="w-full sm:w-1/3 mb-4">
+                                <label class="block text-gray-500">Last Name</label>
+                                <p class="text-gray-900">{{$employee->l_name}}</p>
+                            </div>
+                            <div class="w-full sm:w-1/3 mb-4">
+                                <label class="block text-gray-500">Middle Name</label>
+                                <p class="text-gray-900">{{$employee->m_name}}</p>
+                            </div>
+                            <div class="w-full sm:w-1/3 mb-4">
+                                <label class="block text-gray-500">Age</label>
+                                <p class="text-gray-900">{{$employee->age}}</p>
+                            </div>
+                        </div>
+
+                        <!-- Separator Line -->
+                        <hr class="my-6 border-gray-300" />
+                </div>
+
+                <!-- Other Information Tab -->
+                <div class="tab-content mt-6" id="other" style="display:none;">
+                    <h2 class="text-xl font-bold">Other Information</h2>
+                    <!-- Add your other information content here -->
                 </div>
             </div>
-
-            <div class="flex-end items-center justify-between mt-6">
-                {{$lists->links()}}
-            </div>
-        </section>
-
+        </div> 
 
     </div>
+    
 </x-app-layout>
+
 <script>
-    const showModalButton = document.getElementById('show-modal');
-    const hideModalButton = document.getElementById('hide-modal');
-    const modal = document.getElementById('modal');
+function toggleCustomTime(value) {
+    var customTime = document.getElementById('customTime');
+    if (value === 'Custom') {
+        customTime.style.display = 'block';
+    } else {
+        customTime.style.display = 'none';
+    }
+}
+</script>
 
-    showModalButton.addEventListener('click', () => {
-        modal.classList.remove('hidden');
-    });
+<script>
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tab-link");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" text-blue-500 border-blue-500", " text-gray-500 border-transparent");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " text-blue-500 border-blue-500";
+    }
 
-    hideModalButton.addEventListener('click', () => {
-        modal.classList.add('hidden');
+    // Trigger the first tab to be active on page load
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll('.tab-link')[0].click();
     });
 </script>
