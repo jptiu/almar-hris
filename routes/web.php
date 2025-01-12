@@ -187,6 +187,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('announce/show/{id}', [HRController::class, 'showAnnouncement'])->name('announce.show');
     Route::post('announce/update/{id}', [HRController::class, 'updateAnnouncement'])->name('announce.update');
     Route::delete('announce/destroy/{id}', [HRController::class, 'destroyAnnouncement'])->name('announce.destroy');
+    Route::get('coe', [HRController::class, 'coe'])->name('coe.index');
 
     // BranchInfo
     Route::get('branchinfo', [BranchInfoController::class, 'branchinfo'])->name('branchinfo.index');
