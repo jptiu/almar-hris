@@ -8,6 +8,7 @@ use App\Models\Customer;
 use App\Models\CustomerType;
 use App\Models\Loan;
 use App\Models\LoanDetails;
+use Http;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
@@ -307,14 +308,14 @@ class LoanController extends Controller
 
     public function approve(Request $request, $id)
     {
-        $loan = Loan::findOrFail($id);
-        $loan->trans_no = $loan->id;
-        $loan->status = 'UNPD';
-        $loan->user_id = auth()->user()->id;
-        $loan->note = $request->input('reason');
-        $loan->update();
+        $loanApiUrl = env('FINANCE_URL') . "/api/loan/approve/$id";
 
-        return redirect()->back()->with('success', 'Loan Approved.');
+        // Fetch data from the API
+        $response = Http::post($loanApiUrl, $request->all());
+
+        if ($response->successful()) {
+            return redirect()->back()->with('success', 'Loan Approved.');
+        }
     }
 
     public function decline(Request $request, $id)

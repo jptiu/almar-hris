@@ -55,86 +55,64 @@
                 <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
                         <div class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
-                                <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                                    <thead class="bg-gray-50 dark:bg-gray-800">
-                                        <tr>
-                                            <th scope="col"
-                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
-                                                ID
-                                            </th>
-
-                                            <th scope="col"
-                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
-                                                Name
-                                            </th>
-
-                                            <th scope="col"
-                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
-                                                Address
-                                            </th>
-                                            <th scope="col"
-                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
-                                                Loan Amount
-                                            </th>
-                                            <th scope="col"
-                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
-                                                Approved Date
-                                            </th>
-                                            <th scope="col"
-                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-black font-medium">
-                                                Action
-                                            </th>
+                            <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                                <thead class="bg-gray-50 dark:bg-gray-800">
+                                    <tr>
+                                        <th class="px-4 py-3.5 text-sm font-medium text-left text-black">ID</th>
+                                        <th class="px-4 py-3.5 text-sm font-medium text-left text-black">Name</th>
+                                        <th class="px-4 py-3.5 text-sm font-medium text-left text-black">Address</th>
+                                        <th class="px-4 py-3.5 text-sm font-medium text-left text-black">Loan Amount</th>
+                                        <th class="px-4 py-3.5 text-sm font-medium text-left text-black">Approved Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
+                                    @foreach ($loans['data'] as $loan)
+                                        <tr class="hover:bg-gray-100">
+                                            <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200">
+                                                {{ $loan['id'] }}
+                                            </td>
+                                            <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200">
+                                                {{ $loan['customer']['first_name'] ?? 'N/A' }} {{ $loan['customer']['last_name'] ?? 'N/A' }}
+                                            </td>
+                                            <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200">
+                                                {{ $loan['customer']['house'] ?? '' }} {{ $loan['customer']['street'] ?? '' }}
+                                                {{ $loan['customer']['barangay_name'] ?? '' }} {{ $loan['customer']['city_town'] ?? 'N/A' }}
+                                            </td>
+                                            <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200">
+                                                {{ number_format($loan['principal_amount'], 2) }}
+                                            </td>
+                                            <td class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200">
+                                                {{ \Carbon\Carbon::parse($loan['updated_at'])->format('M d, Y h:i A') }}
+                                            </td>
                                         </tr>
-                                    </thead>
-                                    <tbody
-                                        class="bg-white divide-y divide-gray-200 dark:divide-gray-500 dark:bg-gray-900">
-                                        {{-- @foreach ($loans as $loan) --}}
-                                            <tr>
-                                                <td
-                                                    class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
-                                                    {{ var_dump($loans) }}
-                                                </td>
-                                                <td
-                                                    class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
-                                                    
-                                                </td>
-                                                <td
-                                                    class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
-                                                    
-                                                </td>
-                                                <td
-                                                    class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
-                                                    
-                                                </td>
-                                                <td
-                                                    class="px-4 py-4 text-sm font-medium text-gray-500 dark:text-gray-200 whitespace-nowrap">
-                                                    
-                                                </td>
-                                                <td class="px-4 py-4 text-sm whitespace-nowrap">
-                                                    <div class="flex items-center gap-x-6">
-                                                        {{-- <a href="{{ route('printStatement.index', $loan->id) }}"
-                                                            class="text-gray-500 transition-colors duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" height="20px"
-                                                                viewBox="0 -960 960 960" width="20px" fill="#6b7280">
-                                                                <path
-                                                                    d="M648-624v-120H312v120h-72v-192h480v192h-72Zm-480 72h625-625Zm539.79 96q15.21 0 25.71-10.29t10.5-25.5q0-15.21-10.29-25.71t-25.5-10.5q-15.21 0-25.71 10.29t-10.5 25.5q0 15.21 10.29 25.71t25.5 10.5ZM648-216v-144H312v144h336Zm72 72H240v-144H96v-240q0-40 28-68t68-28h576q40 0 68 28t28 68v240H720v144Zm73-216v-153.67Q793-530 781-541t-28-11H206q-16.15 0-27.07 11.04Q168-529.92 168-513.6V-360h72v-72h480v72h73Z" />
-                                                            </svg>
-                                                        </a> --}}
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        {{-- @endforeach --}}
-                                    </tbody>
-                                </table>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="flex-end items-center justify-between mt-6">
-                {{-- {{ $loans->links() }} --}}
+        
+            <!-- Pagination Section -->
+            <div class="flex justify-between items-center mt-6">
+                <nav>
+                    <div class="pagination flex items-center gap-2">
+                        @foreach ($loans['links'] as $link)
+                            @if ($link['url'])
+                                <a href="{{ route('approved.index') }}?{{ Arr::get(parse_url($link['url']), 'query', '') }}" 
+                                   class="px-3 py-2 border rounded-md text-gray-600 {{ $link['active'] ? 'bg-indigo-500 text-white' : 'hover:bg-gray-200' }}">
+                                    {!! $link['label'] !!}
+                                </a>
+                            @else
+                                <span class="px-3 py-2 border rounded-md text-gray-400 cursor-not-allowed">{!! $link['label'] !!}</span>
+                            @endif
+                        @endforeach
+                    </div>
+                </nav>
             </div>
+            
         </section>
+        
 
     </div>
 </x-app-layout>
