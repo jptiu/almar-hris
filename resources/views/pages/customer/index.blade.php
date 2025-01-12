@@ -20,7 +20,7 @@
                     <div class="flex">
                         <!-- First Section: Profile Image and Basic Info on the left -->
                         <div class="w-1/4 flex items-center">
-                            <div class="w-24 h-24 bg-gray-200 rounded-full mr-4 border-4 {{ $employee->status == 'Regular' ? 'border-blue-500' : 'border-green-500' }}">
+                            <div class="w-24 h-24 bg-gray-200 rounded-full mr-4 border-4 'border-blue-500' : 'border-green-500' }}">
                                 <!-- Profile Image placeholder -->
                                 <img src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" class="w-full h-full rounded-full object-cover" />
                             </div>
@@ -28,8 +28,8 @@
                                 <p class="bg-green-500 px-2 text-xs w-1/2 text-center rounded font-semibold text-white">
                                     Regular
                                 </p>
-                                <h2 class="text-xl font-bold">{{$employee->f_name .' '. $employee->l_name}}</h2>
-                                <p class="text-gray-600">{{$employee->position_desired}}</p>
+                                <h2 class="text-xl font-bold">James Simene</h2>
+                                <p class="text-gray-600">Senior Software Engineer</p>
                             </div>
                         </div>
 
@@ -43,25 +43,17 @@
                                     Regular
                                 </label>
                                 <div class="relative">
-                                    @if ($employee->status == 'Probation')
-                                        @php
-                                            $startDate = \Carbon\Carbon::parse($employee->probation_start_date);
-                                            $endDate = \Carbon\Carbon::parse($employee->probation_end_date);
-                                            $currentDate = \Carbon\Carbon::now();
-                                            $totalDays = $endDate->diffInDays($startDate);
-                                            $elapsedDays = $currentDate->diffInDays($startDate);
-                                            $percentage = ($elapsedDays / $totalDays) * 100;
-                                        @endphp
+                                   
                                         <div class="overflow-hidden h-4 text-xs flex rounded bg-blue-200">
-                                            <div style="width: {{ $percentage }}%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500"></div>
+                                            <div style="width:" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500"></div>
                                         </div>
-                                        <p class="text-right text-xs mt-1">{{ round($percentage) }}%</p>
-                                    @else
+                                        <p class="text-right text-xs mt-1">100%</p>
+                                    
                                         <div class="overflow-hidden h-4 text-xs flex rounded bg-green-200">
                                             <div style="width: 100%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-500"></div>
                                         </div>
                                         <p class="text-right text-xs mt-1">100%</p>
-                                    @endif
+                                    
                                 </div>
                                 <div class="flex items-center mt-2">
                                     <p class="text-sm">Employment date: December 24, 2023</p>
@@ -93,59 +85,59 @@
                             <div class="flex flex-wrap">
                                 <div class="w-full sm:w-1/3 mb-4">
                                     <label class="block text-gray-500">First Name</label>
-                                    <p class="text-gray-900">{{$employee->f_name}}</p>
+                                    <p class="text-gray-900">James</p>
                                 </div>
                                 <div class="w-full sm:w-1/3 mb-4">
                                     <label class="block text-gray-500">Last Name</label>
-                                    <p class="text-gray-900">{{$employee->l_name}}</p>
+                                    <p class="text-gray-900">Simene</p>
                                 </div>
                                 <div class="w-full sm:w-1/3 mb-4">
                                     <label class="block text-gray-500">Middle Name</label>
-                                    <p class="text-gray-900">{{$employee->m_name}}</p>
+                                    <p class="text-gray-900">Tiu</p>
                                 </div>
                                 <div class="w-full sm:w-1/3 mb-4">
                                     <label class="block text-gray-500">Age</label>
-                                    <p class="text-gray-900">{{$employee->age}}</p>
+                                    <p class="text-gray-900">20</p>
                                 </div>
                                 <div class="w-full sm:w-1/3 mb-4">
                                     <label class="block text-gray-500">Birthdate</label>
-                                    <p class="text-gray-900">{{$employee->birth_date}}</p>
+                                    <p class="text-gray-900">July 26, 2000</p>
                                 </div>
                                 <div class="w-full sm:w-1/3 mb-4">
                                     <label class="block text-gray-500">Present Address</label>
-                                    <p class="text-gray-900">{{$employee->present_address}}</p>
+                                    <p class="text-gray-900">CDO</p>
                                 </div>
                                 <div class="w-full sm:w-1/3 mb-4">
                                     <label class="block text-gray-500">Provincial Address</label>
-                                    <p class="text-gray-900">{{$employee->provincial_address}}</p>
+                                    <p class="text-gray-900">Sugbong Cogon</p>
                                 </div>
                                 <div class="w-full sm:w-1/3 mb-4">
                                     <label class="block text-gray-500">Phone Number</label>
-                                    <p class="text-gray-900">{{$employee->phone_number}}</p>
+                                    <p class="text-gray-900">028462834</p>
                                 </div>
                                 <div class="w-full sm:w-1/3 mb-4">
                                     <label class="block text-gray-500">Birthdate</label>
-                                    <p class="text-gray-900">{{$employee->birth_date}}</p>
+                                    <p class="text-gray-900">July 26, 2000</p>
                                 </div>
                                 <div class="w-full sm:w-1/3 mb-4">
                                     <label class="block text-gray-500">Birth Place</label>
-                                    <p class="text-gray-900">{{$employee->birth_place}}</p>
+                                    <p class="text-gray-900">CDO</p>
                                 </div>
                                 <div class="w-full sm:w-1/3 mb-4">
                                     <label class="block text-gray-500">Civil Status</label>
-                                    <p class="text-gray-900">{{$employee->civil_status}}</p>
+                                    <p class="text-gray-900">Married</p>
                                 </div>
                                 <div class="w-full sm:w-1/3 mb-4">
                                     <label class="block text-gray-500">Religion</label>
-                                    <p class="text-gray-900">{{$employee->religion}}</p>
+                                    <p class="text-gray-900">Catholic</p>
                                 </div>
                                 <div class="w-full sm:w-1/3 mb-4">
                                     <label class="block text-gray-500">Height</label>
-                                    <p class="text-gray-900">{{$employee->Height}}</p>
+                                    <p class="text-gray-900">5'6</p>
                                 </div>
                                 <div class="w-full sm:w-1/3 mb-4">
                                     <label class="block text-gray-500">Weight</label>
-                                    <p class="text-gray-900">{{$employee->weight}}</p>
+                                    <p class="text-gray-900">55kg</p>
                                 </div>
                             </div>
 
@@ -157,43 +149,43 @@
                                 <div class="flex flex-wrap">
                                     <div class="w-full sm:w-1/3 mb-4">
                                         <label class="block text-gray-500">Spouse Fullname</label>
-                                        <p class="text-gray-900">{{$employee->f_spouse .' '. $employee->m_spouse  .' '. $employee->l_spouse}}</p>
+                                        <p class="text-gray-900">Bini Colet</p>
                                     </div>
                                     <div class="w-full sm:w-1/3 mb-4">
                                         <label class="block text-gray-500">First Child Fullname</label>
-                                        <p class="text-gray-900">{{$employee->child_1_name}}</p>
+                                        <p class="text-gray-900">Maloi</p>
                                     </div>
                                     <div class="w-full sm:w-1/3 mb-4">
                                         <label class="block text-gray-500">Second Child Fullname</label>
-                                        <p class="text-gray-900">{{$employee->child_2_name}}</p>
+                                        <p class="text-gray-900"></p>
                                     </div>
                                     <div class="w-full sm:w-1/3 mb-4">
                                         <label class="block text-gray-500">Third Child Fullname</label>
-                                        <p class="text-gray-900">{{$employee->child_3_name}}</p>
+                                        <p class="text-gray-900"></p>
                                     </div>
                                     <div class="w-full sm:w-1/3 mb-4">
                                         <label class="block text-gray-500">Mother's Maiden Name</label>
-                                        <p class="text-gray-900">{{$employee->m_maiden_f_name .' '. $employee->m_maiden_m_name  .' '. $employee->m_maiden_l_name}}</p>
+                                        <p class="text-gray-900">Mother</p>
                                     </div>
                                     <div class="w-full sm:w-1/3 mb-4">
                                         <label class="block text-gray-500">Father's Maiden Name</label>
-                                        <p class="text-gray-900">{{$employee->father_f_name .' '. $employee->father_m_name  .' '. $employee->father_l_name}}</p>
+                                        <p class="text-gray-900">Father</p>
                                     </div>
                                     <div class="w-full sm:w-1/3 mb-4">
                                         <label class="block text-gray-500">Contact Person(Name)</label>
-                                        <p class="text-gray-900">{{$employee->emergency_name}}</p>
+                                        <p class="text-gray-900">CJ</p>
                                     </div>
                                     <div class="w-full sm:w-1/3 mb-4">
                                         <label class="block text-gray-500">Contact Person(Address)</label>
-                                        <p class="text-gray-900">{{$employee->emergency_address}}</p>
+                                        <p class="text-gray-900">CDO</p>
                                     </div>
                                     <div class="w-full sm:w-1/3 mb-4">
                                         <label class="block text-gray-500">Contact Person(Phone)</label>
-                                        <p class="text-gray-900">{{$employee->emergency_phone}}</p>
+                                        <p class="text-gray-900">3928456789</p>
                                     </div>
                                     <div class="w-full sm:w-1/3 mb-4">
                                         <label class="block text-gray-500">Contact Person(Relationship)</label>
-                                        <p class="text-gray-900">{{$employee->relationship}}</p>
+                                        <p class="text-gray-900"></p>
                                     </div>
                                 </div>
                             </div>
@@ -207,19 +199,19 @@
                         <div class="flex flex-wrap">
                             <div class="w-full sm:w-1/3 mb-4">
                                 <label class="block text-gray-500">First Name</label>
-                                <p class="text-gray-900">{{$employee->f_name}}</p>
+                                <p class="text-gray-900">CJK</p>
                             </div>
                             <div class="w-full sm:w-1/3 mb-4">
                                 <label class="block text-gray-500">Last Name</label>
-                                <p class="text-gray-900">{{$employee->l_name}}</p>
+                                <p class="text-gray-900">Software</p>
                             </div>
                             <div class="w-full sm:w-1/3 mb-4">
                                 <label class="block text-gray-500">Middle Name</label>
-                                <p class="text-gray-900">{{$employee->m_name}}</p>
+                                <p class="text-gray-900">Mid</p>
                             </div>
                             <div class="w-full sm:w-1/3 mb-4">
                                 <label class="block text-gray-500">Age</label>
-                                <p class="text-gray-900">{{$employee->age}}</p>
+                                <p class="text-gray-900">22</p>
                             </div>
                         </div>
 
