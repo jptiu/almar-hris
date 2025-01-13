@@ -32,7 +32,7 @@ class EmployeeController extends Controller
         $activeCount = $announcements->count(); // Count active announcements 
         $currentDate = Carbon::now()->format('F d, Y'); // Get the current date
 
-        return view('pages.hr.employee.index', compact('lists','announcements', 'activeCount', 'currentDate'));
+        return view('pages.hr.employee.index', compact('lists', 'announcements', 'activeCount', 'currentDate'));
     }
 
     public function add()
@@ -327,17 +327,17 @@ class EmployeeController extends Controller
             'day_off' => 'nullable|array',
             'day_off.*' => 'in:Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday',
         ]);
-    
+
         DB::transaction(function () use ($request) {
             // Store schedule
             // foreach ($request->day_of_week as $day) {
-                $sched = Schedule::create([
-                    'employee_id' => $request->employee_name,
-                    'day_of_week' => $request->day_of_week,
-                    'shift' => $request->shift,
-                ]);
+            $sched = Schedule::create([
+                'employee_id' => $request->employee_name,
+                'day_of_week' => $request->day_of_week,
+                'shift' => $request->shift,
+            ]);
             // }
-    
+
             // Store day-offs
             if ($request->day_off) {
                 foreach ($request->day_off as $day) {
@@ -352,14 +352,61 @@ class EmployeeController extends Controller
         return redirect(route("schedule.index"))->with('success', 'Schedules and day-offs stored successfully');
     }
 
-    public function scheduleshow(Schedule $schedule) 
-    { 
-        $employees = Employee::all(); 
-        
-        return view('pages.hr.employee.schedule.show.index', compact('schedule', 'employees')); 
+    public function scheduleUpdate(Request $request, $id)
+    {
+        abort_unless(Gate::allows('hr_access'), 404);
+        $request->validate([
+            'employee_name' => 'required|exists:employees,id',
+            'day_of_week' => 'required|array',
+            // 'day_of_week.*' => 'in:Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday',
+            'shift' => 'nullable|string',
+            'day_off' => 'nullable|array',
+            'day_off.*' => 'in:Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday',
+        ]);
+
+        DB::transaction(function () use ($request, $id) {
+
+            $sched = Schedule::find($id);
+            $sched->employee_id = $request->employee_name;
+            $sched->day_of_week = $request->day_of_week;
+            $sched->shift = $request->shift;
+            $sched->update();
+            
+            $dayoffs = DayOff::where('schedule_id', $sched->id)->get();
+            foreach($dayoffs as $day){
+                $day->delete();
+            }
+            // Store day-offs
+            if ($request->day_off) {
+                foreach ($request->day_off as $day) {
+                    DayOff::create([
+                        'schedule_id' => $sched->id,
+                        'day_of_week' => $day,
+                    ]);
+                }
+            }
+        });
+
+        return redirect(route("schedule.index"))->with('success', 'Schedules and day-offs stored successfully');
     }
 
-    public function employeeSchedules(){
+    public function scheduleshow(Schedule $schedule)
+    {
+        $employees = Employee::all();
+
+        return view('pages.hr.employee.schedule.show.index', compact('schedule', 'employees'));
+    }
+
+    public function scheduleEdit($id)
+    {
+        $emp = Schedule::with('employee', 'dayoffs')->find($id);
+        $employees = Employee::all();
+
+        return view('pages.hr.employee.schedule.edit.index', compact('emp' , 'employees'));
+    }
+
+    public function employeeSchedules()
+    {
         $scheds = Schedule::with('employee.schedule.dayOffs')->get();
 
         return response()->json($scheds, 200);

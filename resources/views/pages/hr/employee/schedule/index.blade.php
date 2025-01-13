@@ -122,7 +122,7 @@
                                             </td>
                                             <td class="px-4 py-4 text-sm whitespace-nowrap">
                                                 <div class="flex items-center gap-x-6">
-                                                    <a href="#"
+                                                    <a href="{{route('schedule.edit', $schedule->id)}}"
                                                         class="text-gray-500 transition-colors duration-200 hover:text-indigo-500 focus:outline-none">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                                             height="16" fill="currentColor" class="bi bi-pencil"
