@@ -256,4 +256,10 @@ class HRController extends Controller
         return view('pages.hr.loanapprovals.printStatement.index');
     }
 
+    public function coe(Request $request)
+    {
+
+        return view('pages.hr.coe.index');
+    }
+
 }

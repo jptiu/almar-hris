@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
+    <div class="px-4 sm:px-6 lg:px-8 w-full max-w-9xl mx-auto">
         @if (session()->has('success'))
             <div class="alert alert-success">
                 <div class="flex items-center p-4 mb-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800"
@@ -16,12 +16,12 @@
                 </div>
             </div>
         @endif
-        <div class="relative">
-            <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-12 lg:px-4">Resignation
-            </h1>
-        </div>
 
-        <div></div>
+    </div>
+    <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
+        
+        <!-- Welcome banner -->
+        
 
         <!-- Dashboard actions -->
         <div class="sm:flex sm:justify-between sm:items-center mb-8">
@@ -29,11 +29,23 @@
 
             <!-- Right: Actions -->
             <div class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
+                <!-- Datepicker built with flatpickr -->
+                <!-- <x-datepicker />          -->
+            </div>
+            
 
+        </div>
+        
+        <div class="col-span-full xl:col-span-6 bg-white rounded-lg border border-slate-200 shadow-[0px_8px_20px_rgba(0,0,0,0.08)] mb-12">
+        <header class="flex items-center justify-between px-5 py-4 border-b border-slate-100 dark:border-slate-700">
+            <h2 class="font-semibold text-slate-800 dark:text-slate-100">Resignation</h2>
+            <div class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
+
+                <!-- Filter button -->
                 <!-- Filter button -->
                 <x-dropdown-filter align="right" />
 
-                <a href="{{ route('resignation.add') }}" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
+                <a href="{{ route('resignation.add') }}" class="btn bg-onyx-300 hover:bg-indigo-600 text-white">
                     <svg class="w-4 h-4 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
                         <path
                             d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
@@ -41,11 +53,16 @@
                     <span class="xs:block ml-2">Add Resignee</span>
                 </a>
 
+                <!-- Add view button -->
+                <!-- <a href="#" class="btn bg-orange-500 hover:bg-orange-600 text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/></svg>
+                    <span class="hidden xs:block ml-2">Export Data</span>
+                </a> -->
+
             </div>
-
-        </div>
-
-        <!-- Cards -->
+        </header>
+        
+            <!-- Cards -->
 
         <section class="container px-4 mx-auto">
             <div class="flex flex-col">
@@ -171,7 +188,11 @@
                 </div>
             </div>
 
-            <div class="flex items-center justify-between mt-6">
+            
+        </section>
+            
+        </div>
+        <div class="flex items-center justify-between mt-6">
                 <a href="#"
                     class="flex items-center px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md gap-x-2 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -215,11 +236,6 @@
                     </svg>
                 </a>
             </div>
-        </section>
-        
-            
-
-
     </div>
 </x-app-layout>
 <script>
@@ -235,3 +251,4 @@
         modal.classList.add('hidden');
     });
 </script>
+

@@ -164,6 +164,8 @@ class EmployeeController extends Controller
 
         return view('pages.hr.employee.profile.index', compact('lists', 'employee'));
     }
+    
+    
 
 
     /**
@@ -428,7 +430,10 @@ class EmployeeController extends Controller
     }
     public function employeeDashboard()
     {
-        return view('pages.empdashboard.dashboard');
+        abort_unless(Gate::allows('hr_access'), 404);
+        $lists = Employee::all();
+        
+        return view('pages.empdashboard.dashboard', compact('lists'));
     }
 
     public function leaveEmployee()

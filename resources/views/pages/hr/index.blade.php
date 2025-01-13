@@ -22,7 +22,7 @@
 
 
         <div class="relative">
-            <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-8 lg:px-4">Employee
+            <h1 class="text-2xl md:text-2xl text-slate-800 dark:text-slate-100 font-bold mb-8 lg:px-4">HR
                 Dashboard
             </h1>
         </div>
