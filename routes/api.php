@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\CustomerController;
+use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\EmployeeController;
 use Illuminate\Http\Request;
@@ -51,6 +52,9 @@ Route::group(['middleware' => 'auth:api'], function () {
         // Payment Collection
         Route::post('payment', 'PaymentController@store')->name('payment.store');
     });
+
+    Route::post('attendance/time-in', [AttendanceController::class, 'timeIn'])->name('time.in');
+    Route::post('attendance/time-out/{id}', [AttendanceController::class, 'timeOut'])->name('time.out');
 });
 
 
