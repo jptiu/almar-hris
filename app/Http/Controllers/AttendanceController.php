@@ -70,6 +70,7 @@ class AttendanceController extends Controller
         $attendance = new Attendance();
         $attendance->employee_id = $request->employee_id;
         $attendance->time_in = $request->time_in;
+        $attendance->image_in = $request->image_in;
         $attendance->date = $request->date;
         $attendance->save();
 
@@ -84,6 +85,7 @@ class AttendanceController extends Controller
         if ($id) {
             $attendance = Attendance::findOrFail($id);
             $attendance->time_out = $request->time_out;
+            $attendance->image_out = $request->image_out;
             $attendance->update();
 
             return response()->json([

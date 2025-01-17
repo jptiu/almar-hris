@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('time_in');
             $table->string('time_out');
             $table->string('date'); // Format 01-01-2025
+            $table->string('image_in')->nullable();
+            $table->string('image_out')->nullable();
             $table->string('status')->nullable();
             $table->timestamps();
         });

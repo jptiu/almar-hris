@@ -14,6 +14,7 @@ class Attendance extends Model
         'time_in',
         'time_out',
         'date',
+        'image',
         'status',
     ];
 }
