@@ -23,22 +23,22 @@
 
             <!-- Form Content -->
             <div class="w-3/4 bg-white p-8">
-                <form action="#" method="POST">
+                <form action="{{ route('leaveEmployee.store') }}" method="POST">
                     @csrf
                     <h2 class="text-xl font-semibold mb-2 pt-8">Leave Request Form</h2>
                     <p class="text-gray-600 text-sm mt-2 mb-8">Please fill out the form below to submit your leave request. Ensure all fields are completed accurately.</p>
                     <div class="mb-4 grid grid-cols-3 gap-4">
                         <div>
-                            <label for="startDate" class="block text-sm font-medium text-gray-700">Start Date</label>
-                            <input type="date" id="startDate" name="startDate" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            <label for="start_date" class="block text-sm font-medium text-gray-700">Start Date</label>
+                            <input type="date" id="start_date" name="start_date" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                         </div>
                         <div>
-                            <label for="endDate" class="block text-sm font-medium text-gray-700">End Date</label>
-                            <input type="date" id="endDate" name="endDate" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            <label for="end_date" class="block text-sm font-medium text-gray-700">End Date</label>
+                            <input type="date" id="end_date" name="end_date" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                         </div>
                         <div>
-                            <label for="leaveType" class="block text-sm font-medium text-gray-700">Leave Type</label>
-                            <select id="leaveType" name="leaveType" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            <label for="leave_type" class="block text-sm font-medium text-gray-700">Leave Type</label>
+                            <select id="leave_type" name="leave_type" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                                 <option value="Sick Leave">Sick Leave</option>
                                 <option value="Maternity Leave">Maternity Leave</option>
                                 <option value="Paternity Leave">Paternity Leave</option>
@@ -48,12 +48,12 @@
                     </div>
                     <div class="mb-4 grid grid-cols-3 gap-4">
                         <div>
-                            <label for="daysWithPay" class="block text-sm font-medium text-gray-700">No. of Days with Pay</label>
-                            <input type="number" id="daysWithPay" name="daysWithPay" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            <label for="days_with_pay" class="block text-sm font-medium text-gray-700">No. of Days with Pay</label>
+                            <input type="number" id="days_with_pay" name="days_with_pay" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                         </div>
                         <div>
-                            <label for="daysWithoutPay" class="block text-sm font-medium text-gray-700">No. of Days without Pay</label>
-                            <input type="number" id="daysWithoutPay" name="daysWithoutPay" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            <label for="days_without_pay" class="block text-sm font-medium text-gray-700">No. of Days without Pay</label>
+                            <input type="number" id="days_without_pay" name="days_without_pay" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                         </div>
                         <div>
                             <label for="duration" class="block text-sm font-medium text-gray-700">Duration</label>
@@ -70,8 +70,7 @@
                         <label for="reason" class="block text-sm font-medium text-gray-700">
                             Reason of Leave
                         </label> 
-                        <textarea id="reason" name="reason" rows="4" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                        </textarea>
+                        <textarea id="reason" name="reason" rows="4" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"></textarea>
                     </div>
                     <div class="mb-4 mt-8 text-right">
                         <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Confirm Submission</button>

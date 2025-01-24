@@ -35,6 +35,9 @@ use App\Http\Controllers\BarangayController;
 use App\Http\Controllers\BranchInfoController;
 use App\Http\Controllers\PayrollController;
 use App\Http\Controllers\SavingsController;
+use App\Http\Controllers\LeaveRequestController;
+use App\Http\Controllers\ActionFormController;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -188,6 +191,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::post('announce/update/{id}', [HRController::class, 'updateAnnouncement'])->name('announce.update');
     Route::delete('announce/destroy/{id}', [HRController::class, 'destroyAnnouncement'])->name('announce.destroy');
     Route::get('coe', [HRController::class, 'coe'])->name('coe.index');
+    Route::get('employeeRequest', [HRController::class, 'employeeRequest'])->name('employeeRequest.index');
 
     // BranchInfo
     Route::get('branchinfo', [BranchInfoController::class, 'branchinfo'])->name('branchinfo.index');
@@ -227,10 +231,14 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('schedule/show/{id}', [EmployeeController::class, 'scheduleshow'])->name('schedule.show');
     Route::get('schedule/edit/{id}', [EmployeeController::class, 'scheduleEdit'])->name('schedule.edit');
     Route::get('attendance', [EmployeeController::class, 'attendance'])->name('attendance.index');
-    Route::get('emailrequest', [EmployeeController::class, 'emailrequest'])->name('emailrequest.index');
+
+
+    Route::get('emailrequest', [ActionFormController::class, 'index'])->name('emailrequest.index');
+    Route::post('/action-forms', [ActionFormController::class, 'store'])->name('action-forms.store');
 
     Route::get('empdashboard', [EmployeeController::class, 'employeeDashboard'])->name('employeeDashboard.show');
-    Route::get('leaveemployee', [EmployeeController::class, 'leaveEmployee'])->name('leaveEmployee.index');
+    Route::get('leaveemployee', [LeaveRequestController::class, 'index'])->name('leaveEmployee.index');
+    Route::post('leaveemployee/store', [LeaveRequestController::class, 'store'])->name('leaveEmployee.store');
     Route::get('undertimeemployee', [EmployeeController::class, 'undertimeEmployee'])->name('undertimeEmployee.index');
     Route::get('overtimeemployee', [EmployeeController::class, 'overtimeEmployee'])->name('overtimeEmployee.index');
 
@@ -387,6 +395,5 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     // Assign user to a branch
     Route::post('branches/{branch}/assign-user', [BranchController::class, 'assignUser'])->name('branches.assignUser');
-
 
 });

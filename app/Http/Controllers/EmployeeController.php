@@ -422,12 +422,6 @@ class EmployeeController extends Controller
         return view('pages.hr.attendance.index');
     }
 
-    public function emailrequest()
-    {
-        abort_unless(Gate::allows('hr_access'), 404);
-
-        return view('pages.hr.emailrequest.index');
-    }
     public function employeeDashboard()
     {
         abort_unless(Gate::allows('hr_access'), 404);
@@ -436,10 +430,6 @@ class EmployeeController extends Controller
         return view('pages.empdashboard.dashboard', compact('lists'));
     }
 
-    public function leaveEmployee()
-    {
-        return view('pages.empdashboard.leave.index');
-    }
 
     public function undertimeEmployee()
     {

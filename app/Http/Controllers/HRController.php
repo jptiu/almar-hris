@@ -262,4 +262,11 @@ class HRController extends Controller
         return view('pages.hr.coe.index');
     }
 
+    public function employeeRequest(Request $request)
+    {
+
+        return view('pages.hr.employeeRequest.index');
+    }
+
+
 }

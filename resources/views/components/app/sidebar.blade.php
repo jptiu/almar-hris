@@ -339,8 +339,7 @@
                                             </g>
                                         </svg>
                                         <span
-                                            class="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Request
-                                            Form</span>
+                                            class="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Employee Request</span>
                                     </div>
                                     <!-- Icon -->
                                     <div
@@ -365,18 +364,9 @@
                                     :class="open ? '!block' : 'hidden'">
                                     <li class="mb-1 last:mb-0">
                                         <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if (Route::is('leaveRequest.add')) {{ '!text-violet-500' }} @endif"
-                                            href="{{ route('leaveRequest.index') }}">
+                                            href="{{ route('employeeRequest.index') }}">
                                             <span
-                                                class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Leave
-                                                Request</span>
-                                        </a>
-                                    </li>
-                                    <li class="mb-1 last:mb-0">
-                                        <a class="block text-white hover:text-gray-700 dark:hover:text-gray-200 transition truncate @if (Route::is('undertimeRequest.index')) {{ '!text-violet-500' }} @endif"
-                                            href="{{ route('undertimeRequest.index') }}">
-                                            <span
-                                                class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Undertime
-                                                Request</span>
+                                                class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Leave Requests</span>
                                         </a>
                                     </li>
                                     <li class="mb-1 last:mb-0">

@@ -1,5 +1,11 @@
 <x-app-layout>
     <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
+
+        @if(session('success'))
+            <div class="bg-green-500 text-white p-4 rounded mb-4">
+                {{ session('success') }}
+            </div>
+        @endif
         
         <!-- Welcome banner -->
         <x-dashboard.welcome-banner />  
@@ -18,11 +24,11 @@
             <div class="w-3/4">
                 <!-- Header -->
                 <div class="flex items-center justify-between mb-4">
-                    <h2 class="text-2xl font-semibold text-slate-800">Email Request Template</h2>
+                    <h2 class="text-2xl font-semibold text-slate-800">Create Action Form</h2>
                 </div>
 
                 <!-- Form -->
-                <form action="#}" method="POST">
+                <form action="{{ route('action-forms.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <!-- Title -->
@@ -40,6 +46,11 @@
                     <div class="mb-4">
                         <label class="block text-sm font-medium text-gray-700 mb-1">Message</label>
                         <textarea name="content" id="editor" rows="10" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none" required></textarea>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="file" class="block text-sm font-medium text-gray-700">Attach File</label>
+                        <input type="file" name="file" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
                     </div>
 
                     <!-- Submit Button -->

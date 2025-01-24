@@ -17,6 +17,9 @@
                 <div class="flex justify-center">
                     <img class="h-40 w-40 rounded-full" src="/images/user-36-01.jpg" alt="Profile Picture">
                 </div>
+                <div class="flex mt-2 space-y-2 text-center justify-center align-center items-center">
+                    <div class="text-md font-semibold bg-green-500 w-1/2 text-white rounded-md">Active</div>
+                </div>
                 <div class="mt-4 space-y-2">
                     <div class="text-md"><strong>Position:</strong> Software Engineer</div>
                     <div class="text-md"><strong>Employed Date:</strong> January 1, 2020</div>
