@@ -32,32 +32,11 @@ class RolesTableSeeder extends Seeder
             ],
             [
                 'id'         => 4,
-                'title'      => 'Branch Manager',
+                'title'      => 'Employee',
                 'created_at' => '2019-04-16 08:40:08',
                 'updated_at' => '2019-04-16 08:40:08',
                 'deleted_at' => null,
             ],
-            [
-                'id'         => 5,
-                'title'      => 'Loan Officer',
-                'created_at' => '2019-04-16 08:40:08',
-                'updated_at' => '2019-04-16 08:40:08',
-                'deleted_at' => null,
-            ],
-            [
-                'id'         => 6,
-                'title'      => 'Auditor',
-                'created_at' => '2019-04-16 08:40:08',
-                'updated_at' => '2019-04-16 08:40:08',
-                'deleted_at' => null,
-            ],
-            [
-                'id'         => 7,
-                'title'      => 'Collector',
-                'created_at' => '2019-04-16 08:40:08',
-                'updated_at' => '2019-04-16 08:40:08',
-                'deleted_at' => null,
-            ]
         ];
 
         Role::insert($roles);
