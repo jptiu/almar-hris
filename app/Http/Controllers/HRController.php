@@ -268,5 +268,27 @@ class HRController extends Controller
         return view('pages.hr.employeeRequest.index');
     }
 
+    public function performanceRecord(Request $request)
+    {
+        // Get the current page from the request, default to 1 if not provided
+        $page = $request->get('page', 1);
+
+        // Construct the API URL with the page parameter
+        $loanApiUrl = env('FINANCE_URL') . "/api/finance/performance-record?page=$page";
+
+        // Fetch data from the API
+        $response = Http::get($loanApiUrl);
+
+        // Check if the API response is successful
+        if ($response->successful()) {
+            $branch_managers = $response->json(); // Decode the response as an array
+            // dd($branch_managers[0]);
+            return view('pages.hr.performance.index', compact('branch_managers'));
+        }
+
+        // Handle API failure gracefully
+        return back()->with('error', 'Unable to fetch records.');
+    }
+
 
 }
