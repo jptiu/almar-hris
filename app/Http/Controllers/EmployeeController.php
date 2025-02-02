@@ -424,7 +424,7 @@ class EmployeeController extends Controller
 
     public function employeeDashboard()
     {
-        abort_unless(Gate::allows('hr_access'), 404);
+        // abort_unless(Gate::allows('hr_access'), 404);
         $lists = Employee::all();
         
         return view('pages.empdashboard.dashboard', compact('lists'));
